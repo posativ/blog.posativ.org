@@ -1,0 +1,233 @@
+@import pygments.css
+
+$red: #C00
+$width: 800px
+
+body
+    background-color: white
+
+#blogheader
+    margin-bottom: 10px
+    padding: 10px
+    font-family: Palatino, "Times New Roman", serif
+    text-decoration: none
+    text-align: center
+
+    #blogtitle h2
+        padding-top: 1.5em
+        a
+            color: black
+            text-decoration: none
+
+    #mainlinks
+        padding: 1em
+        li
+            display: inline-block
+            margin: 0 2em 0 2em
+            #search
+                margin-right: 5%
+                text-align: right
+
+                input
+                    background: url("/images/searchicon.png") no-repeat scroll 0 0 white
+                    border: 1px solid #AAAAAA
+                    border-radius: 15px 15px 15px 15px
+                    box-shadow: 0 0 1px 1px #F2F2F2 inset
+
+                    padding: 3px 10px 3px 30px
+        a
+            color: black
+            text-decoration: none
+            font-family: Palatino, "Times New Roman", serif
+            &:hover
+                text-shadow: #888 0px 0px 1px
+
+#blogbody
+    margin: 0 auto
+    width: $width
+    // border-left: 1px solid #CCC
+    // border-right: 1px solid #CCC
+
+    .posting
+        padding: 1em
+        margin-top: 64px
+        margin-bottom: 64px
+
+        .postheader
+            .subject
+                margin-bottom: -0.7em
+                a
+                    color: black
+                    font: bold medium Palatino, "Times New Roman"
+                    text-decoration: none
+                    &:hover
+                        text-shadow: #aaa 0px 0px 2px
+            .date
+                font: 0.70em "Georgia"
+                float: right
+
+        .postbody
+            text-align: justify
+            padding: 1em
+            font-family: Palatino, "Times New Roman", serif
+            font-size: 11pt
+
+            h2
+                font: 12pt Palatino, "Times New Roman", serif
+                font-weight: bold
+                color: #888
+                border-bottom: 1px dotted #888
+            h3, h4
+                font: 12pt Palatino, "Times New Roman", serif
+                font-weight: bold
+                color: #888
+                padding-left: 4px
+            a
+                text-decoration: none
+                color: $red
+                &:visited
+                    color: #a00
+                &:hover
+                    color: #ff190d
+                    text-shadow: #f66 0px 0px 1px
+            p
+                line-height: 1.3em
+            dl
+                padding-left: 16px
+                dt
+                    font-weight: bold
+                    color: #444
+                    padding: 6px 92px 3px 0
+                    padding-top: 9px
+            ul
+                padding: 10px 0 10px 40px
+                list-style-type: disc
+            li
+                padding-top: 3px
+            // pre, code
+            //     font-family: "Courier New", "DejaVu Sans Mono", monospace
+            pre, code
+                font-family: Bitstream Vera Sans Mono,monospace
+                font-size: 13px
+            blockquote
+                border-left: 3pt solid #AAA
+                padding-left: 1em
+                padding-right: 1em
+                margin-left: 1em
+                font: italic small Verdana, Times, sans-serif
+                color: #222
+                em
+                    font-weight: bold
+            img
+                max-width: 700px
+                margin: 0em 20px
+                -moz-box-shadow: 0px 0px 9px #000
+                -webkit-box-shadow: 0px 0px 9px #000
+                box-shadow: 0px 0px 4px #000
+
+            .amp
+                color: #666666
+                font-family: "Warnock Pro","Goudy Old Style","Palatino","Book Antiqua",serif
+                font-size: small
+                font-style: italic
+
+            .caps
+                font-size: 0.92em
+
+            .highlight
+                border: 1px solid #CCC
+                padding-left: 1em
+                margin-bottom: 10px
+                margin-top: 10px
+                background: none repeat scroll 0 0 #F0F0F0
+                overflow: auto
+
+        .postfooter p
+            margin: 0 0 0 0
+            font-style: italic
+
+        .postfooter a
+            color: #111
+            font-family: Palatino, "times new roman", serif
+            font-weight: bold
+            font-size: 0.9em
+            text-decoration: none
+            &:hover
+                color: #111
+                text-shadow: #aaa 0px 0px 1px
+
+
+    .page
+        margin-top: -20px
+        font: bold medium Palatino, "Times New Roman", serif
+        color: black
+        text-decoration: none
+        border-bottom: 1px dotted black
+
+        &:hover
+            text-shadow: #aaa 0px 0px 1px
+
+    .results_row
+        border-bottom: 1px dotted #aaa
+        padding: 5px
+        clear: both
+
+    .results_row_left
+        display: inline
+        font-size: 1.3em
+
+    .results_row_left a
+        font-family: Helvetica, Arial, sans-serif
+        font-weight: normal
+        padding: 5px
+
+    .results_row_right
+        color: #333
+        display: block
+        padding-top: 9px
+        float: right
+        color: #333
+        font-family: Helvetica, Arial, sans-serif
+        font-size: 0.8em
+
+    #loader
+        text-align: center
+        margin-top: 100px
+        height: 25px
+        width: 100%
+        background: url(/images/ajax-loader.gif)
+        background-position: center
+        background-repeat: no-repeat
+
+#blogfooter
+    margin-top: 10px
+    padding: 10px
+    text-align: center
+    font: medium Palatino, "Times New Roman", serif
+    a
+        font-weight: bold
+        text-decoration: none
+        border-bottom: 1px dotted black
+        color: $red
+        &:hover
+            text-shadow: #e68 0px 0px 1px
+            color: #ff190d
+
+#disqus_thread
+    padding-top: 24px
+
+// youtube player
+object[type="application/x-shockwave-flash"]
+    -moz-box-shadow: 0px 0px 12px #777
+    -webkit-box-shadow: 0px 0px 12px #777
+    box-shadow: 0px 0px 12px #777
+    margin-left: 15px
+    text-align: center
+.shadow
+    -moz-box-shadow: 0px 0px 9px #000
+    -webkit-box-shadow: 0px 0px 9px #000
+    box-shadow: 0px 0px 4px #000
+.floatright
+    float: right
+.floatleft
+    float: left
