@@ -1,0 +1,216 @@
+---
+title: Ubuntu auf's SheevaPlug
+filters: [reST]
+date: 08.01.2010, 20:07
+tags: [SheevaPlug, Arch Linux, Ubuntu]
+---
+
+Hä, aber da ist doch schon ein Ubuntu drauf, oder?
+===================================================
+
+Ja, das stimmt so.
+
+Allerdings ist das vorinstallierte Ubuntu der schlechteste Ausgangspunkt, den man sich wohl denken könnte:
+
+- alter, unvollständiger U-Boot Loader
+- alter, langsamer Kernel
+- misskonfiguriertes Ubuntu
+- sehr langsames Filesystem JFFS2
+
+Das Gute ist: Es gibt ein Tool, da macht man quasi zwei Klicks, und schon sind alle genannten Punkte in einem Rutsch erledigt.
+
+Im Schnelldurchlauf
+-------------------
+
+- `SheevaPlug Installer <http://www.wuala.com/posativ/Files/SheevaPlug/sheevaplug-installer-v1.0.tar.gz>`_
+- Entpacken und Terminal und ./README.txt öffnen, kurz lesen.
+- "openocd" benötigt (in Ubuntu Quellen). Arch Linux hat es im AUR (openocd-git-libftdi)
+- USB Stick (*/mnt/disk*) fat32 formatieren (``mkfs.msdos``) und die Dateien unterhalb von "Installer" nach */mnt/disk/* kopieren
+- ``sudo php ./runme.php nand`` und warten (*php* | *php5-cli* package wird gefordert)
+- Warten und nach ~5-10 Minuten via "ssh root@192.168.0.123" - pass: nosoup4u
+
+HowTo
+=====
+
+Vorbereitungen
+--------------
+
+Benötigt wird:
+
+- `SheevaPlug Installer <http://www.wuala.com/posativ/Files/SheevaPlug/sheevaplug-installer-v1.0.tar.gz>`_
+  (`extern <http://www.plugcomputer.org/index.php/us/resources/downloads?func=select&id=5>`_)
+
+- Ubuntu/Debian Linux oder was vergleichbares
+
+  - nativ / virtuell via `VirtualBox <http://www.virtualbox.org/>`_ : `Ubuntu 9.10 VDI <http://virtualbox.wordpress.com/images/ubuntu/>`_
+    (*user: ubuntu pass: reverse*) |br|
+    **Wichtig**: VirtualBox mit USB Unterstützung (also **nicht** OSE)
+
+- USB Stick > 200 MB |br|
+  **Achtung**: Muss formatiert werden!
+
+- SheevaPlug *(jetzt wirklich)* und das Kabel für die serielle Schnittstelle
+
+Durchführung
+------------
+
+Der Einfachheit halber beschreibe ich ausschließlich den Weg für Ubuntu (9.*) in VirtualBox,
+sodass auch Mac- und Windows-User diese Anleitung verfolgen können.
+
+Ich selber habe es mit Arch Linux ebenfalls hinbekommen; mit Debian sollte die Installation auch funktionieren.
+Man müsste das halt nur adaptieren und für seine Distribution leicht anpassen.
+
+#. startet Linux und stöpselt das SheevaPlug schon mal auf 'ne Steckdose und verbindet es mit dem seriellem Kabel.
+#. ``sudo apt-get install minicom libftdi libftdi-dev openocd php5-cli``
+#. USB-Stick anstöpseln und via **Geräte** -> **USB-Geräte** -> **$Modell** zum Gast durchleiten. |br|
+   Formatieren des Sticks mit fat32:
+
+   .. sourcecode:: console
+
+        $ sudo umount /media/usbstick # falls gemountet
+        $ sudo mkfs.msdos /dev/sdb1 # je nach eigenen Geräten
+        $ sudo mount /dev/sdb1 /mnt
+
+#. Entpackt ``sheevaplug-installer-v1.0.tar.gz`` und geht in das Verzeichnis ``sheevaplug-installer-v1.0``.
+#. .. sourcecode:: console
+
+        $ ubuntu@ubuntu-desktop:~/Downloads$ cd sheevaplug-installer-v1.0/
+        $ sudo cp ./installer/* /mnt/
+        $ umount /mnt/
+#. Nehmt den USB-Stick und steckt ihn ans SheevaPlug.
+#. Nun geht's ans Flashen via JTAG. Es unnötig zu sagen, dass alle Daten auf dem Sheeva werden gelöscht...
+
+   .. sourcecode:: console
+
+        $ sudo ./runme.php nand
+
+   [*bei wem die runme.php streikt, der kann eine syntaktisch Korrekte* `hier <http://www.wuala.com/posativ/Files/SheevaPlug/runme.php>`_ *beziehen*]
+
+   Dauert etwas und resultiert in:
+
+   .. sourcecode:: text
+
+        ****   exec(modprobe ftdi_sio vendor=0x9e88 product=0x9e8f)
+        ****   Preparing environment variables file ...
+        reading uboot/uboot-env/uboot-dflt.txt
+        uboot/uboot-env/fw_setenv baudrate 115200
+        CRC read error on uboot-env.bin: Success
+        [...]
+        ****   Burning uboot and environment variables ... This will take few minutes ...
+        Open On-Chip Debugger 0.2.0 (2009-07-26-14:56) Release
+        $URL: http://svn.berlios.de/svnroot/repos/openocd/tags/openocd-0.2.0/src/openocd.c $
+        For bug reports, read http://svn.berlios.de/svnroot/repos/openocd/trunk/BUGS
+        2000 kHz
+        jtag_nsrst_delay: 200
+        jtag_ntrst_delay: 200
+        dcc downloads are enabled
+        [...]
+        ****        U-boot should be up and running now. Open your console ...
+
+#. Der Prozess dauert einige Minuten, nach Erhalt der letzten Zeile kann dann via ``minicom`` der Bootprozess und das Einrichten von Ubuntu verfolgt werden. |br|
+   *(wenn minicom den Bootprozess unterbricht, einfach in u-boot reset eintippen, dann geht es nochmal los.)*
+
+Zugriff via SSH
+----------------
+
+Nachdem man fertig ist, kann man ein frisches Ubuntu 9.04 auf einem `UBIFS <http://en.wikipedia.org/wiki/UBIFS>`_ mit neuem Kernel und U-Boot betrachten. |br|
+Ein LAN-Kabel eingesteckt, einem DHCP Router und man kann sich via ``ssh`` in das System einloggen:
+
+.. sourcecode:: console
+
+    $ ssh root@192.168.0.123 # passwort: nosoup4u
+
+SheevaPlug Installer
+====================
+
+Der SheevaPlug Installer ist ein sehr nettes Tool. Damit lässt sich zum Beispiel ein tot geflashtes SheevaPlug wiederbeleben. |br|
+*Totflashen geht, indem man den Bootloader falsch flasht, sodass das Plug nicht einmal mehr die Hardware initialisieren kann.
+(Erkennbar an der nicht leuchtetenden blauen Lampe)*
+
+Dieser Schritt sollte der allererste sein, den man nach Erhalt eines neuen Sheevas tut.
+
+Hinterher haben wir:
+
+- Das U-Boot 3.4.19 (kann von SD booten)
+- Linux ubuntu 2.6.30.2 #11 PREEMPT Wed Jul 22 19:53:31 MDT 2009 armv5tel GNU/Linux
+- verdammt schnelles Dateisystem UBIFS mit ``lzo`` on-the-fly Komprimierung
+- Ubuntu mit korrekt konfigurierter DNS-Auflösung und ``apt-get``
+
+Weiterhin ist es mit diesem Werkzeug möglich, eigene Distributionen einzubinden.
+Im ``installer/``-Verzeichnis kann der ``rootfs.tar.gz`` Tarball mit einem
+eigenen Distro-Baum ausgetauscht werden.
+
+`Auf diesem Weg <http://www.markgillespie.co.uk/index.php?option=com_content&view=category&layout=blog&id=9&Itemid=13>`_
+habe ich selber ein Debian zum Laufen bekommen.
+Wer das allerdings selber probieren möchte, sollte den `vorgefertigten Tarball
+<http://www.wuala.com/posativ/Files/SheevaPlug/debian.rootfs.tar.gz>`_ nutzen.
+Die aktuelle Build (Anfang Januar) via ``bootstrap`` funktionierte bei mir nämlich nicht.
+
+
+Der Installer bietet auch die Möglichkeit, das Betriebssystem auch auf die SD Flashkarte zu spielen.
+Denn diese wird mit dem Kernel Update wieder richtig schnell:
+
+Benchmark SDHC Karte Class 4 mit Kernel 2.6.30.2
+------------------------------------------------
+
+100 bis 1 GB MB:
+
+.. sourcecode:: console
+
+    == Schreiben via dd bs=1024 count=[100K, 200K, 1M] if=/dev/zero of=/mnt/test.img ==
+    104857600 bytes (105 MB) copied, 6.31505 s, 16.6 MB/s
+    209715200 bytes (210 MB) copied, 30.8354 s, 6.8 MB/s
+    1073741824 bytes (1.1 GB) copied, 221.97 s, 4.8 MB/s
+
+    == Lesen via dd if=/mnt/test.img of=/dev/null  ==
+    104857600 bytes (105 MB) copied, 5.46798 s, 19.2 MB/s
+    209715200 bytes (210 MB) copied, 10.8675 s, 19.3 MB/s
+    1073741824 bytes (1.1 GB) copied, 64.4165 s, 16.7 MB/s
+
+/tmp und /var und swap
+======================
+
+Da das NAND Flashspeicher ist und dieser bekanntlich eine begrenzte Schreibvorgangsanzahl haben, ist es ratsam,
+``swap``, ``/tmp`` und ``/var`` (sehr häufige Schreib/Lesezyklen) auf eine USB-Festplatte oder auf eine externe (billige)
+SD Karte umzubiegen oder in den RAM zu speichern.
+
+Das NAND selber kann nämlich nur zwischen 1.000 und 10.000 Schreibzyklen bestehen.
+Dazu editiert man sich einfach seine /etc/fstab zurecht. Meine sieht z.B. so aus:
+
+USB Festplatte
+---------------
+
+.. sourcecode:: console
+
+    mone                   /dev/pts      devpts    defaults            0      0
+    none                   /dev/shm      tmpfs     defaults            0      0
+    ubi0:rootfs            /             ubifs     defaults,noatime    0      0
+    /dev/sda1               /var            jfs       defaults,mode=0755 0 0
+    /dev/sda6               /home           jfs       defaults,noatime
+    /dev/sda5               swap    swap    defaults 0 0
+    /tmp                   /var/tmp      bind      defaults,bind       0      0
+
+RAM (ohne SD/HDD)
+----------------------------------
+
+nach `Arch Mobile Wiki <http://www.archmobile.org/trac/wiki/AM/SheevaPlug/InstallationOnExternalStorage>`_
+
+.. sourcecode:: console
+
+    none                   /dev/pts      devpts    defaults            0      0
+    none                   /dev/shm      tmpfs     defaults            0      0
+    ubi0:rootfs            /             ubifs     defaults,noatime    0      0
+    tmpfs                  /var/lock     tmpfs     defaults,size=50m,mode=0755 0 0
+    tmpfs                  /var/log      tmpfs     defaults,size=50m,mode=0755 0 0
+    tmpfs                  /var/run      tmpfs     defaults,size=50m,mode=0755 0 0
+    tmpfs                  /tmp          tmpfs     defaults,size=100m,mode=1777 0 0
+    /tmp                   /var/tmp      bind      defaults,bind       0      0
+
+|br|
+
+**Viel Spaß mit eurem neuen System!**
+
+
+.. |br| raw:: html
+
+    <br />

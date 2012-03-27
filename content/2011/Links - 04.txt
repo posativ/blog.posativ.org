@@ -1,0 +1,35 @@
+---
+title: "Linkschleuder #4"
+filters: [rest]
+date: 02.08.2011, 18:18
+tags: [Links, Python, reStructuredText, HTML5]
+---
+
+Heute mal durch und durch Python, zudem noch ein Jahr alt und eigentlich überflüssig
+====================================================================================
+
+- Python im Browser: `Skulpt <http://www.skulpt.org/>`_
+- Templating in Python: `mako <http://www.makotemplates.org/>`_
+- `Python Einzeiler: Evanescent Python <http://www.pixelbeat.org/programming/evanescent_python.html>`_
+- `PyChecker (ähnlich wie lint) <http://pychecker.sourceforge.net/>`_
+- `Generating pseudo random text with Markov chains using Python
+  <http://uswaretech.com/blog/2009/06/pseudo-random-text-markov-chains-python/>`_.
+  Das ist mal ziemlich hübsch. Markov-Ketten sind ja so Glaskugeln, mit denen man
+  ohne Wissen über die Vergangenheit in die Zukunft gucken kann. Und ein Text
+  generieren zu lassen, ohne zu wissen, was man vorher für Scheiße geschrieben
+  hat, ist schon hübsch.
+
+Ach, und reStructuredText hab ich auch noch!1
+=============================================
+
+- `Write your own ReStructuredText-Writer <http://www.arnebrodowski.de/blog/write-your-own-restructuredtext-writer.html>`_
+- `YouTube video embedding in reStructuredText <http://countergram.com/youtube-in-rst>`_
+- `Quick reStructuredText Cheat Sheet <http://docutils.sourceforge.net/docs/user/rst/quickref.html>`_
+
+Und Sonstige! Alles muss raus!
+==============================
+
+- `HTML 5 Cheat Sheet <http://www.smashingmagazine.com/2009/07/06/html-5-cheat-sheet-pdf/>`_
+- `Dive Into HTML 5 <http://diveintohtml5.org/>`_; wohl wie `Dive Into Python <http://diveintopython3.org/>`_
+- `Famous Perl One-Liners Explained <http://www.catonmat.net/series/perl-one-liners-explained>`_
+- `Crossmark – eine neue, noch unfertige Markup-Sprache <http://www.wikicreole.org/wiki/Crossmark>`_

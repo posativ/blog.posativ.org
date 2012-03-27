@@ -1,0 +1,82 @@
+---
+title: iPhone 3G – aus Sicht eines pessimistischen Linux-Users
+
+date: 07.11.2010, 13:48
+tags: [iPhone, Linux, Tethering, Rant, iOS 4]
+---
+
+Ich besitze seit inzwischen fast drei Monaten ein iPhone 3G – hab ich
+[mal kurz erwähnt](http://blog.posativ.org/?p=110b093). Geerbt von meinem Vater, über zwei Jahre alt
+und daher wunderbar simlock-frei. Nun mal ein kleiner, vollkommen überflüssiger Erfahrungsbericht.
+
+Man sollte das Gerät als Handy betrachten. Ist immerhin eins. Auch wenn ich anfangs sehr oft iPhone
+gesagt habe, bemühe ich mich seit Kurzem, es einfach Handy zu nennen. iPhone wäre eine Unterstützung
+für Apples iWahn, den ich absolut nicht abkann.
+
+Das Handy hat eine ziemlich gute Sprachqualität, verglichen
+mit einem 23€ Handy von Samsung. Die ist sogar so gut, dass man in der Tiefkühlabteilung von Kaufland
+(das ist ein übelster Faradayscher Käfig), noch abgehackt sagen kann, man ist im Kaufland, bevor die
+Verbindung abbricht.
+
+Auch positiv ist das Tethering. Läuft unter Windows leider deutlich besser als unter Linux (da gibt es Tage,
+wo es nur Fehler gibt), aber damit ist man unglaublich mobil. Mit einem Anbieter wie
+[simyo](https://www.simyo.de/) hat man (zumindest gefühltes) unzensiertes Netz. Skype und Instant Messanging
+laufen in Berlin problemlos und flüssiger als bei direkt angebundenen DSL-Nutzern! Simyo ist aber nicht
+unbedingt zu empfehlen, die haben trotz Prepaid bindende Verträge, die sofort weiterlaufen, sobald
+man wieder Guthaben hat.
+
+Dennoch hat das Tethering mich einen Monat „gerettet“, bis ich denn DSL bekam. Wenn man spart, kommt
+man sogar mit der 1GiB-Traffic-Option zurecht. Schon wegen dieser Option kann ich das iPhone nicht mehr
+wegdenken.
+
+Aber ich will hier Apple gar nicht so sehr loben, das haben sie nicht mehr verdient. Was absolut krankhaft
+ist aus Sicht eines verwöhnten Linuxers:
+
+- die Synchronisation läuft, sofern man es denn eingerichtet bekommen hat, unter Linux besser als unter Windows
+- die Synchronisation ist zum Kotzen
+- die Akkulaufzeit ist einfach nur mangelhaft. Zwei Tage (48h) bei geringfügiger Nutzung und gut 30h bei mittlerer
+  bis starker Benutzung
+- Tastensperre Geräusche, die sich nicht abschalten lassen und einfach nur nerven
+- die Performance ist grauenhaft
+
+Ich verliere mal kurz ein paar Worte zur Synchronisation. Also: Wenn ich auf meinem Computer ungefähr 500 GiB
+an Musik in iTunes hab *(klar, Widerspruch in sich, weil iTunes das nicht kann. Also rein hypothetisch)*, dann
+will ich doch wohl kaum, dass er anfängt, alles zu Synchronisieren. Wenn ich meine Musik auf mehreren Rechnern
+*(sprich nicht auf Windows)* aufgeteilt hab und dann unter einer Windows-Machine mit Null Musik synchronisiere,
+möchte ich garantiert nicht, dass iTunes die gesamte Musik löscht und mit der lokalen synchronisiert (=löscht).
+
+Aber da nimmt Apple den Nutzer ja an die Hand, und tut das für ihn :-)
+Noch viel toller ist Apple ja, dass es die Datenbank so schön verschlüsselt, dass alle mit ihrem unglaublich tollen
+iTunes syncen muss. Das ist so toll, dass es selbst beim iPhone-Tethering 2 GiB an Podcasts herunterladen möchte und
+sich nur mit Mühe und Not aus dem Autostart entfernen lässt, wenn das iPhone angeschlossen wird. Hach, ein Glück haben
+wir Apple!
+
+Ein weiterer Punkt ist ja die Performance. Man sagt ja, dass das 3G unter Firmware Version 3 doch immerhin flüssiger
+lief als jetzt. Gut, weiß ich nicht. Aber so sie das jetzt läuft, kann man teilweise nur noch lachen, um nicht in
+Tränen auszubrechen. Das fängt ja schon mit dem Schalter für Lautlos an. Wenn man den ca. zweimal umkippt und nebenbei
+Musik hört, spürt man ein wunderbares Laggen. Viel toller ist noch, dass zwar jede native Menüführung bis auf das
+feinste überflüssig animiert ist. Animiert, um dem Nutzer zu verbergen, wie unglaublich langsam das Gerät ist. Die
+mit iOS4 eingeführten Ordner zum Sortieren von Apps ruckeln sogar offensichtlich beim öffnen!
+
+Na gut, das Gerät ist einfach mal etwas älter. Aber ich erwarte doch schon irgendwie, dass die core-Funktionalitäten
+flüssig laufen. Ob das nun animiert ist oder nicht, ist mir da relativ egal. Ich bin ja kein OSX-User. Also, wer sich
+etwas Gutes tun will, der sollte das aktuellste Gerät kaufen, da sollte der Prozessor halbwegs tauglich sein, damit
+man es flüssig bedienen kann. Beim 3G ist das in etwa so wie die Bedienung verglichen zwischen OSX/Windows und 'nem Linux.
+Man denkt immer, es hat sich aufgehangen.
+
+Nun gut, kommen wir zum letzten Punkt. Apps. Das ist ja so unglaublich toll, das geht ja gar nicht. Die tollste App
+ist wohl Opera, da der Safari einfach mal untauglich ist. Nächste sinnvolle Apps sind die so verhassten sozialen
+Netzwerke sowie Twitter und ein guter PDF-Reader. Denn der Native ist ebenfalls untauglich. Die Bedienung des PDF-Readers
+ist natürlich sprechend für den Rest des App-Konzepts. So hat die App natürlich kein Zugriff auf das Dateisystem, sodass
+man sich jedes Dokument mailen oder auf einen FTP-Server schieben muss. Das nenn' ich doch mal Komfort!
+
+Ich weiß absolut nichts mit dem AppStore anzufangen. Das ist so unglaublich unnütz, das geht mal gar nicht. Das kann ich
+gar nicht in Worte fassen, so sinnfrei ist das Konzept.
+
+Mal anders, ich brauche für das iPhone noch dringend einen Feed-Reader und PGP für Email. Email ist natürlich
+nicht zugelassen, klar. Du darfst nur das nutzen, was Apple dir vorschreibt und schlecht programmiert hat. Nun gut,
+aber ein Feed-Reader ist auch ein <del>Ding</del> App der Unmöglichkeit. Jeder verdammte Reader nutzt
+[Google Reader](http://www.google.com/reader). Ob man nicht Synchronisieren will, steht da gar nicht zur Debatte. Un-glaub-lich.
+
+Aber alles in allem ist so ein iPhone schon recht nützlich. Man kann damit Telefonieren, Simsen, Emailen und Google Maps
+nutzen sowie Musik hören. Mehr will ich auch gar nicht.

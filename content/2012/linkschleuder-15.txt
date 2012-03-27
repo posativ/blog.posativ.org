@@ -1,0 +1,42 @@
+---
+title: "Linkschleuder #15"
+date: 02.02.2012, 21:56
+tags: [Links, OS X]
+---
+
+Diesmal etwas \*hust\* sehr \*hust\* Mac-lastig.
+
+- [Nativa](http://www.aramzamzam.net/nativa/) – *der* Client für
+  [rtorrent](http://libtorrent.rakshasa.no/) schlechthin.
+- [TunnelerX](http://chipmunkninja.com/Tunneler) – und der Vorgänger
+  [Tunneler](http://www.chipmunkninja.com/Tunneler-0.9---An-SSH-1g@), der ein
+  Icon in die Leiste setzt, um ad-hoc einen SSH-Tunnel aufzubauen.
+- [NinjaKit](http://d.hatena.ne.jp/os0x/20100612/1276330696) – GreaseMonkey
+  für Safari.
+- [MplayerX](http://mplayerx.org/) – eine Art VLC nur in hübsch (und
+  funktionaler).
+- [Postbox](http://www.postbox-inc.com/) – ein kommerzieller Mozilla
+  Thunderbird Fork, der einfach nur etwas mehr Mac-GUI hat. Nicht
+  empfehlenswert.
+- [Lyn](http://www.lynapp.com/) – möchte eine leichtgewichtige
+  iPhoto-Alternative sein.
+- [MiniUsage](http://homepage.mac.com/nsekine/SYW/software/english/miniusage/index.html)
+  – zeigt diverse (unzählig viele) Statusinformationen leicht zugänglich per
+  Dropdown-Menü in der Leiste an.
+- [MacDentro](http://www.macdentro.com/MacDentro/Home.html) – OS X
+  Wartungstool, das die UNIX-Dienste und -Interna aufräumt (cronjobs laufen,
+  etc. pp.). Gibt's auch in hübsch und kommerziell:
+  [Cocktail.app](http://www.maintain.se/cocktail).
+- [Enqueue](http://www.enqueueapp.com/) – eine leichtgewichtige
+  iTunes-Alternative. Klare Empfehlung von mir!
+- [Bean](http://www.bean-osx.com/Bean.html) – eine Textverarbeitung für OS X.
+  Hilfreich, wenn man auf Pages/Open|LibreOffice verzichten möchte.
+- [SourceTree](http://www.sourcetreeapp.com/) – kostenloser Client für
+  Mercurial und Git mit Integration von [github.com](https://github.com/) und
+  [bitbucket.org](https://bitbucket.org/). Erfordert nach einem Monat eine
+  kostenlose Registrierung.
+- [Qute](http://www.inkcode.net/qute) – ein ziemlich hübscher Editor für
+  [Markdown](http://daringfireball.net/projects/markdown/); gibt's auch für PC.
+- [TextMate 2 Tips](http://tm2tips.tumblr.com/) – ein Blog über das
+  aufkommende TextMate 2. Unabhängig davon gibt es auch ein
+  [MateWiki](http://www.matewiki.com/index.php?title=Main_Page).

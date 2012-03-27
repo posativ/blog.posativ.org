@@ -1,0 +1,124 @@
+---
+title: Vorbereitungen, kleinere Tests und Infos zum SheevaPlug
+filters: [reST]
+tags: [Linux, Marvell, SheevaPlug, Arch Linux, Server, Ubuntu, ARM]
+date: 26.12.2009, 12:39
+---
+
+`Gestern <http://posativ.org/blog/html/linux/sheevaplug/erster-eindruck.html>`_ habe ich ja schon den ersten Einblick geschildert.
+
+Heute hab ich noch kurz weitergemacht, teils mit erfreuten Ergebnissen, teilweise etwas schlechten.
+
+Ubuntus ARM Repository: ports.ubuntu.com
+=========================================
+
+Nirgends habe ich eine vollständige Liste der möglichen Pakete gefunden. Nirgends.
+
+Daher habe ich einmal ``apt-get update`` samt ``apt-cache pkgnames`` gemacht und nun eine
+`vollständige Liste <http://posativ.org/blog/files/linux/sheevaplug/all-packages.txt>`_
+aller Pakete, die am 25.12.2009 bereits im Repository waren:
+
+.. sourcecode:: console
+
+    10:32:56::# apt-cache pkgnames
+    --> http://posativ.org/blog/files/linux/sheevaplug/all-packages.txt
+
+    10:35:03::# apt-cache stats
+    Total package names: 32956 (1318k)
+        Normal packages: 25053
+        Pure virtual packages: 250
+        Single virtual packages: 2200
+        Mixed virtual packages: 240
+        Missing: 5213
+
+    10:35:25::# cat /etc/apt/sources.list
+    deb http://ports.ubuntu.com jaunty main restricted universe multiverse
+
+
+Erste Benchmarks vom NAND und einer SDHC Karte
+===============================================
+
+512 MB NAND
+-----------
+
+- default Filesystem: `JFFS2 <http://en.wikipedia.org/wiki/JFFS2>`_
+- zlib Kompression
+- 100 MB Testdatei
+
+.. sourcecode:: console
+
+    10:50:40::# dd if=/dev/zero of=/root/test.img bs=1M count=100
+    100+0 records in
+    100+0 records out
+    104857600 bytes (105 MB) copied, 9.37936 s, 11.2 MB/s
+
+    10:50:59::# dd if=/root/test.img of=/dev/null
+    204800+0 records in
+    204800+0 records out
+    104857600 bytes (105 MB) copied, 0.826774 s, 127 MB/s
+
+Dabei findet eine on-the-fly Kompression und Dekompression statt, die sogar recht effektiv ist:
+151 MB physikalisch belegt (Ubuntu), mittels ``du -sh`` komme ich allerdings auf 427MB.
+
+Auf 500 MB NAND bei zlib Kompression kann also ca. 1400 MB theoretisch gespeichert werden.
+
+Neben JFFS2 gibt es allerdings noch ein etwas schnelleres Dateisystem: `UBIFS <http://en.wikipedia.org/wiki/UBIFS>`_.
+Das hat neben ``zlib`` die deutlich performantere Kompression ``lzo``, die dafür allerdings etwas mehr Platz benötigt.
+
+
+4 Gb SDHC
+----------
+
+- default Filesystem: VFAT
+- 1 GB Testdatei
+
+.. sourcecode:: console
+
+    21:09:23::# dd bs=1024 count=1M if=/dev/zero of=/mnt/file
+    1073741824 bytes (1.1 GB) copied, 1455.34 s, 738 kB/s
+
+    22:05:19::# dd if=/mnt/file of=/dev/null
+    2097152+0 records in
+    2097152+0 records out
+    1073741824 bytes (1.1 GB) copied, 158.693 s, 6.8 MB/s
+
+Also ich habe ja mit ein paar Einbußen gerechnet, aber nicht mit 700 kB/s.
+Gekauft hab ich eine Class 4 SDHC von Panasonic, mit 20 MB/s Lesen und 9 MB/s Schreiben.
+
+Weil ich kein SD-Kartenlesegerät für USB habe, konnte ich maximal noch vom
+`Sony PRS-505 <http://www.sony.de/product/rd-reader-ebook/prs-505>`_ die Schreib- und Lesegeschwindigkeit
+testen. Da kam ich beim Schreiben immerhin auf gut 6 MB/s, beim Lesen allerdings auf utopische 200 MB/s.
+
+Dennoch gibt es wohl sehr heftige Probleme beim mitgeliefertem Kernel und SD Karten
+(`anderer Vergleich <http://computingplugs.com/index.php/SheevaPlug_Performance#SDHC_storage_throughput>`_).
+
+
+Welches OS denn nun für das SheevaPlug?
+=======================================
+
+Es gibt mehrere Linuxdistributionen, die entweder einen Port für ARM oder generell für Embedded Systems konzipiert sind:
+
+- `Debian <http://www.debian.org/ports/arm/>`_: http://www.cyrius.com/debian/kirkwood/sheevaplug/
+- `Ubuntu <http://www.ubuntu.com/products/whatisubuntu/arm>`_: http://www.plugcomputer.org/plugwiki/index.php/Category:Ubuntu
+- `Gentoo <http://gentoo.org/>`_: http://dev.gentoo.org/~armin76/arm/sheevaplug/install.xml
+- `Arch Linux <http://www.archmobile.org/>`_: http://www.archmobile.org/trac/wiki/AM/SheevaPlug/InstallationOnNAND
+- Fedora, Angstrom, SlugOS, Slackware, FreeBSD, OpenWRT
+
+Um nur die aufzuzählen, die mir bisher begegnet sind. Es gibt sicherlich noch mehr.
+
+Da allein schon der Linux Kernel knapp 50 Minuten zum Kompilieren auf dem Plug braucht, fällt Gentoo für mich schon einmal weg.
+Fedora und Ubuntu sind beides Ports von so schon sehr schwergewichtigen Distributionen. Daher will ich die auch nicht wirklich haben.
+
+Da ich Arch Linux auf dem Desktop verwende und es recht klein ist, liegt es für mich nahe, dieses zu verwenden. Allerdings schaut das Repository
+noch etwas klein aus und das archmobile.org Projekt ist mehr auf Mobiles fokussiert. Ich werde allerdings Arch Linux on NAND testen!
+
+Alle anderen bis auf Debian sind mir unbekannt. Debian ist sehr populär, daher stelle ich mir auch das Repository recht umfrangreich vor.
+Aber auch da gibt es natürlich keine Liste mit allen verfügbaren Paketen...
+
+Wie geht's weiter?
+====================
+
+U-Boot muss aktualisiert werden für SDHC Boot, dazu der aktuelle Kernel kompiliert werden.
+UBIFS statt JFFS2 nutzen und dann kommt Arch Linux aufs NAND und Debian auf die SDHC Karte
+
+Wenn das dann geschafft ist, sehe ich weiter.

@@ -1,0 +1,127 @@
+---
+title: "Impressionen aus Russland: St. Petersburg"
+date: 09.03.2012, 21:19
+draft: True
+filters: [HTML, ]
+---
+
+<div id='gallery-1' class='gallery galleryid-3299 gallery-columns-3 gallery-size-thumbnail'><dl class='gallery-item'>
+	<dt class='gallery-icon'>
+
+		<a href='http://hugo.rfc1437.de/wp-content/uploads/2011/10/06eac49-1024x681.jpg' title='Alsterarkaden' rel="lightbox[3299]"><img width="150" height="150" src="http://hugo.rfc1437.de/wp-content/uploads/2011/10/06eac49-150x150.jpg" class="attachment-thumbnail" alt="Alsterarkaden" title="Alsterarkaden" /></a>
+	</dt></dl><dl class='gallery-item'>
+	<dt class='gallery-icon'>
+		<a href='http://hugo.rfc1437.de/wp-content/uploads/2011/10/bbc2352-681x1024.jpg' title='Colonaden' rel="lightbox[3299]"><img width="150" height="150" src="http://hugo.rfc1437.de/wp-content/uploads/2011/10/bbc2352-150x150.jpg" class="attachment-thumbnail" alt="Colonaden" title="Colonaden" /></a>
+	</dt></dl><dl class='gallery-item'>
+	<dt class='gallery-icon'>
+		<a href='http://hugo.rfc1437.de/wp-content/uploads/2011/10/adc66b1-1024x681.jpg' title='Finanzbehörde' rel="lightbox[3299]"><img width="150" height="150" src="http://hugo.rfc1437.de/wp-content/uploads/2011/10/adc66b1-150x150.jpg" class="attachment-thumbnail" alt="Finanzbehörde" title="Finanzbehörde" /></a>
+	</dt></dl><br style="clear: both" /><dl class='gallery-item'>
+	<dt class='gallery-icon'>
+
+		<a href='http://hugo.rfc1437.de/wp-content/uploads/2011/10/6313bb1-681x1024.jpg' title='Schmales Haus' rel="lightbox[3299]"><img width="150" height="150" src="http://hugo.rfc1437.de/wp-content/uploads/2011/10/6313bb1-150x150.jpg" class="attachment-thumbnail" alt="Schmales Haus" title="Schmales Haus" /></a>
+	</dt></dl><dl class='gallery-item'>
+	<dt class='gallery-icon'>
+		<a href='http://hugo.rfc1437.de/wp-content/uploads/2011/10/17026d7-1024x681.jpg' title='Nikolai Kirche' rel="lightbox[3299]"><img width="150" height="150" src="http://hugo.rfc1437.de/wp-content/uploads/2011/10/17026d7-150x150.jpg" class="attachment-thumbnail" alt="Nikolai Kirche" title="Nikolai Kirche" /></a>
+	</dt></dl><dl class='gallery-item'>
+	<dt class='gallery-icon'>
+		<a href='http://hugo.rfc1437.de/wp-content/uploads/2011/10/9bdb7e9-1024x681.jpg' title='Nikolai Kirche' rel="lightbox[3299]"><img width="150" height="150" src="http://hugo.rfc1437.de/wp-content/uploads/2011/10/9bdb7e9-150x150.jpg" class="attachment-thumbnail" alt="Nikolai Kirche" title="Nikolai Kirche" /></a>
+	</dt></dl><br style="clear: both" /><dl class='gallery-item'>
+	<dt class='gallery-icon'>
+
+		<a href='http://hugo.rfc1437.de/wp-content/uploads/2011/10/e6fea27-681x1024.jpg' title='Nikolai Kirche' rel="lightbox[3299]"><img width="150" height="150" src="http://hugo.rfc1437.de/wp-content/uploads/2011/10/e6fea27-150x150.jpg" class="attachment-thumbnail" alt="Nikolai Kirche" title="Nikolai Kirche" /></a>
+	</dt></dl><dl class='gallery-item'>
+	<dt class='gallery-icon'>
+		<a href='http://hugo.rfc1437.de/wp-content/uploads/2011/10/44940d5-1024x681.jpg' title='Fleet bei Ebbe' rel="lightbox[3299]"><img width="150" height="150" src="http://hugo.rfc1437.de/wp-content/uploads/2011/10/44940d5-150x150.jpg" class="attachment-thumbnail" alt="Fleet bei Ebbe" title="Fleet bei Ebbe" /></a>
+	</dt></dl><dl class='gallery-item'>
+	<dt class='gallery-icon'>
+		<a href='http://hugo.rfc1437.de/wp-content/uploads/2011/10/9820a70-1024x681.jpg' title='Fleet in der Speicherstadt' rel="lightbox[3299]"><img width="150" height="150" src="http://hugo.rfc1437.de/wp-content/uploads/2011/10/9820a70-150x150.jpg" class="attachment-thumbnail" alt="Fleet in der Speicherstadt" title="Fleet in der Speicherstadt" /></a>
+	</dt></dl><br style="clear: both" /><dl class='gallery-item'>
+	<dt class='gallery-icon'>
+
+		<a href='http://hugo.rfc1437.de/wp-content/uploads/2011/10/232c95f-1024x681.jpg' title='Hafencity' rel="lightbox[3299]"><img width="150" height="150" src="http://hugo.rfc1437.de/wp-content/uploads/2011/10/232c95f-150x150.jpg" class="attachment-thumbnail" alt="Hafencity" title="Hafencity" /></a>
+	</dt></dl><dl class='gallery-item'>
+	<dt class='gallery-icon'>
+		<a href='http://hugo.rfc1437.de/wp-content/uploads/2011/10/44ca7f9-1024x681.jpg' title='Hafencity' rel="lightbox[3299]"><img width="150" height="150" src="http://hugo.rfc1437.de/wp-content/uploads/2011/10/44ca7f9-150x150.jpg" class="attachment-thumbnail" alt="Hafencity" title="Hafencity" /></a>
+	</dt></dl><dl class='gallery-item'>
+	<dt class='gallery-icon'>
+		<a href='http://hugo.rfc1437.de/wp-content/uploads/2011/10/d25992a-681x1024.jpg' title='Hafencity' rel="lightbox[3299]"><img width="150" height="150" src="http://hugo.rfc1437.de/wp-content/uploads/2011/10/d25992a-150x150.jpg" class="attachment-thumbnail" alt="Hafencity" title="Hafencity" /></a>
+	</dt></dl><br style="clear: both" /><dl class='gallery-item'>
+	<dt class='gallery-icon'>
+
+		<a href='http://hugo.rfc1437.de/wp-content/uploads/2011/10/026dfee-1024x681.jpg' title='Hafencity' rel="lightbox[3299]"><img width="150" height="150" src="http://hugo.rfc1437.de/wp-content/uploads/2011/10/026dfee-150x150.jpg" class="attachment-thumbnail" alt="Hafencity" title="Hafencity" /></a>
+	</dt></dl><dl class='gallery-item'>
+	<dt class='gallery-icon'>
+		<a href='http://hugo.rfc1437.de/wp-content/uploads/2011/10/a5aab1c-681x1024.jpg' title='Hafencity' rel="lightbox[3299]"><img width="150" height="150" src="http://hugo.rfc1437.de/wp-content/uploads/2011/10/a5aab1c-150x150.jpg" class="attachment-thumbnail" alt="Hafencity" title="Hafencity" /></a>
+	</dt></dl><dl class='gallery-item'>
+	<dt class='gallery-icon'>
+		<a href='http://hugo.rfc1437.de/wp-content/uploads/2011/10/67f17f1-1024x681.jpg' title='Gewürzmuseum' rel="lightbox[3299]"><img width="150" height="150" src="http://hugo.rfc1437.de/wp-content/uploads/2011/10/67f17f1-150x150.jpg" class="attachment-thumbnail" alt="Gewürzmuseum" title="Gewürzmuseum" /></a>
+	</dt></dl><br style="clear: both" /><dl class='gallery-item'>
+	<dt class='gallery-icon'>
+
+		<a href='http://hugo.rfc1437.de/wp-content/uploads/2011/10/995181c-1024x681.jpg' title='Gewürzmuseum' rel="lightbox[3299]"><img width="150" height="150" src="http://hugo.rfc1437.de/wp-content/uploads/2011/10/995181c-150x150.jpg" class="attachment-thumbnail" alt="Gewürzmuseum" title="Gewürzmuseum" /></a>
+	</dt></dl><dl class='gallery-item'>
+	<dt class='gallery-icon'>
+		<a href='http://hugo.rfc1437.de/wp-content/uploads/2011/10/91f1757-1024x681.jpg' title='Gewürzmuseum' rel="lightbox[3299]"><img width="150" height="150" src="http://hugo.rfc1437.de/wp-content/uploads/2011/10/91f1757-150x150.jpg" class="attachment-thumbnail" alt="Gewürzmuseum" title="Gewürzmuseum" /></a>
+	</dt></dl><dl class='gallery-item'>
+	<dt class='gallery-icon'>
+		<a href='http://hugo.rfc1437.de/wp-content/uploads/2011/10/0233acc-681x1024.jpg' title='Gewürzmuseum' rel="lightbox[3299]"><img width="150" height="150" src="http://hugo.rfc1437.de/wp-content/uploads/2011/10/0233acc-150x150.jpg" class="attachment-thumbnail" alt="Gewürzmuseum" title="Gewürzmuseum" /></a>
+	</dt></dl><br style="clear: both" /><dl class='gallery-item'>
+	<dt class='gallery-icon'>
+
+		<a href='http://hugo.rfc1437.de/wp-content/uploads/2011/10/d9d452a-681x1024.jpg' title='Gewürzmuseum' rel="lightbox[3299]"><img width="150" height="150" src="http://hugo.rfc1437.de/wp-content/uploads/2011/10/d9d452a-150x150.jpg" class="attachment-thumbnail" alt="Gewürzmuseum" title="Gewürzmuseum" /></a>
+	</dt></dl><dl class='gallery-item'>
+	<dt class='gallery-icon'>
+		<a href='http://hugo.rfc1437.de/wp-content/uploads/2011/10/956b8e7-681x1024.jpg' title='Gewürzmuseum' rel="lightbox[3299]"><img width="150" height="150" src="http://hugo.rfc1437.de/wp-content/uploads/2011/10/956b8e7-150x150.jpg" class="attachment-thumbnail" alt="Gewürzmuseum" title="Gewürzmuseum" /></a>
+	</dt></dl><dl class='gallery-item'>
+	<dt class='gallery-icon'>
+		<a href='http://hugo.rfc1437.de/wp-content/uploads/2011/10/33fdbb5-1024x681.jpg' title='Gewürzmuseum' rel="lightbox[3299]"><img width="150" height="150" src="http://hugo.rfc1437.de/wp-content/uploads/2011/10/33fdbb5-150x150.jpg" class="attachment-thumbnail" alt="Gewürzmuseum" title="Gewürzmuseum" /></a>
+	</dt></dl><br style="clear: both" /><dl class='gallery-item'>
+	<dt class='gallery-icon'>
+
+		<a href='http://hugo.rfc1437.de/wp-content/uploads/2011/10/2c2ec82-1024x681.jpg' title='Gewürzmuseum' rel="lightbox[3299]"><img width="150" height="150" src="http://hugo.rfc1437.de/wp-content/uploads/2011/10/2c2ec82-150x150.jpg" class="attachment-thumbnail" alt="Gewürzmuseum" title="Gewürzmuseum" /></a>
+	</dt></dl><dl class='gallery-item'>
+	<dt class='gallery-icon'>
+		<a href='http://hugo.rfc1437.de/wp-content/uploads/2011/10/08f4a47-1024x681.jpg' title='Gewürzmuseum' rel="lightbox[3299]"><img width="150" height="150" src="http://hugo.rfc1437.de/wp-content/uploads/2011/10/08f4a47-150x150.jpg" class="attachment-thumbnail" alt="Gewürzmuseum" title="Gewürzmuseum" /></a>
+	</dt></dl><dl class='gallery-item'>
+	<dt class='gallery-icon'>
+		<a href='http://hugo.rfc1437.de/wp-content/uploads/2011/10/d6480ad-1024x681.jpg' title='Gewürzmuseum' rel="lightbox[3299]"><img width="150" height="150" src="http://hugo.rfc1437.de/wp-content/uploads/2011/10/d6480ad-150x150.jpg" class="attachment-thumbnail" alt="Gewürzmuseum" title="Gewürzmuseum" /></a>
+	</dt></dl><br style="clear: both" /><dl class='gallery-item'>
+	<dt class='gallery-icon'>
+
+		<a href='http://hugo.rfc1437.de/wp-content/uploads/2011/10/d6bac6a-1024x681.jpg' title='Cap San Diego' rel="lightbox[3299]"><img width="150" height="150" src="http://hugo.rfc1437.de/wp-content/uploads/2011/10/d6bac6a-150x150.jpg" class="attachment-thumbnail" alt="Cap San Diego" title="Cap San Diego" /></a>
+	</dt></dl><dl class='gallery-item'>
+	<dt class='gallery-icon'>
+		<a href='http://hugo.rfc1437.de/wp-content/uploads/2011/10/67cd906-1024x681.jpg' title='Cap San Diego' rel="lightbox[3299]"><img width="150" height="150" src="http://hugo.rfc1437.de/wp-content/uploads/2011/10/67cd906-150x150.jpg" class="attachment-thumbnail" alt="Cap San Diego" title="Cap San Diego" /></a>
+	</dt></dl><dl class='gallery-item'>
+	<dt class='gallery-icon'>
+		<a href='http://hugo.rfc1437.de/wp-content/uploads/2011/10/cc393f8-1024x681.jpg' title='Cap San Diego' rel="lightbox[3299]"><img width="150" height="150" src="http://hugo.rfc1437.de/wp-content/uploads/2011/10/cc393f8-150x150.jpg" class="attachment-thumbnail" alt="Cap San Diego" title="Cap San Diego" /></a>
+	</dt></dl><br style="clear: both" /><dl class='gallery-item'>
+	<dt class='gallery-icon'>
+
+		<a href='http://hugo.rfc1437.de/wp-content/uploads/2011/10/272490e-1024x681.jpg' title='Cap San Diego' rel="lightbox[3299]"><img width="150" height="150" src="http://hugo.rfc1437.de/wp-content/uploads/2011/10/272490e-150x150.jpg" class="attachment-thumbnail" alt="Cap San Diego" title="Cap San Diego" /></a>
+	</dt></dl><dl class='gallery-item'>
+	<dt class='gallery-icon'>
+		<a href='http://hugo.rfc1437.de/wp-content/uploads/2011/10/af1c1a8-1024x681.jpg' title='Cap San Diego' rel="lightbox[3299]"><img width="150" height="150" src="http://hugo.rfc1437.de/wp-content/uploads/2011/10/af1c1a8-150x150.jpg" class="attachment-thumbnail" alt="Cap San Diego" title="Cap San Diego" /></a>
+	</dt></dl><dl class='gallery-item'>
+	<dt class='gallery-icon'>
+		<a href='http://hugo.rfc1437.de/wp-content/uploads/2011/10/8276f6d-681x1024.jpg' title='Cap San Diego' rel="lightbox[3299]"><img width="150" height="150" src="http://hugo.rfc1437.de/wp-content/uploads/2011/10/8276f6d-150x150.jpg" class="attachment-thumbnail" alt="Cap San Diego" title="Cap San Diego" /></a>
+	</dt></dl><br style="clear: both" /><dl class='gallery-item'>
+	<dt class='gallery-icon'>
+
+		<a href='http://hugo.rfc1437.de/wp-content/uploads/2011/10/7dd4452-681x1024.jpg' title='Cap San Diego' rel="lightbox[3299]"><img width="150" height="150" src="http://hugo.rfc1437.de/wp-content/uploads/2011/10/7dd4452-150x150.jpg" class="attachment-thumbnail" alt="Cap San Diego" title="Cap San Diego" /></a>
+	</dt></dl><dl class='gallery-item'>
+	<dt class='gallery-icon'>
+		<a href='http://hugo.rfc1437.de/wp-content/uploads/2011/10/a31656a-1024x681.jpg' title='Cap San Diego' rel="lightbox[3299]"><img width="150" height="150" src="http://hugo.rfc1437.de/wp-content/uploads/2011/10/a31656a-150x150.jpg" class="attachment-thumbnail" alt="Cap San Diego" title="Cap San Diego" /></a>
+	</dt></dl><dl class='gallery-item'>
+	<dt class='gallery-icon'>
+		<a href='http://hugo.rfc1437.de/wp-content/uploads/2011/10/463a457-1024x681.jpg' title='Cap San Diego' rel="lightbox[3299]"><img width="150" height="150" src="http://hugo.rfc1437.de/wp-content/uploads/2011/10/463a457-150x150.jpg" class="attachment-thumbnail" alt="Cap San Diego" title="Cap San Diego" /></a>
+	</dt></dl><br style="clear: both" /><dl class='gallery-item'>
+	<dt class='gallery-icon'>
+
+		<a href='http://hugo.rfc1437.de/wp-content/uploads/2011/10/bd8a8c1-1024x681.jpg' title='Schiff wird in den Hafen geschleppt' rel="lightbox[3299]"><img width="150" height="150" src="http://hugo.rfc1437.de/wp-content/uploads/2011/10/bd8a8c1-150x150.jpg" class="attachment-thumbnail" alt="Schiff wird in den Hafen geschleppt" title="Schiff wird in den Hafen geschleppt" /></a>
+	</dt></dl><dl class='gallery-item'>
+	<dt class='gallery-icon'>
+		<a href='http://hugo.rfc1437.de/wp-content/uploads/2011/10/581faeb-1024x681.jpg' title='Fleet bei Flut (gleiches wie das bei Ebbe)' rel="lightbox[3299]"><img width="150" height="150" src="http://hugo.rfc1437.de/wp-content/uploads/2011/10/581faeb-150x150.jpg" class="attachment-thumbnail" alt="Fleet bei Flut (gleiches wie das bei Ebbe)" title="Fleet bei Flut (gleiches wie das bei Ebbe)" /></a>
+	</dt></dl>
+	<br style='clear: both;' />
+</div>

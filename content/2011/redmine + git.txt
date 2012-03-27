@@ -1,0 +1,119 @@
+---
+title: Grack + Redmine Auth = Git Smart HTTP++
+date: 08.10.2011, 16:39
+permalink: /2011/grack-redmine-auth-git-smart-http/
+tags: [Redmine, git, grack, lighttpd]
+---
+
+So, nach gut zwei Wochen weiterem Probieren und Failen habe ich nun auch eine
+richtige Authentifizierung für [non-Apache][1] Webserver mittels [Redmine][2].
+Ich nutze hierbei das neue Smart HTTP Transport Protokoll, das seit Git 1.6.6
+unterstützt wird. Über SSL getunnelt ist es [fast][3] so sicher und genauso
+schnell wie die Übertragung über SSH oder Git-Daemon. Nur halt mittels plain
+HTTP, Webserver und etwas mod_proxy.
+
+Weil schon die [Installation abseits von Apache/Nginx][4] eine Qual wegen nicht
+vorhandener Dokumentation war, will ich auch hier wieder dokumentieren, indem
+ich mein Setup als Beispiel angebe. Wie immer nutze ich [lighttpd][5] und eine
+Redmine-Installation Version 1.2.1, betrieben mit [thin][6]. Weil Hype cool ist,
+existieren Wrapper für git-http natürlich nur in [nodejs][7] und [ruby][8]. Argh.
+Naja, hab' ich schon Ruby am Hals, nehm ich halt den letzteren. Mein Code
+baut auf [maxlapshin/grack][9] auf, das ist ein ungemergter Fork eines
+ungemergten Fork von [schacon/grack][8] x(
+
+# Schema
+
+Mein angestrebtes URL-Layout sieht wie folgt aus:
+
+    :::text
+    /redmine                <- meine Redmine-Installation, HTTPS-getunnelt
+    /git/myproject.git      <- das Repository
+    
+Meine Ordnerstruktur ist so aufgebaut:
+
+    :::text
+    ~/posativ.org/redmine/  <- die Redmine-Installation
+    ~/posativ.org/grack/    <- dort liegt grack später™
+    ~/repositories/git/myproject <- das Beispielprojekt
+
+    
+In der */etc/lighttpd/lighttpd.conf* steht dann wieder das übliche:
+
+    :::perl
+    $HTTP["host"] == "posativ.org" {
+        
+        # some conf here
+        # index-file.names = ("index.html") und so weiter
+        # mod_proxy ist erforderlich, logischerweise
+        
+        $HTTP["url"] =~ "/git" {
+            proxy.server = ("" =>
+                (("host" => "127.0.0.1", "port" => 7654)))
+        }
+    }
+
+# Installation – Fortführung von [dem hier][4]
+
+Damit das auch funktioniert, habe ich *grack* [auch geforkt][10]:
+
+    :::console
+    $ git clone https://github.com/posativ/grack ~/posativ.org/grack
+    $ thin config -c /home/www/posativ.org/grack/ -p 7654 -a 127.0.0.1 -e production \
+      -l grack.log -C /etc/thin/grack.yml
+      
+Dann noch die `config.ru` anpassen. Das Teil ist so gepatcht, dass es
+SSL-Zertifikate nicht prüft, denn das tut es nämlich irgendwie falsch.
+Angegeben werden muss *use_redmine_auth*, *redmine* und in meinem Falle auch
+*grack_suburi*, denn es wird unter `/git/myproject.git` gehostet.
+
+    :::yaml
+    config = {
+      :project_root          => "/home/www/repositories/git",
+      :git_path              => '/usr/bin/git',
+      :upload_pack           => true,
+      :receive_pack          => true,
+
+      :use_redmine_auth      => true,
+      :redmine               => 'https://posativ.org/redmine',
+      :grack_suburi          => '/git'
+    }
+    
+Dann noch ein schnelles
+
+    :::console
+    $ invoke-rc.d thin stop && invoke-rc.d thin start
+
+und *grack* läuft über Port 7654 auf localhost und wird von Webserver
+getunnelt. Sogar mit SSL. Damit die Redmine-Authentifizierung auch läuft, muss
+die [REST API][11] aktiviert werden. Die findet sich unter *Administration* ->
+*Konfiguration* -> *Authentifizierung* -> *REST Schnittstelle aktivieren*.
+Denn was (mein) Grack macht, ist einfach
+`https://redmine.tld/projects/myproject.xml` mittels der Nutzerdaten aufrufen,
+das bei Zugriff auf dieses Projekt 200 Ok oder eben 403 Forbidden zurückgibt.
+
+# Usage
+
+Das Handling ist jetzt noch etwas suboptimal, ich hoffe, es gibt dazu aber noch
+schöne Redmine-Plugins. Denn ein Git-Repository muss als *--bare* erstellt
+werden (Voraussetzung für HTTP):
+
+    :::console
+    $ cd ~/repositories/git
+    $ git init --bare myproject.git
+    $ # oder via git clone --bare ~/myproject myproject.git ein altes Projekt umwandeln
+    
+Dann lässt sich das Repository über <https://domain.tld/git/myproject.git> klonen
+und pushen. Ganz hübsch.
+
+
+[1]: http://redmine.org/
+[2]: http://www.redmine.org/projects/redmine/wiki/Repositories_access_control_with_apache_mod_dav_svn_and_mod_perl
+[3]: http://www.heise.de/security/meldung/Ueber-500-Zertifikate-Ausmass-des-CA-Hacks-schlimmer-als-erwartet-1336603.html
+[4]: /2011/redmine-sqlite3-lighttpd-thin/
+[5]: http://lighttpd.net/
+[6]: http://code.macournoyer.com/thin/
+[7]: https://github.com/pedro/gnode
+[8]: https://github.com/schacon/grack
+[9]: https://github.com/maxlapshin/grack
+[10]: https://github.com/posativ/grack
+[11]: http://www.redmine.org/projects/redmine/wiki/Rest_api

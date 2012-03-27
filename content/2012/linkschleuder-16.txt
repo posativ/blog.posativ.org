@@ -1,0 +1,34 @@
+---
+title: "Linkschleuder #16"
+date: 03.02.2012, 10:34
+tags: [Links, Python, Proxy, HTML]
+---
+
+- [Zen Coding](https://code.google.com/p/zen-coding/) – *a new way of writing
+  HTML and CSS code*, [Sublime Text 2
+  Plugin](https://bitbucket.org/wbond/sublime-2-zencoding)
+- [sshuttle](https://github.com/apenwarr/sshuttle) – transparenter Proxy trifft
+  VPN, ohne viel basteln und ärgern. Einfach SSH.
+- [Ziproxy](http://ziproxy.sourceforge.net/) – ein zippender Proxy, der
+  allerdings nicht alle externen Quellen in eine Datei packt. Dann wäre es
+  für's Handy praktisch gewesen.
+- [gitfinger](http://thechangelog.com/post/16464262046/gitfinger-finger-github-users-from-the-command-line)
+  – Stalking auf GitHub.
+- [python for humans](http://python-for-humans.heroku.com/) – ein sehr witziger
+  Rant über Python und was die Community besser machen kann.
+- [How to read Haskell like Python](http://blog.ezyang.com/2011/11/how-to-read-haskell/)
+- [crate.io](http://crate.io/) – ein PyPi-Mirror, der quelloffen ist und mehr
+  Features bietet als [PyPi](http://pypi.python.org/pypi).
+- [mer](http://www.merproject.org/) – eine offene, optimiert für Mobilgeräte,
+  Distribution á la [MeeGo](https://www.meego.com/) mit Fokus auf Qt und
+  HTML5.
+- [plasma active](http://plasma-active.org/) – ein KDE Projekt für Tablets und
+  Mobilgeräte, der doch schon etwas besser als Android aussieht. Ein weiterer
+  Beweis, dass KDE verdammt modular ist.
+- [goaccess](http://goaccess.prosoftcorp.com/) – ein (Apache) Common Logfile
+  Reader. Mit ncurses (!) und für große Bildschirme optimiert! [Beispiel][2]?
+- [HTML5 for Publishers](http://shop.oreilly.com/product/0636920022473.do) –
+  kostenlos in PDF, epub und Mobi (auch für [Kindle][1]) nach Registrierung
+
+[1]: http://www.schockwellenreiter.de/blog/2012/01/23/kostenlose-ebooks-uber-ebooks/
+[2]: http://blog.posativ.org/img/2012/goaccess.png

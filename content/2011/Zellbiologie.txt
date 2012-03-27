@@ -1,0 +1,74 @@
+---
+title: "Bioinformatik in Jena. Heute: Zellbiologie"
+date: 25.08.2011, 16:33
+tags: [Jena, Bioinformatik]
+---
+
+Welcher Faktor wirkt nicht antiapoptotisch?
+
+- [bcl-2](https://secure.wikimedia.org/wikipedia/en/wiki/Bcl-2)
+- [PUMA](https://secure.wikimedia.org/wikipedia/en/wiki/P53_upregulated_modulator_of_apoptosis)
+- [APAF-1](https://secure.wikimedia.org/wikipedia/en/wiki/Apaf-1)
+- [FADD](https://secure.wikimedia.org/wikipedia/en/wiki/FADD)
+- [Bax](https://secure.wikimedia.org/wikipedia/en/wiki/Bcl-2-associated_X_protein)
+
+**bcl-2**, liegt doch auf der Hand. Phonetisch differenzierte Begriffe wie
+[Caveolen][1], [Caveolin][2], [Claudin][3], [Caspase][4], [Cathepsine][5],
+[Calnexin][6] und [Clathrin][7]? Kein Thema. [E1, E2, E3][8]? Natürlich
+handelt es sich um Enzyme zur Aktivierung/Konjugation/Ligase bei der
+Ubquitinierung. [Ran(GTP), RanGAP und RanGEF][9] binden natürlich
+nicht direkt an die [NLS][10] bzw. [NES][11], dafür gibt es ja logischerweise
+[Importinα/Importinβ][12] respektive [Exportin-1][13]. Unidirektionalität,
+versteht sich ja von selbst.
+
+Dass [COPI][14] und [COPII][15] logisch verkehrt herum sind, ist belanglos.
+Dass Proteine in Mitochondrien über [TIM][16], [TOM][17], [OXA][18] und
+[SAM][19] transportiert werden, weiß sogar meine kleine Schwester. 
+F-Aktin, G-Aktin, Actinfilamente, Mikrotubuli, Intermediärfilamente,
+Treadmilling, Myosine, MTOC, γ-Tubulin, Kinesine und Dyneine? Ist doch
+einfach! Klar, dass Tight junctions Occuline und Claudine enthalten,
+Adhäsionskontakte und Desmosomen einen Cadherin-Kontakt ergeben und focal
+adhesions sowie Hemidesmosomen typische Strukturen für den Integrin-Kontakt
+sind. Cyclin D -> CDK4/6, Cyclin E -> CDK2, Cyclin A -> CDK2 ist
+offensichtlich.
+
+Und sowieso sollte man mal Abkürzungen für:
+
+- p53
+- ARF
+- Ras
+- Myc
+- APC/C
+- NIH3T3
+- bcl-2
+- DISC
+- Cyt c
+- IGF-1R
+- mTOR
+
+einführen. Also. Studiere JETZT [Bioinformatik][20] und damit
+[Zellbiologie][21] an der [FSU Jena][22]. Es erwarten dich mehr als 460 Folien
+mit allerlei Hintergrundwissen zu dieser kurzen Zusammenfassung.
+
+[1]: https://secure.wikimedia.org/wikipedia/en/wiki/Caveolen
+[2]: https://secure.wikimedia.org/wikipedia/en/wiki/Caveolin
+[3]: https://secure.wikimedia.org/wikipedia/en/wiki/Claudin
+[4]: https://secure.wikimedia.org/wikipedia/en/wiki/Caspase
+[5]: https://secure.wikimedia.org/wikipedia/en/wiki/Cathepsin
+[6]: https://secure.wikimedia.org/wikipedia/en/wiki/Calnexin
+[7]: https://secure.wikimedia.org/wikipedia/en/wiki/Clathrin
+[8]: https://secure.wikimedia.org/wikipedia/en/wiki/Ubiquitin-activating_enzyme
+[9]: https://secure.wikimedia.org/wikipedia/en/wiki/Ran_%28biology%29
+[10]: https://secure.wikimedia.org/wikipedia/en/wiki/Nuclear_localization_signal
+[11]: https://secure.wikimedia.org/wikipedia/en/wiki/Nuclear_export_sequence
+[12]: https://secure.wikimedia.org/wikipedia/en/wiki/Importin
+[13]: https://secure.wikimedia.org/wikipedia/en/wiki/Exportin_1
+[14]: https://secure.wikimedia.org/wikipedia/en/wiki/COPI
+[15]: https://secure.wikimedia.org/wikipedia/en/wiki/COPII
+[16]: https://secure.wikimedia.org/wikipedia/en/wiki/Translocase_of_the_inner_membrane
+[17]: https://secure.wikimedia.org/wikipedia/en/wiki/Translocase_of_the_outer_membrane
+[18]: http://www.ulb.ac.be/sciences/physcell/pdf/cours/2010-2011/BMOL-F-436_10_11_07b.pdf
+[19]: https://secure.wikimedia.org/wikipedia/en/wiki/Sorting_and_assembly_machinery
+[20]: http://bio.informatik.uni-jena.de/
+[21]: http://www.cellbiology.uni-jena.de/
+[22]: http://www.uni-jena.de/

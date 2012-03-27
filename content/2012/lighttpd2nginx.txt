@@ -1,0 +1,193 @@
+---
+title: nginx
+date: 07.01.2012, 22:03
+tags: [lighttpd, nginx, planet]
+---
+
+Seit heute rennt das Blog unter [nginx][1]. Der Grund ist einfach:
+[lighttpd][2] ist behindert zu konfigurieren, hat keine aktuellen/coolen
+Features und ist zudem noch langsamer als nginx. Ich hoffte seit knapp einem
+Jahr, dass sich in der Entwicklung was tut, aber außer einer Beta-Version mit
+integriertem [lua][3]-Support (um überhaupt ein [if-else][4] statt if-else-if
+konfigurieren zu können) und zahlreichen *[Won't][5] [fixes][6]* für 1.4.x hat
+sich leider rein gar nichts getan.
+
+Warum [nginx][1]? Ja, das weiß ich auch nicht, aber die [Alternativen][7] zu
+non-Apache mit geringem Memory-Footprint, vielen Features und opensource sehen
+schlecht aus. [thttpd][8] hat kein `mod_proxy`, [Cherokee][11] bringt gleich
+ein Web-GUI zur Administration mit und [LiteSpeed Web Server][9] ist nicht
+quell-offen. Also, was sind die Features von nginx?
+
+- schnell und leichtgewichtig
+- logische Konfiguration (was ich schon für behinderte Logik-Krämpfe mit lighttpd hatte...)
+- mod_proxy, mod_fastcgi, expires, [PCRE][10]
+
+# Moving from lighttpd to nginx
+
+Die Umstellung von lighttpd nach nginx ist nicht ganz ohne. Prinzipiell ist
+alles anders und nginx hat keine Unterstützung für CGI und rewrite-Regeln auf
+Query-Parametern. Außerdem spawnt nginx nicht automatisch einen PHP-Prozess
+für FastCGI und erlaubt keine POST-Requests auf statische Seiten -- aber das
+lässt sich umgehen.
+
+## 1. Präambel - /etc/nginx/nginx.conf
+
+    :::nginx
+    user www-data;
+    worker_processes  2;
+
+    error_log  /var/log/nginx/error.log;
+    pid        /var/run/nginx.pid;
+
+    events { worker_connections  2048; }
+
+    http {
+        include       /etc/nginx/mime.types;
+
+        #access_log /var/log/nginx/access.log;
+
+        # cbc-mode ciphers might be vulnerable (BEAST)
+        ssl_ciphers RC4:HIGH:!aNULL:!MD5;
+        ssl_prefer_server_ciphers on;
+
+        sendfile        on;
+        keepalive_timeout  65;
+        tcp_nodelay        on;
+
+        gzip  on;
+        gzip_disable "MSIE [1-6]\.(?!.*SV1)";
+        index index.php index.htm index.html;
+
+        include /etc/nginx/conf.d/*.conf;
+
+## 2. vhosts - /etc/nginx/conf.d/posativ.org.conf
+
+    :::nginx
+    server {
+        listen       80;
+        server_name  posativ.org;
+        root         /home/www/posativ.org;
+
+        location ^~ /blog {
+            include conf.d/pyblosxom.redirect;
+        }
+
+        location ~ ^/(redmine|git)/ {
+            rewrite ^/(.*)$ https://posativ.org/$1 redirect;
+        }
+    }
+
+Selbsterklärend. Nicht mehr und nicht weniger will ich konfigurieren. Statt
+im lighty irgendwelche obskuren Redirects auf Sockets != 443 zu kreieren,
+gibt es hier ganz klar das Konzept „ich lausche auf diesen Ports mit folgenden
+Einstellungen”.
+
+## 3. SSL
+
+In der Präambel lässt sich zudem noch die verwendete Cipher wählen und so
+ein Angriff mittels BEAST verhindern.
+    
+    :::nginx
+    server {
+        listen       443;
+        server_name  posativ.org;
+        root         /home/www/posativ.org;
+
+        ssl             on;
+        ssl_certificate certs/posativ.org.crt;
+        ssl_certificate_key certs/posativ.org.key;
+
+        location ^~ /redmine {
+            proxy_pass http://127.0.0.1:3001;
+        }
+
+        location ^~ /git {
+            proxy_pass http://127.0.0.1:7654;
+        }
+
+        # ...
+    }
+
+## 5. rewrite rules
+
+Das war zunächst das größte Problem. Ich pflege Rückwärtskompatibilität 
+zwischen meinen (inzwischen vier) Blogs mit unterschiedlicher Software und
+Permalinks. Einfach sind URI -> URI rewrites-Rules:
+
+    :::lighttpd
+        # lighttpd
+        url.redirect += ("/blog/?$" => "https://blog.posativ.org/", ...)
+
+&nbsp;
+
+    :::nginx
+        # nginx
+        rewrite "^/blog/?$" "http://blog.posativ.org/" permanent;
+        ...
+
+Mit `perl -pe "s/\"(.+)\" => \"(.+)\",/rewrite \"\^\1\" \"\2\" permanent;/g"`
+hatte ich das grob von lighttpd auf nginx übertragen. Problem: nginx kann kein
+rewrite auf die Request-Parameter (zurecht aber auch). Das sollte nicht nur
+mich mit meinen anfänglichen `/?p=1dcdd17` stören, auch diverse [andere
+Blogs][12] haben dieses URL-Schema. Warum das nicht direkt von den
+rewrite-Regeln unterstützt wird, ist klar: die Query-Parameterreihenfolge ist
+variabel. Aber es ist nginx und da geht alles (wenn auch mit erhöhtem
+Rechenaufwand):
+
+    :::nginx
+    location = / {
+        # das `?` am Ende leitet die GET-Request Paramter nicht weiter
+        if ($arg_p = 1dcdd17) {
+            rewrite ^ http://blog.posativ.org/2011/weitere-html-abstraktion-in-python/? permanent;
+            # ...
+        }
+    }
+
+## 6. weitere Eigenheiten
+
+- nginx erlaubt kein POST/PUT auf statisches HTML, denn sonst wäre es ja CGI
+  (was aber auch nicht geht, dazu gleich mehr). Aber auch dafür gibt es die
+  merkwürdigsten Workarounds (POST auf statisches HTML wirft 405):
+  
+        :::nginx
+        error_page 405 = @405;
+        location       = @405 {
+            root    /home/www/blog.posativ.org;
+        }
+
+- CGI wird auch nicht unterstützt, denn es ist langsam und erfordert viel
+  Verwaltungs-Logik. Das macht bsw. lighttpd speicherhungriger als Apache (!),
+  wenn Google mal ein CGI-hosted Mercurial-Webinterface crawlt. Statt CGI
+  sollte FastCGI oder Proxy-Magie genutzt werden. Für PHP spawnt nginx keinen
+  Prozess, der muss vorher auch angelegt werden. Für Debian gibt es dafür ein
+  [`init.d`-Skript][13] und nach einem `invoke.rc-d start php-fcgi` lauscht
+  ein PHP-Prozess auf Port 9000.
+
+# Rückblick
+
+[lighttpd][2] war zwei Jahre mein treuer Begleiter im Kampf gegen Apaches
+behinderte XML-like Konfiguration mit kleinem Speicherverbrauch, aber die
+Konfiguration ist inzwischen mehr als willkürlich. Schon eine Umordnung von
+Statements, die logisch gleichwertig sind, kann das Problem lösen oder erst
+erzeugen.
+
+Die nginx Konfiguration ist weitaus intuitiver, besitzt mehr Funktionialität
+und trotzdem ist der Server schlanker, [modularer][14] und leistungsfähiger
+als lighttpd.
+
+KTHXBYE lighttpd.
+
+[1]: http://nginx.org/
+[2]: http://www.lighttpd.net/
+[3]: http://redmine.lighttpd.net/wiki/1/AbsoLUAtion
+[4]: http://redmine.lighttpd.net/wiki/1/Docs:Configuration#Conditional-Configuration
+[5]: http://blog.posativ.org/2011/lighttpd-git-grack-http-417/
+[6]: http://redmine.lighttpd.net/issues/1532
+[7]: https://en.wikipedia.org/wiki/Comparison_of_lightweight_web_servers
+[8]: https://en.wikipedia.org/wiki/Thttpd
+[9]: http://www.litespeedtech.com/overview.html
+[10]: https://en.wikipedia.org/wiki/PCRE
+[11]: http://www.cherokee-project.com/
+[12]: http://frank.geekheim.de/
+[13]: http://wiki.nginx.org/PHPFcgiExample#Spawning_a_FastCGI_Process
+[14]: http://wiki.nginx.org/Modules

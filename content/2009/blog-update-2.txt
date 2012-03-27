@@ -1,0 +1,29 @@
+---
+title: Update II
+filters: [reST]
+date: 09.09.2009, 18:13
+tags: [ich, ]
+---
+
+Noch einmal kurz eine Statusübersicht:
+======================================
+
+Noch nicht laufen tut:
+----------------------
+- RSS 2.0 (Problem noch nicht angegangen)
+- reST CSS, Umstrukturierung der Textile Posts (Konflikt mit reST)
+- Dateien und Bilder auf den Server verlinkt, existieren bis dato noch nicht
+
+Derzeit läuft:
+----------------------
+- ATOM 1.0 Feed
+- RSS 0.98 Feed (schlecht)
+- Blogsystem selber
+- alte Feed-Adressen (http://www.posativ.org/blog/rss und http://www.posativ.org/blog/atom) funktionieren wieder (cgi-Skript, das einfach die Hauptseite + '?flav=rss' aufruft.)
+- articles Link mit Übersicht aller bisherigen Posts
+- statische HTML Version aller Einträge (automatisch generiert)
+
+Das Ganze wird unter /testing/blog getestet und ich hoffe, dass bis Ende September alles so steht, wie ich es mir wünsche.
+Ich schreibe nebenbei auch an neuen Berichten zu Wuala, allerdings kann ich die noch nicht veröffentlichten, weil das CSS fehlt.
+
+ps: an alle Feed-Leser (wenn es denn welche gibt), irgendwann kommen noch einmal alle Einträge, aber ich hoffe, das war dann das letzte mal :)

@@ -1,0 +1,23 @@
+---
+title: sqlite dump mit python
+date: 24.09.2011, 13:28
+tags: [Python, Sqlite3]
+---
+
+Shell:
+
+	:::sql
+	sqlite3 my.db
+	>> SELECT * FROM sqlite_master;
+	
+python:
+
+	:::python
+	import sqlite3, os
+	
+	con = sqlite3.connect("my.db")
+	with open("dump.sql", "w") as f:
+	    for line in con.iterdump():
+	        f.write("%s\n" % line)
+	        
+via [stackoverflow](http://stackoverflow.com/questions/305378/get-list-of-tables-db-schema-dump-etc-in-sqlite-databases). Denn ich stehe auf Kriegsfuß mit dieser dämlichen SQL-Logik. [CouchDB](https://couchdb.apache.org/) und [MongoDB](http://www.mongodb.org/) ftw.

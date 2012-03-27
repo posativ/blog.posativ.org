@@ -1,0 +1,66 @@
+---
+title: "WhatsApp Privacy Policy: Verschlüsselung im Transportmedium."
+date: 15.01.2012, 23:43
+tags: [WhatsApp, planet]
+---
+
+[WhatsApp][1] kennt sicherlich jeder Smartphone-Nutzer. Hat über [zwei
+Millionen][2] aktive Nutzer zu jeder Stunde und ist für jede mobile Plattform
+verfügbar, leider nur nicht für den Desktop. Das lässt sich ja vielleicht
+ändern, dachte ich mir und schmiss [WireShark][3] an:
+
+    :::text
+    WA............Android-2.7.431.........~.......Z*.....8..........~._......Xbm9uY2
+    U9IjE4ODAwNzM1MDU3OS IscW9wPSJhdXRoIixjaGFyc2V0PXV0Zi04LGFsZ29yaXRobT1tZDUtc2Vzc
+    w==.........cmVhbG09InMud2hhdHNhcHAubmV0IixyZXNwb25zZT0yZTY4M2U0YjlhNTA2ODdhMmN
+    mODA3NDQ1MTMxODM3Yyxub25jZT0iMTg4MDA3MzUwNTc5IixkaWdlc3QtdXJpP SJ4bXBwL3Mud2hhdH
+    NhcHAubmV0Iixjbm9uY2U9IjFtOWRzdGM2NzY1ZHQiLHFvcD1hdXRoLHVzZXJuYW1lPSI0OTE2MzYzMT
+    A2MTMiLG5jPTAwMDAwMDAx.#.......Rj#.13050253130. 1620558113....t8..+......t..a..
+    Ich....HC..:....{.M....Ua$....HC..2.:..........,..H8...491896312624.C../..../...
+    404......J......H8.C..2.........s<C..APA91bHEmfHjKPpBwu3MJLCOtK4hFMwe0ZWHdXimFDr1
+    pxIa18rznmbZ6FLB-7pFMVwX0GJiVPcUWCaAvnwTR0O_LVfEENMr--GtpzSy2FbWtq1IKSOG9_Z0N6Kz
+    LlIit9JaKaui47VY....t......491521283131..!..HC..3.:....491521283131.....{.L.)..H8
+    ...491721883139.C..3......{.L...16990....t.....4914682512635.."..HC..4.:...
+    4914682512635.....{.L.+..H8..4915152523662.C..4......{.L...128494....t......t8..
+    .491896312624.
+
+Sieht ziemlich unleserlich aus. Die ersten zwei Bytes beginnen wohl das
+interne XMPP-Protokoll, WhatsApp-Version und dann... äh ja. Dann sind da meine
+Telefonnummer, Name, Ziel-Nummer (+ deren Zweitnummer und Geburtsdatum) der
+Gesprächspartnerin.
+
+- Version: *Android-2.7.431*
+- meine Nummer: *491896312624*
+- Zielnummer: *4914682512635*
+- Zweit-Nummer: *4915152523662*
+- Geburtsdatum: *16990*
+
+Wohlgemerkt ist das ein Dump, wenn ich die App einfach öffne. Wenn Text kommt,
+dann ist da etwas weniger (Nachricht: Ich doch nicht xD).
+
+    :::text
+    .F..]....4914682512635...C..316008602-1......O..........Ich doch nicht xD.@..]8
+    ...4914682512635.C..316008602-1........O....C..316008602-1...
+
+Ich war etwas erstaunt. WhatsApp verschlüsselt -- aber nur das eigene
+Protokoll, was mit den Nutzerdaten passiert, ist ihnen egal. Ich kann mir
+keine Erklärung dafür geben. Rechenleistung geht ja eh schon drauf, indem das
+Protokoll verschlüsselt wird, warum also nicht gleich noch den Rest
+verschlüsseln? Hauptsache keiner entwickelt einen Desktop-Clienten außerhalb
+ihres Einflussbereiches!11
+
+Im öffentlichen Hotspot sind die Daten für jedermann lesbar, für
+verschlüsseltes WLAN kann der Beitreber `ngrep`-en und dass GMS/UMTS nicht
+mehr sicher ist, weiß man spätestens nach dem [Skandal in Dresden][4]. Das
+Problem ist auch [nicht][5] [unbekannt][6], nur hat es noch keiner genug
+reverse engineered.
+
+*PS: alle personenbezogenen Informationen sind anonymisiert.*
+
+
+[1]: http://www.whatsapp.com/
+[2]: http://blog.whatsapp.com/index.php/2012/01/1-million-is-so-2011/
+[3]: https://wireshark.org/
+[4]: http://www.spiegel.de/netzwelt/netzpolitik/0,1518,776465,00.html
+[5]: http://rickey-g.blogspot.com/2011/05/whatsapp-connection-details.html
+[6]: http://shakal.blog.de/2011/03/22/whatsapp-risiken-10872342/

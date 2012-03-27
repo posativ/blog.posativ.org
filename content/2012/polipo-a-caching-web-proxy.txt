@@ -1,0 +1,124 @@
+---
+title: polipo – a caching web proxy
+date: 29.01.2012, 20:21
+tags: [OS X, proxy, polipo, planet]
+---
+
+In den zwei vergangenen Wochen habe ich viel mit Proxy-Techniken rumgespielt.
+Anfangs noch ein [SOCKSv5][1] über SSH getunnelt, über direkte HTTP
+Authentifizierung mit [polipo][2] und [Privoxy][3] im Chaining auf einem 128
+MiB RAM [Host in der Schweiz][4]. Leider entsprach das nicht direkt meinem
+Wunsch, den Verkehr bis zum anonymisierenden Proxy im Klartext zu schicken –
+und langsam(er) war es auch. Für zwei Tage hatte ich auch mein SheevaPlug als
+caching web proxy missbraucht, nur machte das in der Verbindung mit Privoxy
+nicht allzu viel Spaß: über 3 Sekunden für ein Aufruf von `spiegel.de`.
+
+Das primäre Problem mit SSH war das Abbrechen der Verbindung in jedem Fall
+nach dem Ruhezustand (wenn nicht schon nach 5 Minuten nichts tun, was
+zumindest mit `KeepAlive` gehalten werden kann, eine DSL-Zwangstrennung
+überlebt das nicht). Zu spät habe ich von [autossh][5] erfahren und habe
+stattdessen mit der Äpp [Tunneler][6] bzw. dessen Nachfolger [TunnelerX][7]
+(free as in free beer) gespielt, wo letzteres zwar die Ports richtig
+hinbekommt, nur ersteres aber die SOCKSv5-Verbindung – reconnecten nach dem
+Schlafen kann es auch nicht.
+
+Mit DSL ~4500 macht ein Setup mit einem caching web proxy in der Schweiz wenig
+Sinn, viel cooler wäre ja ein lokaler (oder im LAN, sofern man im heimischen
+W-LAN ist) Proxy der das Pseudo-Scheiß-Caching vom Firefox und Konsorten
+ausgleicht. Hier ein Tipp unter OS X: [ControlPlane][8], open-source, ist ein
+Tool, dass verschiedene (Netzwerk-) Einstellungen je nach Abstand des Mondes
+oder Wifi SSID/BSSID aktivieren kann. So kann für das Uni-Netz der heimische
+Proxy-Server deaktiviert werden und sobald wieder das 'traute Netz da ist
+aktivieren.
+
+# polipo
+
+Warum [polipo][2]? Primär, weil es für Einzelbenutzer oder wenige Clients
+konzipiert ist. Wer die hunderttausend Optionen im [squid][9] kennt, kann
+sicherlich auch den nutzen. Polipo gibt's im [homebrew][10]-Repository, bringt
+allerdings kein `launchd`-Skript mit (gibt's unten). Da ich meinem MacBook Pro
+letztens ein RAM-Upgrade gegeben habe, darf polipo maximal ein halbes Gigabyte
+RAM nutzen – und das empfehle ich jedem. Denn polipo ist etwas buggy. Es hat
+zwar einen Maintainer, aber die Commits halten sich in Grenzen. Wenn ich über
+<del>vkontakte.ru</del> [vk.com](http://vk.com/) einige Songs im HTML5 Player
+streame, dann gibt es nach neun oder zehn ein
+
+> Short on chunk memory -- attempting to punch holes in the middle of objects.
+
+und das bedeutet nichts gutes, denn es wird mitten im Streaming der Content
+gelöscht und die Verbindung abgebrochen, da es an RAM mangelt. YouTube
+betrifft es ebenso. Aber nichtsdestotrotz sollte man polipo nutzen, denn neben
+40 MB/s Downstream (Firefox' XML Parser ist wirklich langsam ;-) bringt polipo
+auch nützliche Privacy-Optionen mit:
+
+    # censoredHeaders = from, accept-language
+    censorReferer = maybe
+    censoredHeaders = accept-language, from
+
+und kann auch direkt einen eigenen DNS-Server wie [dnsmasq][12] nutzen (meine
+Hoffnung war ja, dass polipo's `proxyOffline = true` offline "Browsen" bringt,
+aber die DNS-Queries werden dennoch ein *Fehler: Server nicht gefunden*
+bringen).
+
+# ~/Library/LaunchAgents/org.posativ.polipo.plist
+
+    :::xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+    <plist version="1.0">
+    <dict>
+    	<key>Label</key>
+    	<string>org.posativ.polipo</string>
+    	<key>ProgramArguments</key>
+    	<array>
+    		<string>/usr/local/bin/polipo</string>
+    		<string>-c</string>
+    		<string>/usr/local/etc/polipo/config</string>
+    	</array>
+    	<key>RunAtLoad</key>
+    	<true/>
+    </dict>
+    </plist>
+
+Diese plist generiert mir [Lingon][11] für `/usr/local/bin/polipo -c /usr/local/etc/polipo/config` und sollte in den genannten Ort kopiert
+werden, sodass polipo beim Anmelden gestartet wird. Mit `launchctl load
+~/Library/LaunchAgents/org.posativ.polipo.plist` wird der Daemon gestartet.
+
+# Adblocking mit adzapper
+
+Privoxy ist für gewöhnlich das Tool der Wahl wenn es um Werbeblocken auf
+Proxy-Seite geht, aber da es viel CPU-Leistung verbrät, habe ich mich nach
+Alternativen umgeschaut. Primär Alternativen, die mit den [Easylisten von
+Adblock][13] kompatibel sind. [polipo][2] hat zwar auch ein regex-kompatibles
+`polipo.forbidden`-file, aber die verfügbaren [adblock2polipo.(py|rb)][14]
+produzieren inkompatible reguläre Ausdrücke. Ob der Fehler bei der Liste oder
+polipo liegt, weiß ich nicht. Allerdings bringt polipo ein *redirector*
+Feature mit. Das zwischen ein Perl-Programm wie z.B. [adzapper][15] HTTP (ohne
+S) und filtert anhand einiger regulären Ausdrücke:
+
+    :::bash
+    wget http://adzapper.sourceforge.net/scripts/squid_redirect -O /usr/local/bin/adzapper
+    echo "redirector = /usr/local/bin/adzapper" >> /usr/local/etc/polipo/config
+    
+    launchctl unload ~/Library/LaunchAgents/org.posativ.polipo.plist
+    launchctl load ~/Library/LaunchAgents/org.posativ.polipo.plist
+
+Alternativ ginge auch eine `forward / `-Direktive zu beispielsweise [bfilter][16] mit aktivem Adblock-Support.
+
+
+[1]: https://de.wikipedia.org/wiki/SOCKS
+[2]: http://www.pps.jussieu.fr/~jch/software/polipo/
+[3]: http://privoxy.org/
+[4]: http://edis.ch/
+[5]: http://www.harding.motd.ca/autossh/
+[6]: http://www.chipmunkninja.com/Tunneler-0.9---An-SSH-1g@
+[7]: http://chipmunkninja.com/Tunneler
+[8]: https://github.com/dustinrue/ControlPlane
+[9]: http://www.squid-cache.org/
+[10]: https://github.com/mxcl/homebrew/
+[11]: http://www.peterborgapps.com/lingon/
+[12]: http://thekelleys.org.uk/dnsmasq/doc.html
+[13]: https://easylist.adblockplus.org/de/
+[14]: http://rightfootin.blogspot.com/2009/11/ad-blocking-with-polipo.html
+[15]: http://adzapper.sourceforge.net/
+[16]: http://bfilter.sourceforge.net/index.php

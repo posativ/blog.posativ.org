@@ -1,0 +1,60 @@
+---
+title: Regenwolken – hosting CloudApp on your own server
+date: 28.08.2011, 14:14
+lang: en
+tags: [CloudApp, Python, regenwolken]
+---
+
+[<img src="/img/2011/freedombox.jpg" alt="Freedombox Logo by El Bazza"
+    class="floatleft" width="180px" />](https://secure.flickr.com/photos/el_bazza/5636100752/)
+
+[CoudApp][1] allows you to share any kind of data with your friends using
+Amazon S3 as backend. It provides a verbose API and has several working
+clients for iPhone, iPad and Android as well. [Cloud.app][2] is a really
+handy, extendable Mac-client leaving nothing to be desired. CloudApp offers a
+*Pro* mode, allowing you to share data up to 250 Mb and unlimited uploads as
+well as links to your domain. For free you'll get 10 uploads per day and a
+filesize limit of 25 MiB.
+
+I had some [leisure time][3] and found out, CloudApp's services is similar to
+Facebooks privacy options. Their security/privacy (marked as “private”) relies
+simply on a longer hash than their (per default) [public][4] [items][5]
+starting as three-character hash.
+
+I don't read their terms of service, but I guess they are similar to DropBox;
+means you have no rights on your uploaded data, Patriot Act and so on. Btw,
+they're using [Pusher](http://pusherapp.com) for whatever reason. Privacy is
+not compatible with CloudApp as I've seen with `tcpdump` so far. But their
+Desktop-Clients are cool (with a carrot and a stick).
+
+# [Regenwolken](https://github.com/posativ/regenwolken/)
+
+Regenwolken is an alternate (incomplete) server implementation written in
+[python](http://python.org/), [bottly.py](http://bottlepy.org/) and
+[MongoDB](http://www.mongodb.org/), which is compatible with *Cloud.app*
+(Mac-Client) and circumvents any Free/Pro restriction. Its has support for
+their basic, unencrypted authentication (no wait, it's [digest][10] auth!1),
+unlimited file uploading, file size limit and a powerful database backend.
+
+Regenwolken can run either as stand-alone HTTP-server on port 80 or on as unprivileged user
+and using some `mod_proxy`-magic. Unfortunately it requires access to /etc/hosts
+to redirect *my.cl.ly* to your own server address. This will not break any
+“official” CloudApp links (*cl.ly*) and is only required for the upload itself.
+Other people get a normal, non-/etc/hosts hacked, [working link][12].
+
+Regenwolken is licensed under BSD, two-clause and can be found on
+[GitHub][7]. Check [README.md][8] and [Issues][9] as well. Don't expect
+a full featured server API yet, it's currently [0.1-alpha][11].
+
+[1]: http://getcloudapp.com/
+[2]: http://itunes.apple.com/us/app/cloud/id417602904?mt=12&ls=1
+[3]: https://blog.posativ.org/2011/os-x-sniffing-tools/
+[4]: http://cl.ly/123
+[5]: http://cl.ly/wtf
+[6]: https://github.com/
+[7]: https://github.com/posativ/regenwolken/
+[8]: https://github.com/posativ/regenwolken/blob/master/README.md
+[9]: https://github.com/posativ/regenwolken/issuesπ
+[10]: https://secure.wikimedia.org/wikipedia/en/wiki/HTTP_digest_authentication
+[11]: https://github.com/posativ/regenwolken/tree/0.1-alpha
+[12]: http://l.khaos.at/items/4e5a2672f6966c4f31000008

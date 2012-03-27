@@ -1,0 +1,53 @@
+---
+title: Unofficial Wuala FAQ
+filters: [reST]
+date: 02.08.2010, 21:37
+tags: [Wuala]
+---
+
+Es gibt zwar das `offizielle FAQ`_, die ist aber so überfüllt, dass man es eher
+als Handbuch bezeichnen könnte. Daher liste ich mal ein paar wirklich häufiger
+gestellte Fragen zu komplexeren Themen innerhalb  Wualas. Ich werde das ab und 
+an mal aktualisieren/korrigieren (*Achtung: keine Gewähr auf Korrektheit*).
+
+.. _`das hier`:
+
+Wieso ist eine Datei nach dem Verschlüsseln sofort als „hochgeladen“ markiert?
+==============================================================================
+
+Wuala nutzt zur Verschlüsselung einer Datei immer den gleichen Schlüssel. Das heißt, dass ein
+Linux-Image immer bitgleich verschlüsselt wird. Daraus folgt, dass der `Hash`_ für gleiche
+Dateien identisch ist. Und da die Datenbanken Wualas ausschließlich den Hash als bekannten
+Wert führen, wird eine identische Datei sofort erkannt und als hochgeladen markiert. Der 
+Schlüssel dazu wird allerdings vom User selbst generiert, sodass er nur Zugriff auf diese
+Datei erhalten kann, wenn er sie auch tatsächlich im Original besitzt.
+
+Wuala macht Archive kaputt!
+===========================
+
+Das stimmt so nicht. Wuala nutzt als Ergänzung die Cloud, um beim Download ordentliche
+Geschwindigkeiten zu erreichen. Da kann es passieren, dass einige Fragmentstücke fehlerhaft
+sind. Wuala hat das **früher** nicht geprüft. Das heißt, wenn mir eine Node ein kaputtes Stück
+gibt, hat Wuala schön entschlüsselt und dem Nutzer eine Datei präsentiert, die ein paar Bits
+falsch hatte. Bei Archiven hat das zur Folge, dass diese den Fehler erkennen (die nutzen nämlich
+auch einen Hash zum Vergleich) und dann das Entpacken verweigern, weil die Integrität nicht stimmt.
+
+Das „Problem“ wurde behoben, indem Wuala nun eigenständig prüft, ob die Dateiintegrität
+stimmt, wenn nicht, so wird noch einmal heruntergeladen *(oder nur das Teilstück?)*.
+
+Wie verschlüsselt Wuala die Dateien?
+====================================
+
+Wuala nutzt das `Advanced Encryption Standard`_ in der 128-Bit Variante zur symmetrischen
+Verschlüsselung einer Datei. Dabei wird die Datei **unabhängig vom Nutzer** verschlüsselt –
+anders wäre `das hier`_ auch nicht möglich.  
+Wer mal größere Dateien hochgeladen hat, wird sehen, dass zuerst das *Lesen* der Datei kommt:
+der Hash_ wird generiert und danach wird die Datei *verschlüsselt* – und zwar mit dem generierten
+Hash! Zu guter letzt wird dieser Schlüssel *(=Hash)* fein säuberlich in den Schlüsselbund des
+jeweiligen Users abgelegt *(und ggf. geteilt)*.
+
+Warum ist eine Datei sofort nach dem Hinzufügen als „hochgeladen“ markiert?
+
+.. _`offizielle FAQ`: http://www.wuala.com/de/support
+.. _Hash: http://de.wikipedia.org/wiki/Hash
+.. _`Advanced Encryption Standard`: http://de.wikipedia.org/wiki/Advanced_Encryption_Standard

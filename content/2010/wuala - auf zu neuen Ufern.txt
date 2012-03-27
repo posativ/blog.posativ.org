@@ -1,0 +1,51 @@
+---
+title: Wuala – auf zu neuen Ufern
+
+date: 12.08.2010, 13:45
+tags: [Wuala]
+---
+
+Seit [gestern][] kann [hier][] eine Vorabversion (Beta der Beta?) von Wuala „Affoltern“ heruntergeladen werden.
+Empfohlen ist, einen Test-Account zu nutzen – aber hey, no risk no fun.
+
+Weil Lila *toll* ist
+====================
+
+oder so ähnlich. Anders kann ich mir die interessante Farbkombination nicht erklären.
+Ob damit neue Zielgruppen angesprochen werden?
+
+<a href="http://blog.posativ.org/img/wuala/wuala_new_gui.png">
+<img src="http://blog.posativ.org/img/wuala/wuala_new_gui.png" alt="Wualas neue GUI" width="760" class="shadow" />
+</a>
+
+[gestern]: https://forum.wuala.com/viewtopic.php?p=2644&f=34#p2644
+[hier]: https://forum.wuala.com/viewtopic.php?f=34&t=544&start=0
+
+Keine Vorschaubilder
+==========================
+
+So wie auf dem Screen sehen alle Ordner aus. Einzig Dateien haben noch ihr Vorschaubildchen. Das
+ist ein sehr gewagter Schritt – immerhin ist bei großen Gruppen die Navigation einzig dank
+Vorschaubildchen möglich.  
+Ein [Voting][] läuft derzeit.
+
+[Voting]: http://bugs.wuala.com/view.php?id=2197
+
+Ausbau von Backup und Sync
+==========================
+
+Mit der neuen Release (in den nächsten ein, zwei Wochen) wird der Fokus massiv
+auf Backup und Synchronisation gelegt. Beide Features erhalten nun einen Platz
+an der rechten Seite neben den Gruppen.
+
+Welt-Tab entfällt
+==========================
+
+Neben dem Entfallen von der getabten GUI fällt der Welt-Tab vollständig weg.
+Begründet wird [das hier][]
+
+[das hier]: https://forum.wuala.com/viewtopic.php?p=2655&f=11#p2655
+
+Finde das zwar schade, aber im groben kann ich der Entscheidung folgen: zu viele
+Dateien, zu wenig Ordnung, zu viel Müll und möglicherweise illegales Zeug in dem Welt-Tab. Die
+Suchfunktion kann prima über die API angesprochen werden.

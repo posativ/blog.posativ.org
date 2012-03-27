@@ -1,0 +1,40 @@
+---
+title: "Linkschleuder #9"
+date: 20.11.2011, 13:37
+tags: [Links, Python, Atom, CSS]
+---
+
+- [toast](http://www.toastball.net/toast/) -- packageless package manager for
+  Unix systems and non-root users 
+- [Backblaze](http://www.backblaze.com/) -- wohl billigste Cloud-Backup Lösung
+  überhaupt. Halt mit mangelnder Redundanz und so.
+- [IPv4 Logs randomisieren](http://rolffreitag.de/projects/liberal/randomize.html)
+  -- hatte ich letztens wieder eine Diskussion. Meine Lösung ist inzwischen aber
+  `127.0.0.1` im IP-Feld.
+- Es gibt übrigens einen [Standard um mit HTTP](https://tools.ietf.org/html/rfc5023)
+  ein Blog zu administrieren. Das ist dann so mit PUT und DELETE und halt 'ne etwas
+  behindertere REST-API. [Hier](http://bitworking.org/news/AtomAPI_Quick_Reference)
+  und [hier](https://www.ibm.com/developerworks/library/x-atompp1/) ein Tutorial.
+  Primäres Problem: wenn man so ein Blog hätte, dann gäbe es keine Tools dafür.
+- [enable cross-origin resource sharing](http://enable-cors.org/) -- wer sich
+  an die etwas restriktive [same-origin-policy](https://en.wikipedia.org/wiki/Same_origin_policy)
+  stört, der kann es für seine Website individuell oder allgemein aktiveren.
+- [Don't Use MongoDB](http://pastebin.com/FD3xe6Jt)
+- [A Curious Course on Coroutines and Concurrency](http://www.dabeaz.com/coroutines/) (in Python!).
+- [It's dangerous to send data to an untrusted environment](http://packages.python.org/itsdangerous/)
+  -- eine Python-Lib, um im Web kryptografisch zu signieren. Mit Timestamps und so.
+- [Unicode nach Ascii](http://effbot.org/zone/unicode-convert.htm) -- zumindest
+  für Latin1. Macht aus Æ ein Th und aus ß ein ss.
+- [Unicode nach Ascii++](http://pypi.python.org/pypi/translitcodec/0.2) -- für
+  Support von € in EUR oder gar ☺ in :-). Ziemlich nützlich, um schöne URLs in
+  Blogs zu bekommen und eine bessere Alternative als die üblichen Ansätze in WordPress
+  und so mit NFKD zu normalisieren.
+- [5 Years of Bad Ideas](http://pocoo.org/~mitsuhiko/badideas.pdf) -- über Zauberei
+  in Python. Gute und schlechte Zauberei, Zauberei mit Fallback und ungewöhnliche
+  Zauberei. Sehr lesenswert!
+- [CSS Syntax mit Variablen und nested Blocks](http://ncannasse.fr/projects/hss)
+  -- in einer mir unbekannten yetanother C++/Java-Klon Sprache namens [Neko](http://nekovm.org/)
+  geschrieben. Die gibt's sogar als `mod_neko`.
+- [Yet another CSS Preprocessor](http://learnboost.github.com/stylus/)
+- und zu guter letzt noch ein [node.js-Tutorial](http://dailyjs.com/2010/11/01/node-tutorial/)
+  ([GitHub](https://github.com/alexyoung/dailyjs/))

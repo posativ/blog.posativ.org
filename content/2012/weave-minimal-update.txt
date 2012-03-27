@@ -1,0 +1,27 @@
+---
+title: weave-minimal Update
+date: 18.02.2012, 22:41
+tags: [Firefox Sync]
+---
+
+Ich habe heute wieder etwas an meinem
+[`server-full`](https://hg.mozilla.org/services/server-full/)-Fork
+[`weave-minimal`](https://github.com/posativ/weave-minimal) gebastelt und habe es
+geschafft, die Registrierung direkt im Firefox zu ermöglichen. Der
+alternative Weg über die CLI mit erweitertem Nutzernamen-Spektrum existiert
+natürlich weiterhin. Änderungskatalog:
+
+- direkte Registrierung im FF
+- rudimentärer `/misc/1.0/captcha_html`-Support (d.h. ohne reellen Nutzen)
+- mehr standard-konform
+- offene Registrierung per Default, einfach `ENABLE_REGISTER` auf `False`
+  setzen
+
+# Spielwiese
+
+Unter `https://posativ.org/weave/` läuft ein Sync-Server mit einer offenen
+Registrierung; wer mir also vertraut (Passwort wird gesalzen als truncated 
+sha1-Hash gespeichert) oder einfach nur Testen will, ob mein Server was
+taugt – benötigt allerdings [CAcert-Vertrauen][1], ist hier gerne willkommen.
+
+[1]: http://www.cacert.org/index.php?id=3

@@ -1,0 +1,85 @@
+---
+title: Mit MathML in die Steinzeit
+date: 13.07.2011, 21:20
+tags: [MathMl, HTML5]
+---
+
+Ich bin gerade eben mit einer [AsciiMathML][1]-Implementierung für [lilith][2]
+fertig geworden und *jetzt* kann ich sagen, [MathML][8] findet ihr in WordPress nicht!
+Nein, [das hier][3] ist -- wahrscheinlich eh inkompatibel -- zählt auch nicht!
+
+Die gute Seite ist die: man kann fast wie in LaTeX, nur (leider) ohne die
+Backslashes sein `x_(1,2)=(-b+-sqrt(b^2-4a c))/(2a)` schreiben und bekommt
+seine gewünschte Formel zur Lösung von quadratischen Gleichungen:
+
+{@style=text-align: center;} $x_(1,2)=(-b+-sqrt(b^2-4a c))/(2a)$
+
+Hübsch, nicht wahr?
+
+Die schlechte Seite: für ungefähr die Hälfte der Internet-Nutzer gilt das nicht.
+Denn wir leben ja erst im Jahre 2011 und da kann es ja vorkommen, dass so
+„Vorreiter” wie Chrome und Safari [ES EINFACH NICHT GEBACKEN BEKOMMEN][4],
+MathML zu implementieren. SEIT FÜNF JAHREN. Seit fünf Jahren haben die diesen
+Masterbug-Report, aber implementieren nebenbei weiterhin den neusten Scheiß,
+der noch nicht einmal vom W3C diskutiert wurde. Mann, Mann Mann!
+
+FAIL.
+
+So kommt es, dass Chrome und Safari Nutzer nur Müll sehen. Tja, Pech gehabt!
+Es ist natürlich klar, dass Firefox das kann. So wie es mir vorkommt,
+auch schon seit mehr als einer Dekade, aber das heißt ja noch lange nicht, dass
+der Internet Explorer das braucht. Wozu auch ([via][8])?
+
+> Internet Explorer does not support MathML natively. Support in IE7 and
+> IE8 can be added by installing the MathPlayer plugin. **MathPlayer is
+> not currently compatible with IE9.**
+    
+FAIL.
+
+Bleibt noch Opera im Feld. An sich können die MathML, haben aber Probleme
+beispielsweise bei dieser [Rekurrenz](http://de.wikipedia.org/wiki/Nussinov-Algorithmus):
+
+<div style="text-align: center;">
+<math xmlns='http://www.w3.org/1998/Math/MathML' display='inline'><mi>N</mi><mo stretchy="false">[</mo><mi>i</mi><mo>,</mo><mi>j</mi><mo stretchy="false">]</mo><mo>=</mo><mi>max</mi><mrow><mo>{</mo><mrow><mtable columnalign="left left"><mtr><mtd><mi>N</mi><mo stretchy="false">[</mo><mi>i</mi><mo>+</mo><mn>1</mn><mo>,</mo><mi>j</mi><mo stretchy="false">]</mo></mtd></mtr> <mtr><mtd><mi>N</mi><mo stretchy="false">[</mo><mi>i</mi><mo>,</mo><mi>j</mi><mo>&minus;</mo><mn>1</mn><mo stretchy="false">]</mo></mtd></mtr> <mtr><mtd><mi>N</mi><mo stretchy="false">[</mo><mi>i</mi><mo>+</mo><mn>1</mn><mo>,</mo><mi>j</mi><mo>&minus;</mo><mn>1</mn><mo stretchy="false">]</mo><mo>+</mo><mi>&delta;</mi><mo stretchy="false">(</mo><mi>i</mi><mo>,</mo><mi>j</mi><mo stretchy="false">)</mo></mtd></mtr> <mtr><mtd></mtd></mtr></mtable></mrow></mrow></math>
+</div>
+
+FAIL. 
+
+MathML ist übrigens – äh – *etwas* ausdrucksstark. Also das ist so im Schnitt
+ein Zeichen plain sind zehn Zeichen in HTML. Die Rekurrenz von oben in
+[MathML][5] und als [itexToMML][6] (LaTeX). Ach, 1:10 ist ja noch untertrieben!
+
+    :::LaTeX
+    N[i,j] = \max\begin{cases}
+            N[i+1,j] \\
+            N[i,j-1] \\
+            N[i+1,j-1] + \delta(i,j) \\
+    \end{cases}
+    
+FAIL.
+
+Also, nutzt Firefox. Der ist zwar gefühlt etwas schwerfällig, aber hat NoScript
+und kann MathML korrekt darstellen. Für alle anderen: [so schön sollte es aussehen][7]!
+Und ja, [das hier validiert][9].
+
+# EDIT – 23. Juli 2011
+
+Opera (11.50) kann doch zum Teil MathML darstellen (failt wirklich bei der
+Rekurrenz, da es die geschweifte Klammer nicht vergrößern kann) und Safari
+hat in Version 5.1 (zu Lion) auch MathML-Support im WebKit aktiviert. Zwar
+noch nicht ganz bugfrei, aber immerhin funktionell!
+
+Ein Problem bei der Darstellung von MathML ist die Auslieferung (!) des Dokuments.
+Wenn das xhtml-Dokument nicht explizit als  'application/xhtml+xml' ausgeliefert
+wird, dann will Opera nicht. Grausig! Und nun kann der IE <=8 (9 untested)
+das nicht mehr darstellen. FAIL.
+
+[1]: http://www1.chapman.edu/~jipsen/mathml/asciimath.html
+[2]: https://github.com/posativ/lilith
+[3]: http://golem.ph.utexas.edu/~distler/blog/archives/000537.html
+[4]: https://bugs.webkit.org/show_bug.cgi?id=3251
+[5]: http://paste.pocoo.org/show/437967/
+[6]: http://golem.ph.utexas.edu/~distler/blog/itex2MML.html
+[7]: /img/2011/mathml.png
+[8]: http://en.wikipedia.org/wiki/MathML
+[9]: http://validator.w3.org/check?uri=http%3A%2F%2Fblog.posativ.org%2F2011%2Fmit-mathml-in-die-steinzeit%2F&charset=%28detect+automatically%29&doctype=Inline&group=0&user-agent=W3C_Validator%2F1.2

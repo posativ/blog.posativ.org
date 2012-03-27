@@ -1,0 +1,68 @@
+---
+title: "Lesezeichen: Feeds die ich regelmäßig lese"
+date: 26.07.2011, 00:37
+permalink: /2011/lesezeichen-feeds-die-ich-regelm-ig-lese
+---
+
+Meine Nachrichtenquellen, die ich nach über drei Jahren wirklich sehr
+regelmäßig und gerne lese. Am besten mit [newsbeuter][1] – dem besten
+Feedreader auf der <del>Welt</del> Konsole ;-)
+
+# Linux
+
+- [ArchLinux.de – Planet](https://planet.archlinux.de/rss20.xml)
+- [Debianforum.de – Planet](http://planet.debianforum.de/rss10.xml)
+- [Ubuntuusers.de – Planet](http://planet.ubuntuusers.de/feeds/full/20/)
+
+Die Planeten. Debianforum ist nicht direkt über Debian, sondern eher explizit
+alles, was nichts mit Debian zu tun hat, aber über den ArchLinux Planeten und
+den ([stark zensierten][2]) Ubuntuusers-Planeten, der von lächerlich laienhaft
+bis sehr detailliert geht. Meist überwiegt ersteres, aber auf 20 Trash-Einträge
+folgt in der Regel ein lesenswerter. (Beiträge doppeln sich häufig in den
+drei Feeds.)
+
+- [BiskumNet](http://biskumnet.redirectme.net/?feed=rss2) – über Linux, KDE
+  und das alles auf einem SheevaPlug, zu Hause gehostet!
+- [RFC1437](http://rfc1437.de/collection/recent/feed/) – immer informiert über
+  neusten Scheiß an Frameworks und Bibliotheken. Ein Schwerpunkt auf Python.
+- [uninformativ.de](http://www.uninformativ.de/rss.php) – über Bash und Linux
+- [0x7be](https://0x7be.de/feed/atom/)
+
+# IT, Privacy und so
+
+Die üblichen Verdächtigen, die jeder kennt. Der [CCC][3], [Frank Rieger][4]
+und [Fefe][5]. Ebenso die Podcasts und das [CR Blog][6]:
+
+- [Chaosradio Express](http://chaosradio.ccc.de/chaosradio_express-complete.rss)
+- [Chaosradio](http://chaosradio.ccc.de/chaosradio-complete.rss)
+- [Alternativlos](http://alternativlos.org/alternativlos.rss)
+
+Dazu gesellen sich dann noch ab und an mal interessante Beiträge von
+[Kristian Köhntopp][7] und das bekannte [Neusprech][8]-Blog. Auch lesenswert
+ist [der Schockwellenreiter](http://www.schockwellenreiter.de/feed/), Mischung
+aus neustem scheiß in der Programmierung und Politik/Polemik.
+
+# bunt gemischt
+
+- [Gulli: News](http://ticker.gulli.com/rss/) – IMHO das für den nicht direkt
+  interessierten, das beste „Scene”-Portal. Halbwegs brauchbare Beiträge.
+- [Fefemama](http://fettemama.org/rss.xml) – eine nette, hübsche Seite im
+  Fefe-Style mit dem [besten Kommentarsystem][9], I've ever seen!
+- [virii.lu](http://feeds.feedburner.com/virii/w32)
+- [Quassel IRC](http://quassel-irc.org/blog/feed)
+- [Podcast: Sprichmalschwedisch](http://www.sprichmalschwedisch.com/feed/)
+
+Sonst noch meine eigenen Blog-Feeds, um zu sehen, wann ich scheiße
+gebaut habe. Daneben noch der GitHub-private Feed. Mehr nicht.
+
+
+
+[1]: http://newsbeuter.org/
+[2]: http://linuxundich.de/de/ubuntu/goodby-planet-ubuntuusers-de/
+[3]: http://www.ccc.de/de/rss/updates.rdf
+[4]: http://frank.geekheim.de/?feed=rss2
+[5]: http://blog.fefe.de/rss.xml?html
+[6]: http://blog.chaosradio.ccc.de/index.php/feed/
+[7]: http://blog.koehntopp.de/feeds/index.rss2
+[8]: http://neusprech.org/feed/
+[9]: http://fettemama.org/comment.html

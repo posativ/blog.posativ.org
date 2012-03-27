@@ -1,0 +1,46 @@
+---
+title: Eine kleine Hetze über KDE 4
+date: 24.07.2010, 17:11
+tags: [KDE 4]
+---
+
+Ja, das muss sein. Teilweise ist KDE sowas von absolut sinnfrei konzipiert, das ist die
+sanft ausgedrückte Variante. <del>Behindert</del> „hat besondere Bedürfnisse“ trifft es aber
+besser.
+
+*Emailverschlüsselung* mit KMail ist grundsätzlich schon einmal möglich (hey!), allerdings sollte
+man es sofort richtig einrichten. Denn sobald es ans Debuggen geht, darf man wieder von vorne anfangen.
+Denn KMail ist so freundlich, und ermöglicht einem das Debuggen von `gpg`, indem es einige Zeilen
+in die *.conf* bei `gpg` und dem `gpg-agent` schreibt. Natürlich wird dabei nicht nach Versionen unterschieden,
+wer könnte den auf die Idee kommen, dass Software sich ändert? Das wäre ja ein Unding!!1 
+Tja, Resultat ist, dass man nach dem Haken für Debugging erstmal die configs wieder reparieren und KDE
+einmal neustarten darf.
+
+Weiter geht's zum *Akregator*: Das Teil ist wieder ein Paradebeispiel für: „ich kann so viel zusätzlich,
+aber ein Feedreader bin ich nicht.“ Ich bin der Ansicht, dass zumindest Feeds, die den [Feed Validation Service][]
+bestanden haben, angezeigt werden sollten. Aber leider ist mir nicht möglich, ca. 10% meiner Feeds
+nicht zu abonnieren, weil das Teil einfach mal abstürzt. Aber hey, ich kann viel zusätzlich einstellen!
+
+[Feed Validation Service]: http://validator.w3.org/feed/
+
+<a href="http://blog.posativ.org/img/linux/akonadi.png"><img src="http://blog.posativ.org/img/linux/akonadi.png"
+class="shadow floatright left down" width="300" alt="Akonadi-Selbsttest" /></a>
+
+*Akonadi*-Server... schon der Name dieser Software klingt nicht gerade vertrauenswürdig. Problem an diesem
+Teil ist, dass der Personal Information Manager (PIM), also Kontact, in den nächsten Versionen immer mehr
+darauf aufsetzen wird um Kontakte und später sogar Emails zu speichern. Leider ist das Teil nicht zu 
+konfigurieren, setzt auf eine MySQL-Datenbank auf, erwartet natürlich, dass die Tables schon existieren.
+Wenn man ein komplett neues Arch Linux installiert und dann direkt die gesamten KDE-Pakete samt 
+Abhängigkeiten, nein dann funktioniert das natürlich nicht out-of-the-box. Das funktioniert nur in
+ganz wenigen Distributionen fehlerfrei. Und das soll Standard werden? Dazu gibt es außerdem eine
+schöne Knowledge-Base, die nicht einmal die zehn Fehler von meiner (vanilla) Installation enthält und 
+trotzdem schon sehr lang ist: [Akonadi 4.4: Troubleshooting](http://userbase.kde.org/Akonadi_4.4/Troubleshooting)
+
+Wo könnte man die Ressourcen sinnvoller verschwenden? Zum Beispiel bei Konqueror... weder besteht der den
+[acid3](http://acid3.acidtests.org) noch ist der halbwegs schnell (selbst Firefox ist 100 Mal schneller, und **das** will
+was heißen). Aber viele unwichtige Features stehen bereit... das ist so eines der größten Probleme bei KDE:
+
+**Unzählige Zusatzfeatures, aber die Kernfunktion ist fehlerhaft.**
+
+Warum ich trotzdem weiterhin KDE nutze? Es gibt a) keine Alternative und b) einige Programme,
+die den ganzen Mist wieder gut machen: Kate, Dolphin, Kwin, und und und...

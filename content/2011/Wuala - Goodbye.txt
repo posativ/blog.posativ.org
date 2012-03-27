@@ -1,0 +1,61 @@
+---
+title: Goodbye Wuala
+date: 05.10.2011, 23:43
+tags: [Wuala]
+---
+
+Mal ernsthaft. Wie übel muss man failen, um [so eine Scheiße][1] zu
+fabrizieren? Seit einem Jahr tut sich da nichts nennenswertes mehr. Andauernd
+wird von *wir-haben-GROSSE-unterderhaube-sachen-gemacht!11* geredet und so
+elementare Dinge wie GUI und Backup & Sync Interface werden außer Acht
+gelassen. Wen haben die eigentlich als Vorbild? Hat DropBox/Azure/JungleDisk
+dauernd davon erzählt, wie toll sie im Backend funktionieren? Nein! Und
+das mit einem elementaren Unterschied: sie taugen als gute Backup-Lösung.
+
+Was hat Wuala jetzt zu bieten? Eine unglaublich behinderte Java-GUI, enormen
+CPU-Verbrauch und nicht-zuende-entwickelte Gruppen/Social-Features. Und dann
+kam wer auf die Idee, ach lass' uns doch mal so richtig tief ins Klo greifen,
+und das Trading-Feature („Ich tausche 100 GB und bekomme dafür 100 GB
+verteilt”) killen. Mir war so in Erinnerung, als dass das Hauptmerkmal beim
+[Google Tech Talk](http://www.youtube.com/watch?v=3xKZ4KGkQY8) war. Und jetzt?
+Ich kann mir auch ein paar Amazon S3 Instanzen zusammenklicken, einen Client
+in Python schreiben und etwas AES-Crypto anwerfen und das würde trotzdem
+besser laufen als <del>diese Scheiße</del> Wuala!
+
+Ich kann das auch absolut nicht nachvollziehen. Sie nutzen ja dennoch weiterhin
+ihren undokumentierten, high secure (!11) [Cryptree][7] – dessen
+Implementierung sie btw auch irgendwann mal offenlegen wollten. Sicherlich.
+Der einzige Vorteil ist jetzt, dass sie nun das Dateigrößenlimit auf 100 GiB
+anheben (da eigentlich jede Datei vorher in Chunks gesplittet wird, eh ein
+Fail für sich, dass gerade das nicht lief) und auch wie-auch-immer-implementiert
+inkrementelle Backups erlauben (das ist eigentlich konzept-bedingt nicht möglich).
+
+Naja, aber anscheinend hat Wuala irgendwelche Abnehmer gefunden. Die gehören
+sicherlich zur Kategorie der SAP und Microsoft-Nutzer. Halt freie
+Marktwirtschaft und immer schön *ABER DIE DATEN BEI AMAZON LIEGEN JA GAR NICH
+IN EUROPA!!!111!!* anprangern. Das ist so miserabel ins [Gesicht gelogen][6].
+Einfach nur traurig:
+
+> We have strong security and privacy. If you want to have
+> client-side-encryption and if you want to have your data stored in Europe,
+> Wuala is your only option.
+
+Genau!1 Noch einmal zum mitschreiben: mein `rsync` läuft mit einem Bruchteil
+der Leistung feature-reicher und zuverlässiger als irgendeine Version von
+Wuala in den vergangenen drei Jahren. Und sogar auf Servern innerhalb
+Deutschlands und meiner Wohnung!
+
+Und ein weiteres mal sehe ich mich nach Alternativen um. Und jede davon wird
+angenehmer zu bedienen sein als Wuala. Zur Auswahl stehen jetzt `rsync` mit
+[duplicity][2], [Tarsnap](https://www.tarsnap.com/) als low-level Systeme und
+[AeroFS][3] (invite-only, ich hätt' gern einen) sowie [SparkleShare][4].
+Leider alles nix mit etwas social-dingens Support und ohne Backend. Hilft wohl
+nur [selber coden][5].
+
+[1]: https://forum.wuala.com/viewtopic.php?f=39&t=2231
+[2]: http://duplicity.nongnu.org/
+[3]: http://www.aerofs.com/
+[4]: http://sparkleshare.org/
+[5]: http://adamas.ai/cgi-bin/index.cgi?page=permlink&id=4
+[6]: https://forum.wuala.com/viewtopic.php?f=39&t=2231#p9428
+[7]: http://wualablog.blogspot.com/2011/05/wualas-encryption-revisited.html

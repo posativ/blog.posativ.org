@@ -1,0 +1,140 @@
+---
+title: Profiling Memory and CPU Time of Python Programs on OS X
+date: 28.12.2011, 22:10
+lang: en
+tags: [OS X, python, acrylamid]
+---
+
+As a result of my last performance improvements to [acrylamid][1] I was not
+able anymore to measure the memory used via *Activity Monitor*. I can measure
+cpu time in many different ways using `time` or python's neat `-m cProfile -s
+cumulative` argument in front of my real program call, but I don't know any
+way to measure memory of fast ending applications.
+
+# Memory Profiling
+
+The first fact I found is that python has no capabilities of profiling and
+BSD's version of `time` had no memory statistics support (seems, linux version
+can do this). But there's an App... erm tool for that: [valgrind][2]. Using it
+with OS X' default python produces a lot of output and will slow down code
+execution, therefore you have to call valgrind with a specific supression file
+using [Massif: a heap profiler](http://valgrind.org/docs/manual/ms-manual.html)
+(or re-compile --without-pymalloc):
+
+    :::console
+    $> valgrind --tool=massif --suppressions=Misc/valgrind-python.supp \
+       python ../acrylamid/bin/acrylamid gen
+    $> ms_print massif.out.1928 > out.txt
+
+The latter produces a heap profile written to out.txt. KDE/Linux seems to have
+a visualizer, [KCacheGrind][3], but OS X don't. But there might be an
+application which claims to run on OS X as well: [Massif Visualizer][4].
+
+    :::text
+    --------------------------------------------------------------------------------
+    Command:            python ../acrylamid/bin/acrylamid gen
+    Massif arguments:   (none)
+    ms_print arguments: massif.out.1928
+    --------------------------------------------------------------------------------
+
+
+        MB
+    38.53^                                                          :             
+         |                                                        # :             
+         |                                                       @#::             
+         |                              @   @               ::@@@@#::         ::@:
+         |                              @:  @ :            :::@@@@#::::::@::::::@:
+         |                       @@:::::@:::@::@@::@::@@::::::@@@@#::::::@::::::@:
+         |           ::::::@:::::@ :: ::@:::@::@ : @::@ :: :::@@@@#::::::@::::::@:
+         |      @   :: :: :@:::::@ :: ::@:::@::@ : @::@ :: :::@@@@#::::::@::::::@:
+         |      @:@::: :: :@:::::@ :: ::@:::@::@ : @::@ :: :::@@@@#::::::@::::::@:
+         |   :::@:@::: :: :@:::::@ :: ::@:::@::@ : @::@ :: :::@@@@#::::::@::::::@:
+         |   :::@:@::: :: :@:::::@ :: ::@:::@::@ : @::@ :: :::@@@@#::::::@::::::@:
+         |  @:::@:@::: :: :@:::::@ :: ::@:::@::@ : @::@ :: :::@@@@#::::::@::::::@:
+         |  @:::@:@::: :: :@:::::@ :: ::@:::@::@ : @::@ :: :::@@@@#::::::@::::::@:
+         |  @:::@:@::: :: :@:::::@ :: ::@:::@::@ : @::@ :: :::@@@@#::::::@::::::@:
+         | :@:::@:@::: :: :@:::::@ :: ::@:::@::@ : @::@ :: :::@@@@#::::::@::::::@:
+         | :@:::@:@::: :: :@:::::@ :: ::@:::@::@ : @::@ :: :::@@@@#::::::@::::::@:
+         | :@:::@:@::: :: :@:::::@ :: ::@:::@::@ : @::@ :: :::@@@@#::::::@::::::@:
+         | :@:::@:@::: :: :@:::::@ :: ::@:::@::@ : @::@ :: :::@@@@#::::::@::::::@:
+         | :@:::@:@::: :: :@:::::@ :: ::@:::@::@ : @::@ :: :::@@@@#::::::@::::::@:
+         | :@:::@:@::: :: :@:::::@ :: ::@:::@::@ : @::@ :: :::@@@@#::::::@::::::@:
+       0 +----------------------------------------------------------------------->Gi
+         0                                                                   40.63
+
+    Number of snapshots: 86
+     Detailed snapshots: [2, 6, 8, 16, 23, 29, 33, 36, 39, 42, 48, 49, 50, 51, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63 (peak), 73, 83]
+
+# CPU Time
+
+To complete this overview article, here are the parameters to measure CPU usage
+from an earlier version of acrylamid (doing nothing):
+
+    :::text
+    $> acrylamid --version
+    0.1.11-dev
+    $> python -m cProfile -s cumulative ../bin/acrylamid gen | less
+          392661 function calls (382947 primitive calls) in 0.684 seconds
+
+    Ordered by: cumulative time
+
+    ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+         1    0.000    0.000    0.685    0.685 acrylamid:7(<module>)
+         1    0.000    0.000    0.648    0.648 __init__.py:44(__init__)
+         1    0.001    0.001    0.647    0.647 __init__.py:177(run)
+         1    0.000    0.000    0.559    0.559 __init__.py:135(initialize)
+         1    0.000    0.000    0.514    0.514 __init__.py:35(initialize)
+         8    0.000    0.000    0.277    0.035 __init__.py:19(index_filters)
+         1    0.000    0.000    0.270    0.270 hyphenation.py:191(__init__)
+         1    0.000    0.000    0.270    0.270 hyphenation.py:150(build)
+         1    0.010    0.010    0.269    0.269 hyphenation.py:34(__init__)
+     14263    0.130    0.000    0.257    0.000 hyphenation.py:45(_insert_pattern)
+     25/23    0.004    0.000    0.244    0.011 {__import__}
+     28848    0.031    0.000    0.201    0.000 re.py:228(_compile)
+         1    0.003    0.003    0.191    0.191 rst.py:7(<module>)
+       248    0.000    0.000    0.161    0.001 re.py:188(compile)
+       174    0.001    0.000    0.161    0.001 sre_compile.py:495(compile)
+         5    0.001    0.000    0.156    0.031 __init__.py:10(<module>)
+         1    0.002    0.002    0.096    0.096 __init__.py:68(<module>)
+         1    0.003    0.003    0.090    0.090 states.py:101(<module>)
+       174    0.000    0.000    0.085    0.000 sre_compile.py:480(_code)
+
+With some optimization acrylamid 0.2.1 is now about 4 times faster (685ms
+versus 140ms), just by lazy evaluate hyphenation patterns and docutils import.
+You can also pass ncalls, tottime, percall and so on instead of cumtime,
+see python's [profile][5] for all sort keys.
+
+    :::text
+    $> acrylamid --version
+    0.2.1
+    $> python -m cProfile -s cumulative ../bin/acrylamid gen | less
+          81785 function calls (78036 primitive calls) in 0.140 seconds
+
+    Ordered by: cumulative time
+
+    ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+         1    0.000    0.000    0.141    0.141 acrylamid:7(<module>)
+         1    0.000    0.000    0.103    0.103 __init__.py:45(__init__)
+         1    0.000    0.000    0.101    0.101 __init__.py:197(run)
+         1    0.000    0.000    0.098    0.098 __init__.py:143(initialize)
+         1    0.000    0.000    0.051    0.051 __init__.py:36(initialize)
+        17    0.003    0.000    0.051    0.003 {__import__}
+         1    0.000    0.000    0.046    0.046 __init__.py:38(initialize)
+         5    0.000    0.000    0.045    0.009 __init__.py:22(index_views)
+         5    0.000    0.000    0.043    0.009 environment.py:763(from_string)
+         5    0.000    0.000    0.043    0.009 environment.py:453(compile)
+         1    0.003    0.003    0.038    0.038 __init__.py:20(<module>)
+        73    0.000    0.000    0.035    0.000 re.py:188(compile)
+        73    0.001    0.000    0.035    0.000 re.py:228(_compile)
+        67    0.000    0.000    0.034    0.001 sre_compile.py:495(compile)
+         1    0.001    0.001    0.023    0.023 __init__.py:28(<module>)
+         5    0.000    0.000    0.023    0.005 environment.py:396(_parse)
+         1    0.000    0.000    0.022    0.022 md.py:7(<module>)
+         1    0.001    0.001    0.021    0.021 __init__.py:31(<module>)
+         1    0.002    0.002    0.021    0.021 hyphenation.py:4(<module>)
+
+[1]: https://github.com/posativ/acrylamid
+[2]: http://valgrind.org/
+[3]: http://kcachegrind.sourceforge.net/html/Home.htmls
+[4]: http://kde-apps.org/content/show.php?content=122409
+[5]: http://docs.python.org/library/profile.html#pstats.Stats.sort_stats

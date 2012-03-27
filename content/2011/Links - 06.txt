@@ -1,0 +1,21 @@
+---
+title: "Linkschleuder #6"
+date: 11.09.2011, 16:19
+tags: [Links, Twitter, Git, Python]
+---
+
+- [Twitter Terminal Client with streaming API support](https://github.com/jugyo/earthquake)
+  – hier [ein Video](http://www.youtube.com/watch?v=S2KtBGrIe5c). Hat zwar noch ein paar
+  Kinderkrankheiten, aber damit zu Twittern rockt! Erfordert ruby1.9 :S
+- [jsonpipe: Convert JSON to a UNIX-friendly line-based format using Python](http://thechangelog.com/post/4363724820/jsonpipe-convert-json-to-a-unix-friendly-line-based-form) ([GitHub](https://github.com/dvxhouse/jsonpipe)) – ja, ist cool.
+- [resty: Piping hot REST client for bash or zsh](http://thechangelog.com/post/1217510580/resty-rest-client-bash-zsh) – auch nett.
+- [psutil: A cross-platform system and process utilities module for Python](https://code.google.com/p/psutil/)
+  – Nicht wirklich cross-plattform. Hatte viele Fehler mit Darwin, aber keine unter Linux.
+- [PSI - Python System Information](https://bitbucket.org/chrismiles/psi/wiki/Home)
+  – direktes Interface zu den Kernel-Infos. Imho deutlich besser als *psutil*. Aber
+  schlecht dokumentiert: 1-Seiten-Wiki und `pydoc` im Quellcode.
+- [gitflow](https://github.com/nvie/gitflow) – das Tool für „[A successful Git branching model](http://nvie.com/posts/a-successful-git-branching-model/)”
+- [Freiheit vor Ort](http://www.freienetze.at/index.php?option=com_content&task=view&id=80&Itemid=41) – CC-Ebook für kommunale Netzpolitik. Ausdrucken!
+- [MyPaint](http://mypaint.intilinux.com/) – hübsches Zeichenprogramm für Linux. Erfordert unter OS X *X.app*, sprich ist untauglich. Schade.
+
+So, mehr hab' ich an diesem Trauertag leider nicht. Reicht ja auch.

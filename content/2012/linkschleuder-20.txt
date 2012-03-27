@@ -1,0 +1,58 @@
+---
+title: "Linkschleuder #20"
+date: 26.03.2012, 00:13
+tags: [Links, Python, Git, Linux, planet]
+---
+
+Und hier die Fortsetzung der [19](/2012/linkschleuder-19/), alles was ungleich OS X ist:
+
+## Web, Programming & Python
+
+- [comment_rave](http://raveraverave.co.uk/site/scripts/com.php) – ein freies Kommentarsystem auf
+  PHP-Basis. Will ich schon seit *Jahren* testen!
+- [Asciiflow](http://www.asciiflow.com/) – ein ASCII Flow Diagramm Werkzeug im Browser.
+- [Sparkup](https://github.com/rstacruz/sparkup) – Yet another HTML Präprozessor, der einen HTML
+  schneller schreiben lässt. Mit [Video-Beweis](http://www.youtube.com/watch?v=Jw3jipcenKc)!1
+- [Pycoder's Weekly][5] – eine privacy-unaware (?) Liste, die wöchentlich (manchmal wirklich)
+  interessante Links rund um Python verschickt. Blöd ist, dass die Mail im Browser besser weitaus
+  aussieht und außerdem keine echten Links gesetzt werden.
+- [A Guide to Python's Magic Methods](http://www.rafekettler.com/magicmethods.html) –
+  und der Vollständigkeit halber gleich noch das Python [Data
+  model](http://docs.python.org/reference/datamodel.html).
+- [pyp](https://code.google.com/p/pyp/) – eine Python-Werkzeug für das on-the-fly Pipen in Shells
+  mit builtin-Helpers und so.
+- [goatfish](https://github.com/stochastic-technologies/goatfish) – eine Python Library, das
+  schemaloses ORM in eine SQLite pumpt. Vielleicht ein Fallback, wenn es keine große NoSQL-Datenbank
+  gibt.
+- [Tries](http://v1v3kn.tumblr.com/post/18238156967/roll-your-own-autocomplete-solution-using-tries)
+  – *Roll your own autocomplete solution using Tries.*
+- [A Note About Git Commit Messages][1] – wie man *gute* Commit Nachrichten schreibt. Brachte mich
+  vom past tense zum present tense.
+- [Line endings](http://help.github.com/line-endings/) – *Mac and Linux users, you don’t get to sit
+  this one out.*
+
+## Linux/Unix-Zeug
+
+- [Linux. Das umfassende Handbuch](http://openbook.galileocomputing.de/linux/) – ein weiteres
+  \<openbook\> von Galileo Computing in der neusten Auflage (via [Schockwellenreiter][6]).
+- [Suicide-Linux](http://sourceforge.net/projects/suicide-linux/) – *Encourages users not to
+  misspell commands*, (die User Reviews sind auch sehr gut ;-)
+- [bashmarks](http://www.huyng.com/bashmarks-directory-bookmarks-for-the-shell/) – *directory
+  bookmarks for the shell.*
+- [crontab-gui](http://www.corntab.com/pages/crontab-gui) – *A visual crontab utility.*
+- [SmokePing](http://oss.oetiker.ch/smokeping/) – ein Tool, das die Netzwerk-Latenz misst und in
+  eine RDD schreibt. [Sieht echt gut aus](http://blog.koehntopp.de/uploads/graph-noch-besser.png)!
+- [john](http://www.openwall.com/john/) – ist eigentlich ein Passwort-Cracker, kann aber auch
+  (limitiert) Wortlisten erstellen. Aber nicht so gut wie `crunch`.
+- [crunch](http://sourceforge.net/projects/crunch-wordlist/) – ein Wortlisten-Generator, der aus
+  einem Charsets alle Permutationen bestimmter Länge und Komplexität erstellt. Eignet sich prima für
+  `aircrack-ng`'s STDIN :-)
+- [tmuxinator](https://github.com/aziz/tmuxinator) – *Create and manage tmux sessions easily.*
+- [Teamocil](https://github.com/remiprev/teamocil) – *Teamocil is a simple tool used to
+  automatically create sessions, windows and splits in tmux with YAML files.* Testen!
+- [gpodder](http://gpodder.org/downloads) – ein Podcast-Client für diverse OSes, will man aber nicht
+  händisch für OS X mit GUI kompilieren. Hier verlinkt, weil es einen netten CLI-Clienten hat.
+
+[1]: http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html
+[5]: http://pycoders.us4.list-manage.com/subscribe?u=9735795484d2e4c204da82a29&id=64134e0a27
+[6]: http://www.schockwellenreiter.de/blog/2012/02/14/lesefutter-fur-klamme-geldborsen/

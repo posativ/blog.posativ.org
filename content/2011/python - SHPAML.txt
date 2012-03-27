@@ -1,0 +1,60 @@
+---
+title: SHPAML – XML-Preprocessor
+
+date: 16.05.2011, 10:36
+tags: [Python, Atom]
+---
+
+[SHPAML][] ist ein verdammt schneller und einfacher HTML/XML-Preprocessor. Die Syntax lehnt sich
+an [Haml][] an und ermöglicht ein einfaches Programmieren einer Website. Für SHPAML gibt es kein
+Syntax-Highlighting *(obwohl das Python-Highlighting imho ausreicht)* was auch nicht nötig ist, da
+die Syntax auf einfachen Key-Symbolen und Einrückung basiert.
+
+- [latest version [1.00b]](http://shpaml.webfactional.com/shpaml_py)
+- [bitbucket repository](https://bitbucket.org/showell/shpaml_website/src/)
+
+**Python**
+
+    :::python
+    >>> from shpaml import convert_text
+    >>> print convert_text("b | foo")
+    >>> '<b>foo</b>
+    
+Diese Markup-Sprache nutze ich mittlerweile in diversen Projekten, allen voran [lilith][] und
+[pastebin][]. Als offenes Beispiel gebe ich mal die \<entry\>-Spezifikation eines Atom-Feeds an. Das
+Beispiel benötigt pro Durchlauf gerade einmal 243.54 µsec, also nicht mal eine Millisekunde, sodass
+man [SHPAML][] einfach überall nutzen *muss*.
+
+    :::text
+    entry
+        title | Some meaningful title
+        > link rel=alternate type=text/html href=http://example.com/
+        id | http://localhost/
+        updated | 2011-05-14T09:31:47Z
+        author
+            name | posativ
+            uri | http://blog.posativ.org/
+            email | info@posativ.org
+        content type=html | ${content}
+
+---
+
+    :::xml
+    <entry>
+        <title>Some meaningful title</title>
+        <link rel="alternate" type="text/html" href="http://example.com/" />
+        <id>http://localhost/</id>
+        <updated>2011-05-14T09:31:47Z</updated>
+        <author>
+            <name>posativ</name>
+            <uri>http://blog.posativ.org/</uri>
+            <email>info@posativ.org</email>
+        </author>
+        <content type="html">${content}</content>
+    </entry>
+    
+
+[SHPAML]: http://shpaml.webfactional.com/
+[Haml]: http://de.wikipedia.org/wiki/Haml
+[lilith]: http://posativ.org/lilith/
+[pastebin]: http://paste.posativ.org/

@@ -1,0 +1,64 @@
+---
+title: Arch Linux und das iPhone mit iOS 4
+date: 27.09.2010, 17:44
+tags: [Arch Linux, libimobiledevice, KDE 4, iPhone, iOS]
+---
+
+Vor kurzem habe ich ein älteres iPhone-Modell geerbt, das immerhin simlock-frei ist: iPhone 3G. Mit
+dem Update auf Version 4 konnte ich keine Musik mehr synchronisieren. Der Umweg über iTunes unter
+Windows ist nicht nur lästig, sondern grausam umständlich.
+
+Woran das nun lag, kann ich nur spekulieren. Die ältere Firmware war bei mir gejailbreakedt und die
+neuere (ungejailbreakedt) lief überhaupt nicht. Ich schätze aber, es wurde einmal mehr das
+Datenbankformat geändert – wohl um wieder einmal kurzweilige Exklusivität gegenüber anderen Tools
+zu genießen.
+
+# Quellen
+
+Ich habe mich totgesucht, aber nebenbei interessante Quellen gefunden:
+
+- [Das iPhone OS und Linux – ein aktueller Überblick](http://www.virtualpixel.de/2010/05/06/das-iphone-os-und-linux-ein-aktueller-ueberblick/)
+  (Mai 2010)
+- [Arch Linux Wiki](http://wiki.archlinux.org/index.php/Ipod#The_iFuse_Way): iPhone mittels iFuse mounten
+- [libimobiledevice](http://www.libimobiledevice.org/) – **die** Seite schlechthin
+- KDE und das iPhone: [kio_afc](http://github.com/JonathanBeck/kio_afc) (gibt's im [AUR](http://aur.archlinux.org/packages.php?ID=37432))
+- Sortieren der Screens, allerdings ohne Ordner: [sbmanager](http://cgit.sukimashita.com/sbmanager.git/)
+  (ebenfalls im [AUR](http://aur.archlinux.org/packages.php?ID=35919))
+- und zu guter letzt: [ideviceinstaller](http://cgit.sukimashita.com/ideviceinstaller.git/): CLI-Interface
+  für die „Softwareverwaltung“ auf dem iPhone ([AUR](http://aur.archlinux.org/packages.php?ID=35928))
+
+# KDE-Integration
+
+Über `kio_afc` kann man das iPhone in allen möglichen KDE-Applikationen öffnen, ohne dass es explizit
+gemounted werden muss. Das ganze schaut in Dolphin dann so aus. (Ist leider etwas langsam, da es wie
+ein Netzlaufwerk arbeitet...)
+
+[<img src="http://blog.posativ.org/img/linux/kio_afc.png" class="shadow" 
+width="720" alt="Dolphin mit iPhone" />](http://blog.posativ.org/img/linux/kio_afc.png)
+
+# iPhone und libgpod
+
+`libgpod` ist wohl **die** universelle Bibliothek für das Synchronisieren zwischen iGerät und Software.
+Unter Arch Linux sollte man, sofern das nicht bald geändert wurde, folgende Schritte absolvieren
+(`libimobiledevice`, `ifuse` installiert):
+
+    :::bash
+    $ ifuse /mnt/
+    $ ideviceinfo -k UniqueDeviceID # gibt einen Hash aus
+    $ ipod-read-sysinfo-extended $hash /mnt/
+
+Problem ist nämlich, dass es derzeit keine Regeln in Arch Linux gibt, die die nötige Datei
+*SysInfoExtended* für libgpod in */iTunes/Device* anlegt und man daher zwar mit dem iPhone
+software-seitig syncen kann, die Datenbank allerdings nicht aktualisiert wird.
+
+Danach sollte ein Sync mit einer beliebigen Software möglich sein, sofern denn auf `libgpod`
+gesetzt wird. [Clementine](http://www.clementine-player.org/) und [Amarok](http://amarok.kde.org/)
+laufen perfekt!
+
+# aktueller Stand
+
+- es wird daran gearbeitet, libgpod bei der Synchronisation um den Faktor 6 zu beschleunigen
+- für das iPhone 4 und das iPad gibt es derzeit noch keine offizielle Möglichkeit des Synchronisierens
+- weitere Sachen wie Kontakt/Notizen/Kalender-Sync funktionieren derzeit wohl auch nicht
+- Backups sind derzeit, wenn auch experimentell, möglich
+- Aktivierung des iPhones ohne iTunes möglich

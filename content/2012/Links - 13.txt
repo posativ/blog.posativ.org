@@ -1,0 +1,19 @@
+---
+title: "Linkschleuder #13"
+date: 12.01.2012, 13:27
+tags: [Links, Python, JavaScript, PHP]
+---
+
+- [Tapir](http://tapirgo.com/) – eine Alternative zu [Google Custom Search][3], sprich eine externe Suche für statische Seiten mit Atom-Feed-Input.
+- [Read the Docs](http://readthedocs.org/) – ein [Sphinx][1]-Dokumentationen-Hoster, der auch auf eigene Domains serviert. [Hier geht's&nbsp;los][2].
+- [Einführung in Sphinx](http://packages.python.org/an_example_pypi_project/sphinx.html) – nicht offiziell, aber sehr hilfreich für den ersten Schritt.
+- [Envoy: Python Subprocesses for Humans.](https://github.com/kennethreitz/envoy) – und das hat Python bitter nötig!
+- [Unfortunate Python](http://excess.org/article/2011/12/unfortunate-python/) – auch Python ist nicht perfekt in seiner Implementierung.
+- [Why Python Pickle is insecure](http://nadiana.com/python-pickle-insecure) and [Exploiting Pickle](http://blog.nelhage.com/2011/03/exploiting-pickle/)
+- [rsslounge](http://rsslounge.aditu.de/) – web-basierter RSS Aggregator mit PHP und MySQL. Ganz nett, aber noch etwas bugbelastet. Drei meiner 40 Feeds (OPML Import) konnte er nicht laden und ist nun nicht mehr nutzbar. [Google Code](https://code.google.com/p/rsslounge/)
+- [Adminer](http://www.adminer.org/) – Datenbank-Verwaltung (MySQL, SQLite, etc.) in einer einzigen PHP-Datei. Angenehm im Vergleich zu `mysql-client`.
+- [Coco](https://github.com/satyr/coco) – is a CoffeeScript dialect that aims to be more radical and practical.
+
+[1]: http://sphinx.pocoo.org/
+[2]: http://readthedocs.org/docs/read-the-docs/en/latest/getting_started.html
+[3]: https://www.google.com/cse/

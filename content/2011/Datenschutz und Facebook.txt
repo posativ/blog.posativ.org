@@ -1,0 +1,33 @@
+---
+title: Der Datenschutz und Facebook
+date: 23.08.2011, 18:40
+tags: [Facebook]
+---
+
+[Unabhängiges Landeszentrum für Datenschutz will „Gefällt mir”-Button
+verbieten][1]. Hab zwar noch nie von diesem ULD gehört, aber an sich eine
+erstmal begrüßenswerte Forderung. [Netzpolitik.org][2] hat dann erst mal so
+richtig [schön ins Klo gegriffen][3] und gleich noch einmal mehr gefailt, als
+sie [die Gegenposition][4] (diese Gegenüberstellung macht das ganze so
+erbärmlich) das Vorhaben kräftig unterstützt – wobei Netzpolitik.org bis dahin
+noch wunderschön zweimal `fbcdn.net` eingebunden hatte... reden sonst immer um
+Datenschutz etc. pp., aber dann das. Hat was verlogenes.
+
+Nun sind sie gleich dabei und haben [eine Anleitung][5] von Linus Neumann
+([re:Fefes Blog][6] \<3) erstellen lassen, allerdings nicht für die Twitter
+und Flattr-Buttons. Denn das ist natürlich GANZ WAS ANDERES!!1
+
+Diese Problematik ist aber essentiell. Wo ziehe ich den Strich zwischen
+Datenschutz und Internet? Wenn ich YouTube-Videos oder andere fremde Inhalte
+(Bilder, Stylesheets etc.) einbinde, weil das *Internet* nunmal so ist – aber
+jeder drecks Browser gleich Referrer, Cookie und ETags mitschickt. DAS ist für
+mich das Problem. Der Nutzer ist seinem Browser hilflos ausgeliefert, der brav
+dem HTML folgt und ungefragt alle `src=`-Attribute lädt. Das ist nicht das
+Problem vom Facebook-Button.
+
+[1]: http://www.gulli.com/news/16897-unabhaengiges-landeszentrum-fuer-datenschutz-will-gefaellt-mir-button-verbieten-2011-08-19
+[2]: https://netzpolitik.org/
+[3]: https://netzpolitik.org/2011/kommentar-schleswig-holstein-darf-nicht-mehr-liken/
+[4]: https://netzpolitik.org/2011/kommentar-trotz-schonheitsfehler-richtig-so-uld/
+[5]: https://netzpolitik.org/2011/facebook-like-button-datenschutzfreundlich-lokal-einbauen/
+[6]: http://blog.refefe.de/

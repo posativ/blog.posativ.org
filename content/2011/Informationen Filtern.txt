@@ -1,0 +1,56 @@
+---
+title: Informationen filtern
+
+date: 13.01.2011, 16:47
+tags: [Twitter, Facebook]
+---
+
+Angeregt durch [suckup.de][] kommt wieder das leidige Thema in mir hoch. Wir haben FaceBook,
+Twitter, Foren, Blogs ohne RSS Feed, Blogs mit verkrüppelten Feeds und mit richtigen RSS/Atom-Feeds.
+Ah, ich hab das RealLife vergessen.
+
+Wir leben ja in einem ach so tollen Zeitalter. Die Wikipedia umfasst mehr Informationen, als man
+in seinem Leben wohl jemals aufnehmen könnte. Den Informationsschrott, den uns Google und Co. noch
+fünf Jahre nach Erscheinen eines Inhalts anzeigt, mag ich mir gar nicht in zehn Jahren vorstellen.
+Wobei, eigentlich schon, bis dahin existieren doch hoffentlich gute Zensurmaßnahmen ;-)
+
+Ich habe 51 Abonnements, darunter *keine* übliche Quelle á la *Spiegel* oder *Welt*. Sollte der
+gemeine Nerd dann mal für eine Woche oder mehr in den Urlaub fahren, so wird es schwierig, diese
+Informationslücke aufzuarbeiten. [heise.de][] fiel bei mir schon vor gut einem Jahr heraus. So viel
+Müll, wie die tagtäglich produzieren, ist ja nicht auszuhalten. Was ist für mich Müll? Sachen, die
+mich nicht interessieren! Mir für meinen Teil ist es scheiß egal, dass irgendeine neue Alpha von
+diesem gehypten Ubuntu erschienen ist, oder dass ein Minor-Minor-Minor Update in WordPress eine
+hypothetische Sicherheitslücke behebt. Oder was FaceBook mir für einen absolut unwichtigen Müll
+meiner Freunde und deren *Apps* produziert. Nicht mehr schön, das ganze.
+
+Gut, Problem erkannt: **Zu viel Informationen, zu wenig Zeit**.
+
+Wäre es nicht cool, anhand der Informationen, die man gelesen und für gut/interessant befunden hat,
+einen großen Haufen an weiteren Informationen zu nehmen (man denke an ein Forum RSS Feed von großen
+Boards), und man bekommt nur Inhalte geliefert, die einen interessieren und Inhalte, die doppelt
+bzw. das gleiche Thema anders geschrieben behandeln, filtert?
+
+Es braucht ja nicht immer gleich ein soziales Netz, um dies zu tun. Prinzipiell kann ich nach einer
+kurzen „Lernphase“, d.h. *Gefällt mir/nicht* von Artikeln, ziemlich schnell errechnen, was meine
+Interessen sind und anhand dieser Informationen einkommende Inhalte filtern.
+
+Das ist an sich sehr einfach. Es gibt da ein hübsches Buch von O'Reilly –
+*[Kollektive Intelligenz][]*. Klingt nach viel Social-Zeug, aber bringt vor allem schicke
+Algorithmen zum Abtippen mit, die genau so ein Szenario verarbeiten könnten. Es ist etwas
+deprimierend, dieses Buch immer in meiner Fachbibliothek zu sehen und zu wissen, keine Zeit dafür
+zu haben :-/
+
+Also wenn es etwas sinnvolles für das Internet gäbe (neben einer gescheiten Netzneutralität), dann
+ist das ein System zum Filtern von Informationen. Am besten dezentral und Open-Source, modular in
+Python geschrieben^^, denn nichts ist derzeit trauriger mit Anzusehen als die Zentralisierung unserer
+Internetdienste.
+
+*post scriptum*: ich stell mir das im Groben so vor: man nehme einen Input, der mir Informationen liefert,
+nehme dreitausend zufällige Wikipedia Artikel und filtert die *most common* Wörter heraus (die 
+[Liste vom Wictionary][] reicht auch...) und kann somit Inhalt von Semantik trennen, danach lassen wir ein paar
+Algorithmen drauf los und fertig ist der gefilterte Feed (± viel Hirnschmalz).
+
+[suckup.de]: http://suckup.de/blog/2011/01/13/news-im-internet-suchen-filtern-finden/
+[heise.de]: http://www.heise.de/
+[Kollektive Intelligenz]: http://www.oreilly.de/catalog/pdf_collintellger/
+[Liste vom Wictionary]: https://secure.wikimedia.org/wiktionary/en/wiki/Wiktionary:Frequency_lists/top_2000_German_Wikipedia_words

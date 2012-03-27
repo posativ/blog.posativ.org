@@ -1,0 +1,34 @@
+---
+title: "Python: CGI-Environment und Hostname"
+
+date: 11.09.2010, 23:51
+tags: [CGI, Python]
+---
+
+Dies dient primär meinem Gedächtnis. Ein Python im CGI-Environment hat vornehmlich
+folgende Paramter in `os.environ` nach dem Aufruf von *http://plug/*:
+
+    :::text
+    CONTENT_LENGTH: 0
+    HTTP_ACCEPT: */*
+    HTTP_USER_AGENT: curl/7.21.1 (i686-pc-linux-gnu) libcurl/7.21.1 OpenSSL/1.0.0a zlib/1.2.5
+    REMOTE_PORT: 36189
+    SERVER_NAME: plug
+    GATEWAY_INTERFACE: CGI/1.1
+    SCRIPT_FILENAME: /home/www/root/index.py
+    REDIRECT_STATUS: 200
+    REMOTE_ADDR: 192.168.17.11
+    SERVER_SOFTWARE: lighttpd/1.4.26
+    SCRIPT_NAME: /index.py
+    REQUEST_METHOD: GET
+    HTTP_HOST: plug
+    SERVER_PORT: 80
+    SERVER_PROTOCOL: HTTP/1.1
+    DOCUMENT_ROOT: /home/www/root
+    SERVER_ADDR: 0.0.0.0
+    REQUEST_URI: /
+
+Und um nun automatisch den Host zu finden (samt Ordnern) reicht:
+
+    :::python
+    "http://" + os.environ["SERVER_NAME"] + os.environ["SCRIPT_NAME"].rsplit("/", 1)[0] + "/"

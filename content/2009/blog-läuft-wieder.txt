@@ -1,0 +1,49 @@
+---
+title: Das Blog System läuft wieder
+filters: reST
+date: 06.09.2009, 20:27
+tags: [ich, PyBlosxom, hosteurope]
+---
+
+So, es hat gerade einmal 5-6h in Anspruch genommen, eine komplett neue Blogsoftware aufzusetzen. Ich habe schon gestern Nacht das Grundgerüst zum Laufen bekommen.
+
+Nun, mit einem Markup Plugin schreibe ich noch ausführlich, was jetzt hier wie und worauf läuft :)
+
+Wechsel von Strato zu Host Europe
+---------------------------------
+
+Ich habe vorher die Seite bei Strato unter Vertrag gehabt, ein sehr großer Fehler. Einzig der Support bei Strato taugt etwas, sonst ist die Seite dort sehr langsam gewesen, obwohl ich sehr viel mehr bezahlt habe, als jetzt.
+Leider ist der Umzug etwas schwammig verlaufen, denn man erhält weder vom alten Provider noch vom Neuen, wann nun der Umzug vonstatten findet. Daher viel das Ganze überraschend mitten in die Woche...
+
+Das neue Paket
+--------------
+
+Das aktuelle Paket ist von hosteurope.de das 'WebPack® M 2.0'. Darin enthalten sind a) Traffic-Beschränkungen mit 50 GB/Monat für Email, FTP und Webspace sowie ein paar Megabyte Speicher. Aber dafür hab ich ja Wuala.
+Interessant ist hier für mich der Python Support. Laufen tut 2.3, 2.4.4 und 2.5.0 auf einem Debian 4 Apache. Die Bibliotheken sind relativ vollständig und genügen für meine Spielchen mit der Wuala API.
+Perl, Ruby und PHP sind auch mit an Board, und zwei MySQL Datenbanken.
+
+Ich will jetzt hier auch keine Werbung machen, aber wenn man von Strato hierhin gewechselt ist, ist das wie das Paradies. Die Kundenseite dort ist das Grauen schlechthin gewesen. Um dort den Vertrag zu kündigen, muss man erst einmal 30 Minten locker in die Suche des Buttons investieren.
+
+PyBlosxom
+---------
+
+So heißt das neue Blogging-System.
+Vorher habe ich Textpattern genutzt, das schon ein großer Fortschritt für mich war (im Vergleich zum hiesigen wordpress...). Da ich nur zwei Datenbanken habe, muss ich mit denen sparsam umgehen.
+Daher bietet sich PyBlosxom wunderbar an. Das nutzt eine Datei/Ordner Hierarchie für meine Beiträge und ist völlig unabhängig von Datenbanken und sogar von dynamischen Skripten, wenn nötig.
+Mit diesem Blogeintrag wird zum einen eine Textdatei in meinetwegen /topic/status/posting.txt angelegt, womit der Eintrag schon verschlagwortet ist (topic, status). Dazu findet ihr unten ein Permament Link zum Eintrag, der in einer komplett statischen html-Seite resultiert. Kein PHP, kein Python kein gar nichts.
+
+Das Beste an PyBlosxom ist vor allem die Einfachheit (dass es kompliziert zu installieren ist, hat damit nichts zu tun ;)). Da es wirklich sehr minimalistisch gehalten ist, enthält es im Gegensatz zu den üblichen Verdächtigen gar keinen Müll, den man eventuell einmal pro Jahr gebrauchen könnte und sonst nur die Ressourcen/Webspace strapaziert. 150 Dateien und das Teil steht, mehr brauch ich da nicht zu sagen.
+
+Schön ist auch die leichte Erweiterbarkeit über Python Skripte. Daher kann ich zum Beispiel meine Einträge aus Textpattern einfach mit einbinden, ohne alles neu formatieren zu müssen.
+Dazu werde ich dann auch übergehen, meine Beiträge mittels ReST zu schreiben.
+
+Das Layout
+----------
+
+Das zeitintensivste Problem war das Layout bzw. ist es immer noch. So habe ich über viel Gefummel damals ein CSS an textpattern angepasst. Das hat aber so einen intensiven Output gehabt, dass mit PyBlosxom nun viele CSS Sachen theoretisch überflüssig sind, aber dennoch alle umgebaut werden müssen.
+Zudem, wie es sich nunmal für ein minimalistisches System gehört, durfte ich das HTML Template auch selber bauen...
+
+
+Aber ich hoffe, dass es sich lohnt. Immerhin macht die Arbeit mit dieser Software endlich mal Spaß. Selbst Textpattern ist umständlich und nicht transparent gewesen... ja und wordpress, wir lassen es lieber.
+
+Wenn soweit alles hier steht, werde ich das Blog noch einmal optisch leicht verändern. So wird es zwar für 1024px optimiert bleiben, aber es werden an den Rändern kleine optische Schmankerl und ein paar Wuala API Spielereien dazukommen.

@@ -1,0 +1,108 @@
+---
+title: Der facebook-„Leak“
+date: 31.07.2010, 16:07
+tags: [Ruby, thepiratebay.org, Facebook]
+---
+
+Seit gestern früh gibt es einen [gewaltigen Torrent][] in der Piratenbucht *(hatten die
+nicht mal ihr Verfahren verloren?)*, lustigerweise gibt [es eine Liste][] mit zurückverfolgten
+IP-Adressen auf dem Szene-Portal [gulli.com](http://www.gulli.com). Darunter tummeln sich so
+Firmen wie *Apple*, *BBC*, *IBM*, *Intel* und die *Vereinten Nationen* (?).
+
+Ich hab lang überlegt, ob ich mir den Torrent ziehe – legal wäre es ja – aber da waren teilweise
+5000-6000 Peers auf 2000-3000 Seeder. Das dauert immer sehr lange und strapaziert den Uplink unnötig.
+Hab mich dann aber doch für ein `aria2 Facebook_directory_-_personal_details_for_100_million_users.torrent`
+entschieden; und der Download war schon nach zwei Stunden fertig!
+
+[gewaltigen Torrent]: http://thepiratebay.org/torrent/5722635/Facebook_directory_-_personal_details_for_100_million_users
+[es eine Liste]: http://gulli.com/news/datenhungrige-grosskonzerne-ziehen-sich-facebook-profile-2010-07-30
+
+Der Torrent
+===========
+
+Der Torrent wiegt knapp 2,8 GiB, fast die Hälfte belegt facebook-urls.txt.bz2. Amüsanterweise ist
+alles bzip-komprimiert, was schon den einen oder anderen Windows-Kommentar in der Piratenbucht erzeugt
+hat *(neben dem Crash von notepad)*.
+
+    :::console
+    [unix@localhost]~/Downloads/Facebook_directory_-_personal_details_for_100_million_users
+    16:15:47::$ ls -1s
+    insgesamt 2,8G
+    36M facebook-first.l-withcount.txt.bz2
+    16M facebook-firstnames-withcount.txt.bz2
+    64M facebook-f.last-withcount.txt.bz2
+    21M facebook-lastnames-withcount.txt.bz2
+    481M facebook-names-original.txt.bz2
+    458M facebook-names-unique.txt.bz2
+    456M facebook-names-withcount.txt.bz2
+    4,0K facebook.nse
+    4,0K facebook.rb
+    1,3G facebook-urls.txt.bz2
+    4,0K README
+
+Der Autor hat eine kurze [Readme][] zu den Inhalten verfasst:
+
+[Readme]: http://www.wuala.com/posativ/tmp/Facebook_directory_-_personal_details_for_100_million_users/README
+
+    :::console
+    This was generated around July 15, 2010, by Ron Bowes.
+    Check out http://www.skullsecurity.org for more information.
+
+    Filename                        Description
+    -------------------------------------------------------------------------
+    facebook.rb                     The script used to generate these files (v1)
+    facebook.nse                    The script that will be used for the second pass (v2)
+    facebook-urls                   The full URLs to every profile
+    facebook-names-original         All names, including duplicates
+    facebook-names-unique           All names, no duplicates
+    facebook-names-withcount        All names, no duplicates but with a count
+    facebook-firstnames-withcount   All first names (with count)
+    facebook-lastnames-withcount    All last names (with count)
+    facebook-f.last-withcount       All first initial last name (with count)
+    facebook-first.l-withcount      All first name last initial (with count)
+
+Laien-Analyse
+=============
+
+Ich habe mal aus Spaß an der Freude den Leak mal mit `wc`, `less` und `grep` kurz analysiert. Während
+*facebook-names-unique* entpackt mit 1,6 GiB noch human ist, sieht das bei *facebook-urls* nicht
+mehr lustig aus: ganze 9,7 GiB belegt die Datei.
+
+Erstellen wir uns zunächst mal ein Dateisystem im RAM, es macht nämlich echt keinen Spaß, das von
+der Platte aus zu analysieren: `mount -t tmpfs -o size=2G,mode=777 tmpfs /mnt/` erzeugt uns ein 2G
+Medium unter */mnt*. Dort enptacken wir *facebook-names-unique* mittels `bzcat -d ./facebook-names-unique
+/mnt/facebook-names-unique` nach */mnt*.
+
+Nun können wir mit `wc -l facebook-names-unique` sehen, dass doch tatsächlich **100128460** unique Profile
+gescannt wurden! Wenn wir uns die Dateien mal über `less` angucken, sieht das so aus:
+
+    :::console
+    # facebook-names-unique
+    john smith
+    david smith
+    michael smith
+
+    # facebook-urls
+    http://en-us.facebook.com/people/-A-Madiun/100000486053610
+    http://en-us.facebook.com/people/-A-Man-Hamid-/100000837194060
+    http://en-us.facebook.com/people/-A-Muhammad-Jauhari-Saealal/1639893205
+
+    # facebook-lastnames-withcount
+    913465 smith
+    571819 johnson
+    512312 jones
+    # facebook-firstnames-withcount
+    977014 michael
+    963693 john
+    924816 david
+
+Der Rest ist nur eine Kombination aus den anderen. Die Nummer bei `withcount` hat übrigens nichts mit
+Facebook zu tun und ist vollkommen zufällig. Nicht einmal zuordnen kann man damit. Reduziert kann man
+also sagen, dass von den 2,8 GiB ein ganzes Gigabyte Müll sind. Das nochmal abstrakt gesehen, kann
+darauf reduziert werden, dass dieser „Leak“ absolut sinnfrei ist. Damit lassen sich maximal Namenshäufigkeiten
+analysieren und nachgucken, ob gewisse Personen dort zum Zeitpunkt des Crawlens angemeldet waren und
+auch von dem Skript erfasst wurden.
+
+Das Skript kann jeder zusammenschreiben, das ist jetzt nicht die Kunst. Viel eher wäre es aber interessant
+gewesen, wenn z.B. Verknüpfungen von Freundschaften, diverse offene Profildetails und Fotos mit erfasst
+würden. So ist das alles nutzlos.

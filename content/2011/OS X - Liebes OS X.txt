@@ -1,0 +1,54 @@
+---
+title: Liebes OS X
+date: 30.06.2011, 23:21
+tags: [Rant, OS X]
+---
+
+Ich weiß, du kümmerst dich gut um mich. Aber ehrlich, ich möchte kein Update
+von iTunes installieren. Das ist dir vielleicht noch gar nicht aufgefallen,
+aber ich habe kein iTunes installiert! Dieser Zwang ist mir das erste Mal
+unter Windows untergekommen. Für die hübsche Hardware deines Herstellers
+wird eben iTunes benötigt. Aber ich denke, du hast das etwas missverstanden.
+Ich möchte damit weder Safari oder QuickTime installieren, noch bin ich mit
+iTunes zufrieden. Und nein, ich werde meine Meinung auch täglich nicht ändern,
+also kannst du auch weniger oft nachfragen.
+
+Ich habe etwas Mitleid mit dir. Du hast jetzt auch einen Markt für Applikationen,
+aber der ist nicht so schön wie der der Handheld-Geräte. Vielleicht mögen deine
+Entwickler dich nicht. Aber wenn du mit denen mal reden kannst, frag doch, ob
+du ein paar Optimierungen bekommst. Denn der AppStore lädt fast genausolange
+wie du zum Booten brauchst. Das muss ja nicht sein. Außerdem ist das Angebot
+doch sehr bescheiden und lässt dich zum Spielgerät verkommen. Ich hoffe, du
+wirst den Support für externe Programme deshalb nicht einstellen.
+
+Übrigens bin ich ein Nutzer von UNIX-Tools, weißt ja, dein Unterbau, und nutze
+daher [homebrew](https://github.com/mxcl/homebrew) für cli-Software. Ich musste
+deshalb auch XCode installieren, das ist eine ziemlich umfangreiche und
+behinderte Entwicklungsumgebung. Das Problem ist nun, dass du deine
+Default-Applikationen für bestimmte Datei-Typen vollständig vergisst und nun
+Textdateien mit Dashcode öffnest. Nein, das will ich nicht. Wirklich nicht.
+Aber ich kann es nicht verhindern, denn wenn ich es umsetzen will, dann merkst
+du dir das nur für diese eine Datei. Das kann sogar dein Freund Windows besser.
+
+Kannst du mir eigentlich sagen, ob ich in zwei Jahren noch auf meine Dateien
+in FileVault zugreifen kann? Das wäre schade, wenn nicht. Denn offenbar findet
+dein Hersteller eine transparente Verschlüsselung unwichtig. Aber eine [alternative
+Komplettverschlüsselung](http://www.symantec.com/business/whole-disk-encryption)
+kostet viel Geld und bringt mir ebenso keine Transparenz.
+
+Weißt du eigentlich, was „transparent” bedeutet? Das bedeutet, dass du mir sagst,
+was deine Philosophie ist. Denn nur ich kann mich an dich anpassen. So sehr
+dein Hersteller das andersherum auch versucht. Du kannst mich nicht verstehen.
+Wenn ich Sonderzeichen in Dateinamen möchte, dann will ich das auch haben. Ich
+kenne die Beschränkung für dein Dateisystem, du musst mir keine Lügen erzählen,
+ich könne keinen Doppelpunkt verwenden. Du musst mir auch nicht sagen, dass ich
+beim Ändern einer Datei-Endung den Typ ändere. Das stimmt doch gar nicht. Der
+Typ einer Datei ist in deren Header definiert und wie ich meine Text-Dateien nun
+nenne, kann dir doch herzlich egal sein. Du betrachtest ja auch nur den Inhalt.
+
+Ich meine mal gehört zu haben, dass du das erste OS warst, welches eine
+Maus-Unterstützung hat. Das freut mich für dich, wirklich. Aber du weißt selbst,
+wie effektiv Shortcuts sein können und versucht, mich als Nutzer zu animieren,
+sie zu nutzen. Sonst kann ich zum Beispiel gar keine Programme beenden. Aber
+hast du einmal an eine Tastatur-Steuerung in Frage-Dialogen mit Ja und Nein
+in Betracht genommen? Das wäre echt nett. Sonst mag ich dich ja.

@@ -1,0 +1,57 @@
+---
+title: "Tagebuch: Arch Linux, EtherPad auf dem SheevaPlug – und OS X"
+
+date: 07.01.2011, 01:05
+tags: [OS X, SheevaPlug, Arch Linux]
+---
+
+Ich führe ab sofort Tagebuch über scheinbar völlig harmlose Installationen, die eigentlich jedes Kind hinbekommen sollte.
+Auf meinem SheevaPlug läuft mittlerweile ein [Arch Linux][]. Das geht ruckzuck zu installieren. Habe allerdings ungefähr acht
+Stunden damit vergeudet, dass entweder die USB-Kontaktstelle, die Mini-USB-Kontaktstelle wackelte, der verwendete Computer oder
+der verwendete USB-Stick nicht der richtige war. Wie sich zum Schluss herausgestellt hat, konnte als USB-Stick nicht der
+LaCie CooKey herhalten, sondern einzig ein ausgeliehener Stick aus einem Überraschungsei (so ein Hippo-Ding) funktionierte, aber
+nur, wenn der Abstand vom Mond zur Erde ein Vielfaches von π war, sonst ließ er sich nicht ein zweites Mal mounten.
+
+[Arch Linux][] auf dem Plug zu haben, ist schon sehr geil. Ich musste es auch schon nach dem ersten `pacman -Syu` neuinstallieren,
+da ich neue `kernel26-header` installiert hatte. Der erste Schritt mit dem neuen Linux ist `IgnorePkg = kernel26 kernel26-headers
+glibc`. Vertraut mir. Danach geht alles seinen gewohnten Gang. Die Repos sind ansehnlich gefüllt und haben auch direkt `yaourt`
+mit bei, womit einem das Tor zum [AUR](https://aur.archlinux.org/) offen steht. Sehr feine Sache!
+
+Heute kam mir die Idee, wieder wertvolle Zeit meines Lebens mit trivialen Installationen zu vergeuden. Diesmal: 
+[EtherPad](http://etherpad.org/). Deren [Installationsseite](http://doc.etherpad.org/ep/tag/?query=installation)
+zeigt mir übrigens auch schon bestimmt seit 'nem Monat einen 502 Bad Gateway an. Installationsanleitung? Vollig überbewertet!1
+Zurück zum Plug. Bei dem Arch Linux hört *java* auf den Namen `openjre7`. Irgendwie eine sinnlose Wortschöpfung. Dahinter verbirgt
+sich das aktuelle OpenJDK 1.6, das sich in */opt/openjre7/bin/java* installiert. Als nächste Dependency haben wir noch
+[Scala][]. Ist noch nicht in den Repositories, aber immerhin im [AUR][] verfügbar und arch-independend.
+Immerhin etwas, wofür die Java Runtime stehen kann! Dann brauchen wir noch `libmysql-java` – gibt's nicht. Dank Java kann man sich
+das über das [Debian-Paket](http://packages.debian.org/sid/libmysql-java) holen und händisch installieren. Nachdem wir die Config
+in *etherpad/bin/etherpad.default* an unser System angepasst haben, können wir */bin/build.sh* aufrufen.
+
+	:::text
+	unzipping JARs...
+	./bin/makejar.sh: line 39: jar: command not found
+	Plugbox: Plugbox
+	cp: cannot stat `/home/www/ether-pad/infrastructure/build/appjet.jar': No such file or directory
+
+*quod erat demonstrandum*.
+
+Gut, gehen wir einen Schritt zurück und probieren das ganze erstmal in einer Sandbox.
+[QEMU ist schön und toll](http://blog.posativ.org/?p=c05aa8) und kann ARM samt dem Arch Linux emulieren. Dachte ich mir.
+Nun gibt es *qemu* in [brew](https://github.com/mxcl/homebrew), sehr hübsch, und da fordern wir unser Glück noch mehr hinaus
+und laden uns das offizielle [ubifs-Image](http://plugapps.com/os/1.1/rootfs.ubi.img) herunter. `qemu -boot c rootfs.ubi.img` klappt
+nicht. Schade eigentlich. Nun haben wir die Wahl zwischen [dem hier][] hier und einem Gefrickel aus rootfs.tar.gz und 'nem Kernel
+über QEMU. Ich habe mich für nach zehn vergeudeten Minuten für letzteres entschieden. Wir orientieren uns an
+[Tiny-Gentoo with Qemu howto](https://magicyyang.wordpress.com/2006/01/11/tiny-gentoo-with-qemu-howto/) und ich muss gestehen,
+auf dem Mac ist doch nicht alles so scheiße, wie es auf den ersten Blick scheint. Denn es gibt hier zwar kein `mkfs`, aber diese
+Tools heißen ja auch anders. Nämlich `brew install e2fsprogs`, trivial. Nun ja, das Prozedere kennt man ja. Image erstellen,
+formatieren, mounten.
+
+`mount: -o loop: option not supported`. Früher (tm) war *doch* alles besser. Ich gebe vorerst auf. And yes, I googled for
+[osx mount ext3 loopback](http://lmgtfy.com/?q=osx+%2Bmount+%2Bext3+%2Bloopback). Ich könnte entweder weitere Stunden sinnlos
+mit dem Aufsetzen einer VM verbringen oder ich werde das Dateisystem auf einem USB-Stick nutzen. Fuck You, OS X!
+
+
+[Arch Linux]: http://plugapps.com/
+[Scala]: http://www.scala-lang.org/
+[AUR]: https://aur.archlinux.org/packages.php?ID=45095
+[dem hier]: http://www.mail-archive.com/discussion@lists.en.qi-hardware.com/msg00142.html

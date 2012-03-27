@@ -1,0 +1,33 @@
+---
+title: TextMate
+filters: [markdown]
+date: 18.12.2011, 18:02
+tags: [TextMate, OS X, Python, LaTeX]
+---
+
+Bevor ich so langsam zum [Sublime Text][1] Editor wechseln werde (es sei denn,
+[Version 2][3] bringt es), noch einmal kurz meine Lieblings-Bundles, sprich
+Macros, Themes und Snippets.
+
+- [Essential TextMate Shortcuts, Tips and Techniques][3]
+- [Solarized (light) Theme][4] – the one and only one. Gibt nichts besseres.
+
+Bundles
+=======
+
+- [x86 Assembler](https://github.com/foxostro/x86-assembly-textmate-bundle/tree/master/x86%20Assembly.tmbundle/)
+  – Intel86 Syntax Highlighting!1
+- [lilypond](https://github.com/textmate/lilypond.tmbundle)
+- [LaTeXExtension](http://www.governatori.net/TextMate/index.html) – mit $O[Ausrufezeichen]$ -> $\\Omega$ und so
+- [reStructuredText](https://github.com/textmate/restructuredtext.tmbundle)
+- [SASS](https://github.com/seaofclouds/sass-textmate-bundle)
+- [Jinja2 Templating](https://github.com/mitsuhiko/jinja2/blob/master/ext/JinjaTemplates.tmbundle.tar.gz)
+- [Python PEP 8](https://github.com/ppierre/python-pep8-tmbundle)
+- [Python Tools](https://github.com/dcramer/python-tools-tmbundle) – ⌘+S mit Syntax Validierung
+
+Installiert wird das alles nach `~/Library/Application Support/TextMate/`.
+
+[1]: http://www.sublimetext.com/2
+[2]: http://blog.macromates.com/2011/alpha-tidbits/
+[3]: http://net.tutsplus.com/tutorials/tools-and-tips/essential-textmate-shortcuts-tips-and-techniques/
+[4]: http://ethanschoonover.com/solarized

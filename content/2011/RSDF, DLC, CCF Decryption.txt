@@ -1,0 +1,256 @@
+---
+title: RSDF/DLC/CCF Decryption
+date: 18.08.2011, 18:33
+tags: [Python, Szene]
+---
+
+**tl;dr** [decrypt!][decrypt] RSDF, DLC und CCF online. In bunt und in Farbe!1
+Nur so lange <del>der Vorrat</del> die API reicht. Entwicklung auf GitHub:
+[posativ/opendlc][opendlc].
+
+---
+
+[decrypt]: https://posativ.org/decrypt/
+[opendlc]: https://github.com/posativ/opendlc
+
+Ich bin es leid. Es gibt Software dafür, eine behinderter als die andere. Von
+ganz schwer bis fast: [jDownloader][1], [Cryptload][2], [CinuxLoader][3],
+[RSD/MSD][4] und [pyLoad][5]. Alles ominöse Tools, um der Content-Mafia eins
+auszuwischen und dabei selbst etwas Geld zu verdienen – mit Hehlerware.
+Irgendwie sehr verlogen, diese „Szene”.
+
+Stand der Dinge: Wir haben drei Container-Formate, namentlich: *RSDF*, *CCF*
+und *DLC*, eingeführt von respektive: *RapidShare Downloader (RSD)*,
+*Cryptload* und *JDownloader*. Diese Container <del>verstecken</del>
+verschlüsseln die URLs zu den Hostern wie [RapidShare][RS], [uploaded.to][UL],
+[Netload][NL] und so weiter, damit die gemeinen 14-jährigen Poweruser/Kinder
+nicht auf die Idee kommen, Links zu verpetzen und die schöne Idylle zu
+stören. Wer diese sogenannte „Szene” noch nicht so genau kennt, der kann sich
+im [Gulli:Board][gb] unter [Ein-Klick-Hoster Tools][hoster] einen Überblick
+verschaffen.
+
+Nun ist es so, dass Container broken by design sind. Denn wer hindert mich
+daran, mal `tcpdump` anzuwerfen, wenn ich JDownloader mit einem DLC-Container
+füttere? Aber das ist dieser „Szene” egal, man setzt weiterhin auf Security
+through Obscurity und hat doch zumindest einen Teilerfolg mit DLC erzielt, und
+eine monopolisierte Client-Server-Encryption entwickelt, ebenfalls broken by
+design, aber dafür in den API-Calls pro IP limitiert.
+
+[1]: http://jdownloader.org/
+[2]: http://cryptload.info/
+[3]: http://sourceforge.net/projects/cinux-loader/
+[4]: http://schneewiesel.org/
+[5]: http://pyload.org/
+
+[RS]: https://rapidshare.com/
+[UL]: http://uploaded.to/
+[NL]: http://netload.in/
+
+[gb]: http://board.gulli.com/
+[hoster]: http://board.gulli.com/forum/169-ein-klick-hoster-tools/
+
+# RSDF – [rsdf.py](https://github.com/posativ/opendlc/blob/master/decrypt/rsdf.py)
+
+Mit etwas [pycrypto][pycrypto], `base64` und `binascii` ist das aufgrund des
+bekannten Schlüssels trivial ([via][via]).
+
+    :::python
+    import binascii
+    import base64
+    from Crypto.Cipher import AES
+    
+    def decrypt(rsdf):
+
+        key = binascii.unhexlify("8C35192D964DC3182C6F84F3252239EB4A320D2500000000")
+
+        iv = binascii.unhexlify("FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF")
+        IV_Cipher = AES.new(key, AES.MODE_ECB)
+        iv = IV_Cipher.encrypt(iv)
+    
+        aes = AES.new(key, AES.MODE_CFB, iv)
+        data = binascii.unhexlify("".join(rsdf.split())).splitlines()
+    
+        urls = []
+        for link in data:
+            link = base64.b64decode(link)
+            link = aes.decrypt(link)
+            link = link.replace("CCF: ","")
+            urls.append(link)
+        
+        return urls
+
+[pycrypto]: https://www.dlitz.net/software/pycrypto/
+[via]: http://wiki.ubuntuusers.de/Tuxload#ccf-und-rsdf
+
+# DLC – [dlc.py](https://github.com/posativ/opendlc/blob/master/decrypt/dlc.py)
+
+DLC steht für Download Link Container, sagt Wiki, und ist irgendwie sehr
+merkwürdig konzipiert. Hier ein DLC (stark gekürzt):
+
+    xQba6qa7UKC...zAHRs1eMdtNB/C8g==cGNSRlhycHR1bFpHdmN...lFUTmgyR2EzY2JjbVJhag==
+    
+Und zwar sind dort zwei base64-kodierte Strings drin, die dann auch im
+Algorithmus gesplittet werden müssen. Die Nutzdaten sind der erste Teil
+$$len(dlc)-88$$ und der *dlckey* ist logischerweise der Rest ab Position 88.
+Dieser wird an eine <del>obfuscatedte</del> Adresse geschickt:
+
+    :::bash
+    http://service.jdownloader.org/dlcrypt/service.php?srcType=dlc&destType=$APPNAME&data=$DLCKEY
+
+Ob da wer was wieviel loggt, ist unklar. Allgemein wie diese API funktioniert:
+unklar. Von Dokumentation hält man bei JDownloader wohl auch nichts. Wie das
+mit ihrer GPL in Einklang bringen wollen, weiß ich auch nicht so recht.
+
+Wie DLC aufgebaut ist, wurde ja schon [früher publiziert][eddy14]. Bisher hat
+sich außer Sperrungen von <del>geheimen</del> veröffentlichten Keys, nichts
+getan. Hier mal der grobe Algorithmus, den ich fast identisch vom
+[Decompiler][uncompyle] bekommen habe.
+
+    :::python
+    import base64
+    from Crypto.Cipher import AES
+    import urllib2
+
+    def decrypt(dlc, key, iv, name):
+    
+        api = "http://service.jdownloader.org/dlcrypt/service.php?srcType=dlc&destType=%s&data=%s"
+        urlopen = urllib2.build_opener()
+        urlopen.addheaders = [("User-Agent", "Mozilla/5.0 (Macintosh ... some headers"), ]
+                          
+        aes = AES.new(key, AES.MODE_CBC, iv)
+        
+        dlckey = dlc[(-88):]
+        dlcdata = base64.standard_b64decode(dlc[:(-88)])
+        data = urlopen.open(api % (name, dlckey)).read()
+        rc = data.replace("<rc>", "").replace("</rc>", "")
+    
+        dlckey = aes.decrypt(base64.standard_b64decode(rc))
+        aes = AES.new(dlckey, AES.MODE_CBC, dlckey)
+        return base64.standard_b64decode(aes.decrypt(dlcdata))
+
+- **dlc**: der DLC-Container in plaintext
+- **key**: ist ein 16 Zeichen langer Hex-Key, entspricht also einer Entropie
+  von 64 Bit und daher wohl schwierig zu bruteforcen
+- **iv**: Initialisierungsvektor, wohl gebunden an den *key*
+- **name**: User-Agent für die anfragende Software. Mir bekannt (und nicht
+  geblacklistet) sind: *rsdc*, *load* und&nbsp;*pylo*
+  
+Damit erhalten wir ein doch etwas merkwürdiges XML-File:
+
+    :::xml
+    <dlc>
+      <header>
+        <generator>
+          <app>TGlua0ZhaXJVc2UgRnJhbWV3b3JrIERMQyBFeHBvcnQgTW9kdWxl</app>
+          <version>MC40Mg==</version>
+          <url>TEZV</url>
+        </generator>
+        <tribute>
+          <name/>
+        </tribute>
+        <dlcxmlversion>MjBfMDJfMjAwOA==</dlcxmlversion>
+      </header>
+      <content>
+        <package name="" passwords="" comment="" category="">
+          <file>
+            <url>aHR0cDovL3JhcGlkc2hhcmUuY29tL2ZpbGVzLzEyMzQ1Njc4OS90ZXN0LnJhcg==</url>
+            <filename>dGVzdC5yYXI=</filename>
+            <url>aHR0cDovL3JhcGlkc2hhcmUuY29tL2ZpbGVzLzEyMzQ1Njc4OS90ZXN0LnJhcg==</url>
+            <filename>dGVzdC5yYXI=</filename>
+          </file>
+        </package>
+      </content>
+    </dlc>
+
+Ja. WTF. Wie jemand auf die Idee kam, Attribute und Text base64 zu
+„verschlüsseln”, aber dann doch die Tags plain lassen, ist mir ein Rätsel. Das
+macht einfach nur mehr Arbeit beim Parsen. Die URLs lassen sich dann aber
+simpel filtern: Element &lt;content&gt;, finde alle url-Elemente und
+base64-dekodiere die TEXT_NODE.
+
+[eddy14]: http://38.99.170.26/blog/2008/11/15/dlc-geknackt/
+[uncompyle]: https://github.com/sysfrog/uncompyle/
+
+# CCF – [ccf.py](https://github.com/posativ/opendlc/blob/master/decrypt/ccf.py)
+
+Deakronymisiert heißt es Cryptload Container Format. Eher vom Schlage RSDF
+baut es auf einen möglichst gut verschleierten Algorithmus auf. Es wurde
+bereits mehrfach analysiert und deshalb schon öfters gepatcht, sprich,
+Algorithmus und Format abgewandelt. [superwayne.org][superwayne.org] hat eine
+sehr [detaillierte Analyse][doc] (freundlich bereitgestellt von superwayne),
+die zeigt, dass dieses Format im worst-case unverschlüsselt und mit einigen
+Bit-Operationen schnell wieder in plaintext umgewandelt werden kann. Die
+Analyse bezieht sich auf nur CL 1.1.3 – mit CL 1.1.5 wurde das Format
+[wieder überarbeitet][6] und mir ist derzeit keine offener Algorithmus bekannt.
+
+Interessanterweise stellt aber [service.jdownloader.org]() eine API bereit,
+die ein beliebiges CCF entschlüsseln kann – und liefert ein DLC zurück. Das
+ist nicht wirklich schön, aber somit lassen sich auch CCFs relativ problemlos
+decrypten, denn [meine Versuche][7] zur direkten Entschlüsselung waren
+erfolglos; mangels Wissen an CRC und überhaupt Kodierungstheorie.
+
+Der API-Aufruf für CCF nach DLC Conversion (crap-to-crap) sieht wie folgt aus
+(ja, ich habe nur fünf Zeilen selbst geschrieben):
+
+    :::python
+    import httplib
+    import mimetypes
+    import mimetools
+
+    def decrypt(ccf):
+    
+        ## {{{ http://code.activestate.com/recipes/146306-http-client-to-post-using-multipartform-data/#c3
+        def post_multipart(host, selector, fields, files):
+            content_type, body = encode_multipart_formdata(fields, files)
+            h = httplib.HTTPConnection(host)
+            headers = {
+                "User-Agent": "Mozilla/5.0",
+                "Content-Type": content_type
+                }
+            h.request("POST", selector, body, headers)
+            res = h.getresponse()
+            return res.status, res.reason, res.read()
+        ## end of commented extension}}}
+
+        ## {{{ http://code.activestate.com/recipes/146306/ (r1)
+        def encode_multipart_formdata(fields, files):
+            """
+            fields is a sequence of (name, value) elements for regular form fields.
+            files is a sequence of (name, filename, value) elements for data to be uploaded as files
+            Return (content_type, body) ready for httplib.HTTP instance
+            """
+            BOUNDARY = mimetools.choose_boundary()
+            CRLF = "\r\n"
+            L = []
+            for (key, value) in fields:
+                L.append("--" + BOUNDARY)
+                L.append("Content-Disposition: form-data; name="%s"" % key)
+                L.append("")
+                L.append(value)
+            for (key, filename, value) in files:
+                L.append("--" + BOUNDARY)
+                L.append("Content-Disposition: form-data; name="%s"; filename="%s"" % (key, filename))
+                L.append("Content-Type: %s" % get_content_type(filename))
+                L.append("")
+                L.append(value)
+            L.append("--" + BOUNDARY + "--")
+            L.append("")
+            body = CRLF.join(L)
+            content_type = "multipart/form-data; boundary=%s" % BOUNDARY
+            return content_type, body
+
+        def get_content_type(filename):
+            return mimetypes.guess_type(filename)[0] or "application/octet-stream"
+        ## end of http://code.activestate.com/recipes/146306/ }}}
+
+        host, uri = "service.jdownloader.net", "/dlcrypt/getDLC.php"
+        code, reason, data = post_multipart(host, uri,
+                [("src", "ccf"), ("filename", "test.ccf")],
+                [("upload", "../test/test.ccf", ccf)])
+        x = data.find("<dlc>")
+        return data[x+5:-6]
+
+[superwayne.org]: http://superwayne.org/
+[doc]: /files/2011/ccf/
+[6]: https://kugelfisch.wordpress.com/2008/10/25/designfehler-von-ccf-30/#comment-841
+[7]: https://github.com/posativ/opendlc/blob/master/misc/ccf-test.py

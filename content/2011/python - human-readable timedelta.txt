@@ -1,0 +1,42 @@
+---
+title: parsing human-readable timedeltas in python
+date: 11.09.2011, 16:02
+tags: [Python]
+---
+
+Just a simple, fail-safe interpretation of time deltas using `crontab`-like
+syntax using python's horrible [regular expression][1] syntax.
+
+    :::python
+    import re
+    from datetime import timedelta
+    
+    def tdelta(input):
+    
+        keys = ["weeks", "days", "hours", "minutes"]
+        regex = "".join(["((?P<%s>\d+)%s ?)?" % (k, k[0]) for k in keys])
+        kwargs = {}
+        for k,v in re.match(regex, input).groupdict(default="0").items():
+            kwargs[k] = int(v)
+        return timedelta(**kwargs)
+    
+    >>> print tdelta("3w")
+    21 days, 0:00:00
+    >>> print tdelta("3w 12h 57m")
+    21 days, 12:57:00
+    
+# walk-through
+
+[datetime][2]'s `timedelta` object provides a fairly simple interface to add,
+substract and compare `datetime`-objects in python. In my example, I am using
+only, weeks, days, hours and minutes, but `timedelta` can also handle
+*seconds* and/or *milliseconds*. Add them to `keys`, when you need them. I was
+too lazy to write down the whole regex. Building the regex dynamic has also
+the advantage to extend or limit the keywords. Actually, you simply search the
+input in the order of `keys` and match the value in front of the short
+character. Calling the `groupdict`-function with *default="0"* is required, to
+have proper handling of missing arguments. Finally, passing `kwargs` as
+known-arguments dictionary (via \*\*) to timedelta.
+
+[1]: http://docs.python.org/library/re.html
+[2]: http://docs.python.org/library/datetime.html

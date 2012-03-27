@@ -1,0 +1,41 @@
+---
+title: "Linkschleuder #7"
+date: 30.09.2011, 11:57
+tags: [Links, Twitter, Python, HTML5]
+---
+  
+- [ncurses Twitter client](http://tyrs.nicosphere.net/index.html) – bin ja nach
+  [earthquake](https://github.com/jugyo/earthquake) nun erstmal bei [Echofon][0] im Firefox.
+- [Icon Stocks](https://secure.wikimedia.org/wikipedia/commons/wiki/Category:Icons_themes)
+  – Creative Commons und so, sehr nützlich.
+- [alternative (unabhängige) Top-Level-Domains](http://www.opennicproject.org/)
+  – erfordert allerdings Anpassung der */etc/resolv.conf*, aber 'ne nette Idee.
+- [FireWire attacks against Lion's FileVault 2][7] – tja, aus diesem Grund habe
+  ich FireWire entfernt. Ein potentielles Problem weniger.
+- [collectd-Plugin für MongoDB](https://github.com/sebest/collectd-mongodb) – hab
+  ich [im Einsatz](https://posativ.org/jarmon/) und funktioniert einwandfrei.
+- [Kurzreferenzen bekannter Programmiersprachen – Übersicht][1] – unter anderen mit
+  [PHP, Perl, Python, Ruby][2], [Tcl, Lua, JavaScript, Io][3],
+  [C, C++, Objective C, Java, C#][4] und [ML, OCaml, Scala und Haskell][5]
+- [Warum wir Quantencomputer _wirklich_ brauchen][6]
+- [a minimalist implementation of python in 64k of code](http://www.tinypy.org/)
+  – *Q: What more could you possibly want? A: a pony?*
+- [WTForms](http://wtforms.simplecodes.com/) – Form validation and rendering
+  library in python. Syntax überzeugt, Name auch.
+- [NodeBox](http://www.nodebox.net/code/index.php/) – sowas wie
+  [Processing](http://processing.org/) nur für python (und Mac-only).
+- [A Gentle Introduction to SQL Using SQLite](https://github.com/tthibo/SQL-Tutorial)
+- [HTML5 for journalists][8] – via [Schockwellenreiter][9]
+- [zsh, tab completion, remote hosts, and collaboration](http://blog.jhr-online.de/290)
+
+
+[0]: http://www.echofon.com/
+[1]: http://www.linushoppe.de/2011/09/22/hyperpolyglot-org-kurzreferenzen-der-bekannten-programmiersprachen/
+[2]: http://hyperpolyglot.org/scripting
+[3]: http://hyperpolyglot.org/embeddable
+[4]: http://hyperpolyglot.org/c
+[5]: http://hyperpolyglot.org/ml
+[6]: http://www.mathnews.uwaterloo.ca/Issues/mn11103/QuantumBogoSort.php
+[7]: http://www.frameloss.org/2011/09/18/firewire-attacks-against-mac-os-lion-filevault-2-encryption/
+[8]: http://www.currybet.net/cbet_blog/2010/08/html5-for-journalists.php
+[9]: http://www.schockwellenreiter.de/blog/2011/09/29/html5-fur-journalisten/

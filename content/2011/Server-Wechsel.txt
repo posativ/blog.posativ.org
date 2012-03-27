@@ -1,0 +1,31 @@
+---
+title: Server Umzug – wieder einmal
+date: 22.07.2011, 20:27
+tags: [Blog, V-Server]
+---
+
+[Das Jahr ist fast rum][0] und ich habe wieder einen neuen vServer-Anbieter.
+Mit [proplay.biz][1] war ich eigentlich vollständig zufrieden, allerdings
+waren mir die FairUse-Klausel der Traffic-Flat sowie der geringe
+Festplattenspeicher von nur 8 GiB etwas unangenehm. Nun bin ich temporär, also
+drei Monate erstmal, bei [alvotech.de][2], 90 GiB HDD, zwei IPs und 1024 MB
+RAM. Letzteres ist schon ganz nützlich, wenn man bsw. eine
+[Redmine][3]-Instanz laufen lassen will.
+
+Problem bei dem Hoster ist allerdings, dass er nach [Linux-VServer.org][4]-Art
+virtualisiert. Sie meinen, es bringt Transparenz, wenn mir htop die Auslastung
+des **Wirts** anzeigt und nicht meine realen Ressourcen. Ich finde das
+äußerst unpraktisch. Auch weil munin das gehörig aus dem Konzept bringt:
+
+![CPU Auslastung](/img/2011/cpu-day.png)
+
+Ich dachte zuerst, ich mache was falsch bei [I2P][5] und [lighttpd][6]. 'Ne
+Last von 0.1, aber 200% CPU-Auslastung? Ne, danke.
+
+[0]: http://blog.posativ.org/2010/billige-vserver/
+[1]: http://proplay.biz/
+[2]: http://alvotech.de/
+[3]: http://www.redmine.org/
+[4]: http://linux-vserver.org/
+[5]: http://i2p2.de/
+[6]: http://lighttpd.net/

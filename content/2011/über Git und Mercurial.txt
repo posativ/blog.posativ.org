@@ -1,0 +1,64 @@
+---
+title: Über Git und Mercurial und warum Windows und Java nerven (und Eclipse auch)
+date: 22.10.2011, 20:01
+permalink: /2011/ber-git-und-mercurial-und-warum-windows-und-java-nerven-und-eclipse-auch/
+tags: [Rant, git, mercurial, Java, Windows]
+---
+
+Ich finde es ja beinahe traurig, dass ich mich im 3. Semester als 'was mit
+*~informatik*-Student damit rumärgern muss, wieso ich beim kollaborativem
+Entwickeln darauf achten muss, dass das auch ja unter Windows geht. Denn
+Microsoft hat ganze Arbeit geleistet und selbst fortgeschrittene
+Informatik-Studenten (wohlgemerkt „angewandte Informatik”) sind nicht in der
+Lage, von dieser Linie abzuweichen. Man lebt ja in einer homogenen Umgebung.
+Sollen sich doch die anderen anpassen! Ja, und das mache ich dann auch mal
+wieder. Bei fünf (ich hatte Java mal in der Uni gehabt, und Delphi in der
+Schule) versus einen (also wir brauchen da jetzt Redmine, Git und 'ne
+anständige Programmiersprache) bleibt dann nur noch Anpassen an die behinderte
+Windows Umgebung.
+
+Leute, **mit Windows kann man nicht programmieren!** Windows ist wie Android
+und iOS ein ANTI-Programmier-Betriebssystem. Und Java übrigens auch! Denn
+wenn man mal anständig crossplattform mit Libs und so entwickeln will, dann
+merkt man auch ganz schnell, das *compile once, run everywhere* eher Slogan
+denn Realität ist. Aber wen interessiert denn schon Linux/Mac. Das sind ja nur
+Konkurrenten. Wenn's auf Windows läuft, läuft es ja eh überall. Das ist auch
+eine Art crossplattform.
+
+Die verwendete IDE ist nach kurzem Überlegen [Eclipse][1] geworden. Nicht, 
+dass das irgendwie sinnvoll ist. Eclipse ist eine Krankheit. Aber was anderes
+hatten wir in dem Semester „Strukturiertes Programmieren” samt Tutorium „wie
+bediene ich Eclipe?” nicht gehabt. Und den Leuten Eigeninitiative zu zeigen
+wird wohl erst im Master funktionieren oder wenn der Kurs 
+„Kompetenz für Informatiker” angeboten wird.
+
+Dieses Eclipse hat neben einer hässlichen Oberfläche und 130 MB Größe
+allerdings noch keine Versionskontrollsysteme enthalten. Diese zwei Megabyte
+sind leider zu viel. Da es aber sinnvoll ist, als Gruppe verteilte
+Versionskontrolle zu nutzen, habe ich mich nach einem Plugin für Eclipse
+umgeschaut ([Cygwin][2] muss nicht sein). Gibt [EGit][3] und das scheint eine
+komplette Implementierung von [Git][4] in Java zu sein. Und das funktioniert
+dann nicht mit meinem Server, weil das SSL-Cert eine unbekannte Identität hat
+– und DAMIT konnte wohl NIEMAND rechnen!!1! Da sieht man wieder
+Enterprise-Entwickler bei der Arbeit. Einen hübschen Git-Client für Windows
+habe ich nicht gefunden, aber mir war [TortoiseHG][5] ein Name. Hübsches GUI,
+erfordert allerdings ein anderes Backend auf'm Server.
+
+Aber ein [Mercurial Server][6] mit [Redmine][7] wie [ich es mit Git habe][8],
+lässt sich nicht ohne weiteres implementieren. Das geht entweder mit Apache
+und dem Apache-only Auth-Handler Skript oder über HTTP Basic/Digest Auth. Das
+bringt mit Redmine aber nichts. Redmine nutzt `sha1(sha1(passwd) + salt)`, was
+auch die sinnvollste Methode ist. Nun stehe ich da, sehe ein high
+sophisticated Webinterface (aka `hg serve`) und möchte eigentlich nur `hg
+push` und `hg fetch` machen. Von Redmine authentifiziert.
+
+Ich hasse diese Enterprise-Software-Welt.
+
+[1]: http://www.eclipse.org/
+[2]: http://www.cygwin.com/
+[3]: http://eclipse.org/egit/
+[4]: http://git-scm.com
+[5]: http://tortoisehg.bitbucket.org/
+[6]: http://mercurial.selenic.com/wiki/HgWebDirStepByStep
+[7]: http://www.redmine.org/
+[8]: https://blog.posativ.org/2011/grack-redmine-auth-git-smart-http/

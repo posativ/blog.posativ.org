@@ -1,0 +1,65 @@
+---
+title: "Linkschleuder #19"
+date: 26.03.2012, 00:02
+tags: [Links, OS X]
+---
+
+Wieder eine dedizierte OS X Linkschleuder; aber nur weil es sonst zu unübersichtlich geworden wäre.
+Die nächste ist im Anflug: [Linkschleuder #20](/2012/linkschleuder-20/).
+
+## Äpps
+
+- [Asepsis](http://asepsis.binaryage.com/) – nein, keine neue Krankheit sondern eine Ausgliederung
+  des Codes aus TotalFinder in einen Dämon, der die berühmten `.DS_Store`-Dateien ganz raffiniert in
+  einen gesonderten Ordner umleitet. Must-have!
+- [XtraFinder](http://www.trankynam.com/xtrafinder/) – ein recht neues, proprietäres Plugin für den
+  Finder, das einige fehlende Funktionen im Finder nachrüstet, (via [cmur2](http://mycrobase.de/)).
+- [Mou](http://mouapp.com/) – *The missing Markdown editor for web developers*, ganz hübsch (via
+  [Schockwellenreiter][2]).
+- [atMonitor](http://www.atpurpose.com/atMonitor/) – *Mac OS X System Monitor and Process Explorer
+  Tool* (frei wie Freibier).
+- [Reggy](http://reggyapp.com/) – eine sinnlose, aber freie Software um Reguläre Ausdrücke diverser
+  Sprachen in einer schicken GUI zu testen.
+- [Waterroof](http://www.hanynet.com/waterroof/) – ein grafisches Frontend zur Firewall von OS X,
+  [IPFW][4], (frei wie Freibier).
+- [Wineskin](http://wineskin.doh123.com/) – yet another Wine-Manager für OS X mit aktuell Wine 1.4,
+  der für jedes Windows-Programm eine extra Weinflasche herunterlädt und verschließt. Das geringste
+  Übel unter den restlichen Bundlern und `wine` selbst.
+- [induction](http://inductionapp.com/) – ein open-source SQL/NoSQL Database Client für OS X.
+  Testen!
+
+## Developer-Tools
+
+- [Homebrew 0.9](https://github.com/mxcl/homebrew/wiki/Homebrew-0.9) – der *missing package manager
+  for OS X* hat einen Meilenstein geschafft und supported nun auf einfache Art und Weise andere
+  Repositories, was gegen die teilweise *sehr* kompromisslosen Formula-Policy doch ganz nützlich
+  erscheint.
+- [How to uninstall Xcode](http://macdevelopertips.com/xcode/how-to-uninstall-xcode.html) – und
+  danach gleich den [OSX-GCC-Installer](http://kennethreitz.com/xcode-gcc-and-homebrew.html) rauf
+  (via [rfc1437][3]).
+- [The Haskell Platform](http://hackage.haskell.org/platform/) – fertige Binary für den
+  [GHC](https://en.wikipedia.org/wiki/Glasgow_Haskell_Compiler) samt Paketmanager
+  [Cabal](http://www.haskell.org/cabal/). Praktisch, wenn mit
+  [Homebrew](https://github.com/mxcl/homebrew) das Bauen (nahezu immer) failt.
+- [Growly](https://github.com/ryankee/growly) – schickt den STDOUT von bsw. `ls -F` direkt an Growl.
+- [tmux unter OS X](https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard) – 
+  `pbcopy` und `pbpaste` im `tmux` wiederherstellen.
+
+## Misc
+
+- [PDF Browser Plugin](http://www.schubert-it.com/pluginpdf/) – damit soll wohl Preview bzw. dessen
+  Quartz-Komponente PDFs in Firefox und Co darstellen können.
+- [OS X Tool Belt](http://www.zipfelmaus.com/blog/my-tool-belt/) – aus Sicht eines Web-Entwicklers.
+- [Traffic Shaping at Mac OS X][7] – vielleicht taugt das was als
+  [trickle](http://monkey.org/~marius/pages/?page=trickle)-Ersatz.
+- [Privoxy unter Lion](http://www.andrewwatters.com/privoxy/) – mit Komplett-Anleitung und
+  `launchd`-Integration.
+- [Alternative Skins für Skype 5][8] – weil die Skype GUI wirklich scheiße ist, haben die Entwickler
+  wohlweißlich CSS-Support eingebaut (via [cmur2](http://mycrobase.de/)).
+
+
+[2]: http://www.schockwellenreiter.de/blog/2012/02/17/peters-linkschleuder-96/
+[3]: http://hugo.rfc1437.de/2012/02/16/mac-developer-tips-how-to-uninstall-xcode/
+[4]: http://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/firewalls-ipfw.html
+[7]: http://bubonicpestilence.ru/post/564587053/traffic-shaping-at-mac-os-x
+[8]: http://joemiller.me/2011/05/24/alternative-skins-for-skype-5-on-mac-osx/

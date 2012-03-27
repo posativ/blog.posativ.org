@@ -1,0 +1,42 @@
+---
+title: "Linkschleuder #17"
+date: 20.02.2012, 15:11
+tags: [Proxy, Links, Planet]
+---
+
+Heute über ad-blocking HTTP-Proxies, Man-in-the-Middle-Proxies und SSL-über-HTTP-Proxies. Proxies, Proxies, Proxies.
+
+- [Polipo][1] – a caching web proxy, hatte ich [hier schon][2], kann auch
+  Werbung blocken, indem z.B. die [Easylist][3] in ein
+  `/etc/polipo/forbidden`-taugliches Format umgewandelt wird. [Hier
+  steht][4] wie es ginge (es geht aber mit den aktuellen Easylists
+  (partiell) nicht mehr, da müsste jemand ran, und polipo-unverträgliche
+  Ausdrücke entfernen/kompatibel machen).
+- [bfilter](http://bfilter.sourceforge.net/index.php) – a filtering web proxy
+  für HTTP Kompression, built-in JavaScript Engine, heuristischer
+  Flash-Analyzer und on-the-fly processing. Vielleicht lässt sich dieser mit
+  den Easylists erweitern.
+- [mitm][5] – an SSL-capable man-in-the-middle proxy, mit dem man unter
+  anderem den [Adressbuch-Klau bei Path und Twitter][10] unter iOS sehen
+  konnte.
+- [sslsniff][6] – wie [mitm][5] ein man-in-the-middle Proxy, der on-the-fly
+  SSL Zertifikate erstellt und allen Traffic im LAN abhört.
+- [trickle][7] – a lightweight userspace bandwith shaper für *BSD und Linux,
+  leider aber nicht für Darwin/OS X.
+- [corkscrew][8] – Tunneling SSH over an HTTP-Proxy Server, falls man mal in
+  die Bedrängnis kommt (oder SSL mit polipo cachen will ;-) (via  [/home/claw](http://claw.triple6.org/linux/ssh-verbindung-uber-einen-proxyserver/)).
+- [30 books everyone in software business should read (and why)][9] –
+  geblogmarkt, man weiß ja nie (via
+  [Zipfelmaus](http://www.zipfelmaus.com/blog/last-weeks-top-5-links/)).
+
+
+[1]: http://www.freebsdwiki.net/index.php/Polipo
+[2]: http://blog.posativ.org/2012/polipo-a-caching-web-proxy/
+[3]: https://easylist.adblockplus.org/de/
+[4]: http://rightfootin.blogspot.com/2009/11/ad-blocking-with-polipo.html
+[5]: http://mitmproxy.org/
+[6]: http://www.thoughtcrime.org/software/sslsniff/
+[7]: http://monkey.org/~marius/pages/?page=trickle
+[8]: http://www.mtu.net/~engstrom/ssh-proxy.php
+[9]: http://www.dextronet.com/micro-isv-insights/2012/01/30-books-everyone-in-software-business-should-read-and-why/
+[10]: http://www.heise.de/security/meldung/Auch-Twitter-Foursquare-und-Foodspotting-uebertragen-Adressbuch-an-Hersteller-1435069.html

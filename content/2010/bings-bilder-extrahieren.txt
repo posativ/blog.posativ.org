@@ -1,0 +1,71 @@
+---
+title: wget -r – oder wie man alle Bilder von Bing.com herunterlädt
+date: 28.07.2010, 22:51
+tags: [Python]
+---
+
+<a href="http://bing.com/fd/hpk2/LeafCutterAnts_DE-DE3252262952.jpg">
+<img src="http://bing.com/fd/hpk2/LeafCutterAnts_DE-DE3252262952.jpg" alt="Ameisen" width="760" class="shadow" />
+</a>
+
+Ich plane ja einen Header in mein Blog einzupflegen; so in etwa wie [hier](http://www.schockwellenreiter.de/).
+Allerdings nicht solche alten Bilder, sondern eher etwas Ansehnlicheres. Inzwischen bin ich bei bing.com,
+dem *Picture of the Day* angelangt (via [cmur2](http://ssim.dyndns.org/)).
+
+Lage prüfen
+===========
+
+Wir gehen zunächst auf <http://bing.de/> und werden auf <http://bing.com/?cc=de> weitergeleitet, denn wir kommen
+ja aus Deutschland. Dort sehen wir schon: das ist JavaScript-only. Nicht verzagen, [Google fragen][]:
+[Extract Bing.com Wallpapers](http://openhippo.com/2010/01/03/how-to-extract-bing-com-wallpapers/).
+Genau das wollen wir haben. Sieht ziemlich einfach aus:
+
+    :::bash
+    curl -s 'http://www.bing.com/?cc=de' | grep -oE '\\/fd.+\.jpg'
+    #  \/fd\/hpk2\/MachuPicchu_DE-DE609064060.jpg
+
+Wenn wir davon die Backslashes entfernen, können wir damit prima auf das [aktuelle Tagesbild][] zugreifen.
+Spätestens jetzt merkt man aber, dass der Vor und Zurück-Button natürlich *auch* in JavaScript implementiert ist...
+
+[Google fragen]: http://lmgtfy.com/?q=extract+bing+image
+[aktuelle Tagesbild]: http://bing.com/fd/hpk2/MachuPicchu_DE-DE609064060.jpg
+
+Down Them All
+=============
+
+An dieser Stelle war ich dann zunächst etwas ratlos und bin den üblichen Weg über Google gegangen:
+[bing image archive](http://lmgtfy.com/?q=bing+image+archive).
+Gleich der erste Treffer sieht perfekt aus. Auflistung aller Bilder, wahlweise nach Nationen gefiltert,
+sehr leicht extrahierbar, da die Seitenlogik in PHP realisiert ist, und zwar über einfach zu editierende
+GET-Befehle.
+
+Via `grep` lassen sich so einfach die Direktlinks herausfiltern - ausschließlich für `DE`-Deutschland:
+
+    :::bash
+    curl -s 'http://www.istartedsomething.com/bingimages/' | grep -oE 'resize\.php\?i=[^.]+_DE[^.]+\.jpg&w=100'
+    #  resize.php?i=WorldExpo_DE-DE278223030.jpg&w=100
+    #  resize.php?i=Bratislava_DE-DE736008353.jpg&w=100
+
+Der letzte URL-Parameter gibt an, dass das Bild noch verkleinert werden soll, wird der entfernt, kommen
+wir an das Originalbild heran. Da sich meine Kenntnisse bei den ganzen unix-Tools in Grenzen halten,
+musste ich zu guter letzt ein kleines Python-Skript zusammenhacken, was alle Bildlinks für August 2009
+bis Juli 2010 ausspuckt; natürlich `wget`-tauglich.
+
+Dann kommt zum Schluss ein nettes `wget -i links` und schon haben wir über 300 Bilder (ca. 71 MiB) heruntergeladen!
+
+    :::python
+
+    import re
+    from urllib import urlopen
+
+    url = 'http://www.istartedsomething.com/bingimages/?m=%s&y=%s' # month, year
+
+    if __name__ == '__main__':
+
+        for t in [(m+1,2010) for m in range(10)] + [(m+1,2009) for m in range(10)]:
+            for line in urlopen(url % t):
+                m = re.findall("resize\.php\?i=[^.]+_DE[^.]+\.jpg&w=100", line)
+                if m:
+                    print '%s%s' % (url.split('?')[0], m[0].split('&')[0])
+
+ps: wer nicht alles manuell machen möchte, kann [sie sich über Wuala holen](http://www.wuala.com/posativ/Images/hübsches/Bing.de)

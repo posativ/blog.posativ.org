@@ -1,0 +1,78 @@
+---
+title: weave-minimal – a Firefox Sync full-server fork
+date: 18.12.2011, 17:35
+lang: en
+tags: [Mozilla, Firefox Sync, Python]
+---
+
+The first time I tried to get a custom Firefox Sync server running, I used
+[`server-full`](https://hg.mozilla.org/services/server-full/) and even though
+I know python (the server is written in python), the configuration was highly
+difficult. There's no click & install. You have to choose between Redis,
+MySQL, PostgreSQL and Sqlite3. For most people, sqlite3 is quite fine. Sqlite
+and sync-server config files have summed up almost 80 LoC. And you still don't
+know how to authenticate unless you have already a LDAP server running.
+
+There are some alternatives:
+[ffpyweave](https://github.com/tolumak/ffpyweave), [django sync
+server](https://github.com/jedie/django-sync-server/) and formerly
+[weave-minimal](http://ymartin59.free.fr/wordpress/index.php/2011/03/05/my-own-firefox-sync-weave-server/)
+too, written in PHP but not supported anymore. But I've forked the official
+[`server-full`](https://hg.mozilla.org/services/server-full/) (well I
+completely rewrote) to a more easier installation without multiple backends
+but completely relying on a simple sqlite database.
+
+Requirements
+============
+
+- a web server with proxy or FastCGI/WSGI support
+- python runtime (>= 2.5)
+- shell access
+
+Installation
+============
+
+    :::bash
+    $ easy_install -U werkzeug
+
+&nbsp;
+
+    :::bash
+    $ wget https://github.com/posativ/weave-minimal/tarball/master -O weave-minimal.tar.gz
+    $ tar xfz weave-minimal.tar.gz
+    $ cd posativ-weave-minimal
+
+Usage
+=====
+
+Currently, Firefox does not you create a user account on your own server.
+I [filed a bug][1] in a week ago. Therefore you need to set up every account
+manually:
+
+    :::bash
+    $ ./weave.py --register myname:mypassword
+    [info] database for `myname` created at `.data/myname.91dfd9ddb4198aff`
+    $ ./weave.py -p 8080
+    
+*Please note that only alpha-numerical characters are allowed!*
+
+The last command launches weave.py on port 8080. You can now configure mod_proxy
+in your webserver of choice or you some mod_fastcgi magic. See [README.md][2]
+for an example configuration.
+
+For the Firefox Sync Setup see in [README.md][2], too.
+
+Hints
+=====
+
+- using an SSL-encrypted server is recommended but not required
+- Firefox never transmits browser data unencrypted, just your username/password
+  are sent base64-encoded over the air (HTTP Basic Authentication).
+- you can have multiple user per weave-minimal instance
+- the user password is stored SHA1-hashed (first 16 characters) into the
+  database filename `name.91dfd9ddb4198aff`.
+- in case your web server sucks and does not send `HTTP_X_SCRIPT_NAME`, start
+  `weave.py` with `--prefix=/url/prefix`.
+
+[1]: https://bugzilla.mozilla.org/show_bug.cgi?id=708256
+[2]: https://github.com/posativ/weave-minimal

@@ -1,0 +1,60 @@
+---
+title: Gott ist tot – Calléjon
+date: 27.11.2010, 12:59
+tags: [Calléjon, YouTube]
+permalink: /2010/gott-ist-tot-call-jon
+---
+
+Wie kommt man eigentlich an neue Musik, die einem gefallen könnte? YouTube? Wenn man weiß, was man
+hören will, geht das ganz gut. Zum Musik neu entdecken? Völlig ungeeignet. Last.fm – genau dafür
+geschaffen. [Völlig ungeeignet](http://blog.posativ.org/?p=7c82266). Nun gehe ich diesen September
+endlich mal auf ein Konzert von [We Butter The Bread With Butter](http://www.myspace.com/wbtbwb).
+Mir ist es zwar grundsätzlich egal, wer da noch mitspielt, eine Band ist Grund genug für mich, da
+hin zu gehen, aber es ist ziemlich effektiv, so an andere neue Bands zu kommen.
+
+Eine davon ist [Calléjon](http://www.myspace.com/callejon). Machen deutschen Metalcore. Deutschsprachigen
+(!) Metalcore. Wer das Genre kennt, der weiß, dass es da so gut wie nichts auf Deutsch gibt. Dazu machen
+sie das sogar noch recht gut. Ein guter Einstieg und Überblick zu ihrem Stil ist mit
+„[*Sommer, Liebe, Kokain*][]“ gegeben. Schöner Ohrwurm, (guter Text).
+
+Es geht um „[*Gott ist tot*][]“. Das ist gar kein Anti-Gott-Lied
+wie man auf dem ersten Blick annehmen würde. Leicht gegenteilig, und ziemlich schwierig zu interpretieren.
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+<script type="text/javascript" src="http://video.fubra.com/js/jquery.futube.js"></script>
+<script type="text/javascript">
+    $(function() {
+        $('#futube').futube({video: "r-nxscjEQlY", width: "600"});
+    });
+</script>
+<div id="futube">Calléjon – Gott ist tot</div>
+
+Klar, das ist Metal. Es ist sogar Metalcore. Es klingt natürlich leicht anders als *„Ich geh mit meiner Laterne“*.
+Ja, man kann es ab 1:47 als Krach interpretieren. Man kann es aber genauso gut als Kontrast sehen. Sollte
+man auch. Achja: ein weiteres gilt es noch zu definieren. Das sogenannte Adjektiv „episch“. Da gibt es tatsächlich
+<del>Idioten</del> Leute, die meinen, dass epische Musik solche ist, die epische Texte beinhalten.
+Das ist totaler Müll. Die Lyrics können episch sein, aber nicht die Musik in diesem Sinne. Das Genre
+„epische Musik“ ist auch eher pseudo. Episch ist zum Beispiel [*Jack Sparrow – Hans Zimmer*][]
+(zum großen Teil) und natürlich [*Requiem for a Dream (Remix) – Clint Mansell*][].
+
+Somit haben wir die Grundlagen geschaffen. Vorneweg: „Gott ist tot“ ist episch. Und zwar episch am Anfang
+bei <u>1:47</u> und am Ende bei <u>5:26</u>. Das sind zwei Stellen, die sind so Gänsehaut-erzeugend (ja,
+episch=Gänsehaut, wenn man's leicht haben will), das geht gar nicht. Eingebettet ist das ganze ja dazu
+noch in Akkustikgitarren-Geplänkel, was einen sehr heftigen Kontrast bildet. Noch heftiger wird es ja,
+wenn man heraushört, was da eigentlich geschrien wird „Manchmal wünschte ich, Gott es gäbe... dich“.
+Schön verzweifelt geschrien, fast schon ad absurdum getrieben, gibt das ein wirklich tolles Bild.
+
+Jemand, der nichts mit Metal anfangen kann, wird eventuell blutige Ohren bekommen. Aber das ist eines
+dieser Vorurteile: Metal macht Krach. Ja, Metal ist lauter, aber im Gegensatz zu anderer Musik wird
+man für sein Durchhaltevermögen belohnt. Ich habe Lieblingslieder, die sind totaler Müll und gehen einem
+unglaublich auf die Nerven, aber sobald es zum epischen Ende kommt, war es das einfach wert, zu leiden.
+Eventuell ist es sogar zwingend, dass man Krach hören muss, damit das Gute besser hervorgehoben wird.
+
+So ist es hier auch. Die Akkustik-Session (ist wichtig) ist relativ langweilig, das geschriene Intro
+der Hammer, das Gesungene nebensächlich, der Refrain ziemlich geil und das Ende episch. Kein anderes
+Genre bietet mir so etwas. Keines!
+
+[*Sommer, Liebe, Kokain*]: http://www.youtube.com/watch?v=72dgTpdTheQ
+[*Gott ist tot*]: http://www.youtube.com/watch?v=r-nxscjEQlY
+[*Jack Sparrow – Hans Zimmer*]: http://www.youtube.com/watch?v=Pd8HAy9WAYs
+[*Requiem for a Dream (Remix) – Clint Mansell*]: http://www.youtube.com/watch?v=xE0UA8RREX4

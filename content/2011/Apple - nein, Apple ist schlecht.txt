@@ -1,0 +1,111 @@
+---
+title: Nein, Apple ist schlecht!
+date: 22.07.2011, 18:24
+tags: [Apple, OS X, Windows]
+---
+
+Seit schon über acht Monaten habe ich ein MacBook Pro. Nein, ich bin keiner
+dieser Fanatiker. Ich brauche nicht jedes iGerät und ich kann [Apple][1]
+[auch][2] [kritisieren][3]. Niemand ist perfekt, auch Apple nicht. Aber das
+ändert nichts daran, dass Apple de facto sowohl im Computerbereich als auch
+im Mobilen mindestens zwei Jahre voraus ist. Und diese Tatsache will man Apple
+einfach nicht gönnen.
+
+Mein MacBook Pro war übrigens kaputt. Am Bildschirm gab es über die Zeit eine
+gelbe Verfärbung. Da war wohl etwas Kleber ausgelaufen, sowas kann vorkommen.
+Wie lange hat die Reparatur gedauert? 45 Minuten! **Eine dreiviertel Stunde**.
+Ohne, dass ich den Kassenbeleg brauchte, keine Komplikationen. Eine eine
+dreiviertel Stunde für einen Display-Austausch, während andere Hersteller
+mindestens zwei Wochen brauchen. Nein, ohne Apple Care und sonstigem.
+
+Mein Betriebssystem gab's übrigens kostenlos dazu. Der Preis der Geräte ist
+teuer, wohl wahr. Mein Betriebssystem ist übrigens für jeden gleich. Es gibt
+kein verkrüppeltes *Starter*, kein *Home Premium*, *Professional* oder
+*Ultimate*. Es ist für alle gleich! Und wenn man OS X mit Windows 7 preislich
+vergleich darf, so ist es doppelt so viel Wert wie Windows Ultimate. Wisst ihr,
+eigentlich wie teuer der Nachfolger von meinem OS ist? 24€!
+
+Wusstet ihr, dass OS X ein verdammt gutes Email-Programm mitliefert? Das ist
+kein hingerotzter Scheiß. Es verwaltet meine 6 GiB Emails mehr als zuverlässig.
+Einen standard-konformen Browser, an dessen opensource-Grundlage Apple
+mitentwickelt? Eine Terminverwaltung mit Interoperabilität zu Windows-Diensten
+– und das im default shipping! Wusstet ihr, dass Vorschau.app von JEDER
+Datei eine Vorschau geben kann, sogar von Microsoft-docx-Dokumenten! Mein OS
+kann sogar Windows-Freigaben einbinden und für andere Parteien einen
+WLAN-Hotspot einrichten, auch für nicht-Apple Geräte.
+
+Ich bekomme eine hochqualitative Bildbearbeitung mitgeliefert. Ich kann mit
+iMovie Filme produzieren ohne viel Geld in teure Video-Editing Software zu
+investieren. Mit iChat habe ich einen standard-konformen Chat-Client. Eine
+komplette Adress- und Organizer-Funktion wird mir kostenlos installiert. Ich
+habe neben GUI auch `rsync`, `ssh` und `X` an Bord. Ich kann sofort mit
+Programmieren anfangen: Java, Python, Perl und Ruby sind am Start. Ohne dass
+ich irgendeine Software aus dem Netz geladen hätte...
+
+... OS X liefert mit Lion eine Komplettverschlüsselung. Ich kann natürlich auch
+TrueCrypt installieren, aber ich muss mir nicht die Finger schmutzig machen,
+wenn es perfekt in das OS integriert ist und selbiges tut. Ich habe eine
+integrierte, hochqualitative Backup-Software, die ihresgleichen sucht. Wenn
+ich mein Macbook zuklappe, muss ich mir um nichts Gedanken machen. Wenn jemand
+über mein Stromkabel stolpert, passiert nichts. Wenn ich mit meinem Macbook
+gegen die Eisenstange vom Bus stoße und einfach aus langeweile drauf rumkratze...
+es passiert rein gar nichts.
+
+So, jetzt vergleicht mal euer stinkendes Windows. WAS KANN DAS EIGENTLICH? Es
+scheißt auf andere Systeme und überschreibt ohne Nachfrage fremde Bootloader.
+Man kann froh sein, wenn man UNIX-Dateien ohne Probleme mit korrekten
+Zeilenumbrüchen dargestellt bekommt. Kann Windows überhaupt *funktionierende*
+Hotspots erstellen? Hat Windows einen Email-Client? Kann seit Windows 98
+eigentlich irgendwelche weiteren Formate mit Thumbnail im Explorer anzeigen?
+Kann sich Windows eigentlich an Standards anderer Systeme anpassen? Wie kommt
+es, dass jedes OS sich an Windows anpassen muss?
+
+Was kann ich mit Windows am Anfang eigentlich erreichen? Womöglich nicht
+einmal google.com. Denn die Treiber fehlen. Wenn ich nach Stunden des
+Einrichtens endlich alle Ballonblasen gelöst habe, was kann ich dann tun? Ich
+kann nicht einmal die Dokumente von meinem eigenen Hersteller öffnen. Was für
+eine Schande ist das? Ich kann... ja, mir fällt nichts ein. ICH KANN NICHTS
+TUN!
+
+Und dann regt ihr euch über die sündhaft teuren Preise auf? Ich kann ja mal
+kurz nachrechnen: 1748€ hat es gekostet (inkl. Display-Upgrade, also -179€).
+Eine stolze Summe. Der Laptop eines Kommilitonen ist nahezu Hardware-identisch
+und hat knapp 900€ gekostet. Ich habe nun ungefähr zwei Stunden mehr
+Akkulaufzeit als er, ich habe ein endgeiles Netzteil, ich habe Software
+mitgeliefert, die unter Windows sicherlich die 500€-Marke sprengt. Mein Case
+ist aus Aluminium und ebenso wasserfest! Dreimal Wasser über der Tastatur
+ausgekippt und das MacBook lief nebenbei weiter. Reparaturzeiten, die nicht
+mit den Bestzeiten von alternativen Herstellern zu vergleichen ist. Übrigens
+ist mein Gerät nicht mit irgendwelche Werbe-Software zugespammt. Ich kann mein
+System in 30 Minuten installieren und bin danach komplett fertig!
+
+So, und soll ich euch mal von weiteren Vorteilen erzählen? Die Oberfläche von
+OS X ist ein Traum. Sie sieht nicht nur gut aus, sie ist unglaublich produktiv
+und während ich Windows belächeln muss, dass sie ja mit Aero doch schon so
+fast Linux-Niveau erreicht haben... mache ich ein, zwei Gesten und habe eine
+komplette Programmübersicht inklusive Vorschaubildern oder mein Dashboard
+geholt. Neulich wollte auch jemand wissen, ob er denn auch die Vorlesungs-PDFs
+zu einem großen zusammenbasteln kann. Tja, ohne viel Geld wohl nie! Nett,
+dass OS X das mit Boardmitteln kann. Sogar besser als `imagemagick` es je
+könnte. Kommen wir zum nächsten Punkt. Ich habe keine behinderte Konsole,
+mit der ich ja ach "so mächtig", wie manche Visual Basic Developer meinen, bin.
+Ich habe `bash` und die `csh` und die `zsh`... ach Moment, ich habe ja alle!
+
+Apple liefert mir sogar X mit. Während Windows mit seinem jämmerlichen
+cygwin-Interface rumgammelt, liefert mit OS X *alles* mit. Ich hab `gcc` und
+Co. Wenn ich lighttpd lokal brauche, dann kompiliere ich mir den einfach. Ein
+Kommando. Wenn ich ein Windows-Programm brauch, dann benötige ich keine teure
+Virtualisierung. Ich nehme wine. Wie war das doch gleich noch unter Windows?
+
+Aber ja, ich weiß. Apple ist böse. Sie wollen meine Identität. Sie blockieren
+meine gesamten Upload mit ihrer Informations-Sammelwut. Ich bin gläsern. Genauso
+Gläsern wie Windows-Nutzer. Ist ja nicht so, dass da Microsoft ein Stück besser
+wäre. Nur bei Microsoft weiß das ja jeder. Aber doch bei diesem TOLLEN Apple
+NICHT!1 Es ist lächerlich. Android 3 ist immer noch proprietär und hat die
+Freiheit des Source Codes von 2.x irgendetwas gebracht? Die meisten Nutzer haben
+dennoch Fußfesseln, trotz <del>freiem</del> semifreiem OS. Aber das kann man
+ja nicht vergleichen! Nein! Niemals!
+
+[1]: http://blog.posativ.org/2010/eine-unbegr-ndete-abneigung-gegen-apple/
+[2]: http://blog.posativ.org/2011/tagebuch-es-gibt-kein-entkommen-another-apple-rant/
+[3]: http://blog.posativ.org/2011/os-x-eine-serie-von-facepalms-teil-1/

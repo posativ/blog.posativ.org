@@ -1,0 +1,67 @@
+---
+title: "Wiki-Software: MindTouch Deki"
+
+date: 25.08.2010, 00:25
+tags: [Wiki, C#, PHP]
+---
+
+Ich suche für mich eine Art Personal Wiki. Das hat sich als schwierige Aufgabe herausgestellt,
+denn ich habe diverse Forderungen: Markup-Sprachen, angenehmes Look'n'Feel, Textdateien als Backend
+und möglichst Lauffähigkeit mit einem integrierten Server, da ich mich nicht mit FastCGI und Konsorten
+herumschlagen möchte.
+
+Written in C#
+=============
+
+Ja, schon einmal prinzipiell durchgefallen, aber da Java [lizenz-technisch noch proprietärer](http://blog.fefe.de/?ts=b29b58dd)
+als der MS-Kram ist, habe ich mal ein Auge zugedrückt. MindTouch Deki gibt es in einer kommerziellen
+als auch in einer freien Version. Unterschiede gibt's in der [Wikipedia](http://en.wikipedia.org/wiki/MindTouch_Deki).
+
+Installation
+============
+
+Die ist hart. Ich als Arch Linuxer habe überhaupt keine Chance. Alle Tutorials sind auf die großen
+Distributionen festgefahren, selbst die Installation „from source“ benötigt Debian (das soll mir
+mal einer erklären). Ich hab ja noch eine virtuelle Maschine, da war das zum Glück kein Problem.
+
+Also ich installiere mir einhundert und eine Abhängigkeit für Mono und lade mir noch schön proprietäre
+Software wie [Prince XML](http://www.princexml.com/), das natürlich logischerweise von den `msttcorefonts`
+abhängt. Welcher XML-Prozessor tut das denn bitteschön nicht?
+
+Die Fonts gibt's für Debian Squeeze noch nicht, immerhin funktioniert das Lenny-Paket.
+
+Hab ich schon erwähnt, dass das Teil komplett auf `apache2` basiert? Auch wenn es ein Core mit
+integriertem (!) Webserver in C# samt API hat, muss da erst ein Apache mit einer extra
+100-Zeilen-Konfiguration + FastCGI + PHP + Proxy ran.
+
+Ach und weil es so schön ist: Die Mozilla Root-Zertifikate darf man auch noch installieren (ich wüsste
+allerdings nicht, wozu), die allerdings erst mit `mono-1.0-devel` installiert werden können.
+Wieder einhundert Pakete, juchuu!
+
+Erster Test
+===========
+
+Nachdem wir die Installation geschafft haben, vermittelt uns eine nette Willkommensseite schon einmal
+einen [guten Eindruck](http://upload.wikimedia.org/wikipedia/commons/d/dd/MindTouch_Deki_screenshot.png).
+Sehr professionell und generell Eierlegendewollmichsau-Feeling.
+
+Da gibt es nur diesen klitzekleinen Nachteil: Minimum 50 MiB-RAM-Nutzung für **NICHTS** und locker
+20-30% CPU-Last, wenn ich da etwas herumbrowse – ich hatte vor, das auf meinem SheevaPlug laufen
+zu lassen. Aber wenn mein Dualcore.Rechner einknickt, dann ist das nicht mehr lustig (gut, es war
+virtualisiert).
+
+Als ich `wget -m http://mindtouch/` gemacht habe, hatte ich eine Last von über 2.0 (da lief sonst
+nichts) und volle RAM-Belegung von 128 MiB + 50 MiB Swap. Dabei hatte ich gerade einmal eine
+Todo-Seite eingerichtet.
+
+Fazit
+=====
+
+Ich habe den Test dann relativ schnell abgebrochen. Ich war von der Vielzahl an Optionen schlichtweg
+überfordert und konnte mich mit der Hardware-Last nicht so wirklich anfreunden.
+
+Das Wiki hat einen netten WYSIWYG-Editor; leider ein absolutes K.O.-Kriterium. Denn daraus wird nachher
+XML erstellt. Eine Einweg-Funktion, auf die ich gerne verzichten würde.
+
+Wer jetzt richtig Lust auf [MindTouch Deki](http://developer.mindtouch.com/) bekommen hat:
+[Installing from source](http://developer.mindtouch.com/en/docs/mindtouch_setup/010Installation/080Installing_from_source).

@@ -1,0 +1,15 @@
+---
+title: "Linkschleuder #5"
+date: 30.08.2011, 15:51
+tags: [Links, Vim, Quassel]
+---
+
+- [collectd](http://collectd.org/) + [front-ends](http://collectd.org/wiki/index.php/List_of_front-ends) ([Jarmon](http://collectd.org/wiki/index.php/Jarmon) oder [Visage](http://collectd.org/wiki/index.php/Visage)) = munin++
+- [GitHub Terminal im Browser](https://ghterm.heroku.com/) – sinnlos, aber cool
+- [Wie kaputt unser Internet ist](http://blog.koehntopp.de/archives/3028-C-is-for-Cookie.html) – Kristian Köhntopp
+- [Learn Vim Progressively](http://yannesposito.com/Scratch/en/blog/Learn-Vim-Progressively/) – beste Einführung, die ich bisher gesehen habe!
+- [What is your most productive shortcut with Vim?](http://stackoverflow.com/questions/1218390/what-is-your-most-productive-shortcut-with-vim/1220118#1220118)
+- [Fever](http://feedafever.com/) – Feedreader mit Filtering und auf'm eigenen Webserver zu installieren. Keine Testversion, 30$.
+- [Quassel](http://quassel-irc.org/) + [Websearch](http://m4yer.minad.de/quassel/) – mein Setup für's [IRC](https://secure.wikimedia.org/wikipedia/en/wiki/IRC)
+- [Miro](http://www.getmiro.com/) – alt und bekannt, aber inzwischen sogar nutzbar. Podcasts via Bittorrent, ein muss!
+- [/dev/radio](http://ulm.ccc.de/dev/radio/) – Podcast des Ulmer CCC mit [Arch Linux](http://ulm.ccc.de/dev/radio/detail?id=183) und [Crypto](http://ulm.ccc.de/dev/radio/detail?id=192) und so. Nett.

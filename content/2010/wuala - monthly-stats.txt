@@ -1,0 +1,23 @@
+---
+title: "Wuala: Speicher Tauschen, Onlinezeit"
+
+date: 26.11.2010, 13:39
+tags: [Wuala, munin]
+---
+
+Weil ich mein [munin-Plugin](http://blog.posativ.org/?p=3b72a3d) (gibt's auf Anfrage, da noch nicht
+fertig) so toll finde und testeshalber Wuala neu aufgesetzt habe, hier die Statistiken für ca. einen Monat:
+
+Leider hatte der zuständige Server für ein paar Tage ein Problem gehabt (siehe Knick). Aber sonst sieht
+man recht gut, dass die Onlinezeit von 100% in gut 30 Tagen geschafft werden kann und auch schnell
+100 GiB ertauscht werden können (wobei ich 75% der Zeit Verbindungstyp B hatte).
+
+# Wuala: online time per year
+
+[<img src="/img/wuala/wuala_online-year.png" class="shadow" alt="wuala bandwith:
+day" />](/img/wuala/wuala_online-year.png)
+
+# Wuala: earned storage per year
+
+[<img src="/img/wuala/wuala_storage-year.png" class="shadow" alt="wuala bandwith:
+day" />](/img/wuala/wuala_storage-year.png)

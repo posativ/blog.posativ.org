@@ -1,0 +1,84 @@
+---
+title: OS X Sniffing Tools
+date: 27.08.2011, 19:45
+tags: [OS X]
+---
+
+Hab ich [letztens gebraucht][1], als ich mir mal [CloudApp][2] näher angeschaut
+habt. Gibt zwar auch, wie ich im Nachhinein festgestellt habe, eine offizielle
+API, aber das wäre ja ZU einfach!1 Außerdem erfährt man so, wie dermaßen
+schlecht der CloudApp-Service designt ist. Unverschlüsselt, von vorne bis hinten.
+
+[1]: https://github.com/posativ/regenwolken/
+[2]: http://getcloudapp.com/
+
+# [Wireshark](https://www.wireshark.org/)
+
+[Do you know any good alternatives for wireshark (network analyzer)?][3]. Das
+ist keine ganz unberechtigte Frage. Denn Wireshark sieht einfach nur scheiße
+aus. Selbst [Inkskape][4] als vergleichbare X11-Applikation kommt nicht an
+dieses Grauen an.
+
+[3]: http://superuser.com/questions/99870/mac-wireshark-alternatives
+[4]: http://inkscape.org/
+
+[![Wireshark][wireshark]][wireshark]
+
+[wireshark]: /img/2011/wireshark.png
+
+Ehrlich, als Nutzer eines Macs erwarte ich schon halbwegs ansehnliche GUIs. Und
+nichts aus dem vorletzten Jahrhundert.
+
+# [CPA – Cocoa Packet Analyzer](http://www.tastycocoabytes.com/cpa/)
+
+Keine offenen Quellen, aber unter BSD Licence, 3-Style. Hab ich nicht so recht
+verstanden. CPA hat keinen Live-Modus, man muss vorher auf Capture, dann auf
+Stop drücken. Die Bedienung ist ziemlich simpel. Es hat eigentlich null
+Einstellungsmöglichkeiten. Aber es nutzt Cocoa und sieht schick aus.
+
+[![Cocoa Packet Analyzer][cpa]][cpa]
+
+[cpa]: /img/2011/cpa.png
+
+Problematisch ist eigentlich, dass es ziemlich scheiße zu bedienen ist. Wenn
+ich an den Requests auf Port 80 interessiert bin, dann darf ich mir die
+Bruchstücke einzeln zusammensuchen und dabei abtippen. Kopieren geht nicht.
+Ziemlich undurchdacht, viele unnötige Verschachtelungen. Nicht wirklich meins.
+
+# [Packet Peeper](http://packetpeeper.sourceforge.net/)
+
+[![Packet Peeper][pp]][pp]
+
+Projekt scheint verstorben zu sein, letztes Update: 2007.
+
+[pp]: /img/2011/packet_peeper.png
+
+Ist auch sehr merkwürdig. Es ist wohl am besten, wenn man sein MacBook dafür
+um 90° dreht und dann ein 10:16-Bildschirmverhältnis hat. Hat Live-Recording
+und ist nur zum Betrachten dank TCP-Stream Viewer (begrenzt brauchbar). Für
+ein TCP-Paket ausreichend, da wenn es mehrere sind, sehr umständlich.
+
+# tcpdump + [ngrep](http://ngrep.sourceforge.net/)
+
+So `sudo tcpdump -i en1` ist schon hübsch. Idealer Zeitvertreib im Uni-Wlan;
+damit lassen sich iPhones, Drucker und Co zählen. Natürlich nur zu
+Forschungszwecken!1 Damit einhergehend ist mein Lieblingstool inzwischen
+`ngrep` (gibt's in [homebrew][5]). Denn es geht ja eigentlich nur um Text,
+dafür brauch man keine umständliche GUI.
+
+    :::bash
+    sudo ngrep -W byline -d en1 port 80
+    
+War prima bei CloudApp. Sortierte TCPs, schön übersichtlich, einfach
+handzuhaben. Mehr will ich eigentlich nicht.
+
+    :::text
+    T 10.0.0.2:51794 -> 50.16.233.102:80 [AP]
+      GET /account HTTP/1.1..Host: my.cl.ly..User-Agent: Cloud/1.5.1
+      CFNetwork/520.0.13 Darwin/11.1.0 (x86_64) (MacBookPro6%2C2)..Accept:
+      application/json..Accept-Language: de-de..Accept-Encoding: gzip,
+      deflate..Cookie: user_credentials=3qlp9qn7q343nno136o9nr3p7psps3418
+      q6pnq0qn8np97o249q76r373rs4s2rpr01noq583r2qq2646oloqq767p5sqqnn936s
+      srp2p4s2ps6os50811959450o07n%3N..Pragma: no-cache..Connection: keep-alive....
+
+[5]: https://github.com/mxcl/homebrew

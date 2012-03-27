@@ -1,0 +1,69 @@
+---
+title: Minecraft beta-Server
+date: 14.08.2011, 15:13
+tags: [Minecraft]
+---
+
+Das Spiel [Minecraft][a1] kennt man ja inzwischen. Wirklich nett ist dabei der Survival Multiplayer Modus (SMP). Problem ist nur, dass dieser in Java dahingerotzte, offizielle Server einfach mal scheiße ist. Der hat faktisch kein vorhandenes Speichermanagement und nach einer Weile hat die Java-VM allen RAM für sich alloziiert. Langsam und absturzfreudig ist er zudem auch noch. Dafür ist die Implementierung logischerweise die Feature-reichste... aber es gibt neben dem [offiziellen Wiki][a2] noch ein nettes, kleines [Hacker-Wiki][a3]. Das hat eine hübsche Seite zu [alternativen Servern][a4], die allesamt den Vorteil haben, dass sie viel schneller und sparsamer als die offizielle Implementierungen sind.
+
+[a1]: http://www.minecraft.net/
+[a2]: http://www.minecraftwiki.net/wiki/
+[a3]: http://mc.kev009.com/
+[a4]: http://mc.kev009.com/Server_List
+
+[MCServer](http://www.mc-server.org/)
+=====================================
+
+Closed-Sorce, läuft auf [Linux, Mac und Windows][b1] und ist auch einigermaßen performant. Das Teil ist in C++ geschrieben und erlaubt Skripting mittels Lua. Problem: es existiert keinerlei Dokumentation. Also wirklich GAR NICHTS. Man hat diverse undokumentierte Konfigurationsmöglichkeiten: banned.ini, items.ini, settings.ini, users.ini, whitelist.ini, groups.ini, monsters.ini, terrain.ini und webadmin.ini. Hier mal Auszüge von monsters.ini und terrain.ini:
+
+	:::ini
+	[Spider]
+	AttackRange=5.0
+	AttackRate=1
+	AttackDamage=1.0
+	SightDistance=25.0
+	
+	[Chicken]
+	AttackRange=5.0
+	AttackRate=1  
+	AttackDamage=1.0
+	SightDistance=25.0
+
+
+	[Terrain]
+	HeightFreq1=0.100000
+	HeightFreq2=1.000000
+	HeightFreq3=2.000000
+	HeightAmp1=1.000000
+	HeightAmp2=0.500000
+	HeightAmp3=0.500000
+	
+Alles klar. Kinderspiel, den Server einzurichten. Das traurige dabei ist, dass das wohl der vielversprechendste Server für *beta* ist. Aber ohne Doku geht da einfach nichts. Der Terrain-Generator ist auch nicht wirklich hübsch – ein default noise und fertig. Viele Blümchen, ein paar Hühner. Endloses Meer. Nicht sonderlich aufregend. Da reißen es auch nicht die netten Plugins wie *fliegender Teppich* und *Area locking*. [Hier][b2] das Wiki.
+
+[b1]: http://www.mc-server.org/versions.php
+[b2]: http://www.mc-server.org/wiki/
+
+
+[Bravo](http://www.bravoserver.org/)
+====================================
+
+Ein in Python geschriebener beta-Server, der [Twisted][c1] als Backend nutzt und einigermaßen performt. Installieren lässt der sich relativ einfach mittels `pip install Bravo` und optional mit `pip install ampoule` (soll Geschwindigkeit bringen) ergänzen. Gestartet wird er dann mit `twistd -n bravo`. Konfiguriert wird er über eine `bravo.ini`, [deren Vorlage][c2] man sich am besten vom [offiziellen GitHub-Repo][c3] holt. Eine hübsche Doku [existiert ebenfalls][c4].
+
+Probleme, die mir aufgefallen sind: der Terrain-Generator setzt sich aus Plugins zusammen und generiert entweder sehr langweilige (normale) Landschaften oder verkackt es dermaßen, dass es unspielbar wird (`complex` statt `simplex`). Außerdem wachsen zu Beginn keine Bäume, obwohl Setzlinge eingepflanzt sind. Man muss diese zuerst einsammeln und neu aussähen. Danach werden diese getrackt; selbiges für Grass. Wie üblich, auch auch Bravo ein Webinterface auf :8080 mit kompletten Kartenrendering und allerlei nützlichen Informationen.
+
+Tiere und Zombies wurden auch noch nicht implementiert – wobei es einen [Pull Request für eine simple AI][c5] für die Tierchen gibt. Der Baumwach-Prozess ist übrigens auch [noch nicht final][c6].
+
+[c1]: http://twistedmatrix.com/trac/
+[c2]: https://raw.github.com/MostAwesomeDude/bravo/master/bravo.ini.example
+[c3]: https://github.com/MostAwesomeDude/bravo
+[c4]: http://www.docs.bravoserver.org/
+[c5]: https://github.com/Varriount/bravo/commit/694f2a821e7c67c40de8bd29a8f9a52c4ddecb85
+[c6]: /img/2011/bravo.png
+
+[Mineserver][1] und [Schlagwetter][2]
+=====================================
+
+Sind zwei Implementierungen in C++, die allerdings ebenfalls keinen Support für Mobs (das sind die Tiere und Zombies) bringen, aber dafür wieder sehr performant sind. Gerade Schlagwetter sieht doch recht professionell aus. Aber für einen produktiven Minecraft-Server ist keiner geeignet. Wie allgemein kein alternativer Server... und weitere sind mir nicht bekannt. So muss ich weiterhin hoffen, dass mir der offizielle Server nicht meinen VServer killt.
+
+[1]: https://github.com/fador/mineserver/
+[2]: http://louisdx.github.com/schlagwetter/

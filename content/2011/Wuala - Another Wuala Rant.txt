@@ -1,0 +1,43 @@
+---
+title: Another Wuala Rant
+date: 20.06.2011, 22:32
+tags: [Rant, Wuala]
+---
+
+Ich kann es einfach nicht lassen. Da habe ich mir gedacht, hey, ich mach doch
+mal wieder ein Backup mit Wuala. Aber jedes Mal kriege ich wieder Agressionen.
+
+Mein Wuala Startup sieht seit Wochen wie folgt aus. Ich öffne Wuala um etwas
+herunterzuladen. Dafür muss ich nun erst einmal alle Backup-Jobs anhalten,
+da sonst die Leitung blockiert wird. Das ist [bei denen](http://twitter.com/wuala)
+wohl auch so ein Usability-Fail, der damit begründet wird, den man über
+*Fenster* -> *Backups* -> *Backups pausieren* „umgehen kann”. Dass man aber als
+User gerade EXPLIZIT gesagt hat, man möchte diese Datei herunterladen und das
+soll bitteschön auch JETZT geschehen und nicht erst wenn diese elendigen
+Backup-Jobs abgelaufen sind – das hat man nicht begriffen.
+
+Nun habe ich die Backups pausiert und kann die gewünschte Datei herunterladen.
+Wenigstens funktioniert das noch so wie früher™. Dann noch schnell alle neuen
+Items weggeklickt und dann schließen. HALT. Erst einmal fünf Minuten warten,
+dass die Server die geklickten *New Items* gesynct haben. Denn sonst darf man
+das beim nächsten Start wieder tun.
+
+Also. Ich denke mir, ich lasse meine Backups fortsetzen, wohlgemerkt bestehende.
+Seit ungefähr drei Stunden verbrät Wuala nun 50% meiner
+CPU-Last um genau 900 MiB zu updaten. NEUNHUNDERT MEGABYTE. Das kann mein Rechner
+in geschätzten FÜNF Minuten encrypten und was braucht ihr? DREI STUNDEN?! Ich
+habe übrigens eine Stunde später meinen Backup-Job via `rsync` angeworfen.
+13 GiB bei guten 8-10 MB/s mit knapp 5-6% Last. ARGH.
+
+Und dann geistern immer häufiger so Phrasen durch das Netz wie: Dropbox ist
+scheiße, aber es gibt ja Wuala. Ne, das ist jetzt wohl ein schlechter Scherz.
+Statt einer perfekten Lösung wollen die allen ernstes Wuala nutzen? Das ist,
+als ob ich von OS X wieder auf Windows wechsle.
+
+Und man glaubt es auch nicht. Sie schaffen es IMMER noch, ihre GUI zu verhunzen.
+Jetzt gab es ein major Redesign mit etwas mehr „Logik”. Damit wurde nebenbei
+wieder die Icons für den Schnellzugriff auf sich selbst, Gruppen und Freunde
+entfernt, die aber bei großen Dateistrukturen im Treeview einfach mal
+verschwinden. Super! Nein, sie haben *Backup* und *Sync* in FENSTER, JA IN
+EXTRA FENSTER ausgelagert. Weil es ja so intuitiv zu den anderen FENSTERN passt.
+m(

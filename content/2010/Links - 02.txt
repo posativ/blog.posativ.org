@@ -1,0 +1,46 @@
+---
+title: "Linkschleuder #2"
+
+date: 03.10.2010, 11:24
+tags: [Links, CoffeeScript, Flask, CSS Preprocessors, mp3val]
+---
+
+So, bevor ich am Montag nach Jena ziehe und wahrscheinlich erstmal kein Internet habe,
+noch ein paar am Samstag gesammelte Links:
+
+- [Nuitka](http://kayhayen24x7.homelinux.org/blog/nuitka-a-python-compiler/what-is-nuitka/): Python nach C++ Compiler mit derzeit „nur“ 58% Speedup
+- [CoffeeScript](http://en.wikipedia.org/wiki/CoffeeScript): CoffeeScript (influenced by Ruby and Python) nach JavaScript Compiler
+- [CleverCSS](http://sandbox.pocoo.org/clevercss/): Python-like Syntax nach CSS Compiler
+- [Flask](http://flask.pocoo.org/): „a microframework for Python based on [Werkzeug](http://dev.pocoo.org/projects/werkzeug/),
+  [Jinja 2](http://dev.pocoo.org/projects/jinja/) and good intentions“
+  <p>Ich suche schon seit längerem Frameworks, die einem *nicht* ihren Workflow aufzwingen. `Flask` sieht deshalb ziemlich
+  interessant aus – und *good intentions* sind immer gut.</p>
+
+Wie man unschwer erkennen mag, interessieren mich X-nach-JavaScript/CSS Compiler. Wer Python als erste Programmiersprache
+kennengelernt hat, ist einfach zu verwöhnt.
+
+# mp3val
+
+Ich habe häufiger schon MP3-Dateien gehabt (genauer gesagt: MPEG-Audiostreams), die auf irgendeiner Art und Weise offensichtlich
+korrupt waren. Meist gab es entweder keine Längenangabe oder die war ein Vielfaches der realen Zeit. Leider fixt das derzeit
+kein Medienplayer unter Linux.
+
+Daher gibt es zum einen [mpck](http://checkmate.gissen.nl/), was quasi wie `fsck` ist, nur ohne Korrekturmöglichkeiten. Wer das mal
+über seine Bibliothek laufen lassen möchte:
+
+    :::bash
+    cd ~/Music
+    find . -type f -name "*.mp3" -exec mpck -Bq {} \;
+
+Bei mir waren das 120 von 5872; alle mit einer falschen Längenangabe (im Vergleich zu den vorhandenen Bits). Problem ist nur,
+dass man die Fehler zwar sieht, aber nicht beheben kann. Dafür gibt es dann aber [mp3val](http://mp3val.sourceforge.net/), das
+mit `mp3val -si` ebenso Fehler erkennen kann (wobei es fast 1/3 meiner Sammling als fehlerhaft gesehen hat) und diese meist
+problemlos beheben kann:
+
+    :::bash
+    cd ~/Music
+    find . -type f -name "*.mp3" -exec mp3val -f -t -si -nb {} \;
+
+Das wird, sofern möglich, kaputte MP3s fixen, die Backupdatei *titel.mp3.bak* löschen und die INFO-Nachrichten unterdrücken. Die
+Prozedur kann eine Weile dauern, je nach Größe der Sammlung.
+

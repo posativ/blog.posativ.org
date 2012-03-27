@@ -1,0 +1,33 @@
+---
+title: "Linkschleuder #14"
+date: 20.01.2012, 10:43
+tags: [Links, unix, Firefox Sync]
+---
+
+
+- [Cryptographic Key Length Recommendation](http://www.keylength.com/en/compare/)
+  – im Seminar aufgeschnappt; empfohlene Schlüssellängen einiger Behörden.
+- [weaveclient-chromium-continued](https://bitbucket.org/aykevl93/weaveclient-chromium-continued/overview)
+  – nicht getestet, aber wäre cool, wenn das funktioniert.
+- [puppet](http://projects.puppetlabs.com/projects/puppet) – automatisiertes
+  Einrichten eines *nix-Systems mit einer Ruby-DSL.  
+  „Puppet, an automated administrative engine for your \*nix systems, performs
+  administrative tasks (such as adding users, installing packages, and
+  updating server configurations) based on a centralized specification.“
+- [`start-stop-daemon`](http://manpages.ubuntu.com/manpages/dapper/de/man8/start-stop-daemon.8.html)
+  – ein Debian/Ubuntu-Tool, um das Schreiben von eigenen Dämonen deutlich zu
+  erleichten ([Beispiel][1]).
+- [Watch](https://github.com/visionmedia/watch) – A tiny C program used to
+  periodically execute a command. (via [The
+  Changelog](http://thechangelog.com/post/14041353400/watch-simple-periodical-execution-utility-in-c))
+- [dcrypt.it](http://dcrypt.it/) – DLC Entschlüsselung mit ein paar mehr
+  Input-Methoden als [mein Angebot][2].
+- [Polipo](http://www.pps.jussieu.fr/~jch/software/polipo/) – a small and fast
+  caching web proxy. Sowas wie [squid][3], aber eher für
+  Single-User/Home-Betrieb gedacht. Werd' ich mir mal näher anschauen.
+- [ettercap](http://ettercap.sourceforge.net/index.php) – eine Suite für
+  Man-in-the-Middle Angriffe im LAN.
+
+[1]: https://gist.github.com/6eec44bde70b8405ce73
+[2]: http://posativ.org/decrypt/
+[3]: http://www.squid-cache.org/

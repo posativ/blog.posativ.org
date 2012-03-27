@@ -1,0 +1,11 @@
+---
+title: ncdu - ncurses disk usage
+
+date: 12.01.2011, 12:35
+---
+
+Das ginge sicherlich auch mit dem *Midnight Commander*. Ich bin immer noch zu faul, die Man-Page zu lesen. tl;dr.
+Ist ja nicht so, dass ich mir da nicht selbst helfen könnte. Mittels `du -hx --max-depth=1` kann man sich halbwegs
+Verzeichnis für Verzeichnis durchhangeln.
+
+Aber dafür gibt es eine schöne Oberfläche über `ncurses`: [ncdu](http://dev.yorhel.nl/ncdu) und eine kurze Man-Page!

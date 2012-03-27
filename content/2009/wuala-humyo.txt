@@ -1,0 +1,102 @@
+---
+title: "Ein Blick über den Tellerrand: humyo"
+filters: [reST]
+date: 12.10.2009, 11:56
+tags: [humyo, Wuala, Backup]
+---
+
+Auf der Suche nach Alternativen bin ich kürzlich auf humyo_ gestoßen.
+Der Anbieter bietet 10 Gigabyte kostenlosen Speicherplatz und hat ähnliche Preise wie Wuala für `Speicher Kaufen`:
+
+- 77,34 € je 100 GB (100 € Wuala) pro Jahr
+- 773,38 € für 1 TB (640 € Wuala) pro Jahr
+
+Bei Wuala lohnen sich im direkten Vergleich nur hohe Speichermengen, da humyos Preise linear ansteigen.
+
+Der technische Vergleich von Wuala und humyo ist wie mit Birnen und Äpfeln, letztendlich kann man beide essen.
+Caleido hat mit Wuala allerdings dieselben Ziele wie humyo:
+
+- Backup für Privatpersonen
+- Backup für Unternehmen
+- Sicherheit und Benutzerfreundlichkeit
+- soziale Komponente
+
+Was haben humyo und Wuala gemeinsam:
+------------------------------------
+
+- AES Verschlüsselung (humyo 256 Bit SSL [1]_ | Wuala 128 Bit [2]_)
+- automatische Backups
+- Webinterface
+- Streaming
+- Teilen von Dateien/Ordnern mit Freunden; mit 'Welt'
+- hohe Geschwindigkeiten
+
+
+Allerdings sind beide Dienste unterschiedlich aufgebaut. Wuala hat das Ziel einer profitablen Backup Lösung mit Nutzung einer P2P Cloud,
+die auf längere Zeit eine höhere Redundanz und Geschwindigkeit bringt.
+
+Weil bei humyo alles auf Servern des Unternehmens läuft, haben sie den Vorteil, dem Nutzer ein sehr umfangreiches Webinterface zu bieten, unter anderem mit webDAV.
+
+Während humyos offizielle Software nur auf Windows und betamäßig auf dem Mac, unterstützt Wuala hingegen Linux schon ziemlich gut.
+
+Was humyo attraktiver macht als Wuala:
+--------------------------------------
+
+In meinen Augen ist humyo eine deutlich interessante Backuplösung als Wuala.
+
+Webinterface:
+	Ich habe eine Dateimanager ähnliche Oberfläche im Browser, die es auch ermöglicht, Filme und Musikdateien direkt im Webinterface zu streamen;
+	und das mit jeglicher Datei, egal ob privat, geteilt oder öffentlich.
+
+	Für die soziale Seite gibt es dort auch die Möglichkeit der privaten Nachrichten, die Wuala schon seit eh und je fehlen.
+	Und es gibt auch RSS Feeds ;)
+Transparenz:
+	Sowohl Wuala als auch humyo bieten hohe Sicherheit. Aber ich kann wieder bei keinem nachvollziehen, ob diese auch wirklich gegeben ist.
+
+	Wuala hat ein Crypttree Paper veröffentlicht, dennoch enthält es absolut nichts über die eigentliche Verschlüsselung, sodass ich auch
+	weiterhin Caleido vertrauen muss, als der Verschlüsselung. Bei humyo ist das nicht viel anders.
+Zugriff:
+	Wuala bietet zumindest für Windows eine ausgezeichnete FSI Integration, für Linux und Mac OS X soll es auch bald besser werden.
+	humyo hat zwar von Haus aus (das ist das Webinterface) keinerlei Software dabei, allerdings gibt es einen WebDAV Zugriff, sodass
+	neben der Software für Windows und OS X auch Linux Nutzer diesen Dienst nutzen können.
+
+	Über das WebDAV können aber auch beispielsweise Handys und auch das Eifon darauf zugreifen, was Wuala noch nicht bietet.
+
+Für Unternehmen, die sowieso bedenken haben, Firmengeheimnisse Online bei einem Anbieter zu sichern, fliegen sowohl humyo als auch Wuala einfach heraus.
+Interessant ist allerdings noch der geteilte Speicherplatz für Unternehmen, allerdings dürfte das bei Wuala auch bald Einzug erhalten.
+
+Allerdings kann man sich dem behelfen, einfach ein paar mal zu TrueCrypten und dann wiederum reicht auch ein Hosting bei rapidshare aus.
+
+Also Caleido, etwas mehr Transparenz und schon gäbe es bei Unternehmen nicht mehr völlige Ablehnung ;)
+
+
+Ein Jahr 100 GB bei humyo für 2,21 €
+------------------------------------
+
+Bei einer kurzen Recherche zu humyo bin ich ziemlich schnell auf ein ziemlich attraktives Angebot gestoßen:
+
+Das Computer Boulevard Magazin Computerbild hat seit dem 26. September eine Aktion, die einem Privatanwender 100 GB für ein Jahr gegen eine
+kleine Bearbeitungsgebühr von 2,21 € bietet.
+
+Nach dem einen Jahr kann entweder gekündigt werden oder nach Gefallen zahlt man für die 100 GB eben 60 €.
+
+|br|
+
+Ihr geht auf http://humyo.de/ und klickt auf *Für Zuhause* und gebt beim **Gutscheincode: computerbild** ein.
+Frei nach ihrem Artikel: `Sonderaktion: Sichern Sie sich 100 Gigabyte Speicherplatz im Internet
+<http://www.computerbild.de/artikel/cb-Aktion-humyo-gutschein-100-Gigabyte-Online-Speicher-4690929.html>`_
+
+|br|
+
+*ps: für Linux rockt das ganze WebDAV über 'davfs2' mittels Eintrag in der fstab richtig.
+Damit funktioniert auch das nicht unterstützte rsync.*
+
+Quellen
+-------
+
+.. |br| raw:: html
+
+	<br />
+.. _humyo: http://humyo.de
+.. [1] http://www.humyo.de/pages/de/sicheres-online-daten-back-up
+.. [2] http://www.wuala.com/de/learn/technology

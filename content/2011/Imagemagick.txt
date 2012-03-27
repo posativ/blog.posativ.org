@@ -1,0 +1,34 @@
+---
+title: "Pretty Print von Scans im Copyshop mit imagemagick"
+date: 12.09.2011, 21:12
+---
+
+Das übliche. Ein Seite für Seite gescanntes Buch und heraus fallen hunderte A4
+TIFFs mit 2458x3476 Pixeln Auflösung. Damit nun zum Copyshop gehen zu wollen,
+ist nicht wirklich praktisch. Zwar kann OS X' *Vorschau.app* out-of-the-box
+PDFs erstellen, allerdings reichen meine vier Gigabyte RAM für diese
+Inplace-Operation nicht aus. Mit meinem Tool der Wahl wird das zwar nur
+bedingt besser, 100% RAM-Auslastung gibt's dennoch, aber immerhin läuft das
+Tool durch.
+    
+**TIFF nach PNG mit erhöhtem++ Kontrast und Verkleinerung auf 50%**
+
+    :::bash
+    $ du -sh .
+    1,3G	.
+    
+    $ mogrify +contrast +contrast -sharpen 0x1 -resize 50% -format png *.tif
+    
+    $ du -sh .
+    160M
+
+**PNG nach PDF mit Compression (der Zwischenschritt war sicherlich unnötig)**
+
+    :::bash
+    $ convert -compress jpeg *.png out.pdf
+    
+    $ ls -lh out.pdf
+    -rw-r--r-- 1 ich staff 64M Sep 12 20:15 out.pdf
+    
+`convert` und `mogrify` sind Tools der [imagemagick](http://www.imagemagick.org/)-Suite
+und gibt's bei jeder Linux-Distribution und unter OS X bsw. über `brew install imagemagick`.

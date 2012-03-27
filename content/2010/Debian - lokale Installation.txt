@@ -1,0 +1,69 @@
+---
+title: lokale Debian Squeeze Installation über QEMU
+
+date: 27.07.2010, 12:24
+tags: [QEMU, V-Server, Debian]
+---
+
+Inzwischen wurde mein [kleiner vServer](https://www.proplay.biz/vps_premium.html) freigeschaltet,
+von dem [letztens berichtet habe](http://blog.posativ.org/?p=75aa2db).
+Der DNS-Eintrag nach `blog.posativ.org` löst auch schon zum vServer auf. Darauf läuft jetzt ein
+Debian Squeeze in der 32-Bit Ausführung.
+
+Server lokal emuliert
+=====================
+
+Da der Server nun produktiv genutzt wird, brauche ich eine relativ identische Arbeitsumgebung
+wie auf dem Server und weil dort irgendein „Debian Minimal 6.0“ verwendet wird – ein Eigenbau des
+Virtualisierers – das ich leider nicht direkt installieren kann, habe ich mich nach der minimalen
+Installation eines Debian Testing *(Netzwerk-Installation)* umgeschaut und die auch recht schnell gefunden:
+[Daily build #1 for i386](http://cdimage.debian.org/cdimage/daily-builds/daily/arch-latest/i386/iso-cd/).
+
+Dazu habe ich öfters bei [hak5](http://www.hak5.org/) – nette Serie, gibt's übrigens [bei Wuala][] –
+gesehen, wie der mit einem Befehl ein OS starten konnte. Da ich bisher immer recht umständlich VirtualBox
+genutzt habe, habe ich mich mal danach umgesehen. Es handelt sich bei der Virtualisierungssoftware
+um [QEMU][]: „eine freie virtuelle Maschine, die die komplette Hardware eines Computers emuliert“.
+
+[bei Wuala]: http://www.wuala.com/Creative%20Commons/videos/Hak5
+[QEMU]: http://de.wikipedia.org/wiki/QEMU
+
+Setup unter Arch Linux
+======================
+
+Ich liebe das [Arch-Wiki](http://wiki.archlinux.org): es gibt natürlich auch einen [detaillierten
+Artikel zu QEMU](http://wiki.archlinux.org/index.php/Qemu).
+
+Ein Debian Minimal zu erstellen ist ziemlich simpel. Wir holen uns zuerst `qemu`, dann das Iso und
+zu guter letzt erstellen wir ein HDD-Image für Debian und booten:
+
+    :::bash
+    $ sudo pacman -Sy qemu
+    $ wget http://cdimage.debian.org/cdimage/daily-builds/daily/arch-latest/i386/iso-cd/debian-testing-i386-netinst.iso
+    $ qemu-img create -f qcow2 debian.qcow 2G #  erstellt das hdd-image mit einer Größe von 2 GB (komprimiert)
+    $ qemu -cdrom debian-testing-i386-netinst.iso -boot d debian.qcow
+
+Wer eine CPU mit VT/V-Technik hat *([alle neueren][], meine nicht)*, der kann über `qemu-kvm` Befehle
+nativ laufen lassen und erhält somit eine enorme Geschwindigkeitssteigerung. Meine Debian Minimal Installation
+dauerte schon über eine Stunde + eine weitere für alle Updates :-(
+
+Das installierte Debian Squeeze habe ich [nach Wuala geladen](http://www.wuala.com/posativ/Files/linux/debian.qcow):
+root mit dem Passwort „qq“.
+
+[alle neueren]: http://wiki.xensource.com/xenwiki/HVM_Compatible_Processors
+
+Ports weiterleiten
+==================
+
+[QEMU][] hat [diverse Möglichkeiten](http://wiki.qemu.org/Documentation/Networking) des Netzwerkaufbaus. Standardmäßig
+ist *slirp* aktiv, was unter anderem keinen Ping ermöglicht und auch sonst den Host die virtuelle Maschine nicht
+direkt ansprechen lässt. Das stört mich allerdings nicht allzu sehr, da der vServer remote ja auch nur ein HTTP-Server
+ist, kann man mittels
+
+    :::console
+    qemu debian.qcow -redir tcp:8080::80
+
+den HTTP-Port in der VM auf 8080 lokal umleiten.
+Das ist zwar nicht die eleganteste Lösung, aber sie reicht für eine testing-Umgebung allemal.
+
+
+[QEMU]: http://de.wikipedia.org/wiki/QEMU

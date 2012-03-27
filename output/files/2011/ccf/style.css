@@ -1,0 +1,59 @@
+body {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 0.8em;
+	background-color: #F5F5F5;
+	width: 85%;
+	text-align: justify;
+	margin: 0 auto;
+}
+
+table {
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+
+td {
+	background-color: #EDEDED; 
+	padding: 2px;
+	font-family: Consolas, "Bitstream Vera Sans Mono", "Courier New", monospace;
+}
+
+th {
+	background-color: #C7C7C7;
+	padding: 2px;
+	text-align: center;
+}
+
+h1 {
+	font-size: 2em;
+}
+
+h2 {
+	font-size: 1.4em;
+	border-bottom: 1px dotted black;
+}
+
+h3 {
+	font-size: 1.1em;
+	margin-bottom: 5px; 
+}
+
+p {
+	margin: 5px 0px 5px 0px;
+	line-height: 1.3em;
+}
+
+.footer {
+	font-size: 0.85em;
+	border-top: 1px dotted black;
+	padding: 5px 0px 5px 0px;
+}
+
+pre, .code {
+	font-family: Consolas, "Bitstream Vera Sans Mono", "Courier New", monospace;
+	font-size: 1em;
+}
+
+.small {
+	font-size: 0.85em;
+}

@@ -1,0 +1,44 @@
+---
+title: Das neue schlechte iPad
+date: 18.03.2012, 20:33
+tags: [Apple, iPad, Rant]
+---
+
+Seit ein paar Tagen ist ja wieder das *neue* iPad (formerly known as iPad 3)
+ein Hype, dabei hat es das dieses Mal nicht verdient. Dass das iPad damals™
+visionär war, müssen auch Fandroids einsehen, das iPad 2 ist ebenso ein
+exzellentes Produkt. Aber was ist das neue iPad? Das ist ein Stück
+<del>Scheiße</del> [Beta-Hardware][0]:
+
+- wird warm (36 °C und wir haben noch nicht Hochsommer), sprich über
+  Körpertemperatur -- ein absolutes No Go! Wie kann Apple denn wieder
+  dengleichen Fehler wie beim iPad 1 machen?
+- das Display mit einer höheren Auflösung als mein Macbook Pro, das ist schön
+  und gut aber ich weiß inzwischen nicht mehr, was für Apple ein Pro-Nutzer
+  ist.
+- der Prozessor/Quadcore-Grafik (was für'n Marketing-Witz) bringt nicht die
+  vierfache Leistung um das neue Display mit der gleichen Leistung wie das
+  iPad 2 anzusteuern.
+- Safari, Wake Up und PDF-Ansicht ist *langsamer* geworden. HALLO? Sowas
+  verkauft Apple als Neuheit? Das es *langsamer* geworden ist?
+- Das Teil hat einen größeren Akku als das Macbook Air 11" (42,5 Wh versus 35
+  Wh), doppelt so viel wie das vorherige iPad und erreicht dennoch nur die
+  gleiche oder schlechtere (mit nicht unterstützdem LTE in Deutschland++)
+  Laufzeit. Mit diesem Akku + 60 Gramm mehr Gewicht (das ist nicht soo störend
+  finde ich) hätte man das alte iPad locker 20, in Zahlen ZWANZIG Stunden
+  laufen lassen können. *Das* wäre eine Neuheit!
+- Sieben Stunden Zeit zum Akku Aufladen. SRSLY?
+
+Ich hatte ja wirklich überlegt, aber nach ein [paar Recherchen im
+Internetz][1] warte ich doch lieber auf ein späteres neues iPad, das zumindest
+nichts schlechter macht als das iPad 2. Zumal es im Apple Education Store
+keinen Rabatt auf das iPad gibt. Apple, das war eine ganz schwache Leistung!
+
+Aber natürlich ist Apple auf ihre Art <del>revolutionär</del> neu, denn die
+Konkurrenz muss jetzt erst einmal auf ein Software Update von Google hoffen
+ehe sie ihre Hardware ausbauen, was dann zu einer noch größeren Fragmentierung
+der Android-Gemeinde führt und in einen weiteren verbissenen K(r)ampf zwischen
+Fanboys und Fandroids m)
+
+[0]: https://www.apple.com/de/ipad/specs/
+[1]: http://www.heise.de/mac-and-i/artikel/foren/S-Angetestet-Das-neue-iPad/forum-224221/list/

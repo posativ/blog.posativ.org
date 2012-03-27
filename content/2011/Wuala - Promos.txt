@@ -1,0 +1,81 @@
+---
+title: "Wuala: Promotion Codes / Geschenkkarten"
+filters: [reST]
+date: 23.05.2011, 09:31
+tags: [Wuala]
+---
+
+Mal ein kleineres Update mit den Codes, die ich so mitbekommen hab. Einlösen unter *Einstellungen* ->
+*Speicher Tauschen*. Falls welche nicht mehr funktionieren, ich habe inzwischen ein Kommentar-System,
+das *NoScript*-Nutzer allerdings vielfach erlauben müssen (Disqus_).
+
+Funktionierende Promotioncodes:
+-------------------------------
+
+* WORLD_BACKUP_DAY : 1 GB (März '12)
+* I-LOVE-POLAND : 1 GB
+* I-KNOW-MARKUS : 1 GB
+* SKYFISH-IS-COOL : 1 GB (Anfang Mai, '11)
+
+
+Vergangene Promotioncodes:
+--------------------------
+
+* I-KNOW-ANDY : 1 GB
+* CONNECT-WITH-SUPPORT : 1 GB
+* I-KNOW-DOMINIK : 1 GB
+* I-KNOW-CAROLA : 1 GB
+* I-KNOW-FABIUS : 1 GB
+* I-KNOW-LUZIUS : 1 GB
+* I-KNOW-THOMAS : 1 GB
+* I-KNOW-JONAS : 1 GB
+* I-KNOW-MARCEL : 1 GB
+* I-KNOW-MARIUS : 1 GB
+* I-KNOW-DARIO : 1 GB
+* PC-MAGAZIN : 2 GB (Anfang April)
+* PCWELT06 : 3 GB (bis ende Juni '11)
+* 123456789WUACIE : 4 GB für 2 Jahre (bis 23. Mai '11)
+* COMPUTER-HOY : 2 GB (Mitte März '11)
+* THANKS-FOR-REPORTING : 2 GB (nur 1./2. April '10)
+* JournalduGeek : 1 GB (bis Ende März '10)
+* HOLIDAYS09 : 50% Rabatt für den Kauf von Speicher [bis 31.12.2009]
+* NZZCAMPUS : 20% Rabatt für den Kauf von Speicher
+* HALLOWEEN : 50% Rabatt für das Kaufen von Speicher [bis 1. November 2009]
+* FOLLOWER : 1 GB (Kontingent von 1TB = 1000 Anwender [1000. `Twitter Follower`_])
+* I-LIKE-SUSHI  : 1 GB
+* NZZCAMPUS : 2 GB | aktuell: nur noch 20% Rabatt
+* IN-IOSTREAM-WE-TRUST : 1 GB (nur, wenn zuvor kein anderer Promotioncode eingesetzt wurde)
+* GIG-IN-THE-SKY : 1 GB (nur, wenn zuvor kein anderer Promotioncode eingesetzt wurde)
+* I-LIKE-$Mastermindname : 1 GB
+* EASTER09 : 1GB [zu Ostern]
+* XMAS08 : 1 GB [zum 24.12.2008]
+* FOUNDER.CH : 1 GB
+* FOUNDER_CH : 1 GB
+* STUDISURF : 2 GB (hat unwiderruflich drei rote Punkte am Avatar gebracht) [bis 31.12.2008]
+* PC-PRAXIS : 2 GB [bis 31.12.2008]
+
+5 GB Geschenkkarten
+-------------------
+
+|bild|
+
+Entweder über Twitter-Spiele oder als Werbe/Promotion Geschenk gibt es die 5 GB Geschenkkarten.
+Sehen schick aus und halten ein Jahr.
+
+.. |bild| raw:: html
+
+    <a href="http://www.wuala.com/img/giftcard/giftcard.png">
+    <img class="floatright" src="http://www.wuala.com/img/giftcard/giftcard.png"
+    alt="Wuala Giftcards"/></a>
+
+Caleido plant, solche Karten ähnlich wie iTunes Geschenkkarten bei Media-Markt oder Saturn anzubieten.
+
+Sofern man eine Karte hat, geht das Aktiveren des Codes über http://www.wuala.com/giftcard/
+
+Ein Beispielcode wäre: *FAAX - FM3F - XK8T - M8TP - F8H3* (der ist logischerweise schon entwertet)
+
+*Wer ungültige oder neue Codes vermerken möchte, kann entweder einen Kommentar hinterlassen oder mich in* Wuala_ *darauf hinweisen.*
+
+.. _`Twitter Follower`: http://twitter.com/Wuala/
+.. _Wuala: http://www.wuala.com/posativ
+.. _Disqus: http://disqus.com/

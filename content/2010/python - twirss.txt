@@ -1,0 +1,49 @@
+---
+title: "100 Zeilen Python: Twitter Timeline als RSS-Feed"
+
+date: 19.09.2010, 17:35
+tags: [Twitter, Python]
+---
+
+Mit dem 31. August hat Twitter die Basic-Authentication deaktiviert. An sich eine feine Sache, allerdings
+zum Nachteil der RSS-Reader. Ich habe nun in knapp 100 Zeilen Python ein CGI-Skript geschrieben, dass
+per default 50 Einträge der Timeline holt und @User sowie #Hash-Tags verlinkt. Als Extra gibt es noch
+ein automatisches URL-Resolving, sofern das über HTTP Statuscode 302 funktioniert (z.B. [bit.ly](http://bit.ly/)).
+
+[<img src="http://blog.posativ.org/img/python/twirss.png" class="shadow" 
+width="720" alt="Liferea mit Twitter Timeline als RSS-Feed" />](http://blog.posativ.org/img/python/twirss.png)
+
+*twirss* getauft, benötigt mindestens Python 2.6, da auf das Python-Twitter-Interface [tweepy](http://github.com/joshthecoder/tweepy)
+gesetzt wird. Wobei man über [simplejson](http://pypi.python.org/pypi/simplejson/) auch 2.5 und früher
+erreichen könnte.
+
+# Installation
+
+- [komprimiertes Archiv](http://posativ.org/twirss/twirss.tar.gz)
+- `git clone http://git.posativ.org/twirss twirss`
+
+Installation auf dem eigenen Webserver mit Python als Skriptsprache ist einfaches Kopieren.
+[Liferea](http://liferea.sourceforge.net/) kann sogar einen Befehl ausführen und damit
+ist das Skript auch ohne Server lauffähig:  
+„`python twirss/index.py | sed 1d`“
+
+# OAuth
+
+Über die Twitter API kann der Nutzer nun unabhängig von seinem Passwort Applikationen zulassen; so
+auch bei diesem Skript. In dem Archiv/Git liegt ein interaktives Skript Namens *key.py*, was der
+Nutzer durchgehen muss. Die resultierenden Token müssen dann in das Skript eingepflegt werden:
+
+    :::python
+    #!/usr/bin/env python
+    # -*- encoding: utf-8 -*-
+    # licensed under the WTFPL
+
+    import sys; reload(sys); sys.setdefaultencoding("utf-8")
+    # ...
+    from socket import setdefaulttimeout
+
+    CONSUMER_KEY = "APPbntMLcMDuPwTahEJgA"
+    CONSUMER_SECRET = "dZH2BChokybq8suqOJWwYZqV2J7UtTrFAglXeWyh0"
+
+    ACCESS_KEY = "your access key"
+    ACCESS_SECRET = "your secret key"

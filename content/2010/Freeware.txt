@@ -1,0 +1,44 @@
+---
+title: Das Elend mit Freeware
+
+date: 18.11.2010, 21:00
+tags: [Microsoft, Apple, Open Source, Windows]
+---
+
+Als ich gut einen Monat nur Internet via iPhone Tethering hatte, ist mir bewusst geworden, wie
+sehr einen Microsofts Windows bevormundet. Wenn ich meinen Linux Desktop starte, so benötigt der
+per se erst einmal keine aktive Internetverbindung. Sofern eine besteht, kümmert ihn das trotzdem nicht.
+
+Nicht so Windows. Wer automatische Updates aktiv hat, der wird sein Volumen schnell überschreiten.
+Überhaupt was da alles geupdated werden will. Eine vanilla Windows-Installation mit Adobe Flash, Java
+und Windows höchstpersönlich will sich am liebsten täglich aktualisieren und dabei den Nutzer vollkommen
+individuell nerven. Zentrale Paketverwaltung? So ein Rückschritt!1 Dabei ist es [so gesehen](https://www.cert-bund.de/overview/AdvisoryShort)
+ziemlich gleich, ob man aktualisiert. Da hilft es eher, die gesamte Technik ausgeschaltet zu lassen –
+erspart auch die Update-Zyklen.
+
+Zurück zu Linux. Ja, wer hätte gedacht (Ubuntu ist da kein Stück besser als Windows), es ist von Vorteil,
+selbst, frei zu bestimmen, wann aktualisiert wird und was. Ein Befehl und sofort ist alles up-to-date.
+Uni-technisch bedingt (wieso eigentlich?) werde ich <del>öfters</del> nur mit Windows-Maschinen konfrontiert.
+Vorzugsweise auf den tollen Netbooks. Das ist schon ein Krampf beim zusehen, wenn Windows drei Jahre und
+einen Tag zum Hochfahren mitsamt aller im Autostart nervenden Programme á la Steam, ICQ, MSN und
+was weiß ich braucht. Dann sind diese Geräte (nicht nur Netbooks, allgemein) subventioniert. Subventioniert
+durch Werbung. Da passen dann schon mal sechs Toolbars in den Internet Explorer. Ist ja nicht so, dass
+das problematisch ist bei 16:10/9 Bildschirmen. Zurück zum Krampf: Wenn dann Windows 7 irgendwann mal
+gestartet ist und man alltägliche Arbeiten, sprich Surfen und Schreiben (immerhin dominiert OpenOffice), tut,
+dann ist schon wieder Schluss mit lustig.
+
+Auf der anderen Seite ist es doch erstaunlich, dass die Rechner in der Uni zu 99% UNIX sind. Logisch, würde
+man Windows im Background einsetzen, hat man a) ein Problem und b) wäre man nicht plattform-unabhängig.
+Ein Glück hat man da freie Software, die so frei ist, dass sie auch geschlossener Software Zugang bietet.
+
+In was für einer Welt würden wir leben, wenn Microsoft „Sind Sie sicher?“ dominiert? Oder gar Apple
+„i-i-i-i-i“? Wir, die Bürger müssen uns nackt, äh [negativ nackt][] machen, aber die
+auswertende Software bleibt geheim. [Funktioniert super][]!
+
+[negativ nackt]: http://petersantilli.com/2010/01/10/i-dont-want-my-wife-and-daughters-to-become-porno-for-airport-goobers/#
+[Funktioniert super]: http://www.netzpolitik.org/2010/korperscanner-erste-nacktbilder-von-us-gerich/
+
+Erreicht hat der Begriff Freie Software noch nichts. Was frei bedeutet, wissen nur wenige. Wer weiß
+schon, dass hinter VLC das freie ffmpeg Projekt wirkt? Dass OpenOffice frei <del>ist</del> war.
+Dass die Hochschulsprache Java frei <del>ist</del> [war](http://www.theregister.co.uk/2010/11/06/oracle_dueling_jvms/).
+Dass Firefox ein freier Browser ist. Die Software ist für die meisten genauso frei, wie das mitgelieferte Windows 7.

@@ -1,0 +1,92 @@
+---
+title: nanoc – ein CMS mal anders
+
+date: 15.08.2010, 15:21
+tags: [Ruby, nanoc, statische Seiten, YAML]
+---
+
+Ich bin ja absolut kein Freund von Content-Management-Systemen. Die haben Features, die ein
+normalsterblicher niemals brauchen wird. Die sind grundsätzlich langsam, weil ja jedes
+Mal irgendetwas dynamisch generiert werden muss – und wer hat schon FastCGI auf seinem
+Webserver konfiguriert?
+
+Wieso eine Nutzerverwaltung, wenn ich eh alleiniger Autor bin? Wieso muss da jedes Mal ein
+Skript durchrechnen, wenn der Content identisch ist? Wieso potenzielle Lücken
+öffnen, weil man es doch so gerne dynamisch haben möchte. MySQL und Co erschweren es extrem,
+„mal eben“ etwas lokal zu testen. Ich nutze meinen Webserver ungern für's Testen.
+
+Das bringt uns zu `nanoc`: „*nanoc is a Ruby web publishing system for building small to medium-sized websites.*“
+
+Konzept
+=======
+
+[Nanoc][] ist wie eine Art `make` für Webseiten. Zuerst lässt man es eine Grundstruktur erstellen, die
+hinterher von nanoc gelesen und verarbeitet werden kann. Die Grundstruktur sieht so aus:
+
+    :::console
+    % nanoc create_site newsite
+    newsite/
+    |-- config.yaml
+    |-- content/
+    |   |-- index.html
+    |   `-- stylesheet.css
+    |-- layouts/
+    |   `-- default.html
+    |-- lib/
+    |   `-- default.rb
+    |-- output/
+    |-- Rakefile
+    `-- Rules
+
+Der Inhalt und dessen Seitenstruktur wird in *content/* mittels Textdateien und Ordner erstellt. So
+wird z.B. aus *content/test/hello.html* im *output/test/hello* *(/index.html)*. Inhalt und Layout
+sind dabei strikt voneinander getrennt.
+
+Jede Seite kann Metainformationen über [YAML](http://www.yaml.org/) enthalten:
+
+    :::text
+    ---
+    title: "API Reference"
+    Category: Documentation
+    ---
+
+Über eingebettetes Ruby ([eRuby][]) innerhalb des HTML-Templates *layouts/default.html* kann dann auf
+die Informationen zugegriffen werden und so das Template individualisiert werden: [Beispiel][] (Zeile 6).
+
+Um nicht mühsam plain-HTML schreiben zu müssen, kann jede Seite durch einen [Filter][] laufen, der den
+Text transformiert und so z.B. [Markdown][] (kramdown in Ruby) oder vielleicht [reStructuredText][] als
+Markup Sprache ermöglicht.
+
+Die *Rules*-Datei dient dazu, in der Datei vordefinierte Regeln auf die Ausgabe anzuwenden. So kann
+z.B. für jeden Unterordner in *content/* ein eigenes Layout definiert oder eine andere Markup
+Sprache genutzt werden.
+
+[Nanoc]: http://nanoc.stoneship.org/
+[Filter]: http://nanoc.stoneship.org/docs/4-basic-concepts/#filters
+[Markdown]: http://daringfireball.net/projects/markdown/
+[reStructuredText]: http://docutils.sourceforge.net/rst.html
+[eRuby]: http://en.wikipedia.org/wiki/ERuby
+[Beispiel]: http://blog.posativ.org/files/nanoc.html
+
+Do-It-Yourself
+==============
+
+Das war jetzt alles recht abstrakt, kommen wir zum Tool selbst:
+
+Die Installation von `nanoc` ist einfach: man holt sich `ruby` und `rubygems` und tippt dann
+`gem install nanoc`. Wer das in */usr/bin/* installiert haben möchte, sollte das als root laufen lassen.
+
+Eine Website wird mit `nanoc create_site mysite` erstellt. Für mehr Komfort bietet nanoc einen
+Webserver, der auf <http://127.0.0.1:3000> läuft (via `adsf`). Den kann man gleich mal im `screen`
+oder im bg starten: `nanoc view &`.
+
+Gerendert wird mittels `nanoc compile` und schon kann man eine (schicke) default Seite betrachten. Auf
+den Webserver muss dann nur noch alles in *output/* hochgeladen werden. Mehr ist es nicht. Mein
+Anwendungsfall lässt sich [hier](http://posativ.org/lilith/) „bestaunen“.
+
+diverse Links
+=============
+
+- [Nanoc Website](http://nanoc.stoneship.org/)
+- [Einsteiger-Tutorial](http://nanoc.stoneship.org/docs/3-getting-started/)
+- [Liste von statischen Website-Generatoren](http://stackoverflow.com/questions/186290/best-static-website-generator)

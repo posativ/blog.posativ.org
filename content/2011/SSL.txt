@@ -1,0 +1,18 @@
+---
+title: Ab heute mit rudimentären SSL-Support
+date: 11.07.2011, 0:18
+permalink: /2011/ab-heute-mit-rudiment-ren-ssl-support
+tags: [SSL, lighttpd]
+---
+
+Ich hab' [ab heute 'n SSL-Cert][1], das sogar validiert und keine extra
+Freigabe wegen unbekannter Identität erfordert! Web 2.0++, yeah!
+
+Nur failed jetzt alles. Disqus, mein statisches HTML, lighttpd beim
+automatischen redirect. An sich alles kein Problem. Aber Disqus kann
+kein SSL, das wäre read-only für nicht registrierte und das wollen wir ja
+nicht. Ach mann. FAIL.
+
+Immerhin geht [posativ.org](https://posativ.org/) :)
+
+[1]: https://blog.posativ.org/

@@ -1,0 +1,29 @@
+---
+title: But Wait
+
+date: 27.09.2010, 22:37
+tags: [last.fm, iPhone]
+---
+
+Da mögen manche vielleicht mit dem Kopf schütteln, [aber](http://cdn.last.fm/blog/posts/april12/poster_boy.jpg):
+
+# – Does It Scrobble?
+
+Für jeden ernsteren last.fm-User (oder vergleichbares) ist das Scrobbling der Titel auf tragbaren
+Medienplayern essentiell! Nicht nur, dass je nach Situation mehr als die Hälfte der Scrobbles von
+jenen Playern getan wird, nein, vielmehr geht es wirklich um jeden einzelnen gehörten Song.
+
+Für Linux gibt es einmal den [offiziellen Clienten](http://www.lastfm.de/download?showplatform=Linux)
+(`lastfm-client`) und [qtscrobb](http://qtscrob.sourceforge.net/) respektive als CLI `scrobble-cli`.
+Leider können beide das Datenbankformat „4“ nicht auswerten, sondern quittieren mit *„0: Parsing failed
+- missing #AUDIOSCROBBLER header“*.
+
+Dafür hingegen funktioniert der offizielle Client (wer hätte das gedacht!) einwandfrei. Das iPhone muss
+natürlich irgendwo eingebunden sein und danach muss man nur noch auf den Mountpoint verweisen und
+schon legt er los:
+
+[<img src="http://blog.posativ.org/img/linux/scrobbling.png" class="shadow" 
+width="760" alt="Last.fm-Client scrobbles iPhone" />](http://blog.posativ.org/img/linux/scrobbling.png)
+
+Jetzt fehlt nur noch eine qt-Software für Podcasts im Sinne von [gpodder](http://gpodder.org/). Dann
+ist der iPhone-KDE-Workflow vollendet!

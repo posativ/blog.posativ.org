@@ -1,0 +1,92 @@
+---
+title: lilith – der Plan zur Weltherrschaft
+date: 21.07.2011, 12:48
+tags: [lilith, Acrylamid, PyBlosxom]
+---
+
+Ich entwickle [lilith][1] derzeit recht aktiv weiter. Neben so hübschen Sachen
+wie [MathML][2] ist es jetzt auch einigermaßen fehlerfrei. Da waren ein paar
+echt grobe Schnitzer drin, dass ich erstaunt war, wie gut es dennoch lief. Aber
+der Teufel steckt ja bekanntlich im Detail.
+
+# multilang support
+
+Habe ich auf Wunsch implementiert, wenn auch rudimentär und noch nicht für
+Syndication. Multilang sieht man hier in diesem Post. Er rendert alles, was
+nicht zur primären Sprache gehört, in ein eigenes File und ich erhalte Links
+für mein Template.
+
+Hab das Feature auch einigermaßen [gut dokumentiert][3] und es funktioniert
+schon echt gut. Nebenbei habe ich noch ein [kleines Projekt][4] angefangen, was
+wir ähnlich wie [nanoc][5] Seiten statisch rendert. Mein Ziel ist es, nanoc
+so gut wie möglich in Python nachzubilden und es mit Python Dokumentation
+Tools wie Sphinx kompatibel zu machen, sodass man aus der Doku gleich noch eine
+schöne individuelle Website rendern kann.
+
+# lilith im Vergleich
+
+Ich lasse mich ja sehr stark von anderen statischen Blog Generatoren
+beeinflussen. Denn im Prinzip gibt es ja alles. Nur nicht so, wie ich es
+haben will.
+
+## PyBlosxom – [http://pyblosxom.bluesock.org/]()
+
+Ist eigentlich sogar eine Nachbildung von [Blosxom][6], aber das Projekt krankt
+an modernen Features. Sie haben doch schon im Jahre 2011 die Python 2.2 (!)
+Kompatibilität gebrochen. Allgemein finde ich den Ansatz über Callbacks echt
+gut (hab ich ja in lilith ähnlich), nur steckt dort eine immense, kaum
+dokumentierte Komplexität dahinter. Und da es neben statischem Rendering auch
+noch CGI- und WSGI-tauglich ist, lässt es sich recht schwer mit meinem Ansatz
+vergleichen.
+
+## Pelican – [http://docs.notmyidea.org/alexis/pelican/]()
+
+Ist ganz hübsch, aber versucht WordPress nachzubilden und scheitert dort
+kläglich. Deren Post-Layout missfällt mir auch. Jede Sprache hat inzwischen
+einigermaßen gute YAML-Implementierungen und ich weiß nicht, wie lange ich
+daran gesessen habe, meine 80 Einträge YAML-konform zu machen. Aber einmal
+dort drin, ist es wirklich frei und maschinen-lesbar. Keine userdefined Struktur,
+sondern exakte Vorgaben. Damit lässt es sich auch später leichter auf ein
+anderes Blogsystem migrieren.
+
+# Roadmap
+
+- Derzeit fehlen nur zwei Features, die im Web 2.0 Pflicht sind: Suche und
+  Tagging bzw. Tagcloud aka sortby:tag. Eine Suchfunktion muss wohl wie bei
+  [docs.python.org][7] implementiert werden. Irgendson JavaScript Zeug.
+
+- Tagclouds ist auch nur noch eine Kleinigkeit. Und dann wäre es ein full-featured
+  Blog Generator auf der Höhe der Zeit: Hyphenation, MathML, Feeds. Fehlt was?
+
+- Achja, Kommentare fehlen noch. Disqus ist wirklich scheiße und die bekommen
+  es auch nicht einmal hin, dass ihre Einbettung validiert. Traurig, immerhin
+  ist das der einzige Service dafür.
+
+- Handling von Binary-Dateien (Bilder) und erweiterte Text-Prozessierung für
+  bsw. CSS.
+
+- In Version 0.3 kommt auch automatisches Deployment via ftp und ssh dazu, sowie
+  ein live-rendering mode, d.h. nach jeder Änderung wird neu gerendert und ein
+  builtin Webserver läuft parallel.
+
+# Known issues
+
+Lilith ist unerträglich langsam. Das fällt bei so zehn Einträgen vielleicht gar
+nicht auf. Aber bei mir muss er bei jedem Run einhundert Einträge neu Rendern.
+Schafft er immerhin in so drei bis acht (first run) Sekunden, aber da muss noch
+eine schlaue Erkennung anhand des letzten Zeitstempels vom File her.
+
+Ach, erwähnte ich schon, dass ich mit dem *logging*-Modul vertraut geworden
+bin? Ich habe sogar BUNTE Ausgabe!!1 Aber das sieht noch nicht so hübsch aus.
+Und nebenbei räumt lilith auch nicht auf. Wer den Titel ändert, wird immer
+eine Leiche von dem alten im output-Ordner haben.
+
+Aber alles in allem sollte man es mal ausprobieren :-)
+
+[1]: https://github.com/posativ/lilith
+[2]: http://blog.posativ.org/2011/mit-mathml-in-die-steinzeit/
+[3]: https://posativ.org/lilith/
+[4]: https://github.com/posativ/luna
+[5]: http://nanoc.stoneship.org/
+[6]: http://www.blosxom.com/
+[7]: http://docs.python.org/library/

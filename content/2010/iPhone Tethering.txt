@@ -1,0 +1,36 @@
+---
+title: Das iPhone und das Tethering
+
+date: 30.09.2010, 11:19
+tags: [iPhone, Tethering, Arch Linux, simyo]
+---
+
+# Einstellungen im iPhone
+
+Wohl wichtigster Schritt ist die Aktivierung des Tetherings im iPhone. Mit iOS 4.1 ging das bei mir, indem ich
+die Eingaben für „Mobile Daten“ in „Internet-Tethering“ eingetragen habe (in Einstellungen -> Netzwerk -> Mobiles
+Datennetzwerk)
+
+Da das Zusammensuchen der APN-Daten schon eine Leistung für sich ist, hier sind die von meinem Provider *simyo*:
+
+    :::text
+    APN:          internet.eplus.de
+    Benutzername: simyo
+    Kennwort:     simyo
+
+Danach sollte ein weiterer Punkt „Internet-Tethering“ erscheinen, mit dem man das nun aktivieren kann.
+
+# Linux mit Kernel >= 2.6.34 (nativ!) mittels USB
+
+**Mit Kernel 2.6.34 wird das iPhone-Tethering mit einem nativen Treiber unterstützt!** Das ganze funktioniert
+für frühere Kernel auch, jedoch muss der [ipheth](http://giagio.com/wiki/moin.cgi/iPhoneEthernetDriver)
+Treiber kompiliert werden. Jetzt muss nur noch [ipheth-utils](http://aur.archlinux.org/packages.php?ID=37584)
+installiert, das iPhone angeschlossen und `/lib/udev/ipheth-pair` als einmalig root ausgeführt werden.
+
+Danach sollte es im Netzwerkmanager auftauchen. Da ich diesen bei mir nie gescheit konfiguriert bekommen habe,
+mache ich immer ein `sudo dhcpcd` und habe danach in `ifconfig` ein *wwan0*-Interface.
+
+Das ganze ohne Jailbreak, nur echt mit einem simlock-freien Handy!
+
+Mittels Bluetooth kann man das auch machen. Will ich aber nicht und ich hätte auch gar keine Bluetooth-Schnittstelle,
+aber dazu gäbe einen [Blogeintrag bei virtualpixel](http://www.virtualpixel.de/2010/01/08/natives-iphone-tethering-unter-linux/).

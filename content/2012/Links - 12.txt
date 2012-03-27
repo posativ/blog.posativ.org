@@ -1,0 +1,29 @@
+---
+title: "Linkschleuder #12"
+date: 09.01.2012, 14:56
+tags: [Links, Android, Tor, SQLite3, planet]
+---
+
+Es wird leider auch nicht weniger:
+
+- [Nokias Google Maps Fork](http://maps3d.svc.nokia.com/webgl/) – ohne Flash,
+  sondern in WebGL. Sehr performant und echt beeindruckende Qualität.
+- [Wireless Android Management](http://airdroid.com/) – ein sehr hübsches
+  Webinterface auf Knopfdruck. So lassen sich bsw. SMS im Browser schreiben.
+- [Tor bridges in the Amazon cloud](http://torcloudservers.com/) –
+  vorgefertigte Tor-Images für Amazons EC2, <del>ab 3$/Monat für gut 15 GB Traffic</del>
+  ersten 15 GB Traffic sind kostenfrei, bei maximal 40 GiB kann das bis zu 3$/Monat kosten.
+- [Pandoc](http://johnmacfarlane.net/pandoc/) – a universal document
+  converter.
+- [Lita](http://www.dehats.com/drupal/?q=node/58) – SQLite Administration Tool
+  (mittels Adobe Air) ohne Error-Handling. Aber hübsch.
+- [SQL Tutorial using SQLite](https://github.com/tthibo/SQL-Tutorial) und
+  [Syntax-Diagramme](http://www.sqlite.org/syntaxdiagrams.html) haben mir bei
+  der Entwicklung von [weave-minimal][1] sehr geholfen!
+- [Sublime Text 2](http://www.sublimetext.com/) – auch wenn ich's schon
+  erwähnt hatte. Der Texteditor ist derzeit das nonplusultra. Es macht so viel
+  Spaß damit zu arbeiten.
+- [GitHub Issue](https://github.com/vesln/issues) – ein CLI Programm für
+  GitHub's Issues (wer hätte das gedacht) in Node.js.
+
+[1]: https://github.com/posativ/weave-minimal/

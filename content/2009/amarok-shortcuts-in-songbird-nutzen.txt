@@ -1,0 +1,82 @@
+---
+title: Amaroks Shortcuts auf Songbird übertragen
+filters: [reST]
+date: 23.12.2009, 09:49
+tags: [Linux, KDE, Amarok, Songbird]
+---
+
+Es ist ja eine ewige Leidensgeschichte mit Amarok 2. |br|
+Ich habe seit Amarok 2.1 (alles davor war unbrauchbar) versucht, mich an das neue Design zu gewöhnen.
+
+Aber es klappt einfach nicht. Die Wiedergabeliste sieht aus wie im Windows Media Player (tm), intuitiv ist anders.
+
+Dann die ewigen Bugs, unvollständige Unterstützung von Musikformaten, neue Features, die so einfach nicht funktionieren,
+aber dennoch in der Release landen. Irgendwas machen die Entwickler falsch...
+
+Nun aber zum eigentlichen Thema (Damit der Umstieg von Amarok auf Songbird klappt):
+
+How To: Vor/Zurück/Pause Hotkeys mit Songbird nutzen
+----------------------------------------------------
+
+Vorbereitungen:
+^^^^^^^^^^^^^^^
+
+- Songbird wird schon benötigt:|br|
+  Version 1.4.2: i686_ oder x86_64_
+- Addon |cls|_: Download_
+
+----
+
+KDE 4:
+^^^^^^^^^^^^^^^
+
+- ihr **startet** die **Systemeinstellungen**
+- unter **Systemverwaltung** wählt ihr -> **Tastaturkombinationen**
+- **Rechtsklick** -> **Neue Gruppe** (Umbenennen eventuell)
+- erstellte Gruppe selektieren und wieder **Rechtsklick** -> **Neu** -> **Globaler Kurzbefehl** -> **Befehl/Adresse**
+- selektiert den Eintrag und geht **in** den **"Auslöser"-Tab**:
+  |br| Für jeden Eintrag:
+
+  ``Next : Meta+B`` |br| ``Prev : Meta+Z`` |br| ``Pause/Wiedergabe : Meta+C``
+
+  Es wird Konflikte geben, aber mit "Neu Zuordnern" werden diese Aktionen dann frei.
+
+- als dazugehörender Befehl für Songbird kommt **in "Aktion"**:
+
+  ``Next :`` |sb| ``-next`` |br| ``Prev :`` |sb| ``-previous`` |br| ``Pause/Wiedergabe :`` |sb| ``-pause``
+
+  |tastaturkombinationen|
+
+----
+
+Gnome:
+^^^^^^^^^^^^^^^
+
+nach http://deepcode.net/global-hot-keys-for-songbird-in-linux
+
+- führt **gconf-editor** im Terminal oder über F2 aus
+- geht zu **"apps"** -> **"metacity"** -> **"keybinding_commands"**
+- editiert nun:
+
+  ``command_1:`` |sb| ``-next`` |br| ``command_2:`` |sb| ``-previous`` |br| ``command_3:`` |sb| ``-pause``
+
+- nun geht ihr zu "apps" -> "metacity" -> **"global_keybindings"**
+
+  Da seht ihr nun run_command_1 und so weiter. Die könnt ihr nun umschreiben:
+
+  ``run_command_1: Meta+B`` |br| ``run_command_2: Meta+Z`` |br| ``run_command_3: Meta+C``
+
+
+.. |cls| replace:: Command Line Support
+.. _cls: http://addons.songbirdnest.com/addon/1381/
+.. _Download: http://addons.songbirdnest.com/xpis/4937?source=download
+.. _i686: http://download.songbirdnest.com/installer/linux/i686/Songbird_1.4.2-1434_linux-i686.tar.gz
+.. _x86_64: http://download.songbirdnest.com/installer/linux/x86_64/Songbird_1.4.2-1434_linux-x86_64.tar.gz
+.. |sb| replace:: ``/usr/bin/songbird``
+.. |tastaturkombinationen| raw:: html
+
+    <a href="http://posativ.org/blog/img/blog/linux/kde/tastaturkombinationen.png"><img src="http://posativ.org/blog/img/blog/linux/kde/tastaturkombinationen.png" alt="KDE 4: Systemeinstellungen -> Tastaturkombinationen" width="625" height="282"/></a>
+
+.. |br| raw:: html
+
+    <br />

@@ -1,0 +1,34 @@
+---
+title: lighttpd + git/grack = HTTP 417
+date: 23.10.2011, 15:01
+lang: en
+permalink: /2011/lighttpd-git-grack-http-417/
+tags: [lighttpd, git, grack]
+---
+
+Just in case, anyone experiences this, too. [Lighttpd][1] can not handle
+`Expect: 100-continue` properly. Pushing with [git][2] fails (sometimes) with
+something like this:
+
+
+    :::text
+    # git push origin master
+        Counting objects: 11, done.
+        Delta compression using up to 24 threads.
+        Compressing objects: 100% (10/10), done.
+        Writing objects: 100% (11/11), 1.94 KiB, done.
+        Total 11 (delta 0), reused 0 (delta 0)
+        error: RPC failed; result=22, HTTP code = 417
+        fatal: The remote end hung up unexpectedly
+        fatal: The remote end hung up unexpectedly
+    
+It's fixed in lighttpd 1.5 but is a *Wont't fix* for version 1.4.29. As you may
+know, version 1.5 is still beta and not finished yet. Since four years, now. Great
+fix, though. A workaround can be [found here][3]:
+
+    :::perl
+    server.reject-expect-100-with-417 = "disable" 
+
+[1]: http://lighttpd.net/
+[2]: http://git-scm.org/
+[3]: http://www.lighttpd.net/2009/2/16/1-4-21-yes-we-can-do-another-release

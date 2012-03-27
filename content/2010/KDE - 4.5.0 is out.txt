@@ -1,0 +1,24 @@
+---
+title: KDE 4.5 endlich für Arch Linux
+date: 25.08.2010, 12:23
+tags: [KDE, Arch Linux]
+---
+
+Seit gestern 22:00 Uhr ist die neue KDE-Version 4.5 im `extra`-Repositoriy von Arch Linux verfügbar
+(danke an [cn](http://ssim.dyndns.org/) für diesen Hinweis). In den [News][] steht, dass eine Mittellösung
+gefunden wurde: `kdepim` wird zwar als 4.5 ausgeliefert, beinhaltet aber noch Version 4.4.5.
+
+Die neue Release fühlt sich angenehm stabil an. Es hängt weniger und die Reaktionszeiten sind etwas
+gemindert worden, aber sehr viel mehr auch nicht. Dafür haben sie das Thema allgemein
+etwas dunkler gehalten und **Blur** (aka Unschärfe) implementiert. Sachen, die keiner braucht, aber
+toll aussehen:
+
+[<img src="http://blog.posativ.org/img/kde-4.5-preview.png" alt="blur" class="shadow" />](http://blog.posativ.org/img/kde-4.5.png)
+
+Konqueror soll auch Webkit (`kwebkitpart`) nutzen können; aktivieren kann man das über
+`keditfiletype text/html` und dann im Reiter Embedded kwebit an die oberste Stelle holen.
+Leider funktioniert das bei mir aufgrund irgendwelcher Segmentation Faults nicht. Stört
+mich aber nicht, Konqueror wird auch nicht besser, nur weil die Rendering-Engine
+dreitausendmal schneller ist als die GUI.
+
+[News]: http://www.archlinux.org/news/507/

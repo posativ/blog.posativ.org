@@ -1,0 +1,44 @@
+---
+title: ForkLift as Finder replacement in Lion
+date: 22.09.2011, 11:17
+lang: en
+tags: [OS X, Lion, Finder]
+---
+
+Today, I did a short maintenance to my MacBook running OS X Lion. I found out, Macfuse is no longer supported and dead as well. But there is [OSXFUSE][1], which installs without any problems. OpenPGP does not work for Mail, too and since the release of Lion (that's about two months ago) there is [no GPG support][2]. Really embarrassing.
+After I've updated to Lion, I had iTunes and QuickTime, carefully removed, installed again and [AppDelete][8] was unable to remove it. I've updated to the last version and could remove this crappy software again – waiting for the next OS X update m(
+
+Since I am using a Mac, I am using [TotalFinder][3], because OS X' Finder sucks a lot. Every time I use it. It feels like you must not handle your files. Unfortunately TotalFinder looks like <del>shit</del> Chrome and I don't like Chrome's UI and prefer Safari's or Firefox' tabbing style. I did another search for a Finder replacement and ended up with [ForkLift][4] –  replacing [Transmit][5] and [Archiver][6] as well). To replace the Finder, I've made the following:
+
+- first, we need the Finder's icon located in */System/Library/CoreServices/Dock.app/Contents/Resources/finder.png*
+- convert it to an icon file (.icns) with `png2icns finder.icns finder.png`, which didn't work for me so I used this [cool web service][7]
+- open you Applications folder, locate *ForkLift* and control-rightclick and select "show package content" and navigate to *Contents/Resources/*
+- backup the existing *forklift.icns* and move your converted *finder.icns* to *forklift.icns*
+
+Now your ForkLift icon is identical to Finder. Lets remove the Finder from Dock.app.
+
+- `cd` to */System/Library/CoreServices/Dock.app/Contents/Resources/* and open *DockMenus.plist*.
+- change "finder-quit" and/or "finder-running" (don't know, which one worked for me) to include
+
+DockMenus.plist
+
+	<dict>
+	    <key>command</key>
+	    <integer>1004</integer>
+	    <key>name</key>
+	    <string>REMOVE_FROM_DOCK</string>
+	</dict>
+	
+- do `killall Dock` which didn't work for me or log out and in again to restart Dock.app
+- now you can rightclick the Finder's icon and select remove from Dock
+- stick ForkLift to Dock.app
+
+
+[1]: http://osxfuse.github.com/
+[2]: http://gpgtools.lighthouseapp.com/projects/65764/tickets/135
+[3]: http://totalfinder.binaryage.com/
+[4]: http://www.binarynights.com/
+[5]: http://www.panic.com/transmit/
+[6]: http://archiverapp.com/
+[7]: http://iconverticons.com/
+[8]: http://www.reggieashworth.com/appdelete

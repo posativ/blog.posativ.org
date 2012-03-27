@@ -1,0 +1,47 @@
+---
+title: Aurget – ein Arch User Repository Helper
+date: 02.10.2010, 18:53
+tags: [Arch Linux]
+---
+
+Da die Arch Linux Repos, bedingt durch die geringe Projektgröße, im Vergleich zu den Ubuntu Repositories
+nicht ganz mithalten können, gibt es ja das [AUR](https://aur.archlinux.org/). Dort findet man allerlei
+nützliche Tools und vor allem viele Git/Hg/SVN-Varianten. Das ist ja meiner Meinung nach ein Totschlag-Argument
+gegen Ubuntu und Co.!
+
+Gut, ich verwende, seitdem ich Arch nutze, [yaourt](http://wiki.archlinux.org/index.php/Yaourt) als
+Frontend für Pacman und das AUR. Problematisch neben der blöden Schreibweise ist das ziemlich
+langsame Suchen nach Software, da immer erst die lokalen Repository-Listen durchgeguckt werden
+müssen und die meist nicht gecachedt im RAM liegen.
+
+# aursh, slurpy und so
+
+Ist ja nicht so, dass es [zu wenig Frontends gibt](http://wiki.archlinux.org/index.php/Aur_helpers). Da
+ich `yaourt` mit seinem `-Syu --aur --noconfirm` ziemlich gern hab, fielen für mich Kaliber wie
+[Clyde](https://bbs.archlinux.org/viewtopic.php?id=91860) schon einmal raus.
+
+Die [aursh](http://github.com/husio/aursh/) sah ziemlich interessant aus – allerdings wird das Projekt seit
+Anfang 2010 nicht mehr weiterentwickelt. [slurpy](http://rsontech.net/projects/slurpy/) ist auch nichts für
+mich gewesen, da es zu wenig Konfigurationsmöglichkeiten für bsw. farbige Ausgabe gab und es allgemein
+etwas seltsame Flags hat.
+
+# [Aurget](http://aur.archlinux.org/packages.php?ID=31933)
+
+ist dann mein Tool der Wahl geworden. Es durchsucht schnell ausschließlich das AUR via `aurget -Ss` (pacman-like)
+und hat eine umfangreiche Konfigurationsdatei, die z.B. das Anpassen der farbigen Ausgabe zulässt, die doch per
+default etwas blöd für Terminals mit schwarzer Schrift auf weißem Grund ist. Für farbigen Output auf weißem Grund
+nutze ich daher folgende Konfiguration:
+
+    :::bash
+    # by default, aurget uses no color. uncomment to enable/customize.
+    ###
+    nocolor="\e[0m"   # reset color
+    colorW="\e[1;30m" # black
+    colorB="\e[1;34m" # blue
+    colorR="\e[1;31m" # red
+    colorG="\e[1;32m" # green
+    colorY="\e[1;36m" # cyan
+    colorM="\e[1;35m" # magenta
+
+*PS: problematisch ist nur, mit welchem Tool man AUR-Tools aus dem AUR installieren kann... zum Glück gibt es für
+`yaourt` ein Repository.*

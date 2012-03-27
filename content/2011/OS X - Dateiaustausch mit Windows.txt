@@ -1,0 +1,37 @@
+---
+title: Dateiaustausch zwischen Windows und Mac
+
+date: 14.05.2011, 11:30
+tags: [Windows, OS X, iPhone]
+---
+
+Man darf sich vorstellen. Eine Zweier-Wohngemeinschaft, zwei Nerds und ein, nein zwei Router. Folgendes
+Setup. Alles, was per WLAN zugreift, ist per se schon einmal unsicher und wird daher nicht priorisiert
+behandelt, alles was per LAN läuft, hat eine MAC-Adressen-Sperre. Dass das irgendwie etwas übertrieben
+ist für eine Zweier-WG, muss ich hier nicht erwähnen. Nachdem nun meine MAC-Adresse freigegeben wurde,
+konnte es losgehen. Es standen circa 50 GiB von mir und 30 GiB von der Gegenseite an.
+
+Vieles bei Apple ist ja irgendwie durchdacht. Aber dieses FileVault hat mehr Kanten als man sich erträumen
+kann. Ich habe in Erinnerung, es ist eine transparente Encryption. Nun gut, dann öffnen wir eine
+Datei-Freigabe per FTP und was wird gefordert? Ach nur das Passwort zum Entschlüsseln des Kontos. Ist das
+nicht schon übel genug, so wird aber der Container, also das Home-Dir vom Nutzer **nicht** entschlüsselt.
+Denn es ist doch viel transparenter, wenn man in dem
+[Sparse Image](http://en.wikipedia.org/wiki/Sparse_disk_image) rumwuselt! 400 GiB per 1 GiBit-Lan ist
+ja wohl eine Kleinigkeit!1
+
+Also gut. Meine erste und einzig gute Idee war ja, dass ich einfach einen Webserver starte.
+`python -m SimpleHTTPServer` und gut ist. Problem. Windows hat kein `wget -r`. Und dann? Dann habe ich
+die Daten der Gegenstelle über eine Samba-Freigabe gezogen und habe meine Daten auf eine USB-Festplatte
+geschoben und dann an den anderen Rechner angeschlossen. Denn Daten auf die Samba-Freigabe wurde 
+wenigen MB mit *cannot allocate memory* abgestempelt.
+
+Software, wie sie leibt und lebt. Echt. Unfassbar.
+
+Das ist genauso wie mit der Internetfreigabe beim Mac. Das ist ja sicherlich alles so standardkonform
+implementiert, dass nur die standardkonformen Endgeräte von Apple dazu verbinden können. Wenn ich mein
+iPhone per Bluetooth kopple, dann diese Verbindung über den Airport freigebe, so muss ich auf
+Verschlüsselung verzichten, weil kein Windows-Client irgendwie verbinden kann. Macht sich natürlich prima,
+so ein offenes WLAN in einem Gebäude, wo alle kein Uni-WLAN haben.
+
+Aber ich sehe Lichtfunken am Ende des Tunnels. Adobe hat neuerdings die Option zum Cookie-Entfernen. Doch
+schon im Jahre 2011. Ich deute das als gutes Zeichen.

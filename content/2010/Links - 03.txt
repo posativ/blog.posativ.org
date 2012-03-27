@@ -1,0 +1,17 @@
+---
+title: "Linkschleuder #3"
+
+date: 29.12.2010, 00:11
+tags: [Links, Python, Vim, Twitter, statische Seiten]
+---
+
+Lang ist die letzte Linkschleuder her. Aber ich hab nebenbei noch etwas gesammelt:
+
+- [Free E-Book For Programming Blender in Python](http://www.geeks3d.com/20101006/python-free-e-book-for-programming-blender-in-python/)
+- [Vim-Python-Setup](https://dev.launchpad.net/UltimateVimPythonSetup)
+- [static blogging with python - mit Git Integration](http://www.blogofile.com/)
+- [Shell-like Processing in Python](http://code.activestate.com/recipes/276960-shell-like-data-processing/) und etwas weiteres
+  in der Art (das ist ja *soo* ein geiler Sprach-Hack): [stream](http://www.trinhhaianh.com/stream.py/)
+- [Leaving the Cloud](http://wiki.debian.org/FreedomBox/LeavingTheCloud): weg von Twitter, Facebook und Google!
+- darunter: Twitter@home mit [StatusNet](http://status.net/) - sehr interessant für mich, weil „(140 characters,
+  **by default**)”, ergo gibt's mehr!

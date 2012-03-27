@@ -1,0 +1,63 @@
+---
+title: OS X – Lion Upgrade
+date: 22.07.2011, 23:31
+tags: [OS X, Lion]
+---
+
+Ja, ich fange jetzt auch schon wie alle anderen an. Aber wenigstens diskutiere
+ich nicht wie Heise täglich mögliche Gerüchte über möglicherweise kommende
+Geräte mit möglichen Features. Hier kommen Fakten!1
+
+Also, gestern Abend *Lion* gekauft, aber natürlich vergessen, dass es sich
+nicht aus Luft und Liebe installiert, sondern gut 3,7 GiB groß ist. Tja, wöhnte
+ich noch in Berlin, hätte ich das in 10 Minuten geschafft, aber mit 800kb/s
+bin ich dann doch lieber erstmal schlafen gegangen. Am nächsten Morgen dann
+die Installation angeworfen, hat VIERZIG Minuten gedauert, deutlich über
+meinem Zeitrahmen und ich musste die Installation „unattended” lassen. Mir
+war mulmig dabei.
+
+Aber zurück erblickte mich ein unvertrauter Anmeldebildschirm. So richtig neu
+und cool. Apple halt. Angemeldet sagte er mir erstmal, dass TotalFinder nicht
+geht und dass eh alles neu geconft werden muss. Zu allererst haben sie die
+Geste mit drei Fingern nach links/rechts auf ihr Fullscreen-App-Gewechsle
+gestellt, was ziemlich behindert ist. Sowohl die Umstellung als auch der
+Fullscreen-Modus. Dann war ich ja begeistert, dass ich nu' endlich
+Full-Disk-Encryption machen konnte (nein, ich bin nicht paranoid). Allerdings
+hatte ich für den on-the-fly Prozess nicht genug Platz, dass er erstmal das
+alte FileVault entschlüsselt. So kam ich zu der günstigen Gelegenheit, alles
+Unnütze in ~/Library zu löschen. ~/Library ist jetzt übrigens hidden, was auch
+ziemlich scheiße ist, aber das lässt sich mittels
+
+    chflags nohidden ~/Library/
+    
+ändern. Der Aufräum-Aktion fiel dann auch endlich Thunderbird zum Opfer. Dieses
+Software hat trotz Versionssprung verdammt viele Ecken und Kanten.
+
+FileVault zu decrypten dauerte nur eine Stunde und 30 Minuten, aber das ganze
+System zu encrypten... nun ja. Das hat so acht Stunden (no shit!) gedauert –
+aber man konnte ja nebenbei arbeiten. Aber diese Full-Disk-Encryption geht
+einfach ab. Und Apples Sorge um des Nutzers Daten habe ich ignoriert und den
+Wiederherstellungsschlüssel nichteinmal gelesen.
+
+Was ändert Lion? Joa, so iPhone-Scrollbalken (hübsch), Spring-Oberfläche vom
+iPhone (hübsch, geil animiert, überaus sinnlos), ein
+alle-Fenster-auf-allen-Arbeitsflächen-in-die-Mitte-hol Feature (nett), einen
+neuen Safari (wohaa, ist der schnell, mit MathML! Selbst in Feeds!), es hat
+mir meine build-Umgebung geklaut (\*cry\*) – aber darauf war ich gefasst, und
+hatte vorher schon ein `brew upgrade` gemacht. Es gibt neue Dependencies:
+iTunes und Quicktime, beide lassen sich nicht mehr entfernen (ganz uncool).
+Ach, [FaceTime][0] gibt's KOSTENLOS und GRATIS inklusive!!1
+
+Ja. Das war's. Ach nein! Es gibt noch einen [neuen Bildschirmhintergrund][1]!!!1
+Jaaaa!
+
+Nun gut, dafür soll ja auch under-the-hood viel passiert sein, vor allem viele
+Sicherheits-Ergänzungen. Und Mail.app wurde deutlich aufgehübscht und ist
+Thunderbird mal wieder um zwei Jahre Usability voraus. Oder drei. Dafür ist
+das [OpenPGP-Plugin nicht kompatibel][2], aber das kommt sicher noch. Alles
+in allem ein sehr nettes Release, ohne Komplikationen, macht mir OS X gleich
+noch sympathischer.
+
+[0]: http://www.apple.com/de/mac/facetime/
+[1]: http://osxdaily.com/2011/02/26/mac-os-x-10-7-lion-space-wallpaper/
+[2]: http://gpgtools.lighthouseapp.com/projects/65764/tickets/135

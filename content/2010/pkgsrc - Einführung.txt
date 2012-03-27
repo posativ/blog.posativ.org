@@ -1,0 +1,123 @@
+---
+title: "pkgsrc: eine lokale, unabhängige Paketverwaltung"
+
+tags: [pkgsrc, NetBSD]
+date: 17.07.2010, 17:13
+---
+
+Da ich in den letzten Tagen sehr viele neue externe Module für meine Blogsoftware implementiert habe,
+bin ich immer häufiger auf das Problem gestoßen, dass Bibliotheken, wenn sie lokal installiert sind,
+nicht unbedingt fehlerfrei implementiert sind und deshalb die Pfad-Variable weitergesucht wird, bis der Interpreter
+bei meiner globalen Installation unter `/usr` angelangt ist und dann dieses Paket nimmt.
+
+Da auf dem FTP-Server aber nicht jene Module global installiert sind, gibt es häufiger Überraschungen,
+dass mal wieder ein Modul nicht funktioniert. Das ganze zu debuggen wird immer zeitaufwendiger...
+
+[pkgsrc][]
+==========
+
+[pkgsrc]: http://www.netbsd.org/docs/software/packages.html
+
+Meine Idee ist, dass man ja Software an ein bestimmten Pfad gebunden kompilieren kann (*per --prefix=/usr*)
+und es vielleicht ganz nützlich ist, sich nochmal innerhalb des eigenen Nutzerverzeichnisses ein root aka /
+zu bauen, auf dem ich als normaler Nutzer auch "root"-Rechte habe. `pkgsrc` ist solch ein nützliches Tool.
+
+`pkgsrc` ist eine Paketverwaltung, ursprünglich von NetBSD, inzwischen aber für [zahlreiche andere Plattformen portiert][],
+die sowohl als grundständige Paketverwaltung z.B. in Verbindung mit `apt-get` oder eben als lokale
+Paketverwaltung mit normalen Rechten arbeitet. Dabei werden Abhängigkeiten automatisch aufgelöst und Software
+fast so komfortabel wie bei `apt-get` oder `pacman` heruntergeladen und installiert.
+
+Derzeit umfasst das Repository 9154 Pakete, die [hier][] gelistet sind. Pakete können dabei vorkompiliert
+(Binärpakete) oder von Source installiert werden. <br />
+Die Pakete werden dabei ähnlich wie in einem Rolling-Release-System ständig aktualisiert, allerdings
+gibt es die Möglichkeit, einen [Software-Freeze][] zu installieren, ähnlich wie bei Debian oder Ubuntu,
+wo nur noch Sicherheitsaktualisierungen nachgeliefert werden.
+
+- [pkgsrc - offizielle Seite](http://www.netbsd.org/docs/software/packages.html)
+- [pkgsrc - Dokumentation](http://www.netbsd.org/docs/pkgsrc/)
+- [FAQ](http://www.netbsd.org/docs/pkgsrc/faq.html)
+
+[zahlreiche andere Plattformen portiert]: http://www.netbsd.org/docs/pkgsrc/introduction.html#intro.platforms
+[hier]: ftp://ftp.netbsd.org/pub/pkgsrc/current/pkgsrc/README-all.html
+[Software-Freeze]: http://www.netbsd.org/docs/pkgsrc/getting.html#getting-first
+
+Alternativen
+------------
+
+Auf meiner Recherche bin ich erstmal am englischen Wikipedia-Eintrag zur [Paketverwaltung][] hängen geblieben,
+und habe das als Ausgangspunkt für meine Recherche genommen.
+
+Viele weitere Alternativen zu `pkgsrc` habe ich aber nicht gefunden:
+
+- [ipkg](http://en.wikipedia.org/wiki/Ipkg) und dessen aktiver Fork [opkg](http://code.google.com/p/opkg/)
+  <br />Leider so spärlich dokumentiert, dass ich nicht einmal eine Features-Liste finden konnte.
+- [OpenPKG](http://en.wikipedia.org/wiki/OpenPKG) unter <http://www.openpkg.org/>
+  <br />sieht sehr vielversprechend aus, wenn auch die Softwareauswahl [mit 1500 Paketen][] etwas klein erscheint.
+
+[mit 1500 Paketen]: http://www.openpkg.org/product/packages/
+
+[Paketverwaltung]: http://en.wikipedia.org/wiki/Package_management_system#Common_package_management_systems_and_formats
+
+Beispiel: Installation von Python im Home-Verzeichnis
+=====================================================
+
+Bei der Installation habe ich mich für die Pfade *~/pkgsrc* als Wurzelverzeichnis und *~/net* als
+Installationsverzeichnis für die pkgsrc-Komponenten (Repository usw.) entschieden.
+
+Installation von pkgsrc
+-----------------------
+
+`pkgsrc` kann über einen Tar-Ball oder über CVS bezogen werden. Ich habe mich für CVS mit den aktuellsten
+Software-Releases entschieden:
+
+    :::bash
+    $ cd ~
+    $ env CVS_RSH=ssh cvs -d anoncvs@anoncvs.NetBSD.org:/cvsroot checkout net
+
+    #resultiert in ca. 650 MiB Daten
+
+    $ ls net/
+    archivers/   comms/       doc/          geography/    Makefile     net/        README      textproc/
+    audio/       converters/  editors/      graphics/     math/        news/       regress/    time/
+    benchmarks/  cross/       emulators/    ham/          mbone/       packages/   security/   wm/
+    biology/     CVS/         filesystems/  inputmethod/  meta-pkgs/   parallel/   share/      www/
+    bootstrap/   databases/   finance/      lang/         misc/        pkglocate*  shells/     x11/
+    cad/         devel/       fonts/        licenses/     mk/          pkgtools/   sysutils/
+    chat/        distfiles/   games/        mail/         multimedia/  print/      templates/
+
+Als nächstes muss nun unser lokales root eingerichtet werden:
+
+    :::bash
+    $ ./bootstrap --workdir ~/pkgsrc --prefix ~/pkgsrc/usr --pkgdbdir ~/pkgsrc/var/db \
+      --sysconfdir ~/pkgsrc/etc --varbase ~/pkgsrc/var --unprivileged
+
+Das dauert eine Weile und richtet unter *~/pkgsrc* etwas ähnliches wie unter */* ein. Mit dazu wird
+eine Abwandlung von `make` installiert: `bmake`. Das liegt in *~/pkgsrc/bin/* und dient zum
+Bauen und Installation der Software.
+
+Da sich unser lokales root noch nicht in unseren Pfad-Variablen befindet, es aber auch nicht von Vorteil
+ist, gleich alles unter *~/pkgsrc/bin* hinzuzufügen, habe ich mir einen Alias geschaffen: `alias bmake=~/pkgsrc/bin/bmake`
+
+Das war's soweit. Wir haben nun ein lokales root aka / und einen lauffähigen Paketmanager.
+
+Installation von python
+-----------------------
+
+Wenn man sich das Verzeichnis-Listing von *~/net* oben anschaut, so kann man gut erkennen, dass es eine ähnliche
+Struktur wie bsw. das Software-Repository von portage hat. Über `find . | grep keyword` kann relativ
+komfortabel nach Software gesucht werden.
+
+Python befindet sich in z.B. *lang/python26/*. Die Installationsroutine ist sehr simpel:
+
+    :::bash
+    $ cd ~/net/lang/python26
+    $ bmake
+    #Abhängigkeiten werden aufgelöst, Pakete lokal kompiliert
+    $ bmake install
+
+    #Cleanup der Sources
+    $ bmake clean
+    $ bmake clean-depends
+
+Schon ist `python` installiert und kann über `~/pkgsrc/usr/bin/python2.6` aufgerufen werden __und__
+hat keine externen Module oder Bibliotheken installiert - absolut keine!

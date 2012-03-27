@@ -1,0 +1,64 @@
+lighttpd: rtorrent mit wtorrent - ein Webinterface für rtorrent
+
+Ich habe noch nie eine Software erlebt, die so grausam schlecht dokumentiert ist.
+Erst nachdem ich diverse Stack-Traces gegoogelt habe und jeweils die hundert Antworten
+im `Trac-Bugtracker <http://www.wtorrent-project.org/trac/ticket/218>`_ (oder etwas weniger)
+gelesen habe, die wohl immer auftreten, hab ich es zum Laufen bekommen.
+
+Sehr amüsant fand ich ja, wie es einen gewissen `Bug (Ticket: )
+<http://www.wtorrent-project.org/trac/ticket/414>`_ gibt, der das ganze System schonmal
+nicht funktionieren lässt, dessen Grund allerdings nichts mit `wtorrent
+<http://www.wtorrent-project.org/trac/>`_ selbst zu tun hat und daher nicht gefixt wird.
+Der *Patch* allerdings ist nur ein unbedeutender Einzeiler im Startskript.
+
+Mein Ziel war es, für rtorrent ein gutes Webinterface zu auf meinem SheevaPlug zu
+installieren - der wiederum nutzt `lighttpd <http://www.lighttpd.net/>`_ als Webserver.
+Als Basisystem kommt ein Debian Squeeze zum Einsatz.
+
+rtorrent installieren
+=====================
+
+ist jetzt nicht die Kunst. Aber damit wir die Paketverwaltung nur einmal bedienen müssen:
+
+#. ``apt-get install php5-cgi php5-sqlite php5-curl`` # wenn nicht schon installiert:
+   ``rtorrent screen svn``
+#. die ~/.rtorrent.rc muss sich jeder individuell einrichten
+#. in ``rtorrent.rc`` gehört dann noch |rtorrent|, was die xmlprc Requests über
+   den Webserver zu rtorrent leitet.
+#. in der ``/etc/lighttpd/lighttpd.conf`` muss dann noch ``mod_scgi`` sowie ``mod_php``
+   in die Modules-Liste hinzugefügt werden und |lighttpd| angehängt werden.
+#. jetzt muss lighttpd noch neugestartet werden: ``/etc/init.d/lighttpd restart``
+#. zu guter letzt loggen wir uns mit dem Nutzer, der rtorrent ausführen soll ein
+   und lassen rtorrent als Daemon laufen: ``screen rtorrent`` und detachen den Prozess
+   mittels ``Strg+A`` und danach ``D``.
+
+.. |rtorrent| raw:: html
+    <pre>
+        scgi_port = localhost:5000
+        encoding_list = UTF-8
+    </pre>
+
+.. |lighttpd| raw:: html
+    <pre>
+        scgi.server = (
+                        "/RPC2" =>
+                        ( "127.0.0.1" =>
+                            (
+                            "host" => "127.0.0.1", #ip where rtorrent is listening
+                            "port" => 5000, # port specified in .rtorrent.rc
+                            "check-local" => "disable",
+                            )
+                        )
+                    )
+        fastcgi.server = ( ".php" => ((
+                            "bin-path" => "/usr/bin/php5-cgi",
+                            "socket" => "/tmp/php.socket"
+                        )))
+    </pre>
+
+wtorrent konfigurieren
+======================
+
+#. nun loggen wir uns mit dem Nutzer ein, der im lighttpd zugeordnet wurde (default: www-data):
+   su www-data
+#. 

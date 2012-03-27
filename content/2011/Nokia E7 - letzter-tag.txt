@@ -1,0 +1,30 @@
+---
+title: Nokia E7 – letzter Tag (Part 2/2)
+
+date: 03.04.2011, 19:48
+tags: [Nokia, E7, Review]
+---
+
+[<img src="/img/2011/E7.jpg" width="300" class="shadow floatleft"
+alt="Nokia E7" />](/img/2011/E7.jpg)
+
+*Fotografiert auf einem wunderschönen MacBook auf einer wunderschönen Decke mit einer EOS-350D und viel zu hohem ISO. Schön zu sehen, der Schalter für Tastensperre und -entsperre*
+
+Die Entscheidung ist gefallen. Das Gerät kommt zurück. So schön die Hardware ja fast ist, so unnütz und nicht mal eine müde <del>Mark</del> Euro ist die Software wert. Die 8MP-Kamera ist prima und auch die 720p-Videos sehen ganz gut aus – der Wahnsinn im Vergleich zum iPhone 3G. Besonders beeindruckt war ich ja auch von Ovi-Maps. Bis auf eine unvollständige Lokalisation (Thuringia statt Thüringen) ist das echt geil, wenn man die Karten komplett offline hat. Aber.
+
+Ich hatte vor ca. sechs Jahren auch einmal Nokia gehabt, so eins mit Schwarz-Weiß-Display und schwer und hässlich. Schon damals hatte man die Option, sich sechs Nutzungsprofile einzustellen. Denn man braucht ja zwischen „lautlos” und „nicht lautlos” ja noch Differenzierungen!! So auch sechs Jahre später: topaktuelles Thema. Sechs Profile zu haben, ist ein absolutes Muss für jedes Handy!1 An vielen Stellen merkt man, dass Nokia ihr jahrhunderte altes Konzept auf ihr Smartphone OS portiert hat. Ein leicht überempfindlicher Touchscreen, keine offensichtliche Benutzerführung, unmögliche WLAN-Einstellungen, ein interner Browser, der lieber WAP statt Internet nimmt, eine Social Networking App mit ausschließlich Twitter und FaceBook, allerdings erst nach Beitritt zu Ovi, ein unglaublich primitiver Taschenrechner, ein billiges Spiel zum Thema Umwelt, ein Multi-Tasking, weil man Apps einfach mal kaum Schließen kann und deshalb umständlich per Taskmanager beendet werden müssen, eine unschöne Schriftart, eine Kamera-App, die ausschließlich im Landscape (Querformat) ihre Bedienelemente hat, ein <del>Google</del> Ovi Maps, wo man nicht per Zwei-Finger-Geste zoomen kann, ein Drehen vom Display-Inhalt beim kleinsten Schütteln. Die Liste könnte ich hier noch endlos weiterführen.
+
+Ein wesentlicher Kritikpunkt ist allerdings die Ovi Suite. Und OS X *oder* das Telefon. Denn unter OS X ging fast gar nichts komfortabel. Unter Windows 7 hingegen ging out-of-the-box beide Speicherbereiche (C: und E:) vom E7 und auch die Auskunft, ob neue Mitteilungen, Anrufe verfügbar sind oder wie weit der Akku geladen ist. Out-of-the-box! Nun gut, dann habe ich mir diese elendige Ovi Suite heruntergeladen und in gerade einmal 15 Minuten installiert. Denn egal wie schnell Computer heute sind und egal, ob man in 15 Minuten auch gleich ein komplettes OS installieren kann, der Nutzer soll doch an früher erinnert werden... oder ihm sollen alle Features per Diashow während der Installation gezeigt werden. Sonderlich viel zu bieten hat die Ovi Suite dann aber doch nicht:
+
+- Link zum Ovi AppStore (ja, das ist nicht integriert!)
+- Software-Update mit dem Feature, nach 50% Fortschritt ist man schlagartig bei 100%
+- Ovi Maps Offline Daten
+- integrierter Mediaplayer (logisch oder)
+- SMS-Synchronisation, aber Email fehlt
+- **keine** Möglichkeit zum Bearbeiten der Handy-Einstellungen
+
+Also wenigstens letztes hätte ich schon gerne erwartet. Denn so bescheuert wie das im Handy ist, so hätte man das doch schon gerne per Maus und Tastatur steuerbar. Apropos Tastatur. Das Gerät hat schon 'ne relativ praktische Tastatur. Allerdings haben die beim Design vergessen, dass ein Daumen rund ist und somit man noch ein, zwei Millimeter an Abstand zwischen Display und ersten Tasten gebraucht hätte. Und weil ich gerade noch die Hardware kritisiere: das Gerät ist viel zu groß (unangenehm groß) und recht schwer, wobei es leichter in der Hand liegt als mein iPhone 3G. Außerdem ist dieses AMOLED-Display weder im direkten Sonnenlicht gut lesbar dank dieser *buzz-buzz* Technologie ClearBack noch ist es auf 15° blickwinkelfest. Da bekommt bei minimaler Drehung alles einen üblen Blaustich.
+
+Übrigens liefert das Gerät sogar per Browser ansprechbares Flash und Java mit (so eine richtig tolle Windows Welt m(). Also selbst das ist schon eine Zumutung für die Nutzer. Ebenso ein Zip-Programm und Microsoft Office Mobile. Das ist bestimmt alles komplett sicher gegen Hacking!1
+
+Nun, das war ein Review vom derzeit aktuellsten und wohl auch teuersten QWERTZ-Handy für gehobene Ansprüche. Das Handy in einem Satz beschreiben: „Fallen solche Design-Fehler nicht auf?” aka `#fail` trifft es auch am zweiten Tag voll auf den Punkt... morgen geht's direkt zur Post.

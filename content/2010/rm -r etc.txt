@@ -1,0 +1,45 @@
+---
+title: rm /etc/*
+
+date: 03.09.2010, 10:38
+tags: [V-Server]
+---
+
+`rm /etc/*` sollte man meiden. Gerade als root.
+
+Ich war nämlich dabei, mir einen [quasselcore](http://quassel-irc.org/) einzurichten. Die
+Installation und Konfiguration dessen ist ein Kinderspiel – obwohl: ich musste erst per SSH
+eine Verbindung von Port 4242 zu mir tunneln, denn ich habe keine Ahnung von Firewalls unter Linux. Mir
+wurde vor längerer Zeit schon einmal [ufw](http://en.wikipedia.org/wiki/Uncomplicated_Firewall)
+empfohlen, damit habe ich es aber nur des öfteren geschafft, mich auszusperren (ein Glück hat mein
+[Provider](http://proplay.biz/) eine Rescue-Console).
+
+`ufw` läuft auf Debian Squeeze derzeit auch noch nicht ganz rund. So gibt es erst einmal ein
+„ERROR: problem running ufw-init“. Dann lassen sich auch keine Regeln über die Indizes löschen.
+Das Problem habe ich erfolgreich mit `apt-get purge ufw` und `apt-get install ufw` gelöst.
+
+Es wurde langsam spät, neben mir wartete ein neues iFon, aber ich hatte es immer noch nicht geschafft,
+Port 4242 für alle freizugeben. Irgendwann kam ich auf die glorreiche Idee, die Konfigurationsdateien
+von `ufw` selbst zu löschen. Das geht ganz einfach: Man tippt ein `r`, ein `m`, drückt einmal die
+Leertaste undfängt mit einem Slash und dem `e` an und drückt Tab. Dann gibt man in einem Rutsch `u`
+, Tab und `*` ein und drückt Enter. Praktischerweise sollte der Befehl `rm /etc/ufw/*` dastehen. Aber
+wenn man aus Versehen vom `u` abrutscht, Tab nichts tut und nun das Sternchen nach /etc/ steht und
+siegessicher Enter drückt, dann, ja dann hat man verloren.
+
+Mir war bisher noch nicht bewusst, was da so alles liegt. Aber nach diesem Befehl ist da Ende im Gelände.
+Man wird erst einmal mit „[I have no name!@posativ]“ begrüßt. Und wenn ein Linux keinen Namen hat,
+dann lassen sich auch keine neuen über `useradd` anlegen. Genausowenig kann man zum Server SSHen
+oder von dem zurück. `apt-get` mag auch nicht mehr.
+
+Ein Backup hatte ich natürlich... drei Wochen vorher mal angestoßen. Bei proPlay gibt es aber nur
+ein vollständiges Image als Backup, keine Möglichkeit, da individuell Daten heraus zu extrahieren.
+Hätte die sowieso nicht übertragen können. An Backuppen der Daten war natürlich nicht zu denken,
+es ging ja kein `scp`. So blieb mir nichts anderes übrig, meinen [Untermieter](http://ssim.dyndns.org/)
+zu informieren, dass ein technisches Problem bestünde.
+
+Naja, dann habe ich einfach meinen Server aufgegeben, das Backup vom 12. August aufgespielt und eine
+halbe Stunde mit den Konfigurationen verbracht. Ein Glück habe ich nicht allzu viel geändert. Leider
+sind nun die lighttpd-Logs und auch die [Munin](http://posativ.org/munin)-Statistiken weg.
+
+Den Befehl für `ufw` habe ich immer noch nicht, dafür aber den allgemeinen unschönen Workaround
+`ufw default allow`.

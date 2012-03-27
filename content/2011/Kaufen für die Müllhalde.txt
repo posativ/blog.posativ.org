@@ -1,0 +1,22 @@
+---
+title: "Arte: Kaufen für die Müllhalde"
+date: 25.07.2011, 23:55
+permalink: /2011/arte-kaufen-f-r-die-m-llhalde
+---
+
+Habe ich vor einigen Tagen gesehen. Eine der empfehlenswerteren
+Dokumentationen. Reiht sich wunderbar hinter [Monsanto: Mit Gift und Genen][1]
+ein.
+
+<div style="text-align: center; margin: auto">
+    <object type="application/x-shockwave-flash" style="width:640px; height:390px;"
+            data="https://www.youtube.com/v/tI798T2tRrQ?color2=EBEBEB&amp;rel=0&amp;showsearch=0">
+        <param name="movie" value="https://www.youtube.com/v/tI798T2tRrQ?color2=EBEBEB&amp;rel=0&amp;showsearch=0" />
+    </object>
+</div>
+
+YouTube: [Kaufen für die Müllhalde][2]
+
+
+[1]: http://www.youtube.com/watch?v=2V2VJx5Zz0c
+[2]: http://www.youtube.com/watch?v=tI798T2tRrQ

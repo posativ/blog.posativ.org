@@ -1,0 +1,65 @@
+---
+title: Von Zeitreisen und Informationsgeheimnissen
+
+date: 07.04.2011, 14:55
+tags: [OS X, Rant]
+---
+
+Ich erinnere mich noch relativ gut daran. Damals™ war ich dumm, naiv und
+minderbemittelt und glaubte, nur RAID-0 ist das einzig Wahre. Hat sich nach
+ca. drei Jahren dann als falsch herausgestellt und es kam zu einem netten
+Datenverlust von gerade einmal 320 GiB Nutzdaten. Das ist schmerzlich und
+lässt einen neu denken. Seitdem fuhr ich ein RAID-1 mit zwei 400 GiB unter
+Linux und das Windows bekam ein einzige 500er, das muss man eh häufiger
+Reinstallieren als es durch einen Datenverlust zerstört würde.
+
+Inzwischen nutze ich ein MacBook Pro und bin relativ glücklich mit. Besonders
+gut gefällt mir ja der Lieferumfang von OS X. Es sind sowohl
+Dateiverschlüsselung aka *FileVault* als auch ein Backup-Tool namens *Time
+Machine* mit an Board. Cool denke ich mir. Per default habe ich nun FileVault
+im Benutzerverzeichnis und nachdem ich mein SheevaPlug wieder auf Debian
+umgeflasht habe, dank [netatalk][] auch ein TimeMachine-Server.
+
+[Time Machine][] läuft ja transparent im Hintergrund mit – mit der Ausnahme
+von [FileVault][], denn da muss der Nutzer sich erst ausloggen und dann kann
+nur der vollständige Container gesichert werden. Ich habe allerdings mehr
+Angst, dass mein MacBook abhanden kommt, als dass jemand in meine Wohnung
+einbricht und die Festplatte mit `jfs` mountet, und daher ist mir ein
+verschlüsseltes Backup so ziemlich egal und nutzlos, wenn nicht sogar
+gefährlich, weil ich natürlich mit einem Nicht-Mac dort nicht rankomme
+*(Problem einer offensichtlichen Monopolstellung)*.
+
+Nun denn, so habe ich mir einmal die Zeit genommen und über Nacht ein
+komplettes Backup gemacht, 170 GiB, am nächsten Tag habe ich dann gegoogelt
+und auf [Mac OS X Hints](http://macosxhints.com/) eine Anleitung entdeckt, die
+ein Backup eines FileVaults Benutzerverzeichnis erlaubt, wenn man angemeldet
+ist. Denn Abmelden tue ich mich noch seltener, als Neustarten. Diese Hints
+sind so wie Wikipedia; denen vertraut man einfach, man weiß es eh nie besser.
+Damit dieser Trick nun funktionierte, sollte man die Verknüpfung zur
+bisherigen Time Machine lösen. Es wurde */Users/.$user* als Pfad angegeben,
+diesen habe ich dann auch mittels `rm -rf` gelöscht und kurze Zeit später viel
+mir auf, dass *Mail* auf einmal wie neu aufgesetzt war, ebenso hatte *Firefox*
+alle seine Einstellungen verloren. Ich guckte in mein Benutzerverzeichnis und
+fand nichts merkwürdiges *(ein Hoch auf Caching!)*. Habe im Vorfeld des
+sauberen Backups wegen auch noch die Backup-Partition gelöscht und neu
+formatiert. Dann habe ich einen Neustart gemacht, weil mir mein OS X schon
+merkwürdig vor kam... und im nächsten Schritt konnte ich mich nicht mehr
+einloggen. Passphrase war falsch – um genau zu sein, sie existierte nicht
+mehr. Denn unter */Users/.$User* sind nicht nur jegliche Assoziationen,
+sondern auch der verschlüsselte FileVault-Container. Naja, brauch der
+Endanwender ja nicht wissen, mit wieviel Pfusch das integriert wurde – und weg
+waren die Daten.
+
+Backup eine Minute vorher frisch formatiert, sah ich meine gesamten Daten in
+den vergangenen drei Monaten wieder einmal verloren. Verloren, durch eigene
+Dummheit, Vertrauen ins Internet und unvollständige, verstümmelte,
+verheimlichte Features von OS X. Das sind so die Momente, wo ich mir denke,
+jegliche Software-Suite da draußen ist einfach nur ein riesiger Haufen
+Scheiße. Und je mehr sich dieses *App*-Konzept durchsetzt, desto schlimmer
+wird das. Nun fahre mein eigenes Backup mittels `rsync`. Irgendwie denkt man
+ja, diese Tools sind einfach dermaßen oldschool und GUI-Software kann das
+auch. Falsch gedacht. Immer wieder.
+
+[netatalk]: http://wiki.ubuntuusers.de/netatalk
+[Time Machine]: http://en.wikipedia.org/wiki/Time_Machine_%28Mac_OS%29
+[FileVault]: http://en.wikipedia.org/wiki/FileVault

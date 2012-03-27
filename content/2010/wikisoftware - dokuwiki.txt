@@ -1,0 +1,63 @@
+---
+title: "Wiki-Software: DokuWiki"
+
+date: 31.08.2010, 22:35
+tags: [Wiki, PHP]
+---
+
+Ich habe ja [letztens][] über [MindTouch Deki][] gebloggt. Nun geht es mit dem DokuWiki
+(written in PHP) weiter.
+
+[letztens]: http://blog.posativ.org/?p=5f13c47
+[MindTouch Deki]: http://en.wikipedia.org/wiki/MindTouch_Deki
+
+DokuWiki
+========
+
+**positive Aspekte:**
+
+- keine Datenbank, sondern Datei-Struktur (juchee!)
+- leicht zu installieren und konfigurieren
+- [Vielzahl an Plugins](http://www.dokuwiki.org/plugins)
+- schnell
+
+**nachteilig:**
+
+- wenig Unterstützung für alternatives Markup und schlechte Einbindung dessen
+- umständliche Benutzerverwaltung und -kontrolle, wenn man es als ein Personal Wiki betreibt
+- absolut sinnfreies Konzept der Header
+
+
+DokuWiki machte auf mich anfangs einen äußerst guten Eindruck. Ein bisschen hat mich das
+Konfigurationsmenü abgeschreckt, aber das war noch zu schaffen. Es ist nur seltsam, dass
+trotz URL-Rewriting das System nicht hübscher wird. Arbeite ich z.B. im Admin-Panel, wird 
+die gesamte Zeit über die URL von der letzten besuchten Seite angezeigt. Sehr verwirrend.
+
+Ein großes Manko ist aber die fehlende Unterstützung von Markup-Sprachen. reStructuredText, textile,
+Markdown und so weiter sind wirklich ungemein praktisch. Auch wenn es zumindest für Markdown eine
+[Implementierung](http://www.dokuwiki.org/plugin:markdownextra) gibt, so ist das Handling sehr
+schlecht. Jeder Eintrag muss dann in `<markdown>`-Tags eingebettet werden – Usability geht anders.
+
+Hübsch fand ich das [große Repository an Themes](http://www.dokuwiki.org/template). Nicht jeder hat
+die Muße, mal ein komplettes Wiki zu designen. Leider sind viele Themes etwas altbacken; als ob sie
+schon ein Jahrzehnt überdauern. Aber ein paar Ansprechende habe ich dennoch gefunden:
+
+[<img src="http://blog.posativ.org/img/www/dokuwiki.png" alt="DokuWiki mit Template: backspack" class="shadow" width=760/>](http://blog.posativ.org/img/www/dokuwiki.png)
+
+Usability eines Personal Wikis
+==============================
+
+Das Problem, was sowohl DokuWiki als auch MindTouch Deki haben, ist die absolute Nichtverwendbarkeit
+als Personal Wiki. Darunter verstehe ich eigentlich ein gepimptes Notizbuch, wie man es aus dem 
+Real-Life kennt – *oder auch nicht*.
+
+Wenn ich mein Notizbuch aufschlage, will ich sofort Schreiben oder Korrigieren. Den Wikis nach müsste
+ich aber erst auf einen Schmierzettel schreiben, diesen einscannen, OCR'en, ausdrucken und dann
+ins Notizbuch kleben – *hat auch was*.
+
+Es gibt so nette Dienste wie [Thingler](http://thingler.com/), die prinzipiell zum Schreiben ausgelegt
+sind. Ein Inline-Editor. Kein extra Schmierzettel. DAS verstehe ich unter Usability!
+
+
+Wie dem auch sei, als nächstes wird [Trac](http://trac.edgewall.org/) getestet. Eierlegendewollmichsäue
+sind irgendwie anziehend.

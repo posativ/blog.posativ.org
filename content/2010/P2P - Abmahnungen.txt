@@ -1,0 +1,57 @@
+---
+title: "P2P-Abmahnungen: Geschäftsidee des Jahrzehnts"
+
+date: 01.09.2010, 19:21
+tags: [P2P]
+---
+
+Neben dem [wunderbaren Editorial](http://www.heise.de/ct/artikel/Editorial-1064352.html) der aktuellen
+c't gibt es auch einen (eher langwierigen) Beitrag zum Klassiker P2P-Abmahnungen. Das Fazit ist wieder
+mal ein klasse Beispiel für unseren Staat (`c't 19 vom 30. August 2010, Seite 141`):
+
+> Weil die rechtliche Situation dem zu Unrecht Abgemahnten kaum Möglichkeiten zur Gegenwehr lässt,
+> spielt die Schuldfrage de facto keinen Rolle mehr. Es ist nichts anderes als ein Skandal, dass die
+> juristische Praxis an dieser Stelle ein fundamentales Rechtsstaatprinzip aushebeln kann.
+
+Das trifft es einmal auf den Punkt. Die Staatsanwaltschaft Köln hat bestätigt, dass die Software eine
+Fehlerrate von bis zu 90% (!) hat, durchschnittlich 50%. Aber alles, was das Gericht tut, ist die Klage
+abweisen. Damit ist der Bevölkerung natürlich geholfen!1
+
+Wieso verklagt da einer nicht den Gutachter der Software? Es ist doch einfach mal offensichtlich,
+dass die Fehler enthält – es handelt sich immerhin um Software. Die ist praktisch per definitionem
+fehlerhaft. Dann sollte man dem Gutachter für jede Abmahnung einmal lebenslang sowie einen Entzug
+der Arbeitslizenz geben.
+
+Die Firmen, die die IP-Adressen sammeln (dürfen die das eigentlich, sind immerhin personen-bezogene
+Daten), gehören gevierteilt und verhaftet. Das Geschäftsmodell beruht auf der einzigen Ausbeutung
+(Form von Sklaverei) unschuldiger Menschen, wieso ist so etwas überhaupt legitim? Ich hätte von
+denen gerne mal ihre Firmenvorstellung... *„Guten Tag, wir sind DigiProtect und mahnen mit einer
+100%-Gewinnchance Menschen ab.“*
+
+Natürlich ist das aber auch eine Prima Gelegenheit, selbst mitzumachen. Denn in der Politik tut sich
+noch nicht viel und es gibt so viel mehr zu erschließen: I2P oder gar RapidShare.com und Co.
+Da bei I2P sowieso alle Menschen Kinderpornographie und Musik verteilen, kann man gleich alle
+gefunden IP-Adressen loggen und abmahnen. War ja quasi Beihilfe zur Tat.
+
+RapidShare.com und andere Filehoster lassen sich auch prima mitloggen, indem man sich in das
+Ad-Netzwerk der jeweiligen Linkverschlüsseler einkauft. Da dort sowieso nur illegale Daten lagern,
+können auch alle IP-Adressen geloggt und abgemahnt werden. Das fällt bei der so schon hohen Fehlerrate
+gar nicht mehr auf.
+
+Da kommt mir gerade die Idee, dass man doch einfach mal beim Provider nach einer Liste mit den benutzten
+IP-Adressen von heute anfragen kann und dann per Zufallsgenerator sich einige Tausend nimmt und abmahnt.
+
+Das alles setzt natürlich voraus, dass die **Software von einem Gutachter geprüft wurde**. Aber das bisschen
+Anfangskapital bekommt man schon noch zusammen und kann spätestens nach dem ersten Monat beglichen werden!
+
+Schöne neue Welt!
+
+
+PS: Eine Geschäftsidee habe ich noch: Man schnappt sich ein Auto und fährt durch die Statt und loggt
+sich in jedes ungeschützt W-Lan ein (sowas gibt's) bzw. versucht sich, per default Passwort einzuloggen.
+Alles gehört noch zur Störerhaft und könnte noch ein, zwei Jahre erfolgreich funktionieren!
+
+PPS: Oder man nimmt sich die aktuelle Datenbank vom MaxMind (GeoIP) und erstellt per Permutation
+alle möglichen IP-Adressen (4,3 Mrd.) und filtert alle heraus, die in der Datenbank Deutschland zugeordnet
+werden können. Zum Schluss löst man noch alle IPs auf (reverse Lookup via `host`) und nimmt alle, die den
+großen Providern gehören. Dann immer Stück für Stück ein paar Hunderttausend an die Provider geben.

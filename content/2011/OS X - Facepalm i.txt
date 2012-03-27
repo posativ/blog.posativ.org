@@ -1,0 +1,30 @@
+---
+title: "OS X: eine Serie von Facepalms, Teil 1"
+
+date: 27.01.2011, 11:39
+tags: [OS X, Finder]
+---
+
+[<img src="/img/osx/finder_cut_small.png" width="300" class="shadow floatleft"
+alt="Finder cut'n'paste" />](/img/osx/finder_cut.png)
+
+So schlimm, wie ich über OS X immer herziehe, ist es eigentlich gar nicht. Man muss halt mit seinen
+Ansprüchen quasi heruntergehen und sich eher darüber freuen, was es doch schon kann. Oder auch
+nicht.
+
+**Heute: einen Ordner Verschieben mittels Cut'n'Paste**
+
+Ich habe einen großen Download-Ordner, der immer unaufgeräumt, mehrere Dutzend Dateien enthält.
+Von dort aus organisiere ich und verschiebe den Ordner/die Datei dann zu seinem/ihrem Platz.
+Natürlich kann man Sekunden seines sinnlosen Lebens damit verbringen, den Ordner Klicken und zu
+Ziehen und darauf Warten, dass der Finder die Ordner irgendwann geöffnet hat. Macht richtig Spaß,
+so bei einer Verzweigungstiefe von 10.
+
+Deshalb gibt es ja Cut und Paste. Man macht Strg+X und dann Strg+V und dann wird intern ein
+hübsches `mv` angewand und fertig. Jaha, habt ihr geglaubt, so ein Feature gibt es unter OS X?
+Richtig, natürlich nicht! Und wisst ihr, wie man das verteidigt:
+[Simpicity, Data Loss, kein-design-fehler-von-apple-niemals-niemals](http://hintsforums.macworld.com/archive/index.php/t-29804.html). Man kann sich sowas aber Skripten. Ja.
+
+m(
+
+ps: aber der Finder kann Cover Flow!!!1!!

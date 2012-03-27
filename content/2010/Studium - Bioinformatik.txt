@@ -1,0 +1,39 @@
+---
+title: "Studium: Bioinformatik"
+
+date: 07.11.2010, 12:06
+tags: [Bioinformatik, Jena]
+---
+
+Ich hab' noch gar nicht erwähnt, dass in Jena an der FSU *Bioinformatik* studiere. Das ist an sich
+ein unglaublich interessanter Studiengang, da er – theoretisch – weit von der eigentlichen Informatik,
+sprich Zahlentheorie, und Biologie mit Zoologie/Botanik abstrahiert und somit ein sehr Praxis-orientierter
+Studiengang <del>ist</del> sein sollte. Problem ist nur, dass der Studiengang ziemlich neu ist und
+man sich noch nicht so recht im Klaren ist, was man eigentlich will.
+
+Das führt dazu, dass man zu gut 20% (wir haben fünf verschiedene Vorlesungen) in *Biochemie*
+gesteckt wird. Biochemie ist eine Vorlesung, die zu 99% von **Dritt**semestlern besucht wird. Nämlich
+Biologen, Ernährungswissenschaftlern und **Biochemikern**. Naja, und uns 14 Bioinformatikern-Erstis.
+Wer dann mit den idealen Voraussetzungen wie ich, also Biologie und Chemie abgewählt nach der 10.
+Klasse daherkommt, hat ein kleineres Problem. Wäre natürlich völlig abwegig, uns Bioinformatiker in die
+Grundlagen zu schicken wie *Grundlagen und physikalische Chemie* oder *Mikrobiologie*, das wäre ja
+zuuu einfach!
+
+Nun gut, gehen wir weiter. Weitere 40% der Vorlesung sind Informatik/Mathematik für Informatiker,
+oder genauer gesagt, *Diskrete Strukturen* (Algorithmen über natürliche Zahlen) und Lineare Algebra
+*– für Informatiker*. Ist ja offensichtlich, dass man als Bioinformatikern die ganze Zeit mit 0 und 1
+hantiert. DNA besteht doch völlig offensichtlich aus Nullen und Einsen!1 Natürlich kann man Lineare
+Algebra dazu gebrauchen, aber auch ohne kommt man damit gut zurecht ;-)
+
+So, und wo gehen die anderen 40% hin? Zu *Einführung in die Bioinformatik: Teil I* und *Genetik*.
+Letzteres ist ein schlechtes Wechselbad der <del>Gefühle</del> Wissensvermittlung. 8. Klasse 
+Biologie-Unterricht meets Detailwissen. Die „Vorlesung“ *Einführung in die Bioinformatik: Teil I*
+grenzt übrigens an Privatunterricht. Ein Professor auf 14 Leute. Schon irgendwie angenehmer als 1 Prof
+auf 300 bis 750 Leute. Ein wenig.
+
+An sich ein schönes Studium, wäre da nicht Biochemie. Um mal dieses Absurdum zu betonen: Es gibt für
+die Bioinformatiker, die keine zwei Semester Vorwissen in den Grundlagen (wer braucht denn Grundlagen,
+völlig abwegig) hatten, eine Übung. *Übung: Biochemie für Bioinformatiker*. Aber es wird noch besser:
+Weil die Klausuren in den letzten Jahren so massiv schlecht ausgefallen sind (das gilt eher allgemein
+bei Biochemie), ist man dazu übergegangen, dass die Bioinformatiker eine gesonderte Klausur erhalten.
+Noch Fragen?

@@ -1,0 +1,24 @@
+---
+title: "Linkschleuder #8"
+date: 22.10.2011, 20:19
+tags: [Links, Clubmate, Node.js, OCaml, Python]
+---
+
+
+- [Kod](http://kodapp.com/) – ein neuer Texteditor für OS X, der aussieht wie
+  Chrome und recht dunkel ist. Noch in der Entwicklung, open-source und auf
+  [GitHub](https://github.com/rsms/kod) zu finden.
+- [Rezise Safari](http://resizesafari.com/) – Presets für diverse Endgeräte. Sicher
+  nützlich für Webentwickler. Kostet aber.
+- [Unhosted](http://unhosted.org/) – eine Gegenbewegung zu „you get our app, we get your data”
+- [matekarte](http://www.matekarte.de/) – eine Karte mit Mate-Lieferanten in deiner Nähe. Wirklich cool! :-)
+- [Wikipedia lesbarer: GM Skript](https://www.userscripts.org/scripts/show/24894)
+  – [etwas von mir gepimpt](https://github.com/posativ/snippets/blob/master/wikipedia_-_easy_read.user.js), damit
+  es die gesamte Breite einnimmt.
+- [The Node Beginner Book – A comprehensive Node.js tutorial](http://nodebeginner.org/)
+- [OCaml for the Masses](http://queue.acm.org/detail.cfm?id=2038036)
+  – ich glaub, das nehm ich mir für dieses Semester vor. Rockt irgendwie. Schon.
+- [Objective CAML Tutorial](http://mirror.ocamlcore.org/ocaml-tutorial.org/index.html)
+- [yst - static websites from YAML and string templates](https://github.com/jgm/yst) – in Haskell
+  geschrieben!1
+- [Requests: HTTP for Humans](http://python-requests.org/) – für python

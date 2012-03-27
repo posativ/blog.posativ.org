@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>CCF 3.0 entschl&uuml;sselt - Aufbau und Funktionsweise des neuesten CryptLoad-Containers</title>
+<link rel="stylesheet" type="text/css" href="style.css" />
+<link type="text/css" rel="stylesheet" href="/css/SyntaxHighlighter.css" />
+<script language="javascript" src="/js/shCore.js" type="text/javascript"></script>
+<script language="javascript" src="/js/shBrushCpp.js" type="text/javascript"></script>
+<script language="javascript" src="/js/shBrushXml.js" type="text/javascript"></script>
+<script language="javascript" type="text/javascript">
+window.onload = function () {
+    dp.SyntaxHighlighter.ClipboardSwf = '/flash/clipboard.swf';
+    dp.SyntaxHighlighter.HighlightAll('code');
+}
+</script>
+</head>
+<body>
+	<h1>CCF 3.0 entschl&uuml;sselt</h1>
+	<span style="font-size: 1.2em; font-weight: bold">&Uuml;ber den Aufbau und die Funktionsweise des neuesten CryptLoad-Containers (CCF)</span>
+
+	<h3>Update (25.10.2008):</h3>
+	<p>Lustiger Weise sind Ger&uuml;chte aufgetaucht, dass wir in Verbindung mit dem JDownloader-Team st&uuml;nden, was aber nicht der Wahrheit entspricht. Wir haben und hatten noch nie Kontakt mit den Entwicklern und dieser Artikel soll auch keineswegs eine Werbeaktion f&uuml;r DLC sein. Wir wollten nur betonen, dass das JD-Team immer schon kooperativer war und ihr Container zwar ebenfalls kein Allheilmittel ist, gegen &ouml;ffentliche Decrypter aber einen kleinen Schutz bietet.<br />
+	Mitunter ein Grund f&uuml;r die Offenlegung war, dass bei einem Teil der Container gar keine Kodierung ("Verschl&uuml;sselung") stattfindet.</p>
+
+	<h2>Einleitung</h2>
+	<img src="images/deccf.png" alt="DeCCF" style="float: left;" width="150" height="150" />
+
+	<p>Seit CryptLoad 1.1.3 verwendet der auf Microsoft .NET basierende, propriet&auml;re Downloader f&uuml;r bekannte One-Click-Hoster ein neues Format f&uuml;r die Verschl&uuml;sselung von Links. CCF Version 3.0 soll <i>"genau so sicher wie das DLC Format"</i> sein, hei&szlig;t es im offiziellen Wiki. Dieser wagemutigen Behauptung wollen wir auf den Grund gehen. Wer sich einen fertigen CCF-Decrypter erwartet, ist hier aber <strong>falsch</strong>.<br />
+	Fertige Entschl&uuml;sselungsprogramme wird es von uns auch niemals geben. Wir m&ouml;chten aber im Dienste der Wissenschaft das grundlegend fehlerhafte Designkonzept dieser Kinderzimmer-Crypto offenlegen, um Uploadern zu verdeutlichen, wie unsicher CCFs wirklich sind.</p>
+
+	<h3>Welchen Container sollte man stattdessen verwenden?</h3>
+	<p>Am besten nat&uuml;rlich gar keinen. Da dies in der Praxis aber unrealistisch ist, sollte man zumindest auf DLC zur&uuml;ckgreifen. DLC verwendet f&uuml;r die Entschl&uuml;sselung einen eigenen Server, wodurch der Entschl&uuml;sselungsprozess kurzfristig ausgesetzt werden kann, falls ein &ouml;ffentlicher Decrypter im Netz auftaucht. Der Nachteil solch eines zentralistischen Systems ist nat&uuml;rlich, dass man sich auf Gedeih und Verderb den Administratoren von JDownloader.org ausliefert. Schmei&szlig;en die das Handtuch, sind theoretisch alle Container unbrauchbar. Nat&uuml;rlich ist auch DLC kein Heilmittel und ein Decrypter schnell geschrieben; nur falls dieser eben ver&oouml;ffentlicht wird, kann er sehr schnell unbrauchbar gemacht werden.</p>
+
+	<h3>Warum behaltet ihr den ganzen Kram nicht f&uuml;r euch?</h3>
+	<p>Das hat mehrere Gr&uuml;nde. Zum einen nat&uuml;rlich unser Geltungsbedarf, zum anderen die restriktiven Lizenzbedingungen von CryptLoad. Im Gegensatz zu JDownloader gibt es CL nur f&uuml;r Windows. Der Source-Code ist au&szlig;erdem nicht einsehbar und man kann die Software getrost in die Kategorie Adware einordnen. In den Kategorien Usability und Zuverl&auml;ssigkeit macht es Windows Vista den letzten Platz strittig; User alternativer Betriebssysteme wie Mac OS X oder Linux werden au&szlig;erdem einfach au&szlig;en vor gelassen.</p>
+
+	<h2>Geschichte</h2>
+
+	<h3>Von CCF 0.7 &hellip;</h3>
+	<p>Mit CryptLoad 0.7 wurde der erste Container &uuml;berhaupt eingef&uuml;hrt. Damals setzte man auf einen 256 Bit starken Key in Verbindung mit einem 128 Bit IV und auf das als besonders sicher geltende, symmetrische Verschl&uuml;sselungsverfahren Rijndael (<a href="http://de.wikipedia.org/wiki/Rijndael">Wikipedia</a>). Schon damals waren die Entwickler nicht bereit, mit Schneewiesel, dem Programmierer der Konkurrenzsoftware RSD (<a href="http://schneewiesel.ath.cx">Schneewiesel</a>) zu kooperieren (schon wieder ein Grund &hellip;). Schneewiesel gelang es aber mittels Reverse Engineering an den Key zu gelangen und konnte die Entschl&uuml;sselungsmethode in sein eigenes Programm einbauen, woraufhin mit CryptLoad 0.8 der Key ge&auml;ndert wurde. Zwischendurch kam es zur Entwicklung eines eigenen Containerformats f&uuml;r den RSD &ndash; RSDF war geboren.<br />
+	Es baut ebenfalls auf Rijndael auf, verwendete zur Speicherung aber kein XML. Der Key wurde bald, eingebettet in einen in Python geschriebenen Decrypter von DrHansen (<a href="http://board.gulli.com/thread/895790-ci-unter-linux--mono-die-lsung/3/#61">rsd_decrypter_04.rar</a>), publik gemacht und seit dem nicht mehr ge&auml;ndert. CryptLoad &auml;nderte einmal noch den Key mit Version 1.0, gab das Katz-und-Maus-Spiel dann aber auf.</p>
+
+	<h3>&hellip; zu 3.0.</h3>
+	<p>Es musste ein v&ouml;llig neues Konzept her, dachten sich die Entwickler, und f&uuml;hrten mit CryptLoad 1.1.3 CCF 3.0 ein. Anstatt auf ein bekanntes, quelloffenes Verfahren zu setzen, entwickelten sie ihr eigenes. Mit weitreichenden Folgen: CCF3.0 ist "broken by design" und verschl&uuml;sselt unter bestimmten Umst&auml;nden die Links nicht einmal.</p> 
+	<p style="text-align: center"><img src="images/googlesearch.jpg" width="450" height="209" alt="Google Search 'CCF3.0 rapidshare.com'" style="" />&nbsp;<img src="images/ccf3vim.jpg" width="481" height="209" alt="Auszug eines CCF3.0 im vi" /></p>
+
+	<h2>Aufbau</h2>
+	<p>Ein CCF besteht aus drei Teilen:</p>
+	<ol>
+		<li><strong>Header:</strong> Beinhaltet <span style="color: #c00000">Signatur ("CCF3.0", 6 Bytes)</span>, <span style="color: #3f6c19">4 "Magic-Bytes" (CRC32)</span>, <span style="color: #1f497d">Anzahl der aufgepaddeten Bytes</span> am Ende (Erg&auml;nzung auf 64; 1 Byte)</li>
+		<li><span style="font-weight: bold; color: #e36c09">Daten:</span> eingeteilt in 64-Bit-Bl&ouml;cke, gespeichert im XML-Format und "verschl&uuml;sselt" durch Bitverschiebungen</li>
+		<li><strong>Padding:</strong> Nutzlose, zufallsgenerierte Bytes damit die Daten in 64-Bit-Bl&ouml;cken eingeteilt werden k&ouml;nnen</li>
+	</ol>
+
+	<h3>Der Header als C-Struktur</h3>
+<pre name="code" class="cpp">struct header {
+    char header[6];
+    uint32 magic;
+    unsigned char padding;
+};</pre>
+
+	<h2>Entschl&uuml;sselung</h2>
+	<p>Die Entschl&uuml;sselung soll anhand eines Containers (Download <a href="test.ccf">test.ccf</a>) gezeigt werden.</p>
+
+	<h3>Analyse der Datei</h3>
+	<p style="text-align: center"><img src="images/ccfheader.jpg" width="632" height="126" alt="CCF3 Header" /></p>
+	<ul>
+		<li><strong>Magic:</strong> <span style="color: #3f6c19">0xEFAD0307</span></li>
+		<li><strong>Padding:</strong> L&auml;nge: <span style="color: #1f497d">0x2F</span> &rarr; 64 &ndash; 47 = 17 Bytes</li>
+		<li><strong>Daten:</strong> <span style="color: #e36c09">0x9A3F &hellip; 4DCD</span></li>
+	</ul>
+	<p>Die Werte aus der Datei ben&ouml;tigen wir sp&auml;ter.</p>
+	
+	<h3>Entschl&uuml;sselung der Daten</h3>
+	<p>F&uuml;r die Entschl&uuml;sselung nehmen wir den Datenblock <i>inklusive des Paddings</i> (0x9A3F &hellip; 851B; hier orange und schwarz umrandet) heran. Durch die blockweise Verschl&uuml;sselung muss die Anzahl der ausgew&auml;hlten Bytes durch 64 ohne Rest dividierbar sein. F&uuml;rs Erste reicht es, wenn wir den ersten 64-Byte-Block decrypten. Die restlichen Blocks gehen analog dazu.</p>
+
+	<p>Nehmen wir uns den ersten Block vor (<strong>erste Grafik</strong>).</p>
+	<p style="text-align: center"><img src="images/hex1_64byteblock.gif" alt="Erster 64-Byte-Block" width="384" height="152" />&nbsp;<img src="images/hex2_64byteblock.gif" alt="Erster 64-Byte-Block (nach 1. Operation)" width="384" height="152" /></p>
+	<p>Der <strong>Magic-Wert</strong> von weiter oben kommt wieder ins Spiel. Die folgenden Operationen werden auf jedes Byte aus dem Block angewendet:</p>
+	<ol>
+		<li>Ist Magic gerade?
+		<ol type="a">
+			<li>Wenn <strong>ja</strong>, dann rotiere die Bits in Magic um <span class="code">(magic &amp; 0xff) % 9</span> Bits nach <strong>links</strong>. &rarr; Da das unterste Byte von Magic 0x07 ist, wird in diesem Fall immer um 7 Bit nach rechts rotiert.</li>
+			<li>Wenn <strong>nein</strong>, dann rotiere die Bits in Magic um <span class="code">(magic &amp; 0xff) % 12</span> Bits nach <strong>rechts</strong>.</li>
+		</ol>
+		</li>
+		<li>Nimm das unterste Byte von Magic (<span class="code">magic &amp; 0xff</span>) und verkn&uuml;pfe es mit <span class="code">XOR</span> mit dem jeweiligen Byte aus dem Block.</li>
+		<li>Vertausche die Zeilen und Spalten der Matrix miteinander.</li>
+	</ol>
+	<p>Durch das Vertauschen werden kurioserweise manche Bytes im Block mehrmals modifiziert, manche daf&uuml;r &uuml;berhaupt nicht.</p>
+	<p>Zur besseren Erleuterung noch einmal in C-Code:</p>
+	<pre name="code" class="cpp">for (i = 0; i &lt; 64; i++) {
+    if ((magic &amp; 1) != 0) {
+        rotateright(&amp;magic, (magic &amp; 0xff) % 12);
+    } else {
+        rotateleft(&amp;magic, (magic &amp; 0xff) % 9);
+    }
+    buffer[i] = (unsigned char)(buffer[i] ^ ((unsigned char)(magic &amp; 0xff)));
+    bigmatr(buffer);
+}</pre>
+
+	<p>Als n&auml;chstes nehmen wir uns die Zeilen einzeln vor. Jetzt geht es noch eine Stufe tiefer, n&auml;mlich auf die Bit-Ebene. Die folgenden Anweisungen gelten f&uuml;r alle 8 Zeilen je 64-Byte-Block.</p>
+
+	<ol start="4">
+		<li>Jedes Byte in der Zeile wird mit <span class="code">magic &amp; 0xff</span> verkn&uuml;pft.</li>
+		<li>Die Vertauschung von Zeilen und Spalten der 8-Byte-Zeile (vorstellbar als 64-Bit-Matrix) findet nun auf Bit-Ebene statt. </li>
+		<li>Ist Magic gerade?
+		<ol type="a">
+			<li>Wenn <strong>ja</strong>, dann rotiere die Bits in Magic um <span class="code">magic &amp; 9</span> Bits nach <strong>links</strong>. &rarr; Da das unterste Byte von Magic 0x07 ist, wird hier immer um 1 Bit nach links rotiert.</li>
+			<li>Wenn <strong>nein</strong>, dann rotiere die Bits in Magic um <span class="code">magic &amp; 12</span> Bits nach <strong>rechts</strong>.</li>
+		</ol>
+		</li>
+	</ol>
+	<p>Und noch einmal der C-Code:</p>
+	<pre name="code" class="cpp">for (j = 0; j &lt; 8; j++) {
+    for (k = 0; k &lt; 8; k++) {
+        x[k] = buffer[(j * 8) + k];
+    }
+    for (m = 0; m &lt; 8; m++) {
+        x[m] = (unsigned char)(x[m] ^ ((unsigned char)(magic &amp; 0xff)));
+        smallmatr(x);
+        if ((magic &amp; 1) != 0) {
+            rotateright(&amp;magic, magic &amp; 12);
+        } else {
+            rotateleft(&amp;magic, magic &amp; 9);
+        }
+    }
+    for (n = 0; n &lt; 8; n++) {
+        buffer[(j * 8) + n] = x[n];
+    }
+}</pre>
+
+	<p>Wie auf dem ersten Bild zu sehen, kann man dann wenn man alles richtig gemacht hat, den ersten Block des unverschl&uuml;sselten CCFs erkennen.</p>
+
+	<p style="text-align: center"><img src="images/hex3_64byteblock.gif" alt="Dritter 64-Byte-Block" width="384" height="152" />&nbsp;<img src="images/hex4_64byteblock.gif" alt="Vierter 64-Byte-Block" width="384" height="152" /></p>
+
+	<h3>Die Sache mit dem Padding</h3>
+	<p>Das eingesetzte "Kryptographie-Verfahren" funktioniert nur, wenn sich die zu verschl&uuml;sselnden Daten in 64-Byte-Bl&ouml;cke einteilen lassen. Dies ist aber praktisch nie der Fall. Deshalb f&uuml;gt man oft mit dem Zufallsgenerator erzeugte Bytes hinzu, bis der Block voll ist (Screenshot rechts, markierte Bytes). Diese Bytes nennt man Padding (dt. "Polsterung").<br />
+	CryptLoad speichert, wie weiter oben ja bereits analysiert wurde, die Anzahl der Padding-Bytes als Erg&auml;nzung auf 64 im 10. Byte des CCF. In diesem Bespiel war das Padding 0x11 = 17 Bytes lang.</p>
+
+	<h2>Fehler im Design der Verschl&uuml;sselung</h2>
+	<p>Der Magic-Wert stellt sozusagen den Key f&uuml;r die Entschl&uuml;sselung dar. Dem Verfahren liegt CRC zugrunde, jedoch ist es abgewandelt worden und nicht kompatibel. Berechnet wird der Wert aus dem zu versch&uuml;sselendem XML-File.<br />
+	Was ist aber, wenn das niedrigste Byte des CRC z. B. 0x00 ist? Dann findet nur eine gew&ouml;hnliche XOR-Kodierung statt, die peinlicherweise auch noch im zweiten Schritt wieder aufgehoben wird. Dies ist aber nicht nur beim Wert 0x00 so. Es gibt mehrere Werte, die die Verschl&uuml;sselung au&szlig;er Kraft setzen.</p>
+	<p></p>
+
+	<div class="footer"><i>Licensed under <a href="http://creativecommons.org/licenses/by-sa/3.0/deed.de">CC-BY-SA</a>. &copy; Copyright Superwayne und laxity, Okt. 2008. Bitte verlinkt die Seite anstatt den Text einfach zu kopieren. Danke!</i></div>
+</body>
+</html>
+

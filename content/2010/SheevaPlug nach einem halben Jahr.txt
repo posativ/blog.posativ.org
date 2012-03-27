@@ -1,0 +1,69 @@
+---
+title: SheevaPlug nach einem halben Jahr
+
+date: 08.08.2010, 22:20
+tags: [Debian Squeeze, Wuala, I2P]
+---
+
+Inzwischen habe das SheevaPlug seit über einem halben Jahr und kann nun quasi einen
+Erfahrungsbericht darüber schreiben. Wofür ist das Teil zu gebrauchen, was geht damit
+nicht und brauch man es überhaupt?
+
+Wofür ist das Teil zu gebrauchen
+================================
+
+Ich selbst nicht viele Dienste laufen. Das Teil pendelt so bei 5-10% CPU-Nutzung her,
+erzeugt eine Last von 0.3 und eine RAM-Auslastung von 30% (149 MiB).
+
+Wird erzeugt von:
+
+- TwonkyMedia server
+- [Subsonic](http://www.subsonic.org/)
+- vsftpd - Secure, fast FTP server
+- [Munin](http://munin-monitoring.org/)
+- lighttpd
+- rtorrent
+- wuala
+
+Mein SheevaPlug hat ja ein *Debian Squeeze* (Testing) im NAND – 512 MiB – und das ist da schon
+ganz schön eng. Es kommt halt allerhand Zeug zusammen (*Dependency Hell*), wenn man die Sachen von
+oben installiert sowie ein paar Sachen „mal eben ausprobiert“.
+Trotz Kompression reichte der NAND nicht und ich musste */usr/share* auf die Festplatte auslagern.
+Trotzdem kann ich jedem die Installation in das NAND empfehlen, allein schon weil sonst der schön
+schnelle Speicher vergeudet wäre (und sowas ist teuer).
+
+Java ist auf dem Gerät nicht unbedingt zu empfehlen, einfach weil die bloße VM zu viel RAM auf dem
+Gerät verbraucht. Wuala kann man damit trotzdem prima laufen lassen. Ich selbst habe ein bis zwei
+Nodes parallel laufen und die erzeugen – nur als Speichernode – kaum Last.
+Ich habe die FSI zwar mal ausprobiert, aber da scheiterte es an der emulierten Entschlüsselung...
+
+Es lassen sich übrigens sechs Wuala-Instanzen problemlos parallel betreiben, wie ich von einem
+wirklich bösen Schurken erfahren habe.
+
+Wofür das Teil **nicht** zu gebrauchen ist
+==========================================
+
+Wie schon erwähnt: alles mit Verschlüsselung geht mal so gar nicht. Einzig [dm-crypt](http://en.wikipedia.org/wiki/Dm-crypt)
+läuft mit neueren Kernel-Versionen brauchbar schnell, denn das greift auf die nativen Befehle der CPU
+zurück.
+
+Ich hatte ja geplant, dass Gerät als [I2P](http://www.i2p2.de/) Node zu betreiben, auch wenn ich das
+anonyme Netzwerk selbst nicht nutze, finde ich die Idee klasse und unterstützenswert. Das wiederum ist
+wegen der Plattformunabhängigkeit in Java geschrieben und macht eben exzessiv Gebrauch von der
+Verschlüsselung – die CPU wird da natürlich nicht nativ angesprochen. Somit ist das ganze sehr begrenzt
+zu gebrauchen (bis zu fünf Tunnels lassen sich aufbauen, mehr ist nicht drin).
+
+Samba – das funktioniert zwar alles schön und gut, erzeugt aber unglaublich viel Last und erreicht
+nicht einmal die 100 MBit-Grenze gewöhnlicher Router.
+
+Und wer hätte es gedacht: für On-The-Fly Transcoding ist das Plug auch nicht geeignet ;-)
+
+Fazit
+=====
+
+Da das Gerät samt 500 GiB LaCie (2.5 Zoll) Festplatte um die 7 Watt zieht, ist das schon prima
+für die unauffälligen Sachen wie: Media Streaming intern (Twonky)/extern (Subsonic) oder Downloads
+wenn alle Schlafen via `at`. Gemeinnützige Projekte wie `rtorrent` und `wuala` sind auch ganz
+praktisch. **ICH** brauche es!
+
+[Hab hier übrigens mal Langzeit-Statistiken mit ein paar Unterbrechungen.](http://blog.posativ.org/files/munin/sheevaplug/sheevaplug/index.html)

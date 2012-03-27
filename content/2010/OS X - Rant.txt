@@ -1,0 +1,66 @@
+---
+title: Eine unbegründete Abneigung gegen Apple
+
+date: 21.12.2010, 11:35
+tags: [Apple, OS X, iPhone, brew, Windows, Rant]
+permalink: /2010/eine-unbegr-ndete-abneigung-gegen-apple
+---
+
+Ich bin seit kurzem stolzer Besitzer eines MacBook Pros. So mit 15-Zoll, wenig Festplattenspeicher,
+für Studenten reduziert und dennoch sauteuer. Kennt ja der eine oder andere. An sich war der Kauf
+nicht schlecht. Aber ich hasse Apple. Fast so sehr wie Microsoft. Eigentlich ist es gleichwertig,
+aber da Apples OS X eine Bash bietet, hasse ich Windows etwas mehr als OS X. Wieso ich das schon
+nach einer Woche behaupten kann? Ganz einfach, OS X ist einfach scheiße. Das fängt ja schon damit
+an, dass ein Terminal-Emulator nicht beendet, wenn man Strg+D macht. Ja nein, ich will das Fenster
+unbedingt offen haben mit dem Text: *Prozess beendet*. Generell erkenne ich den Sinn hinter dem
+roten Schließen-Knopf nicht. Er schließt die Fenster, aber beendet nicht den Prozess. Wieviele
+Sessions ich damit in Firefox verloren hab...
+
+Die Schrift ist klein. Abartig klein. Da habe ich für ein Antiglare Update schon zwingend eine
+höhere Auflösung nehmen müssen, so kann man nicht mal die DPI Anzahl erhöhen. Nein, das geht super
+einfach in jedem verdammten Programm **einzelnd** unter *Einstellung*. Das ist ja ein Komfort, das
+lässt sich gar nicht in Worte fassen. Oder doch: Ich schreibe diesen Beitrag per SSH auf meinem
+SheevaPlug, weil der Standard-Editor die Schriftgröße nicht ändern will.
+
+Was mir an OS X gefällt, sind die Animationen. Ist fast so wie beim iPhone, nur das man keine zehn
+Sekunden Pause nach jener hat, weil die Hardware so langsam ist. Wenn man in Virtualbox in den
+Fullscreen geht, dann gibt es eine Blende zu schwarz. Sehr schick. Wackelnde Fenster wären natürlich
+auch sehr cool, aber das gibt's nur Kauf einer [unnützen Shareware](http://www.neomobili.com/products/deskovery/).
+Damit wären wir beim nächsten Punkt.
+
+Apple ist ja die Inkarnation des Kapitalismus'. Ich hätte gerne einen Editor mit Syntax-Highlighting
+und einem Terminal unten. Ja. Nein, musst du kaufen für 20 bis 30 Euro. Ist ja nicht viel, aber
+das ist ja nicht die einzige Software, die man zusätzlich kaufen muss. iTunes ist unter OS X ja
+genau so ein Mist wie unter Windows. Freie Player wie [Clementine](http://www.clementine-player.org/)
+laufen zwar, aber wenn man das Pech hat, ein iPhone zu besitzen und es anschließt, dann ist Schluss.
+
+Gegen den Kapitalismus kann man sich ja prima mit Open Source Software wehren. Aber das ist schwierig.
+Fast so schwierig wie unter Windows. Immerhin gibt es mit [brew](https://github.com/mxcl/homebrew)
+eine ziemlich nette Software zur Installation von CLI-Tools, samt Dependency-Resolving. Aber es bleibt
+bei CLI-Software. KDE Software soll zwar prinzipiell laufen, erfordert aber viel Gefummel, diverse
+Patches und so etwas wie [Fink](http://www.finkproject.org/) oder [MacPorts](http://www.macports.org/).
+
+Ich habe testweise ein Kubuntu 10.04 in VirtualBox installiert. Leider wabern die Fenster nicht, aber
+da gibt's schlimmeres. Vielmehr ist die Tastatur vom MacBook einfach krank. Ja natürlich, Windows'
+hat ihre durchgesetzt und weil Apple-User sich besonders fühlen wollen, bekommen die halt eine andere.
+Dass AltGr+Q kein @ sondern das Programm schließt, ist ein Fall für Amnesty International. So, zurück
+in die VM. Es gibt kein AltGr und Alt+Strg+Q funktioniert im Gast auch nicht. Da bleibt nur ein Googlen
+nach dem @-Zeichen. Ich merke, wie mich die Technik des 21. Jahrhunderts begeistert.
+
+Aber es geht noch weiter. Notebooks haben ja diese nette *Fn*-Taste. Ach, nicht nur Notebooks. Überall,
+wo an Platz gespart und dennoch Zusatzfunktionen dabei sein müssen, die der Endanwender eh nicht braucht,
+gibt es diese nette Taste. Zeugt ja immer von immenser Intelligenz, wenn die nach ganz links gepackt wird.
+Links neben *Strg*. Wer brauch denn schnellen Zugriff auf Strg+C, Strg+Z? Vollkommen überbewertet. Aber
+das ist ja kein Apple-spezifisches Problem. Das tolle beim MacBook ist ja, dass F1-F12 nur nach Drücken
+dieser besagten Funktionstaste ihren Dienst tun. Das ist natürlich vollkommen inkompatibel zu allem und
+vor allem VirtualBox, sodass man da einfach nicht auf ein virtuelles Terminal wechseln kann. Großartig oder?
+
+Einen hab ich noch. Es gibt beim Macbook keine Entfernen-Taste. Vollkommen überbewertet. Aber da gibt
+es die intuitive Krampfbewegung Fn+Cmd+Backspace. Wie ich Pos1 und Ende bekomme, weiß ich nach wie vor
+nicht. Man spricht von Fn oder Cmd plus die Pfeiltasten. Nur will das bei mir nicht so recht. Wie schon
+gesagt, vollkommen überbewertet!
+
+Eine weitere großartige Sache bei Apple ist ja immer noch das iOS. So habe ich mich doch über für den
+Weihnachtsmonat für 1 GiB Datenvolumen für das Tethering entschieden, denn man will ja mobil bleiben.
+Tja, Pustekuchen. Mit dem Update geht das bei einer Vielzahl an Nutzern nicht. Wunderhübsch. Ja, ich
+lerne Apple langsam zu schätzen.

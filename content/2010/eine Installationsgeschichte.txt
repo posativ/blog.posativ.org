@@ -1,0 +1,53 @@
+---
+title: Der Versuch einer Ubuntu Studio Installation
+
+date: 12.08.2010, 20:54
+tags: [Ubuntu]
+---
+
+Ich wollte heute „mal eben“ Ubuntu Studio installieren, hab mir schnell den Torrent
+gezogen und gebrannt. So, es gibt von Ubuntu Studio nur eine `alternate`-Variante,
+aber das stört mich nicht weiter. Hab immerhin ein Arch Linux laufen.
+
+Mal kurz meine Rechnerkonfiguration: 2x 400 GiB Festplatten im Hardware- aka Fakeraid
+eines Silicon Images Controllers (Grafikkarte blockiert 3 von 4 SATA-Anschlüssen)
+und eine weitere 500er als Standalone.
+
+Ubuntu Studio DVD
+=================
+
+Bootet wunderbar, erkennt meine RAIDs und lässt mich diese konfigurieren. Ich wähle
+*sil_ajbgdcbjfhcd6* aus und lasse es als `jfs` formatieren. Zack, roter Hintergrund:
+Formatieren fehlgeschlagen. Fehlerdiagnose mit Windows-Aussagekraft. Na gut, könnt
+ja an `jfs` liegen, das musste ich bei meinem SheevaPlug auch erst nachinstallieren;
+nehmen wir `ext4`. Fehlschlag.
+
+Na gut, das uu-Wiki sagt, man kann eine Ubuntu vanilla Installation auch in eine Studio-Variante umwandeln.
+
+Ubuntu Installation
+===================
+
+Ich nehm die Ubuntu-DVD und fange die Installation an. Die Installationsroutine startet,
+ich habe mich gefreut – als sie drei Sekunden später abbrach. Warum wohl: Formatieren fehlgeschlagen.
+
+Ich boote erstmal in die Live-Umgebung. Starte von da die Installation und... gut, dann halt nicht.
+Öffnen wir erst einmal Firefox und [googlen][] 'ne Runde. Hey - „*Dmraid "fake raid" devices are supported
+out-of-the-box on the Ubuntu 10.04 LTS Desktop CD*“. Waaahnsinn.
+
+dmraid installation is entirely broken in Lucid
+===============================================
+
+So, eine Runde weiter googlen bringt mich zu einem äußerst interessanten Bug: [568050][].
+
+Fangen wir an zu lesen: „**dmraid installation is entirely broken in Lucid**“, aufgefallen bei
+der Beta 2. Acht Tage vor Release eingetragen. Die Berichte häufen sich: im Release Candidate
+ist der Bug auch enthalten. Lucid wird released – der Bug ist immer noch existent. Workaround?
+Nicht vorhanden.
+
+Einen Monat später (!): eine Anleitung samt inoffiziellen Patch wurde veröffentlicht.
+
+Das will nicht so recht in meinen Kopf: Ubuntu Lucid hat keinen funktionierenden Fakeraid-Support.
+Weder Desktop noch Server; und das in einer LTS-Version. Hundert Punkte der Kandidat.
+
+[googlen]: http://www.google.com/search?q=ubuntu+dmraid+10.04
+[568050]: https://bugs.launchpad.net/ubuntu/+source/parted/+bug/568050

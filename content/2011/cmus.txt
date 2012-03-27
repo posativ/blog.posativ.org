@@ -1,0 +1,60 @@
+---
+title: cmus – c* music player
+date: 24.06.2011, 21:25
+---
+
+[cmus](http://cmus.sourceforge.net/) ist ein kleiner, auf [ncurses](http://en.wikipedia.org/wiki/Ncurses)
+basierender, *fast* und bedienungsfreundlicher Musik-Player. Ich will ihn nur
+noch kurz vorstellen, denn ab heute werde ich einen anderen nutzen. Doch das zum Schluss.
+
+[<img src="/img/2011/cmus.png" width="680" class="shadow"
+alt="Screenshot vom cmus" />](/img/2011/cmus.png)
+
+Ich nutze das Programm schon etwas länger, leider ist das etwas der Party-Killer,
+wenn man sowohl einen Linux/KDE-Rechner UND dazu noch cmus als Jukebox nimmt
+und die Audienz Mausschubser sind. cmus ist sehr schön zu bedienen, es hat
+eine Vim-like Steuerung, d.h. über `:add ~/Music` lässt sich in windeseile
+Musik hinzufügen und es wird alles hübsch einsortiert. Dabei gibt es insgesamt
+sieben Ansichten: *(1)* Library, sortiert nach Artist/Album, *(2)*
+flache Liste von allem, *(3)* Playlist.pl, derzeitige Playlist, *(4)*
+Play-Queue, hat Vorrang zu (3), *(5)* Dateibrowser, *(6)* Filter und *(7)*
+sind die Einstellungen.
+
+Steuern lässt sich cmus wie von Amarok und anderen Playern gewohnt und auch
+allgemeinhin bekannt mittels *C* (Play/Pause), *Z* (Back) und *B* (Next). Das
+Browsen ist etwas hakelig, denn es funktioniert mit den Pfeiltasten Rauf und
+Runter, niemals seitwärts, denn das ändert die Position im aktuellen Stück. Zum
+switchen in den Fenstern nutzt man Tab. Mittels */* wird gesucht, kennt man ja
+aus Vim, aber schön ist das nicht. Mittels mehr oder weniger offensichtlichen
+Tasten *S* (Random), *R* (Repeat) und *T* (Zeitanzeige) führen häufiger zu
+ungewünschten Aktionen. Ein mehrmaliges Lesen der man-Page ist empfehlenswert.
+Leider. Insgesamt ziemlich ausgereift, ungemein schnell und hey, es ist CLI!1
+
+[Last.fm](http://www.lastfm.de/)-Support gibt es per Default nicht, sondern nur
+über obskure Patches, die die Login-Daten fest in die Binary reincoden
+(wahrlich meisterhaft), dafür gibt es dann bsw. [ein Skript][], das dann in
+`status_display_program /path/to/last-cmus.py` gesetzt werden muss.
+Allgemein ist cmus skriptable, aber irgendwie sehr gewöhnungsbedürftig über
+'nen Socket oder direkt via `cmus-remote`.
+
+Warum ich nun wechsle? Die API ist wirklich behindert. Also das lässt
+sich nicht anders sagen. Man bekommt von cmus selbst nur einen Aufruf, wenn
+der Track sich ändert. Dabei kann auch nur <u>ein</u> Skript aufgerufen werden.
+Alternativ lässt man sein Skript im Hintergrund laufen. Argh. Gibt auch ein
+[paar Extensions](http://cmus.sourceforge.net/wiki/doku.php?id=status_display_programs),
+aber `cmus_add_similar.py` wollte nicht so recht funktionieren. Wieso weiß ich
+nicht.
+
+Ein weiterer Kritik-Punkt ist die *Filtering*-Option. Im Prinzip ganz schön,
+aber ohne scheiß, muss so etwas hier sein, um nach Akustik/Acoustic zu suchen?
+`:filter filename="*acoustic*"|filename="*akustik*"`. Warum zum Henker geht
+denn kein `:filter acoustic|akustik`. Ich wollte es nicht bei zwei Phrasen
+belassen. Und kann man den Output speichern? Ist mir nicht gelungen.
+
+Ach erwähnte ich schon, dass cmus nicht mit Umlauten im Dateinamen beim Filtering
+zurechtkommt? Mann, Mann, Mann. Unter OS X (`brew install cmus`) funktioniert
+der Lautstärke-Regler übrigens nicht :-( Mein neues Glück versuche ich nun mit
+[MoC](http://en.wikipedia.org/wiki/Music_on_Console). Denn so problematisch cmus
+für mich auch ist, es ist tausendfach besser als jede behinderte GUI!
+
+[ein Skript]: http://code.google.com/p/last-cmus/

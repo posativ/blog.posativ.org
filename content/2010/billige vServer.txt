@@ -1,0 +1,75 @@
+---
+title: billige vServer
+tags: [V-Server]
+date: 24.07.2010, 18:33
+---
+
+Mein Vertrag mit hosteurope läuft aus und obwohl ich mit dem Paket vollkommen zufrieden bin,
+so habe ich den Vertrag gekündigt. Ich hatte folgende Dienstleistungen (für günstige 2,99 €/Monat):
+
+- viele Subdomains, Email – das Übliche halt
+- 50 GB/Monat Traffic bei 2 GB Speicherplatz
+- CGI mit Php, Perl und Python auf einem Apache
+- kein Zugriff auf die .htaccess noch [WSGI][]-Möglichkeiten
+- nur FTP(S), kein SSH
+
+[WSGI]: http://de.wikipedia.org/wiki/Web_Server_Gateway_Interface
+
+vServer (virtual host)
+======================
+
+ist ja eines dieser Buzzwörter der letzten Jahre. Der Hype lässt auch kein bisschen nach... Ich bekomme
+also einen virtuellen root-Server, d.h. ich bin root auf meinem eigenen Betriebssystem und kann machen und
+walten was ich softwaremäßig so möchte. Die Preise gehen dabei von 1,50 € (!) bis zu mehreren hundert Euro.
+
+Das hat mich dazu bewogen, mal einen billigen vServer zu testen, der in ähnlichem Budget liegt wie
+mein bisheriges Webhosting-Angebot.
+
+vServer ALUMINIUM
+-----------------
+
+- 333 Mhz mit maximal 200 MB RAM
+- 4,3 GB HDD im RAID-1
+- 1 IPv4 Adresse und 20 GB/Monat Traffic
+
+für gerade einmal 1,59 €. Das ist wirklich sehr, sehr billig, aber wenn man anstelle von Apache ein
+Webserver nimmt, der direkt auf die eigenen Anforderungen zugeschnitten ist (wie [lighttpd][] oder á la
+[Tornado][]), dann reichen sogar mickrige 333 Mhz, um mehr Flexibilität und Leistung zu erreichen als
+über ein vergleichbares Webhosting-Angebot.
+
+[vServer ALUMINIUM](http://www.netcup.de/vserver/vserver_restposten.php) bei [netcup](http://www.netcup.de/)
+
+
+VPS PREMIUM: Mini
+-----------------
+
+- 2.67 GHZ (Shared) &ndash; *BUZZ*, *BUZZ* &ndash; bei 384 MB RAM
+- 8 GB HDD mit Backup auf externe FTP-Server (RAID-5)
+- 1 IPv4 Adresse und FairUse in puncto Traffic (!)
+
+für 2,99 €. Somit genau in dem Budget wie mein vorheriges Webhosting-Angebot bei hosteurope.
+Hab das Teil gestern nachmittag bestellt, ich hoffe, die werden das bis zum Montag gebacken
+bekommen - ich hab immerhin via Paypal bezahlt: 2,99 € x 3 Monate (daher ohne Einrichtungsgebühr).
+
+384 MB RAM sind in meinen Augen sowas von ausreichend: auf meinem SheevaPlug mit 512 MB RAM läuft
+ein ressourcenhungriger Musikstreamingserver [Subsonic](http://www.subsonic.org/), ein
+[TwonkyMedia server](http://www.twonkymedia.com/), 2x Wuala und [rtorrent](http://libtorrent.rakshasa.no/)
+samt [Webinterface](http://www.wtorrent-project.org/trac/) über [lighttpd][].
+Belegt sind da im Schnitt 160 MB RAM, desweiteren wird mein simples Blog nicht mal annähernd
+an diese Grenze kommen.
+
+Leider kann ich den vServer nicht dafür nutzen, Wuala laufen zu lassen, da der Speicherplatz eh etwas
+gering ist, aber in der FairUse-Klausel auch steht, dass jeglicher P2P-Traffic verboten ist (*so auch leider
+keine I2P-Node :-/*). Aber hey, für 2,99 € im Monat...
+
+[VPS PREMIUM: Mini](https://www.proplay.biz/vps_premium.html) bei [proPlay.de](https://www.proplay.biz/)
+
+[lighttpd]: http://www.lighttpd.net/
+[Tornado]: http://www.tornadoweb.org/
+
+Links
+=====
+
+- [aktuelle Gebote für root- und vServer](http://forum.webhostlist.de/forum/biete-server-und-hardware/)
+- [[g:b] Gutschein-Sammelthread für netcup](http://board.gulli.com/thread/1573675-gutschein-sammelthread-netcup/)
+- [[g:b] weitere günstige vServer](http://board.gulli.com/thread/1568170-vserver-gesucht/?highlight=vserv)

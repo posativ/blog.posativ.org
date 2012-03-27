@@ -1,0 +1,30 @@
+---
+title: Minecraft (– oder yet another java rant)
+date: 5.7.2011, 9:38
+tags: [Java, Minecraft, OS X]
+---
+
+Da denke ich mir, hey kaufste dir mal ein Spiel, was so richtig crossplattform
+is, so in Java und *compile once, run everywhere* und dann wird das wieder der
+Fail des Tages.
+
+Was ist das Problem? Nunja, das ist wohl Java. Oder Apple, der Java verbaut.
+Mir egal. Dass Java crossplattform ist, ist für mich seit langem eine große,
+schwere Lüge. Alles was mit Hardware zu tun hat, schon angefangen bei
+Grafik-Beschleunigung ist *nicht* mehr crossplattform. Die Beweise bekomme ich
+mindestens einmal die Woche. Dieses gehypte Java geht mir genau dann immer
+tierisch auf den Hals, wenn ich so Exoten nutze, wie bsw. Linux oder OS X.
+Letzererzeit ja OS X. Aber glaubt man das? OS X wird schlechter supported als
+diese Kostenloskultur Linux! Also bitte, wenn schon, dann Windows > Mac > Linux!
+
+Also, wer **Minecraft** auf einem **MacBook Pro** spielen möchte, der *leider*,
+*leider* stromsparend sein möchte und deshalb **ZWEI** Grafik-Adapter mitbringt,
+dessen echte Grafikkarte zwar die gewünschte Performance hat, aber diesen
+behinderten Garbage Collector zu einem mehrere hundert Millisekunden andauernden
+Lag alle drei bis vier SEKUNDEN bewegt und dessen [interner Grafikchip][] dermaßen
+schwachbrünstig ist, dass Minecraft, so scheiße das Spiel auch schon aussieht,
+nicht flüssig spielbar ist, [ja der hat gefailt][]. Naja, WAS HABE ICH VON
+EINTAUSENDSIEBENHUNDERT EURO HARDWARE AUCH ZU ERWARTEN? Java-Unterstützung doch nicht!
+
+[interner Grafikchip]: http://codykrieger.com/gfxCardStatus/
+[ja der hat gefailt]: http://getsatisfaction.com/mojang/topics/minecraft_performance_on_current_generation_macbook_pros

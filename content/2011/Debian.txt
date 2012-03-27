@@ -1,0 +1,89 @@
+---
+title: Debian. Ich hasse dich.
+date: 26.08.2011, 00:21
+tags: [Rant, Debian Squeeze, planet]
+---
+
+Meine Server laufen alle mit Debian. Debian Squeeze, das einzige OS, das
+Software mitliefert, die noch älter als die bei OS X ist. Debian, dem
+wunderbarsten OS aller Zeiten. Aber mal ehrlich. DEBIAN IST DRECK!
+
+Ich kann es absolut nicht nachvollziehen, was alle an diesem behinderten APT
+finden. Das Teil ist ein FAIL! Es dient der automatischen Dependency-Auflösung,
+aber wie oft brauche ich denn diese übelste Dependency-Auflösung, wenn ich eh
+nur ein Repository nutze – nämlich das von Debian. Und sollte ich nur kurz auf
+die Idee kommen, mal ein anderes einzubinden, dann sollte ich schnellstens das
+komplette System sichern. Denn eins steht fest: einmal apt-get install/upgrade
+ausgeführt und es gibt NIE, NIE WIEDER ein Zurück.
+
+Nun gut, dann habe ich ein testweise anderes Repository eingebunden und
+installiere z.B. das neuste Python. Und ich weiß nicht wieso, aber auf einmal
+will er mir seinen gesamten Testing-Branch unterjubeln für eine Software, die
+drei Abhängigkeiten hat und keine davon heißt `linux-kernel`. Wenn ich mir
+dann mein System zerschossen habe und merke, hey, das mit `python2.7` war
+keine gute Idee. Ja, dann kann man entweder anfangen, mühsam dieses
+kackbehinderte Log-File durchzusehen und MANUELL jedes Packages zu
+deinstallieren oder man sichert seine liebsten Daten und macht eine
+Neuinstallation.
+
+Ich habe Debian in meinem Leben öfters installiert als Windows. Und zwar
+einfach aus dem Grund: `apt-get install collectd-utils`, schwupps eine Milliarde
+Dependencies für ein [Tool ohne Abhängigkeiten][1] installiert. Also mal
+ehrlich. WELCHER BEKNACKTE MAINTAINER TUT DA LVM UND CO REIN? Das ist ein
+modulares Monitoring-Tool und bei `libboost` scheut ihr auch keine Mühen, das
+in zweihundert Unterpakete zu schnüren.
+
+    :::text
+    Die folgenden NEUEN Pakete werden installiert:
+    collectd collectd-utils cpp cpp-4.4 dbus-x11 dmsetup fancontrol gconf2 gconf2-common
+    hicolor-icon-theme libasound2 libatk1.0-0 libatk1.0-data libavahi-client3 libavahi-common-data
+    libavahi-common3 libcanberra-gtk-module libcanberra-gtk0 libcanberra0 libcap-ng0
+    libcollectdclient0 libcups2 libdbus-glib-1-2 libdevmapper1.02.1 libesmtp5 libgconf2-4 libgmp3c2
+    libgtk2.0-0 libgtk2.0-bin libgtk2.0-common libhal1 libice6 libidl0 libjasper1 libjpeg62
+    liblua5.1-0 libmemcached5 libmpfr4 libmysqlclient16 libnotify1 libogg0 libopenipmi0 liboping0
+    liborbit2 libpcap0.8 libperl5.10 libpq5 libprotobuf-c0 libpython2.6 libreadline5 libsensors4
+    libsm6 libsnmp-base libsnmp15 libstartup-notification0 libtdb1 libtiff4 libtokyocabinet8
+    libtokyotyrant3 libupsclient1 libvirt0 libvorbis0a libvorbisfile3 libwnck-common libwnck22
+    libxcb-atom1 libxcb-aux0 libxcb-event1 libxcomposite1 libxcursor1 libxdamage1 libxenstore3.0
+    libxfixes3 libxi6 libxinerama1 libxrandr2 libxres1 libyajl1 lm-sensors lvm2 mysql-common
+    notification-daemon psmisc shared-mime-info
+    0 aktualisiert, 84 neu installiert, 0 zu entfernen und 0 nicht aktualisiert.
+    Es müssen noch 30,2 MB von 31,1 MB an Archiven heruntergeladen werden.
+    Nach dieser Operation werden 88,5 MB Plattenplatz zusätzlich benutzt.
+    
+    ... dumdidum ...
+    
+    libdevmapper1.02.1 (2:1.02.48-5) wird eingerichtet ...
+    dmsetup (2:1.02.48-5) wird eingerichtet ...
+    lvm2 (2.02.66-5) wird eingerichtet ...
+    Setting up LVM Volume Groups  Reading all physical volumes.  This may take a while...
+      No volume groups found
+      /proc/devices: No entry for misc found
+      Is device-mapper driver missing from kernel?
+      Failure to communicate with kernel device-mapper driver.
+      No volume groups found
+
+ACH NE! Kein LVM gefunden? Na DAMIT konnte wohl NIEMAND rechnen! Und jetzt
+der Knaller:
+
+    :::text
+    # apt-get purge collectd-utils
+    Paketlisten werden gelesen... Fertig
+    Abhängigkeitsbaum wird aufgebaut       
+    Statusinformationen werden eingelesen... Fertig
+    Die folgenden Pakete werden ENTFERNT:
+      collectd-utils*
+    0 aktualisiert, 0 neu installiert, 1 zu entfernen und 0 nicht aktualisiert.
+    Nach dieser Operation werden 147 kB Plattenplatz freigegeben.
+    
+    # apt-get autoremove
+    Paketlisten werden gelesen... Fertig
+    Abhängigkeitsbaum wird aufgebaut       
+    Statusinformationen werden eingelesen... Fertig
+    0 aktualisiert, 0 neu installiert, 0 zu entfernen und 0 nicht aktualisiert.
+
+ALTER! Jetzt habe ich mir die behindertsten Dependencies eingefangen und jetzt
+lässt der mich allen ernstes mit dem GESAMTEN MIST stehen. Danke, Debian. Ich
+sehe, hinter dir steht eine große, durchdachte Entwicklung.
+
+[1]: http://collectd.org/wiki/index.php/First_steps

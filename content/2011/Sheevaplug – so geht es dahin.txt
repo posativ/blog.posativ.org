@@ -1,0 +1,30 @@
+---
+title: So geht's dahin...
+date: 27.07.2011, 17:55
+tags: [SheevaPlug]
+---
+
+![Netzteil von Sheevaplug durchgebrannt](/img/2011/sheevaplug.png)
+
+So, nun ist mein Zweites hinüber. Wieder lag's am Netzteil, je öfter man es
+repluggt, desto schneller geht das, habe ich das Gefühl. Ist halt für den
+US-Markt ausgelegt, 120V versus 230V, passiert halt mit so Billigkram. Ich
+war faul und hatte zu dem Zeitpunkt kein passendes Werkzeug parat, daher
+gibt's was neues:
+
+- mini-ITX, [AMD A50M (Hudson-M1) samt E-350 CPU][1]
+- 4 GiB RAM
+- 64 GiB [SSD von Crucial][2]
+
+Weil dieser ARM-Prozessor einfach lansam war. Und der kleine 512 MiB NAND.
+Und der 512 MiB kleine RAM. Und einfach alles so mit der Zeit. Das neue System
+lässt sich dann auch prima als Desktop nutzen, angepeilt wird ein FreeBSD und
+KDE. Denn die integrierte Grafikkarte soll wohl so richtig schnell sein. Sind
+zwar knapp 2,5x soviel Stromverbrauch wie vorher (18 Watt versus 7,8 W), aber
+hat dafür die 250-fache Leistung.
+
+Repariert wird das SheevaPlug aber dennoch. Vielleicht hat es noch irgendwo
+einen Nutzen.
+
+[1]: http://www.alternate.de/html/product/ASUS/E35M1-I_Deluxe_inkl._AMD_Fusion_E-350/821940/?
+[2]: http://www.alternate.de/html/product/Crucial/RealSSD_M4_2,5_SSD_64_GB/860674/?

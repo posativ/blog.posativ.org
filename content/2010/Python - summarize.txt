@@ -1,0 +1,87 @@
+---
+title: Summarizing (X)HTML in Python
+
+date: 07.10.2010, 20:33
+tags: [Python]
+---
+
+Hey, my first post in english. It's for search engine optimization only :P
+
+I currently use [this](http://code.activestate.com/recipes/499336-summarizing-xhtml/) snippet
+generator for my post previews. In some situation it behaves wrong (preservering whitespace
+in *pre*-tags, to be precisely) and it is really hard to maintain. See the source code.
+
+This is my first time using the [HTMLParser](http://docs.python.org/library/htmlparser.html) of the
+python standard library. It was really straight-forwarded to solve this without any side effects!
+Currently, it is slower than the activestate-solution, which is about two times faster. Summarizing
+[Wiki-Software: MindTouch Deki](http://blog.posativ.org/?p=5f13c47) with about 39 lines and 3483
+characters takes about 20ms versus 40ms.
+
+I have no plans to update this code listing, please take a look at my personal Git-Repository for any changes:
+`git clone http://git.posativ.org/posativ`
+
+    :::python
+    #!/usr/bin/env python
+    """
+    An awesome way of http://code.activestate.com/recipes/499336-summarizing-xhtml/
+    Released under the WTFPL
+    """
+
+    from HTMLParser import HTMLParser
+
+    class Summarizer(HTMLParser):
+        
+        def __init__(self, text, maxwords=100):
+            HTMLParser.__init__(self)
+            self.maxwords = maxwords
+            self.summarized = ""
+            self.words = 0
+            self.stack = []
+            
+            self.feed(text)
+        
+        def handle_starttag(self, tag, attrs):
+            """Apply and stack each read tag until we reach maxword."""
+            
+            def tagify(tag, attrs):
+                """convert parsed tag back into a html tag"""
+                if attrs:
+                    return " <%s %s>" % (tag, " ".join(["%s="%s"" % (k, v) for k,v in attrs]))
+                else:
+                    return "<%s>" % tag
+                    
+            if self.words < self.maxwords:
+                self.stack.append(tag)
+                self.summarized += tagify(tag, attrs)
+                
+        def handle_data(self, data):
+            
+            if self.words >= self.maxwords:
+                pass
+            else:
+                words = data.split(" ")
+                if self.words + len(words) < self.maxwords:
+                    """if the next few words will not go over maxwords"""
+                    self.words += len(words)
+                    self.summarized += data
+                else:
+                    """we can put some words before we reach the word limit"""
+                    somewords = self.maxwords - self.words
+                    self.words += somewords
+                    self.summarized += " ".join(words[:somewords]) + " "
+                    self.summarized += "... <a href="?p=%s" class="continue">continue</a>." % "abcdef"
+
+        def handle_endtag(self, tag):
+            """Until we reach not the maxwords limit, we can safely pop every ending tag,
+               added by handle_starttag. Afterwards, we apply missing endings tags if missing."""
+            if self.words < self.maxwords:
+                self.stack.pop()
+                self.summarized += "</%s>" % tag
+            else:
+                if self.stack:
+                    for x in range(len(self.stack)):
+                        self.summarized += "</%s>" % self.stack.pop()
+                        
+    if __name__ == "__main__":
+        
+        print Summarizer("", 120).summarized

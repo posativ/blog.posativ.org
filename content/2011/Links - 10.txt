@@ -1,0 +1,36 @@
+---
+title: "Linkschleuder #10"
+date: 16.12.2011, 19:31
+tags: [Links, unix, Web, Ruby, OS X, planet]
+---
+
+- [daemontools](http://cr.yp.to/daemontools.html) – nein nicht die [Daemon
+  Tools][1], um äh Sicherheitskopien zu mounten, sondern einen
+  Prozess-Supervisor wie `init.d` und kann im userspace laufen
+  ([via](http://uberspace.de/)).
+- [runwhen](http://code.dogmap.org/runwhen/) – eine Art besseres `cron`.
+  Unterstützt z.B. direktes Ausführen eines Tasks und kann sekundengenau
+  Arbeiten ([via](http://uberspace.de/dokuwiki/system:runwhen)).
+- [Tracks](http://www.getontracks.org/) – eine nette Todoliste mit Ruby on Rails,
+  die gerade mal lächerliche 100 MB RAM idle verbrät. Unterstützt Mobil-Geräte.
+- [Piwigo](http://piwigo.org/) – your own photo gallery (in PHP und MySQL),
+  gibt's direkt im Repository von Debian und Ubuntu. Ganz hübsch, aber ein
+  leichter Overkill für einen Einzelnutzer.
+- [Macfusion](http://macfusionapp.org/) – SSH & FTP Filesystem im Userspace
+  aka FUSE. Mit GUI!1
+- [github:mac](http://mac.github.com/) – gibt's in Version 1.1 und unterstützt
+  unter anderem partielles Hinzufügen aka `git
+  add --patch` (wenn auch sehr umständlich).
+- [Lua Scripting im lighty 1.5](http://redmine.lighttpd.net/wiki/lighttpd/AbsoLUAtion)
+  – könnte [Grack+Redmine](/2011/grack-redmine-auth-git-smart-http/) unnötig
+  machen, würde es denn irgendwann Version 1.5 geben.
+- [HTML nach Text konvertieren](https://github.com/aaronsw/html2text) – ist sogar
+  Markdow-valide, was da hinterher rauskommt!
+- [Disaster and Emergency AlertMap](http://hisz.rsoe.hu/) – auch mit
+  [Europa](http://hisz.rsoe.hu/alertmap/index2.php)
+- [YSlow](http://developer.yahoo.com/yslow/) – Yahoo Tool um die
+  Webseiten-Geschwindigkeit zu analysieren.
+- [Ruby Best Practices (Buch)](http://rubybestpractices.com/) – *"We can all
+  write better Ruby code"*.
+
+[1]: http://www.daemon-tools.cc/

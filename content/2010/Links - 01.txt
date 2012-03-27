@@ -1,0 +1,31 @@
+---
+title: "Linkschleuder #1"
+
+date: 29.09.2010, 23:22
+tags: [Links, CSS Preprocessors, statische Seiten]
+---
+
+Man kann ja so ein Blog auch mal kurz als Wiki missbrauchen, solange es kein gutes auf dem
+Markt gibt. Heute: Static Website Generators und ein paar GitHub-Links.
+
+# Static Website Generators
+
+- [nanoc](http://nanoc.stoneship.org/): Hab ich schon [mal erwähnt](http://blog.posativ.org/?p=6522f7a),
+  ist immer noch toll.
+- [Hyde](http://ringce.com/hyde): Python samt Django-Support, aber trotzdem statisch. Schaut ganz
+  interessant aus. Wohl etwas zu überdimensioniert für die klassischen statischen Webseiten.
+- [Moving from Django to Hyde](http://stevelosh.com/blog/2010/01/moving-from-django-to-hyde/).
+
+# CSS Preprocessors
+
+- [{less}](http://lesscss.org/): Variablen, Arithmetik, Funktionen und Nesting.
+- [Sass](http://sass-lang.com/): Syntactically Awesome Stylesheets –
+  [YAML](http://en.wikipedia.org/wiki/YAML)-Syntax, Variablen, Funktionen, Nesting und Vererbung.
+
+# Dies und Das
+
+- [smusher](http://github.com/grosser/smusher): Interface zu [Yahoos Smush It](http://www.smushit.com/ysmush.it/)
+  (Lossless Reduction, benötigt einen API Key) – *„less size (up 97% saving) = faster downloads = less bandwidth + happy users“*
+- [reduce](http://github.com/grosser/reduce): *smusher* inklusive Reduzierung von Text (JavaScript oder CSS).
+- [fabfile](http://fabfile.org/): Administration/Automatisierung mittels Python. Sieht etwas überflüssig aus, könnte
+  aber ein Test allemal wert sein!

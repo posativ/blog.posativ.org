@@ -1,0 +1,24 @@
+---
+title: "Chrome OS: Finde den Fehler im System"
+date: 08.12.2010, 17:21
+tags: [Chrome OS]
+---
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+<script type="text/javascript" src="http://video.fubra.com/js/jquery.futube.js"></script>
+<script type="text/javascript">
+    $(function() {
+        $('#futube').futube({video: "vFeD3qGVsrM", width: "600"});
+    });
+</script>
+<div id="futube">Using a Chrome notebook</div>
+<noscript><a href="http://www.youtube.com/watch?v=vFeD3qGVsrM">YouTube Video</a></noscript>
+
+Das wird uns umhauen. Wir haben Zugriff auf all unsere Daten in der \*schauer\*... Cloud. Zugriff
+auf einfach alles. Und wir haben keinen Dateibrowser. Super. Ich kann online weder gescheit
+Plain-Text noch *Tab* nutzen, aber es wird die Welt revolutionieren. Ich kann meine
+Bilder online bearbeiten. Wie ich die da hochbekomme, weiß ich zwar noch nicht, aber ich kann
+sie bearbeiten!1 Das Konzept ist ja ähnlich grandios wie Apples Apps.
+
+Immerhin haben sie ein paar kritische Linux-Kernel Lücken geflickt. So ist der Entwicklungsaufwand
+nicht völlig umsonst gewesen.

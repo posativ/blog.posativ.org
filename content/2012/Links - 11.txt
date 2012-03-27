@@ -1,0 +1,21 @@
+---
+title: "Linkschleuder #11"
+date: 02.01.2012, 19:11
+tags: [Links, Twitter, OS X, SheevaPlug]
+---
+
+Diesmal stark apfel-lastig; zwei zu [Twitter][0], Rest zu OS X.
+
+- [twidge](https://github.com/jgoerzen/twidge/wiki) – full commandline twitter client (in Haskell geschrieben)
+- [Fork A Twitter Client](http://onilabs.github.com/fork-a-twitter-client/) – Twitter komplett im Browser (wie twitter.com), jedoch in schlank.
+- [OSX GCC Installer](https://github.com/kennethreitz/osx-gcc-installer) – GCC-related Tools in XCode. Erspart nächstes mal vielleicht den 4,7 GiB Download.
+- [VLC GUI rewrite](https://github.com/pdherbemont/Glasses/) – für OS X, ist leider eingeschlafen, weil es sehr wenige OS X Entwickler gibt.
+- [Consultant’s Canary](http://khiltd.com/software/consultants_canary) – Diff zwischen OS X Erst-Installation und dem Müll, der jetzt drauf ist. Äußerst praktisch.
+- [Vom OS X zum SheevaPlug](http://blog.hep-cat.de/?p=5478) – inklusive Kommentar von einem Projekt mit quelloffenen Treibern.
+- [Musorg](http://peippo.eu/musorg/) – OS X MP3 Tag Editor (GPLv2), nicht wirklich fertig, dafür immerhin was OS X-natives.
+- [YouTube Player Client for OS X](http://www.celmaro.com/tubbler/) – ressourcensparend YouTube gucken, noch kostenlos.
+- [Musique](http://flavio.tordini.org/musique) – ehemals MiniTunes, verfügbar für Windows, Linux und Mac OS X, GPL und ohne [AudioScrobbler-Support][1]!
+- [Ecoute 3](http://www.pixiapps.com/ecoute/) – Standalone player based on your iTunes library.
+
+[0]: https://twitter.com/
+[1]: http://cdn.last.fm/blog/posts/april12/poster_boy.jpg

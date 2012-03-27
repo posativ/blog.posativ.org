@@ -1,0 +1,93 @@
+---
+title: Liebes Wuala Team
+
+date: 31.03.2011, 14:18
+tags: [Rant, Wuala]
+---
+
+Euer Beta-Release ist nun schon [2½ Jahre her][] und es hat sich viel getan.
+Moment. Nein, das stimmt so nicht. Es hat sich wenig getan. Ich frage mich, ob
+jemals ein Feedback sinnvoll in Wuala eingebaut wurde. Mit sinnvoll meine ich
+nicht, dass Wuala aus lauter nutzlosen Features besteht, nein Wuala hat klasse
+Funktionen wie asymmetrische Verschlüsselung und eine P2P+Server-Struktur.
+Aber der Rest? Was soll der Rest bitteschön?
+
+Seitdem ich kurz ein *Backup* auf meinem MacBook eingerichtet habe, nur um
+festzustellen, dass *~/Library* eine mehr als schlechte Idee war, bekomme ich
+immer eine Fehlermeldung, gewisse Daten seien noch nicht hochgeladen. Das ist
+wohl korrekt, denn ich habe dieses *Backup* gelöscht. Was wohl nicht heißt,
+dass der Ordner auch gelöscht wird. Nun gut, dann habe ich den Ordner gelöscht
+und er befand sich im Papierkorb. Nun gut, dann habe ich den Papierkorb
+entleert und hatte diesen anfänglichen Fehler in gerade einmal 30 Minuten
+behoben. 10 Minuten für das Hinzufügen der Dateien, 2x10 Minuten für das
+Löschen. Ich kenne keine wirklichen Alternativen zu Wuala. Aber wenn ich eine
+finde, die einen genauso behinderten Workflow hat wie Wuala, dann sehe ich
+vielleicht ein, WIESO ICH GOTT VERDAMMT NOCH EINMAL **DREI** MAL EIN UND
+DASSELBE BACKUP LÖSCHEN MUSSTE UND TROTZDEM FEHLERMELDUNGEN BEKOMME.
+
+Vielleicht habe ich ja zu hohe Ansprüche, was GUI-Design betrifft, aber
+irgendwie sagt mir mein Gefühl immer wieder: eine schlechtere grafische
+Oberfläche als die von Wuala kennst du nicht. Dafür gibt es gar kein Wort, was
+das nur annähernd treffend beschreiben würde. Leben wir im Jahr 2000 wo
+Browser noch mit Popups den Nutzer fragen, ob er etwas wirklich will? GIBT'S
+BEI FACEBOOK/TWITTER ETWA AUCH JAVASCRIPT POPUPS? Nein! Und wieso bekomme ich
+dann eine, wenn ein Download fehl schlägt, nur weil ich zufällig zwei parallel
+angestoßen habe, aber für Parallelität eine versteckte Tastaturkombination
+nötig ist, wieso bekomme ich mitgeteilt, *„Datei nicht vollständig
+hochgeladen. /sehr/sehr/langer/unsinniger/pfad“* \*plop\* \*plop\*, wieso
+bekomme ich eigentlich Fehlermeldungen zu Gesicht, wo ich sowieso nur Ok
+drücken kann? Wieso? Ne, dann lasst das einfach bleiben. Wenn
+Nutzerinteraktion gefragt ist, dann darf man das, aber kein einziger Dialog in
+Wuala tut das.
+
+Ich wüsste gerne, was es mit den Gruppen auf sich hat. Ich kenne da ein paar
+Grunddetails, wie das so (zumindest früher™) implementiert wurde. Der Name
+einer Gruppe kommt mit in deren Primary Key rein, demnach kann man Gruppen
+nicht umbenennen und eine zweite mit identischen Namen auch nicht eröffnen.
+Ich kann Gruppen komplett versteckt halten, aber sobald irgendjemand jenen
+Namen probiert, weiß er, dass sie existent ist. Was mich aber viel mehr nervt
+als diese faktisch nicht vorhandene Dokumentation ist das Datei-Handling in
+Gruppen. Es gibt da Datei-Benutzer-Assoziationen und
+Datei-Gruppen-mit-Benutzer-als-Owner-aber-ohne-Backlink-Assoziation. Dateien
+sind unabhängig in diesen Ebenen und müssen jeweils in das andere kopiert
+werden. Allerdings wird dabei nicht der Speicherplatz belastet, denn es
+handelt sich ja um einen Sym-Link, aber es heißt trotzdem Kopie. Derzeit habe
+ich über 40 GiB in Gruppen und kann diese nicht finden. Natürlich gibt es aber
+dafür einen Workflow. Einfach alle Dateien löschen, die man in diese Gruppe
+getan hat. Das heißt in */Group Postings*, da wo sich auch die überaus
+hilfreiche Darstellung */Posted Items 1*, */Posted Items 2* usw. findet.
+Arbeitet eigentlich irgendeiner der Entwickler mit Wuala? Fällt so ein `#fail`
+nicht auf?
+
+Es wundert mich aber auch nicht mehr, dass ich die Funktion *Neue Gruppe* unter *Benutzer* finde, während ich in der Gruppen-Ansicht bin. Oder dass seit drei Jahren *Up-/Downloads* ein separates Scheiß-Fenster mit einem Textfeld ist, das genauso breit wie die Buttons neben an ist und trotzdem nur 100px misst. Oder dass sich gewisse Ordner nicht erstellen lassen, wie z.B. [Favorites][]. Oder das Wuala wie eine Ansammlung von tausenden halbherziger Features ist.
+
+Ich bin sicherlich zu anspruchsvoll. Ich könnte mich einfach auch mit dem
+zufrieden geben, was mir (immerhin kostenlos) geboten wird: Sync, Backup,
+Dateien, vollständig lose, Feature für Feature implementiert, Zusammenhang:
+null; Favoriten, Gruppen, Benutzer-Profil. Wann gab es dazu mal ein Update in
+den vergangen Jahren, die das nicht verhunzt haben? Warum gibt es seit
+Einführung vom [Backup & Sync keine selektive Folderlist][], IST DAS IRGENDWIE
+ZU VIEL VERLANGT? Ist ja nicht so, dass das irgendwie SINNVOLL WÄRE.
+Stattdessen existiert seit Beginn EIN UNDOKUMENTIERTES REGULAR EXPRESSIONS
+FEATURE, WEIL JA JEDER JAVA REGEX VERSTEHT!
+
+Nun habe ich eine Zeit lang die iPhone App getestet und mir ist aufgefallen,
+dass ich nichts misse. Weder die Kommentare noch die Gruppen noch irgendein
+anderes obsolete, vergessene, totgemachte „Feature“ von Wuala. Also. Ich weiß
+ja, dass ihr bei Wuala gute Kunden habt, wohl auch geduldige Kunden,
+höchstwahrscheinlich Microsoft-Nutzer, das könnte ich wenigstens
+nachvollziehen. Aber wenn ihr weiter so halbherzig an eurem Produkt
+weiterpfuscht, dann will das bald keiner mehr haben. Es gibt Amazon S3, es
+sprießen langsam tausend andere Anbieter und das mit Verschlüsselung wird bald
+software-seitig beim Endanwender oder von den Storage-Anbietern gelöst. Denn
+so toll euer Cryptree-Paper auch ist, ihr produziert die Art von
+<del>Scheiße</del> Produkt, weshalb Leute einen abgrundtiefen Hass gegen Java
+entwickeln. Wenn ihr statt *social* nun *secure* sein wollt, dann macht
+Schluss mit alten Fäden oder bringt sie anständig zu Ende. Denn so langsam
+kriege ich als langjähriger Nutzer das Kotzen. So langsam überlege ich auch,
+ob ich nicht einfach eine andere Lösung nehme. Etwas, wo man sieht, dass man
+im Jahre 2011 lebt. Etwas, das funktioniert!
+
+[2½ Jahre her]: http://www.googlewatchblog.de/2008/08/wuala-out-of-alpha-wuala-nun-beta/
+[Favorites]: https://forum.wuala.com/viewtopic.php?f=34&t=994&p=3987
+[Backup & Sync keine selektive Folderlist]: http://bugs.wuala.com/view.php?id=2428

@@ -1,0 +1,36 @@
+---
+title: last.fm: scrape.py – Es sind deine Daten!
+---
+
+[Last.fm][1] ist ja schon ein [kleiner FAIL][2] für sich. Dass sie seit ungefähr
+ihrer Entstehung keine Features dazubekommen haben, lassen wir mal weg.
+
+Ist ein Skript, was die Statistiken von [Last.fm](http://lastfm.de/) für einen
+User als Plaintext sichert. Gibt zwar sowas wie [lastscrape](http://bugs.foocorp.net/projects/librefm/wiki/Using_lastscrape),
+aber neben der Tatsache, dass deren Code 3x so groß ist wie meiner und dazu
+noch auf `BeautifulSoup` basiert, nicht funktionsfähig ist. Warum braucht man
+eigentlich so einen Scraper? Naja, das liegt daran, dass Last.fm zwar [eine
+API hat](http://www.lastfm.de/api) und dort mittels *user.getWeeklyChartList*
+die einzelnen Wochen abgefragt werden können, mittels denen sich ein weiterer
+API-Call, *User.getWeeklyTrackChart*, aufrufen lässt, der mir für die Woche
+alle Tracks schön mittels REST zurückgibt. Aber das funktioniert nicht. Ich habe
+derzeit [über 82.929 Tracks](http://www.lastfm.de/user/posativ) gescrobbelt
+und bekomme mit der API nur gut 25483. Bisschen wenig.
+
+Daher wird das ganze nun über diese Url gelöst: http://www.lastfm.de/user/posativ/tracks.
+Mit `?page=1...whateveryoulike,never returns 404` lassen sich dann die Seiten
+chronologisch aufrufen und die Tracks intuitiv in einer Tabelle rauskratzen.
+Dahinter steckt etwas regex-Magic und viel Vertrauen, dass dieses HTML-Design
+sich niemals ändert. Schöner und sicherer ginge das sicherlich über BeautifulSoup,
+aber die Bibliothek mag Last.fm überhaupt nicht. Eigentlich mag Last.fm niemand,
+denn die sind nicht wirklich [W3C-valid][]. Ach was. Läppische 121 Errors und
+100 Warnings. Und dabei war ich mit dem DocType noch gütig. Daher kommt es,
+dass auch `xml.minidom` schon beim Interpretieren scheitert.
+
+# scrape.py --help
+
+
+
+
+
+[W3C-valid]: http://validator.w3.org/check?uri=http%3A%2F%2Fwww.lastfm.de%2Fuser%2Fposativ%2Ftracks&charset=%28detect+automatically%29&doctype=HTML+4.01+Transitional&group=0&user-agent=W3C_Validator%2F1.2

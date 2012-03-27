@@ -1,0 +1,61 @@
+---
+title: Firefox Sync auf dem eigenen Server. Vielleicht. Nein.
+date: 26.11.2011, 23:03
+tags: [Firefox Sync, Python, Rant]
+---
+
+So habe ich heute Firefox <del>Weave</del> Sync kennengelernt. Ich dacht mir,
+hey ich hab' 'nen Server, oh und hey, der Sync-Server ist in Python
+geschrieben, das wird bestimmt kinderleicht!1 Aber die Community Policy, die
+Mozilla da seit geraumer Zeit fährt, macht jegliche Offenheit des Source Codes
+sinnlos, weil es einfach nicht für den kleinen Mann [dokumentiert ist][0]. Das
+ist so miserabel dokumentiert, dass ich ohne Studieren des Source Codes nicht
+weiß, ob der [`server-full`](https://hg.mozilla.org/services/server-full/)
+überhaupt dafür konzipiert ist, geschlossen für einen, oder maximal auch zwei
+Nutzer zu laufen. Denn ganz sicher werde ich für einen Single-User-Betrieb
+keine LDAP-Authentifizierung aufsetzen.
+
+Früher™ gab es ja mal diesen [diesem Minimal Server][1]. Der scheint aufgrund
+von [API-Änderungen][2] nicht mehr ganz zu funktionieren bzw. ist sowieso
+*[deprecated](https://hg.mozilla.org/services/deprecated/minimal-server/)*
+(ist ja logisch, warum sowas kleines weiterführen, wenn man mit LDAP gleich
+die ganze Welt verwalten kann). Von einem [Server in PHP][3] hab' auch ich
+gehört. Ein (älteres) [single-file CGI-Skript in python][4] gibt's ebenfalls.
+Ob das funktioniert, weiß ich nicht. Einen [Django-Klon][5] gibt's auch, das
+ist aber die erste genannte Variante mit denselben Zielen, Millionen von
+Nutzern zu verwalten, nur mit Django. Nicht viel gekonnt.
+
+Es ist ja nicht so, dass ich zu unfähig bin, den offiziellen `server-full` oder
+das CGI-Skript `pyweave` zum Laufen zu bekommen. Das Problem ist das hier:
+
+![Please enter valid server URL](/img/2011/firefox-sync.png)
+
+[89 people have this problem ](https://support.mozilla.com/de/questions/712986).
+I have this problem, too!1
+
+Wie gut, dass das Projekt (ich vermute, das ist es) [`server-reg`][6] so
+überragend dokumentiert ist:
+
+    :::console
+    $> cat README
+    ========
+    Sync 1.1
+    ========
+
+    This is the Python implementation of the Sync Server 1.1.
+
+    The documentation is located in the doc folder.
+    
+    $> ls 
+    MANIFEST.in  README       SyncReg.spec  etc/           setup.py        syncreg/
+    Makefile     RELEASE.txt  dev-reqs.txt  prod-reqs.txt  stage-reqs.txt
+
+
+
+[0]: http://docs.services.mozilla.com/server-devguide/configuration.html
+[1]: https://tobyelliott.wordpress.com/2011/03/25/updating-and-deprecating-the-weave-minimal-server/
+[2]: http://docs.services.mozilla.com/storage/apis-1.1.html
+[3]: http://ymartin59.free.fr/wordpress/index.php/2011/03/05/my-own-firefox-sync-weave-server/
+[4]: https://github.com/tolumak/ffpyweave
+[5]: https://github.com/jedie/django-sync-server/
+[6]: https://hg.mozilla.org/services/server-reg/

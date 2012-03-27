@@ -1,0 +1,97 @@
+---
+title: Wuala im Dezember '09
+filters: [reST]
+date: 21.12.2009, 12:38
+tags: [Wuala, ]
+---
+
+Wuala Release: Aussersihl (14.12.2009)
+======================================
+
+Aussersihl ist irgendwo tief im Zentrum von Zürich: Aussersihl_
+
+- neustes Feature: **Secret Links für private Gruppen**
+
+  |grp|
+  Wer nach diesem Update eine private Gruppe gründen will, erhält nun die Option seine private
+  Gruppe über den Secret Link verfügbar zu machen. Die Entscheidung kann nur beim Erstellen
+  der Gruppe getroffen werden und ist für Gruppen vor dem Update folglich nicht verfügbar.
+
+  Der Secret Key kann nach Belieben geändert werden und Usern, die diesen Link erhalten, bekommen
+  Zugriff auf die Dateien und können sogar direkt der Gruppe beitreten.
+
+  Das Feature haben sie sehr sauber implementiert: Die Option kann nicht mitten drin einfach "mal so"
+  aktiviert werden und bei älteren Gruppen erst recht nicht - zu Gunsten der Sicherheit.
+  |br|
+  Leider hat man durch den Link direkt auf die Wurzel der Gruppe Zugriff, sodass es gar nicht möglich
+  ist, nur bestimmte Ordner freizugeben.
+
+  Link zu |posativ.org|_ führt zwar vorerst nur zum gewähltem Element. Aber schon im Webinterface
+  kann auf übergeordnete Dateien zugegriffen werden.
+
+  Checkbox Issue bei Linux:
+    add
+    ``export GDK_NATIVE_WINDOWS=true``
+    to the start script
+
+- ein paar Bugfixes: Wuala hatte unter Windows im Temp Ordner unendlich viele Ordner erstellt;
+  Crashes beim Download und zur Verbindungsüberprüfungung.
+
+- das wohl interessanteste Feature ist eine neue zuverlässigere
+  Speicherberechnung via Strg + Alt+ P:
+
+  Es ploppt ein Fenster auf, das einem alle Dateien in allen Gruppen ab einer bestimmten
+  Größe anzeigt. Hört sich erst einmal ganz gut an - ist es aber nicht.
+  |br|
+  Die Dateien erscheinen nämlich Wuala-mäßig Item für Item nebeneinander und geben erst einmal
+  keinen Hinweis wo sie sich eigentlich befinden.
+  Erst nach dem Selektieren zeigen sie, in welcher Gruppe sie wo liegen. Das Durchklicken darf
+  dann selbstverständlich für jede Datei gemacht werden.
+  |br|
+  Und nein, nicht für jede Datei aus "Eigenen Dateien", sondern für jede Datei in jeder Gruppe.
+
+  Inzwischen haben sie das "Feature" scheinbar herausgenommen. Aber es war wirklich *so* da.
+
+- Mit dem Update haben sie auch wieder das Umbenennen von Dateien auf F2 gelegt, das war zwischenzeitlich
+  der Hotkey für Details (ein/aus), nun ist diese Funktion auf F12 gewandert.
+
+- im Addendum haben sie dann auch ein Bug behoben, der die (win)-FSI beim Browsen Ordner und Dateien anlegen ließ...
+
+|full_aus|_
+
+Zur Weihnachtszeit
+==================
+
+gibt es dann wohl wieder einen Promotion Code. Ich tippe ja auf den Namen *XMAS09*.
+
+Eventuell doch nicht, denn am heute ist der Wuala Weihnachtsnewsletter ins Haus geflogen:
+
+  ..
+
+  **Ein kleines Geschenk**
+
+  Wir hatten ein tolles Jahr. Für die grossartige Zeit möchten wir uns mit einem kleinen Geschenk bedanken:
+  Beim Kauf_ von zusätzlichem Speicher erhalten Sie mit dem Promocode **HOLIDAYS09** 50% Rabatt (gültig bis 31.12.2009).
+
+Übrigens halte ich sowohl die |hfw|_ als auch die |pcl|_ auf dem aktuellen Stand ;)
+
+In drei Tagen ist Weihnachten, ergo schon einmal frohe Weihnachten!
+
+    .. |full_aus| replace:: vollständige Release Notes für Aussersihl
+    .. _full_aus: http://www.wuala.com/en/api/preview/Wuala/Release%20Notes/Relese%20Notes%202009-12-14%20Aussersihl.txt
+    .. _Aussersihl: http://maps.google.com/?q=Aussersihl,%20Z%C3%BCrich,%20Schweiz
+    .. |posativ.org| replace:: /posativ.org/secret stuff/blub?key=posativorg
+    .. _posativ.org: https://www.wuala.com/posativ.org/secret%20stuff/blub?key=posativorg
+    .. _Kauf: http://www.wuala.com/storage/buy
+    .. |hfw| replace:: Hotkeys für Wuala
+    .. _hfw: http://posativ.org/blog/html/wuala/other/tipps-tricks-ii.html#shortcuts
+    .. |pcl| replace:: Promotion Codes Liste
+    .. _pcl: http://posativ.org/blog/html/wuala/other/blog-wuala-promotion-codes.html#funktionierende-promotioncodes
+
+    .. |br| raw:: html
+
+	  <br />
+
+    .. |grp| raw:: html
+
+        <a href="http://posativ.org/blog/img/blog/create-group-secret-link.png"><img class="floatright" src="http://posativ.org/blog/img/blog/create-group-secret-link-small.png" alt="Gruppen erstellen mit Secret Link" width="300" height="361"/></a>

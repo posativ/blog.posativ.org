@@ -1,0 +1,50 @@
+---
+title: last.fm's „Empfehlungsmodell“?
+
+tags: [last.fm, Cloud]
+date: 22.07.2010, 10:03
+---
+
+[last.fm][] hat mir doch schon nach einem Jahr Auszeit (jetzt von seiten last.fms) doch mal wieder etwas
+empfohlen, was meinem Musikgeschmack entspricht. Ich kann es noch gar nicht fassen. Seitdem ich
+dort scrobble (vornehmlich wegen der Statistiken), hatte ich nach einem Jahr ca. 10-12 wirklich gute
+Empfehlungen erhalten. Inzwischen kommen nur noch unsinnige, teils völlig widersinnige Empfehlungen
+ins Haus.
+
+[last.fm]: http://lastfm.de/
+
+Ich habe frage mich deshalb mal wieder einmal mehr, ob last.fm als Empfehlungssite für Musik dienen
+kann, wenn zu vielleicht 90% die Artists, zu 10% die Alben und gaaaaanz selten die Titel getaggt werden.
+Das ist schon ein kleines Paradoxon in sich. Denn ein Künstler definiert sich ja vornehmlich mit Titeln,
+die Alben ausmachen und zum Schluss als Einheitsbrei eine Tag-Cloud (für last.fm verwertbar) definieren.
+
+Sollten mir Empfehlungen gemacht werden, so sollte das so passieren:
+Mir gefällt *Lied X* aufgrund der literarischen Dichtung des Textes und aufgrund der Triangel als Instrument.
+Das Lied ist einzigartig gut, kein Artist produziert ausschließlich diese Art von Liedern. In meinem Beispiel macht
+der Künstler vornehmlich `metalcore` (Geschrammel und Geschrei) und nur wenige Hörer interessieren sich
+für *Lied X* und noch viel weniger, eventuell einer, taggt das Lied als "literarisch wertvoll" oder
+sinnigerweise als "lyrik" und "triangel". Diese beiden Tags stehen nun einer Masse an "metalcore",
+"metal", "german" gegenüber. Hat man nun eine nennenswerte Chance, diesen Titel empfohlen zu bekommen,
+wenn man zwar ähnliche Musik (z.B. auch getaggt mit "lyrik") kennen zu lernen, wenn andere Tags für
+den Großteil der Nutzer deutlich wichtiger sind? Natürlich nicht!
+
+Da die normalen Empfehlungen nicht ausreichen
+bedient man sich der Suche. Eine Suche die nicht einmal mehrere Keywords erlaubt! Das ist für mich
+unvorstellbar (aber es ist so). last.fm weiß ganz genau, dass sie so ein komplexes Medium
+niemals alleine von Usern kategorisiert bekommen, denn Musik wird von jedem Einzelnen unterschiedlich
+wahrgenommen und letztendlich sowieso pauschalisiert auf ein arithmetisches Mittel, um's allen Nutzern
+<del>nichts</del> ein wenig Recht zu machen. Und dann überlässt last.fm einem nicht einmal die Möglichkeit
+selbst zu suchen, was **garantiert** erfolgreicher ist, als die Empfehlungen von last.fm.
+
+Wenn ich beispielsweise in der großen sozialen Wolke nach Musik suchen möchte, die sowohl Akustik als
+deutsche Texte beinhalten, darf ich einmal alle Akustik-Bands abklappern und dann manuell nach Sprache
+filtern.
+
+Apropos Sprach-Tags... die Tags für die Sprache bei Interpreten steht natürlich nicht für die Gesangssprache
+ - das hätte ja etwas mit Musik zu tun - nein, sie steht für den geografischen Standort der Band.
+
+Was ist das „Résumé“ des ganzen? last.fm ist <del>scheiße</del> für die Anzahl der gesammelten Daten
+keineswegs individuell, sondern verschwimmt immer mehr zu einem Einheitsbrei, der vielleicht den durchschnittlichen
+Radio-Hörer mit ebenso abwechslungsreicher Musik versorgen kann wie normales Radio auch und sonst mehr nicht.
+
+ps: übrigens gibt es eine simple Multi-Tag Suche für last.fm: <http://playground.last.fm/multitag>

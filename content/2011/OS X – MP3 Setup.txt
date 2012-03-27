@@ -1,0 +1,77 @@
+---
+title: Meine MP3 Toolchain
+date: 10.07.2011, 19:31
+---
+
+Jedes mal. Jedes behinderte, hochentwickeltes Tool tut das. Diesen Unsinn
+an ID3-Tags, die mich in den Wahnsinn treiben. Und jedes mal debugge ich
+eine Stunde meine Toolchain, um hinterher zu sehen, dass wir viele coole
+Tools haben, aber kein gescheites nach UNIX-Philosophie: *Write programs that
+do one thing and do it well.*
+
+Ja, [MusicBrainz Picard][1] kann relativ zuverlässig Tags und Album-Zuordnungen
+finden. Nein, MusicBrainz Picard kann keine Musik Taggen, geschweige denn
+Sortieren. Und nach jedem Durchlauf mit Picard (und leider auch mit auf *libmusicbrainz*
+basierenden Tools) erhalte ich diesen Wulst an SINNLOSEN DATEN:
+
+    :::text
+    Unique File ID: [http://musicbrainz.org] e940cf62-df95-4f1b-a2c7-6cf778170f68
+    UserTextFrame: [Description: MusicBrainz Album Type]
+    album
+    UserTextFrame: [Description: MusicBrainz Album Id]
+    e756eba9-39f2-4bf3-8377-b51951cc32f6
+    UserTextFrame: [Description: Album Artist]
+    His Statue Falls
+    UserTextFrame: [Description: MusicBrainz Album Artist Id]
+    7622232a-2cd1-490b-a4a1-6cd8b13c430f
+    UserTextFrame: [Description: MusicBrainz Artist Id]
+    7622232a-2cd1-490b-a4a1-6cd8b13c430f
+    
+Das einzige, was davon allgemein wertvoll ist, ist die Unique File ID, denn
+damit kann ich die Datei wieder in MusicBrainz tracken. Aber dieser Rest
+an sinnloser Scheiße? Bin ja schon froh, dass man bei Picard immerhin einstellen
+kann, dass ich nicht dasselbe zwei Megabyte Bild in JEDER DATEI embedded haben
+will. Gibt ja Tools, die machen das grundsätzlich ohne Nachfrage. Das erfährt
+man aber auch erst, nachdem man hinterher mal seine Library durchgesehen hat.
+
+Dann gibt es Tools, die machen primär ID-Tagging, glücklicherweise gibt es sowas
+nicht für Mac, weil die ja auf ihr behindertes iTunes abfahren und deshalb
+sowieso keine alternative Software dazu haben. Tools wie [Kid3][2] und
+[EasyTag][3] failen grundsätzlich schon, wenn neben dem Umbenennen gleich noch
+die Ordnerstruktur setzen sollen. Wenn man das dann wiederholt, dann hat man
+ganz schnell eine Struktur á la root/artist/album/artist/album/artist/album –
+weil da keiner nachgedacht hat! Und über das allgemeine Handling von mehr als einer
+Audio-Datei (sic!) will ich hier
+gar nicht reden.
+
+Und was hat man davon? Keine Gewissheit, alles zusammengeklatsche GUI-Scheiße,
+die einem vorgaukeln, ja die Tags stimmen – halbwegs – und man ist fertig. Das
+stimmt nicht. Ich war selbst erstaunt, was für Scheiße da teilweise zustande
+kommt. Einmal `eyeD3 *.mp3` offenbart ein regelrechtes Desaster, zwar
+standardkonform, aber im Großen und Ganzen nicht das, was man denkt.
+
+Mein Tool der Wahl ist dabei [eyeD3](http://eyed3.nicfit.net/), wohl *das*
+Tool schlechthin für die Kommandozeile. Gibt noch [lltag](http://home.gna.org/lltag/),
+aber das ist wie die GUI-Tools, nur für Konsole. Mit eyeD3 lässt sich
+das ganze sehr schnell beheben:
+
+    :::bash
+    for file in *.mp3; do
+	
+	    eyeD3 --remove-comments --remove-lyrics --remove-images \
+		    --set-user-text-frame=TXXX: \
+    		--set-text-frame=TXXX: \
+    		--no-tagging-time-frame "$file"
+    done
+    
+Am besten per `find . -name "*.mp3" -exec ... {} \;` durchjagen. Dauert je nach
+Sammlung eine Weile, aber danach fühlt man sich glücklicher.
+
+So ist mein Setup derweil: [beets][4] (wie Picard nur ohne Interaktion, rockt
+schon) und [Max](http://sbooth.org/Max/) für das Rippen. Im Anschluss werden
+dann die Tags gesäubert und die Welt ist wieder heile.
+
+[1]: http://musicbrainz.org/doc/MusicBrainz_Picard
+[2]: http://kid3.sourceforge.net/
+[3]: http://easytag.sourceforge.net/
+[4]: http://beets.radbox.org/

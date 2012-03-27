@@ -1,0 +1,52 @@
+---
+title: lilith – yet another blog rewrite
+
+date: 15.06.2011, 01:09
+tags: [lilith, Acrylamid]
+---
+
+Doch schon. Sechs Monate später als erwartet. Hatte ja
+[dieses klitzekleine Problem](http://blog.posativ.org/2011/von-zeitreisen-und-informationsgeheimnissen/),
+mein Projekt [lilith](http://posativ.org/lilith/) (Backend meines Blogs) war
+nahezu fertig und ich kannte damals noch nicht die wunderbaren Vorteile eines
+*Distributed Version Control Systems* und damit [GitHub](https://github.com/).
+Nunja, die „paar” Stunden Arbeit waren weg. Aber genug geweint, jetzt gibt es
+endlich ein komplett remastertes lilith.
+
+Was diese neue Version nun kann:
+
+- human-readable URLs. Also ich find' Hashes eigentlich ganz hübsch. Aber 
+  irgendwie hatte [er](https://github.com/cmur2) ja recht. Nun habe ich hier
+  sowas wie `/2011/von-zeitreisen-und-informationsgeheimnissen/`.
+  Google mag das bestimmt.
+  
+- das KILLER-Feature: Hyphenation aka *Automatischer Zeilenumbruch*. Und zwar
+  auf Basis vom [Tex-Algorithmus](http://en.wikipedia.org/wiki/Hyphenation_algorithm)
+  samt deutschem Wörterbuch. Aber nur für die Website. Dieser behinderte
+  Atom/RSS Standard lässt einfach mal kein `&shy;` zu. Also auch wenn die
+  Software 0815 ist, aber Hyphenation findet ihr NICHT bei WordPress!!1 (na gut,
+  [eigentlich schon](http://wordpress.org/extend/plugins/wp-typography/). Aber
+  nicht default!)
+
+- achja, erwähnte ich, dass ich von der dynamischen Generierung via CGI auf
+  statische Files gegangen bin. Damit kann dann jeder Webserver mit seinem
+  Caching-Modulen abgehen, wie er möchte. CGI ist einfach mal steinalt (=langsam).
+  Und Fast-CGI ein Krampf.
+  
+- mal wieder ein neues Post-Format, diesmal mit etwas mehr Portabilität, denn
+  es nutzt [YAML](http://de.wikipedia.org/wiki/YAML). Denn YAML hat zwar (üble)
+  Fallstricke, aber dafür ist es rundum dokumentiert.
+  
+- mit den human-readable URLs ändert sich (wieder einmal) alles. Ich werde die
+  nächsten Tage interne Redirects `301` verteilen, aber vor allem sollte klar
+  sein, dass die Feeds wieder wie früher (tm) unter
+  [http://blog.posativ.org/atom/](http://blog.posativ.org/atom/) respektive
+  [http://blog.posativ.org/rss/](http://blog.posativ.org/rss/) erreichbar sind.
+
+- erwähnte ich eigentlich schon, dass [lilith](http://posativ.org/lilith/)
+  *wirklich* Open Source ist und aktiv bei GitHub weiterentwickelt wird? Glaubt
+  ihr mir nicht? Hier die URL:
+  [https://github.com/posativ/lilith](https://github.com/posativ/lilith)
+  
+Was bleibt, ist das hässliche Design, die schlecht lesbare Schrift und der miese
+Content. Aber dafür mit automatischen Zeilenumbrüchen!1!

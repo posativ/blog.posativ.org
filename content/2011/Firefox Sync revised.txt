@@ -1,0 +1,51 @@
+---
+title: Firefox Sync auf dem eigenen Server. Ja. Wirklich.
+date: 7.12.2011, 20:01
+tags: [Firefox Sync, Python, planet]
+---
+
+Vor gut [zwei Wochen habe ich festgestellt][1], dass es irgendwie unmöglich
+ist, einen eigenen Server für Firefox Sync zu nehmen. Aber so unmöglich ist es
+dann gar nicht. Wenn man weiß, wie behindert das Setup ist, dann ist das
+kinderleicht.
+
+Was nicht geht: ein neues Konto auf dem eigenen Server anlegen. Warum? Weil
+Mozilla diese Service-URL [auth.services.mozilla.com]() fest in den
+Firefox kodiert hat. Die API, um sich zu registrieren, hängt aber an obiger
+URL + `/user`, genauer gesagt `PUT /user/1.0/mein_username`. Da sich die URL
+für den Registrierungsserver (der Server ist in zwei Teilprojekte unterteilt,
+`server-reg` und `server-full`) nicht einmal in der [about:config]() einstellen
+lässt, wird dieser Workaround genutzt. Wir wissen ja, *[89 people have this
+problem][2]. I have this problem, too!*
+
+Workaround in Firefox
+=====================
+
+Anstatt sich ein neues Nutzerkonto zu klicken, wählt man stattdessen aus, dass
+man bereits ein Konto hat. Dafür wird allerdings wirklich ein Konto benötigt,
+was zu einem unschönen Weg in die Kommandozeile führt (oder ins Webinterface,
+sofern der Server derartiges anbietet). Nachdem man sich auf seinem Server
+einen Nutzer registriert hat, geht's weiter. Anstatt das Gerät mit dem
+drei-stelligen Code zu aktivieren (ich wüsste nicht, wie das mit eigenen
+Servern funktioniert), wählt man *"Ich habe das Gerät nicht bei mir"*, gibt
+seine Daten ein, wählt *"Eigenen Server verwenden..."* aus und gibt seine URL
+ein. Das war's.
+
+An Servern dürften damit wohl \*noch\* alle letztens aufgezählten
+funktionieren, ob, das habe ich aber nicht getestet:
+
+- [offizielle Server-Implementierung](https://hg.mozilla.org/services/server-full/),
+  nicht gerade leicht zu installieren, Bloatware++.
+- [weave-minimal in PHP](http://ymartin59.free.fr/wordpress/index.php/2011/03/05/my-own-firefox-sync-weave-server/),
+  der ehemalige, offizielle Weave-Server, discontinued.
+- [Django Sync Server](https://github.com/jedie/django-sync-server/)
+- [ffpyweave](https://github.com/tolumak/ffpyweave), ein single-file CGI-Skript
+- [weave-minimal](https://github.com/posativ/weave-minimal), meine Implementierung
+  von `server-full` in Python, nur ohne Bloatware-Adapter.
+
+Derweil habe ich einen [Bugreport mit meinem Unmut gefiledt][3].
+
+
+[1]: /2011/firefox-sync-auf-dem-eigenen-server-vielleicht-nein/
+[2]: https://support.mozilla.com/de/questions/712986
+[3]: https://bugzilla.mozilla.org/show_bug.cgi?id=708256

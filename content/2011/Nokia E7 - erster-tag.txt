@@ -1,0 +1,32 @@
+---
+title: Nokia E7 – erster Tag (Part 1/2)
+
+date: 02.04.2011, 18:03
+tags: [Nokia, E7, Review]
+---
+
+Da mich mein iPhone 3G minimal nervt, größtenteils wegen der 24h Akkulaufzeit, iOS und der Bildschirmtastatur, habe ich mir mal schnell ein Nokia E7 Donnerstag Nacht bei [Amazon][] erklickt. Ich war leicht überrascht, dass mich der Postbote schon Samstag morgen aus dem Bett klingelte – immerhin war 4. April angepeilt – und mir das Telefon sogar vor den Schutzhüllen, die eigentlich schon Freitags kommen sollten, in die Hand drückte. Dazu sollte nebenbei mal bemerkt werden, dass diese interaktive Paketverfolgung total lächerlich ist. Nachdem ich das Paket in der Hand hatte (9:30) wurde gegen zehn Uhr die Datenbank geupdated und gesagt, das Gerät befinde sich nun in der Ausgabe (um 8:30).
+
+Also gut, zum Gerät:
+
+- Symbian^3
+- AMOLED 4" Zoll kapazitiver Touchscreen
+- 16 GiB interner Speicher (nicht erweiterbar)
+- QWERTZ-Tastatur
+
+Ich habe mir ja im Voraus jegliches aktuelle Smartphone mit QWERTZ-Tastatur angeschaut und mir die Kritiken bei Amazon durchgelesen. Das E7 hatte die wenigsten negativen Bewertungen. Was die meisten gestört hat, war das Problem, dass man die 16 GiB nicht aufbohren kann. Ich weiß nicht, was die da für Vorstellungen haben, aber so eine microSD-Karte mit >16 GiB ist auch schon recht teuer und beim iPhone gibt's auch kein Upgrade. Ist ja nicht so, dass 16 GiB viel zu wenig sind. Angemessen für 2011, zumal das Gerät notfalls per USB erweiterbar ist. Andere hatten Probleme mit irgendwelchen Email-Anbietern, aber prinzipiell schneidet es derzeit am besten ab.
+
+Nun ja. Also ich wusste, dass Symbian *anders* ist. Aber ich wusste nicht, wie abartig das ist. Also das lässt sich ja gar nicht mehr in Worte fassen. Kein globales Einstellungsmenü, ein Mischmasch aus App-Symbolen und dann wieder versteckte Funktionen in den Ecken des Displays. Ich bin mit dem OS definitiv überfordert. Ich kann bsw. kein DNS-Server zuordnen, sodass ich nicht weiß, wieso das Gerät in meinem WLan überhaupt Netz hat, da dort ein falscher DNS per DHCP vermittelt wird (DLink Problem beim DSL-2741B). Andererseits weiß ich auch nicht, ob das Gerät die richtigen Einstellungen für UMTS hat, bzw. 3G, denn der Opera Mini Browser baut problemlos Seiten auf, der interne Browser allerdings kommt nicht über eine WAP-Verbindung raus (hä?). Ich kann nicht einmal sagen, dass ich lieber Strom sparen möchte und nur EDGE nutzen will.
+
+Symbian ist so schlecht, dass kann man nicht mal mehr mit Android, iOS oder MeeGo vergleichen. Das ist, als ob ich Windows XP mit 7 vergleichen würde. Das geht nicht, dafür kommt XP aus dem Jahre 2001. Allerdings ist Symbian^3 frisch aus dem Jahre 2010, aber von der Usability weit hinter Windows XP und gleicht der Grafik eines Ubuntus ohne Desktopeffekte. Grausig, grausig. Ich hätte gerne mal ein Symbol für SMS auf dem Homescreen. Aber nein, da findet man den Ovi Store und Ovi Maps wohl wichtiger und so kann ich Mitteilungen nur mit 2x Homebutton für Programme -> Mitteilungen lesen. Prioritäten!1
+
+Die Multimediafähigkeiten von dem Gerät wurden als sehr gut bewertet. Mir völlig unverständlich. Der Musik-Player ist unglaublich simpel und wie auch immer, jegliche Musik klingt wie 32-KBit MP3 aus den Kopfhörern (iPhone Kopfhörer!). Fällt sowas nicht auf beim Test? Ist bei denen Youtube mit 96 KBit das höchste der Gefühle? Könnte aber auch an den Kopfhörern liegen...
+
+Vom Ovi-Store bin ich auch nicht so recht überzeugt. Mir fehlt ein Terminal für SSH (wobei da der Tastatur auch die Tabulator-Taste fehlt), ein Texteditor, ein guter integrierter Web-Browser. Ovi ergänzt dort gar nichts. Ovi ist auch ein mittlerer Facepalm. Für Synchronisation mit dem Computer benötigt man [Nokia Ovi Suite][]. *Jetzt Herunterladen* -> `http://nds1.nokia.com/[...]/Nokia_Ovi_Suite_webinstaller_ALL`.**exe**. SRSLY? Immerhin lässt sich das Gerät als gewöhnliches Massenspeichermedium anschließen... aber dafür fehlt eine richtige Dokumentation der Ordnerstruktur. Und eventuell auch eine Neuorganisation. 20 Ordner und trotzdem muss *Musik* in `Sounds` -> `Digital` verschoben werden. Ja, weil Musik ja Sounds sind. Willkommen im Jahr 2011.
+
+Aber ich will noch ganz kurz loben: die Verarbeitung ist klasse und die QWERTZ-Tastatur ein Traum – naja fast. Irgendwelche Penner (aka Designer) meinen, mal wieder das Tastaturlayout zu verändern. Wer braucht denn *Shift* intuitiv am äußeren linken/rechten Rand? Das ist doch VIEL besser, wenn man das auf anstelle der Meta/Windows-Taste macht!1 Eins ist auch noch bemerkenswert dumm. Also für so eine Dummheit gibt es nicht mal ein Wort. Als iPhone Nutzer steckt man das Telefon so in die Tasche, dass man es rausziehen kann und der Daumen sofort auf dem Home-Button ist und korrekt ausgerichtet ist. Prinzipiell kann man das beim E7 auch tun, problematisch ist nur, dass der Tastensperre-Schalter ein loser Haken ist, der bei dieser in-die-hose-reinschieb-weise das Handy entsperren kann, weshalb das Telefon mit dem Homebutton nach unten in die Tasche geschoben werden muss (dann wird der Entsperr-Schalter blockiert). Wenn man nun das Handy rausholt, ist es erstmal verkehrt herum und der Home-Button weit weit weg. Ehrlich, fallen solche Design-Fehler nicht auf?
+
+Also so wie es derzeit aussieht, geht das Gerät am Montag direkt wieder zurück. Für ein 500€ Smartphone für Business-User ist das echt eine Zumutung.
+
+[Amazon]: http://www.amazon.de/gp/product/B004KPLWGC/
+[Nokia Ovi Suite]: http://i.ovi.com/m/ovi/suite/index_de_de.html

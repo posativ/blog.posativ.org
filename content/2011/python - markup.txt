@@ -1,0 +1,115 @@
+---
+title: Weitere HTML Abstraktion in Python
+
+date: 31.05.2011, 21:27
+tags: [Python]
+---
+
+# pamela
+
+Ich räume gerade meine Notizen auf und nun kommt alles mal zusammen. Es gibt als *mächtigere* Sprache (zu Kosten von Einfachheit natürlich) [Pamela](https://github.com/sebastien/pamela). Hat was vom [erwähnten SHPAML](http://blog.posativ.org/?p=68f69b9), nur nicht ganz so hübsch. Eigentlich sogar hässlich, schon fast eine Art Semi-HTML.
+
+	:::text
+	<html
+		<head
+			<title:My first Pamela document
+		<body
+			<h1:Lorem ipsum
+		 <p
+			Lorem <b:ipsum dolor sit amet>, consectetuer adipiscing elit. Sed
+		    feugiat, dui eu condimentum porttitor, nisi erat ultrices elit, in
+			sagittis sapien quam sed dolor.
+
+# markup.py
+
+Etwas ähnlich hässliches, aber recht straigt-forwarded ist [markup.py](http://markup.sourceforge.net/). In meinen Notizen habe ich *„markup.py is a lightweight, object-oriented non-pythonic html/xml-generator, but it lacks at nested div-tags“*, ja das stimmt wohl immer noch. Damals™ funktionierte bei mir die Generierung von rel/other-tags nicht.
+
+	:::python
+    print "Content-Type: text/html\n"
+
+    page = markup.page()
+    page.init(title = cfg["sitetitle"], other=links, charset=("utf-8"),
+                css = ("http://wp-content-themes.com/wp-content/themes/mini/style.css"),
+             )
+
+    page.div(id="wrapper")
+
+    # <!-- header -->
+    page.div(id="header", class_="container")
+    if "header":
+        page.div(id="logo", class_ = "g12 alpha")
+        page.h2(a("posativs Blog", href="http://blog.posativ.org/"))
+        page.h3("Some subtitle")
+        page.div.close()
+
+        page.div(id="hdr", class_="g20")
+        page.ul(id="hdr_list")
+        page.li([a("Home", href="http://posativ.org/"), a("Blog", href=
+                cfg["url"] ), a("Wiki", href= cfg["sub"] % "wiki"),])
+        page.ul.close()
+        page.div.close()
+    page.div.close()
+    
+`page.div.close()`? Nunja. Gewöhnungsbedürftig.
+
+# dirty
+
+Kommen wir nun zu meinem favourisiertem HTML-Preprocessor: [dirty](http://code.google.com/p/dirty/). Ist eine Art DSL und funktioniert ähnlich wie markup.py, nur ist es einfach mal verdammt *pythonic* und wirklich, wirklich *dirty*. Aber cool. Da kann man so richtig böse Fantasien ausleben. Selbst Layouts von ca. 100 Zeilen Python gehen damit ruckzuck und intuitiv – List Comprehensions und Conditional Statements lassen grüßen. Der Macher verstößt damit gegen jede Prinzipien von Python, aber es funktioniert so dermaßen gut, dass es schon wieder *pythonic* ist. Als Beispiel gebe ich das Layout meines Blogs in nahezu ungekürzter Form. Es sieht schlimmer aus als es ist. Es ist eben anders.
+
+	:::python
+	from dirty import RawString
+    from dirty.html import *
+	
+	page = xhtml(
+	        head(
+	            title(req['title']),
+	            RawString('<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />'),
+	            link(rel="stylesheet", type="text/css", media="all", href="blog.css"),
+	            link(rel="shortcut icon", href="http://blog.posativ.org/favicon.ico"),
+	            link(rel="home", href="http://blog.posativ.org/"),
+	            link(rel="alternate", title="Atom-Feed", type="application/atom+xml", href=req['atom']),
+	            link(rel="alternate", title="RSS-Feed", type="application/rss+xml", href=req['rss']),
+	        ),
+	        body(
+	            div(
+	                div(h2(a(conf['title'], class_='blogtitle', href=req['domain'])),
+	                    id='blogtitle',),
+	                div(ul(li(a('blog', href=req['domain'])),
+	                       li(a('atom', href=req['atom'])),
+	                       li(a('rss', href=req['rss'])),
+	                       li(a('articles', href=req['domain'] + 'articles')),
+	                        ),
+	                    id='mainlinks'),
+	            id='blogheader'),
+	
+	            div(
+	                [div(
+	                    div(h1(a(entry['title'], href='?p=%s' % (hash(entry['path'], conf['path']))), class_='subject'),
+	                        span(strftime('%d.%m.%Y, %H:%M Uhr', localtime(entry['date'])), class_='date'),
+	                    class_='postheader'),
+	
+	                    div(RawString(entry['html']),
+	                    class_='postbody %s' % entry['parser']),
+	
+	                    div(span('Abgelegt in: ', RawString(' → '.join(a(s if s.find('/') == -1 else s.rsplit('/', 1)[1],
+	                                                                          href='?cat=%s' % s).__str__()
+	                                                        for s in splitCats(entry['path']))), class_='tags'),
+	                        span(a('raw', href='?p=%s&raw=1' % hash(entry['path'], conf['path'])), class_='raw'),
+	                        br(),
+	                        span('Getaggt als: ' if entry['tags'] else '', RawString(', '.join(a(s, href='?tag=%s' % s).__str__()
+	                                                        for s in entry['tags'])), class_='tags'),
+	
+	                        span('Written in ', b('%s' % entry['parser']), class_='raw'),
+	                    class_='postfooter'),
+	
+	                class_='posting') for entry in entries],
+	            id='blogbody'),
+	
+	            div(
+	                p('written by ', a(conf['author'], href='mailto:%s' % conf['email'])),
+	                a(img(src="img?p=cc.png", alt='by-nc-sa'), href='http://creativecommons.org/licenses/by-nc-sa/2.0/de/'),
+	            id='blogfooter'),
+	
+	        RawString('<!-- Ausgegeben in %s Sekunden -->' % round((time() - req['time']), 4)),
+	        ),
+	)

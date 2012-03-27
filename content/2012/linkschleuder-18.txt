@@ -1,0 +1,81 @@
+---
+title: "Linkschleuder #18"
+date: 16.03.2012, 10:56
+tags: [Python, HTML, JavaScript, Links, Planet]
+---
+
+Oh weh, die Linkschleuder wird mein zunehmend mein primärer Inhalt hier. Immerhin hörte ich, es ist für manche
+von Nutzen. Hier eine gesammelte Ausgabe mit Links zu Python, Web-Zeugs und anderem.
+
+## Python
+
+- [Blueprint](https://github.com/devstructure/blueprint) – "reverse-engineers servers" ähnlich wie
+  [puppet](http://projects.puppetlabs.com/projects/puppet).
+- [httpie](https://github.com/jkbr/httpie) – ein "cURL for humans", sprich curl mit Syntax-Highlighting
+  und automatischem Code-Indent bei HTML/JS für die Shell (via [The Changelog][4]).
+- [SSHout](https://github.com/kennethreitz/sshout) – zum einfachen Sharen einer SSH-Session.
+- [Beets](https://github.com/sampsyo/beets) – hatte ich zwar [schon mal](http://blog.posativ.org/2011/meine-mp3-toolchain/),
+  aber ist immer noch ein klasse [Picard](http://musicbrainz.org/doc/MusicBrainz_Picard) Ersatz, der *alles* beim Import von
+  Musik automatisiert.
+- [PBS](https://github.com/amoffat/pbs) – ein Python Wrapper für die üblichen Shell-Befehle wie
+  z.B. `ifconfig("eth0")`.
+- [ShowMe](https://github.com/kennethreitz/showme) – ein schnelles und einfaches Tool für simples Debugging
+  in Python, indem man Decorators auf die zu betrachtende Funktion legt. Ist bunt und in Farbe!1
+- [The AST Module][5] – [Static Modification of Python With Python][6].
+- [Installing ipython notebook to replace matlab][3] – Wer das noch nicht kennt, `ipython notebook` ist ein
+  Qt-Tool ähnlich wie Matlab und das gibt's jetzt auch für als HTML5+Websockets im Browser und rockt richtig.
+  Allerdings ist es äußerst schwer das from scratch zu installieren, lieber ein Ubuntu mit
+  `apt-get build-deps ipython` nehmen, spart einige Stunden Failen.
+
+
+[3]: http://raj.blog.archive.org/2012/02/02/installing-ipython-notebook-to-replace-matlab/
+[4]: http://thechangelog.com/post/18437352843/httpie-python-powered-http-cli-for-humans
+[5]: http://docs.python.org/library/ast.html
+[6]: http://blueprintforge.com/blog/2012/02/27/static-modification-of-python-with-python-the-ast-module/
+
+## Web
+
+- [convergence](http://convergence.io/) – "an agile, distributed and secure strategy for replacing
+  Certificate Authorities" mit Firefox Plugin. Alternative zum SPOF-Tool [HTTPS Everywhere](https://www.eff.org/https-everywhere)
+  der EFF.
+- [pipes](http://pipes.yahoo.com/pipes/) – das Projekt von Yahoo zum Aggregieren von [Content][7], steht hier
+  nur für's Archiv, ich habe meine Pipes in Ruby nachgebaut für mehr Flexibilität und Features.
+- [HTML2Text](http://www.aaronsw.com/2002/html2text/) – ein in Python geschriebenes Skript, das
+  HTML wieder zurück in Markdown-kompatiblen Text konvertiert.
+- [Markmin](http://web2py.com/examples/static/markmin.html) – *noch* eine Markup-Language, die viel Syntax
+  von Markdown übernimmt, aber auch neue einführt. Kann immerhin Image-Attribute.
+- [HTTP Archive](http://httparchive.org/) – *The HTTP Archive tracks how the Web is built.*
+- [Eloquent JavaScript](http://eloquentjavascript.net/) – *A Modern Introduction to Programming.*
+- [JavaScript](https://developer.mozilla.org/en/JavaScript/A_re-introduction_to_JavaScript) –
+  *A re-introduction to JavaScript* von Mozilla.
+- [Data Driven Documents (D3)](http://www.schockwellenreiter.de/blog/2012/02/10/data-driven-documents-d3/) –
+  Daten manipulieren und visualisieren in JavaScript.
+- [DiveIntoMark](https://github.com/diveintomark) – ein Mirror von Mark Pilgrims Projekten wie
+  [Dive Into HTML5](http://diveintohtml5.org/), [Dive Into Python](http://diveintopython.org/) und 
+  [Dive Into Python 3](http://diveintopython3.org/), die seiner [informationellen Selbstzerstörung][9] zum
+  Opfer fielen. Leider ist sein überaus informatives Blog nicht dabei, das z.B. den
+  [Einsatz und Hintergrund von Permanent-Links][10] in Atom-Feeds erklärt.
+
+[7]: http://neusprech.org/content/
+[9]: http://www.hanselman.com/blog/410GoneThoughtsOnMarkDiveintomarkPilgrimsAndWhysInfosuicides.aspx
+[10]: http://web.archive.org/web/20110514113830/http://diveintomark.org/archives/2004/05/28/howto-atom-id
+
+## Misc
+
+- [Doodle Unplugged](http://blog.doodle.com/doodle-unplugged/) – das neuste Tool von Doodle zur Terminvereinbarung :-)
+- [Project Euler](http://projecteuler.net/) – eine Serie von Mathematik/Informatik Aufgaben, die immer schwerer werden.
+  [Problem 1](https://projecteuler.net/problem=1):  
+  > If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9.
+  > The sum of these multiples is 23.  
+  > Find the sum of all the multiples of 3 or 5 below 1000.
+- [The Restart Page](http://www.therestartpage.com/) – Free unlimited rebooting experience from
+  vintage operating systems!
+- [Chakra Linux](http://chakra-linux.org/) – ein Arch Linux Fork mit Fokus auf KDE-Integration, ist
+  zur Zeit mein Desktop Linux.
+- [Android-x86](http://www.android-x86.org/) – *Run Android on Your PC* (inklusive Ice Cream Sandwich).
+- [Apple started decaying before Steve Jobs’ death][1] – ein kleiner, aber sehr feiner Rant über die
+  Software Politik von Apple am Beispiel von <del>Mac</del> OS X.
+- [We Need to Talk About Android ][2] – Auch ein lesenswerter Rant.
+
+[1]: https://grenouillebouillie.wordpress.com/2012/03/01/apple-started-decaying-before-steve-jobs-death/
+[2]: http://speirs.org/blog/2012/3/6/we-need-to-talk-about-android.html

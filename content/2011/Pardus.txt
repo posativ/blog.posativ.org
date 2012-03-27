@@ -1,0 +1,60 @@
+---
+title: Pardus – KDE as its best, aber…
+date: 18.09.2011, 17:42
+permalink: /2011/pardus-kde-as-its-best-aber
+tags: [KDE 4, planet]
+---
+
+So sehr ich das [KDE-Projekt][1] auch mag, so schlecht ist die Integration in
+die einzelnen Distributionen. Während Kubuntu fürchterlich failt, bietet Arch
+Linux plain KDE an – ohne jegliche tiefergehende Integration ins System.
+Debian dümpelt mit irgendeiner uralten Version herum und eigentlich nervt KDE
+auch selbst, weil es für ein Desktop-System unglaublich schwergewichtig ist.
+So zählen [Java][2] und MySQL zu den Dependencies – für vergleichsweise
+triviale Aufgaben. Das nervt. Aber besser als der Kinderdesktop von Gnome.
+Denn etwas Niveau bin ich seit Windows 7 und OS X auch schon gewohnt.
+
+[<img src="/img/2011/pardus_login.png" class="shadow floatleft right left" alt="Pardus Login" width="270" />](/img/2011/pardus_login.png)
+
+So kam ich über [Distributions Shipping KDE][3] zu [Pardus][4]. Ich hatte
+langeweile und habe es in einem virtuellen Würfel mal rasch angeworden. Leider
+war ich zu blöd und hatte den offensichtlichen [Live-CD Download][5] nicht
+gesehen und musste <del>leider</del> Ubuntu überschreiben. Installation war
+mehr als einfach und hat ein hübsches Qt-UI und einen selbst geschriebenen
+Installer ( inPython) – bei meinem Desktop-System kam er allerdings nicht
+damit klar, dass FreeBSD andere Partitionlayouts nutzt und stürzt da immer ab.
+Da hilft's nur, einmal mit Ubuntu anders zu partitionieren und dann geht es
+problemlos.
+
+Installiert ist Pardus der Hammer. Anstatt den Anwender einfach auf den
+Desktop zu werfen, werden einige grundlegende Optionen abgefragt: Öffnen mit
+1- oder 2-fachen Klick, Desktop-Hintergrund und Aktualisierunghinweise. Das
+ist deutlich angenehmer als sich selbst durch die elendigen
+Systemeinstellungen von KDE zu schlagen. (Täte Ubuntu auch mal ganz gut).
+Pardus installiert auch gleich den aktuellsten Firefox, LibreOffice und VLC,
+sodass ich sofort ein funktionales OS habe. Und das wichtigste: KDE ist auf
+dem neusten Stand! Ein rundum Wohlfühl-Paket, das Windows Systemen durchaus
+ebenbürtig ist.
+
+[<img src="/img/2011/pardus_start.png" class="shadow floatright right left" alt="Pardus Start" width="230" />](/img/2011/pardus_start.png)
+
+Aber. Aber dieses System ist für den gemeinen Linuxer einfach scheiße! Schön,
+wenn alles out-of-the-box geht, aber das funktioniert nur solange wie man sich
+im Rahmen des Durchschnittsnutzers bewegt. Aber. Diese Distribution HAT.
+KEINE. DOKUMENTATION. NICHTS! Schön, dass das Projekt vom türkischen Staat
+unterstützt wird, aber ohne Dokumentation des Konzepts und administrativer
+Eingriffe außerhalb der grafischen Oberfläche bringt einem dieses System
+NICHTS. Gar nichts! Dieses recht hübsch strukturierte [Wiki][6] bietet echt
+NULL Informationen. Ich habe nach diversen Seiten erstmal erfahren, dass ihr
+Paketmanager auf der Konsole `pisi` heißt. Ne liebe Entwickler. Das könnt ihr
+gleich proprietär vertreiben, das würde keinen Unterschied machen. Das ist wie
+bei Android/Etherpad: Open Source auf dem Papier, aber dem Endnutzer null
+Transparenz zeigen. Zudem habt ihr auch noch bei Apple [geklaut][7]!
+
+[1]: http://kde.org/
+[2]: https://blog.fefe.de/?ts=b2f6c021
+[3]: http://www.kde.org/download/distributions.php
+[4]: http://www.pardus.org.tr/eng/
+[5]: http://www.pardus.org.tr/eng/download/
+[6]: http://en.pardus-wiki.org/Main_Page
+[7]: /img/2011/pardus_boot.png

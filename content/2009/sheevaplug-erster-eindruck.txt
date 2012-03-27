@@ -1,0 +1,235 @@
+---
+title: Mein erster Eindruck vom SheevaPlug
+filters: [reST]
+tags: [Linux, Marvell, SheevaPlug, Arch Linux, Server, Ubuntu, ARM]
+date: 25.12.2009, 23:15
+---
+
+Tja, wie beginnt man diesen Blogpost nicht prahlend?
+|br| Ich habe vom Weihnachtsmann etwas aus England_ erhalten:
+**Marvells SheevaPlug**
+
+Wenn jetzt jemand denkt "Hää, wasn das?":
+
+Ein SheevaPlug ist ein headless Server für den Betrieb zu Hause.
+Bei maximal 11 Watt mit angeschlossener USB-Festplatte, samt Ethernet und Flash Karte unter Volllast.
+Soviel brauchen manche High-End Rechner, wenn sie angeblich "aus" sind.
+
+Nutzen kann man das z.B. für: Wuala, IRC-Bouncer, Fileserver, Torrent und Webserver.
+
+SheevaPlug Dev Kit
+========================
+
+|imgSheevaPlug|
+
+Um jetzt nicht wiederzukauen, was andere Blogs bereits gepostet haben, nur eine kurze Übersicht:
+
+- ARM Prozessor mit 1,2 Ghz
+- 512 Mb RAM
+- 512 Mb NAND_ (interner Flash Speicher)
+- 1x USB 2.0 (480 Mb/s) Port, 1x Gigabit Netzwerk, SDHC Input
+
+Interessanterweise klackert mein SheevaPlug, wenn ich es leicht schüttel. Allerdings müssten das nur ein
+paar lose Kabel sein, der Innenarchitektur_ zu urteilen.
+
+Im Paket befinden sich ein ca. 3m LAN-Kabel, Mini-USB->USB Kabel (50 cm) (für serielles Terminal) und zwei verschiedene
+Baustücke für die Stromversorgung. Mein Sheevaplug ist einfach auf eine Steckdosenleiste gesteckt.
+
+Leider schaut eine eingesteckte SD-Karte `etwas <http://blogdaten.stefan-betz.net/sheeva-mit-sdcard.jpg>`_ sehr hervor.
+
+Erster Anlauf
+========================
+
+Das SheevaPlug hat kein Power-Schalter oder ähnliches. Wenn es auf eine aktive Stromleiste gesteckt wird, fährt es automatisch hoch.
+
+Das SheevaPlug lässt sich im Übrigen auch nicht ausschalten; zwar kann man Ubuntu zum ``sudo halt`` zwingen, aber das Sheeva läuft munter weiter.
+(Also es leuchtet...)
+
+----
+
+Also in die Steckdose gesteckt, samt seriellem Kabel und LAN und schon geht's los.
+Da ein Ubuntu (9.04) im NAND vorinstalliert ist, bezieht es sich über DHCP automatisch eine IP. Daher kann man sich einfach per SSH einloggen:
+
+.. sourcecode: console
+
+    21:09:47::$ ssh root@192.168.0.200
+    root@192.168.0.200's password: nosoup4u
+    Linux debian 2.6.22.18 #1 Thu Mar 19 14:46:22 IST 2009 armv5tejl
+    [...]
+    To access official Ubuntu documentation, please visit:
+    http://help.ubuntu.com/
+    Last login: Tue Mar 28 19:07:19 2000
+    [root@debian]/root
+    19:07:34::#
+
+
+----
+
+Alternativ kann man sich auch via serieller Schnittstelle einloggen und somit auch die Bootsequenz verfolgen.
+
+Als Programm empfehle ich an dieser Stelle ``minicom``, das zuerst via ``minicom -s`` auf
+den USB Anschluss: ``/dev/ttyUSB0`` konfiguriert werden muss.
+|br| Zwar wird den Entwicklern des "`Das U-Boot`_" Bootloaders gerade minicom *nicht* empfohlen. Allerdings finde ich persönlich
+die vorgestellten Programme ``cu`` (Teil des uucp Pakets) und ``kermit`` nicht gerade zeitgemäß.
+
+Der U-Boot Bootloader, der eigentlich einen extra Blogbeitrag wert wäre, bootet ziemlich zügig vom Sheeva.
+|br| Aussehen tut der Anfang so:
+
+.. sourcecode:: console
+
+                __  __                      _ _
+                |  \/  | __ _ _ ____   _____| | |
+                | |\/| |/ _` | '__\ \ / / _ \ | |
+                | |  | | (_| | |   \ V /  __/ | |
+                |_|  |_|\__,_|_|    \_/ \___|_|_|
+        _   _     ____              _
+        | | | |   | __ )  ___   ___ | |_
+        | | | |___|  _ \ / _ \ / _ \| __|
+        | |_| |___| |_) | (_) | (_) | |_
+        \___/    |____/ \___/ \___/ \__|
+        ** MARVELL BOARD: SHEEVA PLUG LE
+
+        U-Boot 1.1.4 (Mar 19 2009 - 16:06:59) Marvell version: 3.4.16
+
+        U-Boot code: 00600000 -> 0067FFF0  BSS: -> 006CEE80
+
+        Soc: 88F6281 A0 (DDR2)
+        CPU running @ 1200Mhz L2 running @ 400Mhz
+        SysClock = 400Mhz , TClock = 200Mhz
+
+        DRAM CAS Latency = 5 tRP = 5 tRAS = 18 tRCD=6
+        DRAM CS[0] base 0x00000000   size 256MB
+        DRAM CS[1] base 0x10000000   size 256MB
+        DRAM Total size 512MB  16bit width
+        Flash:  0 kB
+        Addresses 8M - 0M are saved for the U-Boot usage.
+        Mem malloc Initialization (8M - 7M): Done
+        NAND:512 MB
+
+        CPU : Marvell Feroceon (Rev 1)
+
+        Streaming disabled
+        Write allocate disabled
+
+        USB 0: host mode
+        PEX 0: interface detected no Link.
+        Net:   egiga0 [PRIME], egiga1
+        Hit any key to stop autoboot:  0
+
+
+Erster Blick auf die Software
+=============================
+
+Ohne etwas angerührt zu haben, sieht die vorgefertigte Speicherbelegung wie folgt aus:
+
+.. sourcecode: console
+
+    19:38:20::# df -h
+    Filesystem            Size  Used Avail Use% Mounted on
+    rootfs                507M  148M  360M  30% /
+    tmpfs                 252M     0  252M   0% /lib/init/rw
+    varrun                252M   40K  252M   1% /var/run
+    varlock               252M     0  252M   0% /var/lock
+    udev                  252M  8.0K  252M   1% /dev
+    tmpfs                 252M     0  252M   0% /dev/shm
+    tmpfs                 252M     0  252M   0% /var/cache/apt
+
+Vorinstalliert ist, wie schon erwähnt, Ubuntu 9.04 (Jaunty Jackalope). Leider ist es etwas unglücklich installiert:
+
+apt-get:
+  Wer einmal ``apt-get`` in irgendeiner Weise nutzen wollte, erfährt ersteinmal:
+
+  .. sourcecode:: console
+
+    19:43:15::#  apt-get update
+    E: Archive directory /var/cache/apt/archives/partial is missing.
+
+  Da das Problem auf zwei Wege gefixt werden kann und es je nach Nutzung des SheevaPlugs ankommt, empfehle ich hier einfach
+  http://computingplugs.com/index.php/Fixing_apt-get.
+  |br| Schuld ist ``/var``, da es hier ein Dateisystem im RAM ist und somit nicht persistent.
+
+
+DNS Auflösung:
+  Per default kann zwar ``74.125.43.106`` angepingt werden, allerdings nicht die dazugehörende Domain ``google.com``.
+
+  Nach einem Neustart ist das behoben, wenn in ``/etc/dhcp3/dhclient.conf`` eine Route (#) vor
+
+  .. sourcecode:: console
+
+      supersede domain-name-servers 127.0.0.1;
+
+  gesetzt wird.
+
+
+`Eine vollständige Auflistung aller installierten Pakete gibt es hier`_.
+
+----
+
+Der Linux Kernel ist leider eine etwas ältere Version. Allerdings lässt sich dieser updaten, wenn nötig.
+
+.. sourcecode:: console
+
+    20:13:42::# uname -a
+    Linux debian 2.6.22.18 #1 Thu Mar 19 14:46:22 IST 2009 armv5tejl GNU/Linux
+
+
+Da es beim mitgelieferten Kernel recht heftige Performance Einbußen beim Lesen und Schreiben einer eingesteckten SD-Karte gibt,
+sollte man ihn zumindest patchen oder gleich den aktuellsten nehmen.
+
+Das würde ich allerdings in einem separaten Blogposting detailliert beschreiben.
+
+
+Nützliche Links
+========================
+
+Ich habe zwischenzeitlich ein paar sehr informative Webseiten gefunden:
+
+- http://computingplugs.com/index.php/Main_Page:
+    Nützliches Wiki und die Seite läuft komplett auf einem Sheeva. Mit `Echtzeit Statistiken`_!
+
+- http://www.plugcomputer.org/plugwiki/index.php/Main_Page:
+    Ist das offizielle Wiki von http://www.plugcomputers.org/ und sehr umfangreich.
+    Die `How-To Abteilung`_ ist sehr nett.
+
+- `http://www.marvell.com/ <https://www.marvell.com/products/embedded_processors/developer/kirkwood/plugpartners.jsp>`_:
+    Offizielle Liste der Reselller. Für den Fall der Fälle...
+
+Bilder
+========================
+
+sind nicht von mir; ich hatte ehrlich gesagt keine Lust, eigene zu machen.
+|br| *via Flicker*:
+`#1 <http://www.flickr.com/photos/20625597@N07/3330296803/>`_
+`#2 <http://www.flickr.com/photos/z303/4033312664/>`_
+`#3 <http://www.flickr.com/photos/z303/4033311334/>`_
+`#4 <http://www.flickr.com/photos/mbiddulph/3836727468/>`_
+
+
+|bilderreihe|_
+
+.. EOF
+
+.. |imgSheevaPlug| raw:: html
+
+    <a href="http://posativ.org/blog/img/blog/linux/sheevaplug/sheevaplug.png">
+    <img class="floatright" src="http://posativ.org/blog/img/blog/linux/sheevaplug/sheevaplug-small.png"
+    alt="SheevaPlug; CC-Bild" width="160" height="213" /></a>
+
+.. |bilderreihe| image:: http://posativ.org/blog/img/blog/linux/sheevaplug/bilderreihe-small.png
+.. _bilderreihe: http://posativ.org/blog/img/blog/linux/sheevaplug/bilderreihe.png
+.. _`Bild #1`: http://www.flickr.com/photos/20625597@N07/3330296803/
+
+
+
+.. |br| raw:: html
+
+    <br />
+
+.. _Innenarchitektur: http://computingplugs.com/images/f/f2/Powersupply.jpg
+.. _England: http://www.newit.co.uk/store/index.php?main_page=product_info&cPath=1&products_id=1
+.. _`Echtzeit Statistiken`: http://computingplugs.com/index.php/SheevaPlug_Real_time_Statistics
+.. _tuexperto02: http://www.flickr.com/photos/20625597@N07/
+.. _NAND: http://de.wikipedia.org/wiki/NAND-Flash
+.. _`Das U-Boot`: http://www.denx.de/wiki/U-Boot/
+.. _`Eine vollständige Auflistung aller installierten Pakete gibt es hier`: http://computingplugs.com/index.php/Default_software#Default_installed_packages_on_the_Sheeva_Plug
+.. _`How-To Abteilung`: http://www.plugcomputer.org/plugwiki/index.php/Category:HowTo

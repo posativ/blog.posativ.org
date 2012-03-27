@@ -1,0 +1,61 @@
+---
+title: "Tagebuch: Es gibt kein Entkommen! (another Apple rant)"
+
+date: 23.01.2011, 20:56
+tags: [Rant, OS X, Ubuntu, Apple]
+---
+
+Es ist so entgültig, dass ich nun doch eine Kategorie für OS X eröffne. Nicht nur die Software ist
+eine Blackbox, nein die wunderschöne Hardware auch. Dabei hatte ich gehofft, dass diese olle
+Mainstream-Distribution Ubuntu und mein Lieblingsderivat Kubuntu problemlos auf dem MacBook Pro 6.2
+läuft ([sieht gut aus oder?](https://help.ubuntu.com/community/MacBookPro6-2/Maverick)), aber das
+geht ja gar nicht. Nachdem dieser absolut unfähige grafische Installer schon 10 Minuten zum
+Partitionieren braucht, hat er natürlich verkackt, GRUB gescheit in die Partition zu installieren.
+Ubuntu zu installieren, macht ja sowieso immer einen Heidenspaß, dauert länger als 'ne Arch Linux
+Installation, ist unter Windows-Niveau und allgemein ein schlechter Versuch der Weltherrschafft.
+Nun gut, Kubuntu ein zweites Mal installiert und GRUB direkt in den MBR, mir relativ egal, hab ja
+EFI ([refit, um genauer zu sein](http://refit.sourceforge.net/)).
+
+Kubuntu startet, nervt mit Upgrade-Dialogen und zeigt KDE in gewohntem unstabilen Gewand und hat: keine
+Helligkeitssteuerung des Displays, der Tastatur – generell nix ging. Trackpad ist unbrauchbar. Fixen kann
+man die Tastatur-Knöpfe für die ganzen Hardware-Features, der Link von oben ist da ziemlich informativ.
+Naja, dann habe ich vergeblich versucht (trivial?!) einen WLAN-Hotspot einzurichten, wollte eigentlich für das
+iPhone Entwickeln. Gut, gab einen Freeze, ich wäre gerne zur Kommandozeile gewechselt oder hätte den
+Fenstermanager neugestartet. Tja, geht nicht, weil die Funktionstasten nur mit *Fn* aktiviert werden können,
+was nicht implementiert ist und Ubuntu hat dazu auch zum Wohle der Anwender Strg+Shift+Backspace deaktiviert.
+
+Grafikbeschleunigung ginge [über Umwege](http://refit.sourceforge.net/doc/c2s2_startos.html), habe ich nicht
+probiert. Mein MacBook hat leider wegen des Entspiegelungs-Upgrades <del>dummerweise</del> logischerweise
+eine höhere Auflösung bekommen, das macht dann so 1650x1050 Bildpunkte bei 15 Zoll. Ist schon einfach nur
+ein riesiger Fail, das OS X keine Systemweite Einstellungen für Schriftgrößen hat, aber Linux ist da ja kein
+Stückchen, aber auch gar kein Stückchen besser als OS X. Das ist eher noch viel schlechter, weil das
+Font-Rendering auf meinem Bildschirm richtig scheiße aussieht.
+
+Trackpad unter Linux? Ich weiß nicht, wer das toll findet, aber wenn ich irgendwo in einem Programmfenster
+Klicke und Ziehe, dann wird sofort das Fenster verschoben. Für einen Rechtsklick auf dem Desktop muss ich
+mit zwei Fingern klicken, wobei ich dafür gar keine Geste definiert habe. Es gibt genau null Voreinstellungen,
+was Zoomen angeht (hey, das ist *Ubuntu*, das Klickibunti OS schlechthin!).
+
+So, und nun? Ich will das mit dem Linux eigentlich gar nicht wahrhaben. Aber es gibt auch einfach wenig
+Support für Linux auf'm Mac, gibt ja das obertolle OS X. Das einzig Tolle daran ist die wirklich hübsche,
+anwenderorientierte Installation. Und dann kommt dieser unskippable Film nach dem Neustart. Immerhin
+bringt man den zum Ruckeln, wenn man wild auf der Tastatur rumhackt.
+
+[Der Default-Nutzer nach der Installation hat zu viele Rechte](http://www.heise.de/mac-and-i/artikel/Sichere
+-Bescheidenheit-1148001.html), wie sagt [fefe](http://blog.fefe.de/) so schön? Die BESTEN DER BESTEN SIR. Ja,
+ich denke das trifft es gut. Nun fahre ich mit Firefox 4 Beta 9 und sehe, dass
+[YouTubes HTML5-Bereich](http://www.youtube.com/html5) praktisch tot ist und ich definitiv kein Flash oder
+anderes Installieren will. 16% Marktanteil in Botnets bei 8% Verbreitung finde ich irgendwie beunruhigend.
+
+Zum Schluss gibt es drei weitere `#fail` von OS X:
+
+- Wer denkt, OS X hat die drei Knöpfe einfach nur von Rechts nach Links verschoben, der irrt gewaltig. Denn es gibt
+  eine<del>n</del> <del>Bug</del> Besonderheit beim *Maximieren*. In iTunes wechselt man in den Miniplayer-Modus, egal
+  wie klein man iTunes gezogen hat. In Safari wird es auf A4 angepasst, die Vorschau passt den Fensterrahmen auf das
+  Dokument an. Maximieren halt.
+- Der Finder lässt einem keine Doppelpunkte in Dateinamen schreiben. Ja, das ist ja an sich schon ein absolut megafail,
+  aber es ist ja nicht so, dass das eine technische Restriktion wäre. In der Kommandozeile geht das nämlich problemlos.
+- Schon mal wer versucht, eine konforme OPML-Feedliste zu importieren? Der Ansicht, dass das inzwischen jede Software
+  beherrschen sollte? Nicht so bei OS X: Try and Google it – 
+  [1. Treffer bei 'osx import feeds'](http://hints.macworld.com/article.php?story=20050501091356426) m(
+

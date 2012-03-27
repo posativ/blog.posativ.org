@@ -1,0 +1,55 @@
+---
+title: Es lebt ...
+date: 15.07.2010, 13:14
+tags: [Python, WordPress, PyBlosxom, Blog]
+---
+
+Wieder blogbar!
+===============
+
+Da mein letzter Beitrag inzwischen schon gut ein Quartal her ist, könnte man meinen, ich sei tot.
+Dem ist aber nicht so!
+
+Ich habe das Bloggen zwischenzeitlich - zumindest online - aufgegeben, da mir das mit
+[PyBlosxom](http://pyblosxom.sourceforge.net/) zu anstrenged wurde. Ich hab zwar [mal geschrieben](http://blog.posativ.org/?p=2c33082)
+es sei gut, aber da war ich eher von geblendet von der Implementierung in Python und guten Geschwindigkeit.
+PyBlosxom ist aber eher für jene gedacht, die auf ihrem Webserver SSH-Zugriff haben, denn sonst lassen sich
+die statischen Beiträge nicht erstellen (nix automatisch). Das habe ich umgangen, indem ich mir auf _/blog/_
+ein `render.py` gelegt habe, dass mir den Weg über die Kommandozeile nimmt (if-else vertauscht) und die
+Einträge rendert.
+
+Das ganze ist so aufwendig, denn mit jedem Rechtschreibfehler, muss das Skript erneuert aufgerufen werden
+und rendert natürlich das _gesamte_ Blog wieder. Immerhin sah das HTML ganz nett aus.
+
+Blogbar ist sowas nicht, daher habe ich aufgrund meiner Abiturprüfung und Privatleben und so keine
+weiteren Einträge online gestellt - verfasst habe ich trotzdem offline ;)
+
+lilith - a python blog software
+===============================
+
+Bei den python-basierten Blogs gibt es leider [keine große Auswahl][], wenn man auf cgi-only limitiert ist.
+Daher habe ich mir in der Zwischenzeit ein eigenes Weblogsystem geschaffen: _lilith_ getauft.
+
+Das werde ich später mal ausführlich erklären. Es hat intern ähnliche Funktionen wie WordPress ist komplett
+dynamisch, braucht nur keine Datenbank, wenig Ressourcen und ist relativ flexibel. Das Grundgerüst hat gut
+450 Zeilen Code, (exklusive der verwendeten Module), mit den Extras wie `articles.py` oder `feeds.py` sowie
+dem `layout.py` kommt das System auf ungefähr etwas weniger als 850 LoC.
+
+Aber wie schon gesagt, später mehr.
+
+[keine große Auswahl]: http://wiki.python.org/moin/PythonBlogSoftware
+
+Syndication und Web Zweinull
+============================
+
+Inzwischen habe ich das Blog auf die Subdomain `blog.posativ.org` gelegt, alle anderen statischen HTML-Beiträge
+existieren noch, verweisen jedoch auf den neuen Beitrag per <br />
+`<meta http-equiv="refresh" content="0; URL=http://blog.posativ.org/?p=hash"/>`.
+
+[Atom](http://blog.posativ.org/?flav=atom) und [RSS](http://blog.posativ.org/?flav=rss) (2.0) Feeds
+funktionieren aufgrund der Abwärtskompatibilität noch bei `posativ.org/blog`, aber die ersteren sind
+"sicherer" ;)
+
+Kommentare gibt es derzeit noch nicht - das liegt vor allem daran, dass ich die deutsche Rechtslage nicht
+so prickelnd finde und daher nichts ins Blogsystem hardgecodete nutze.
+(Ich denke aber an eine Möglichkeit, später Kommentare per JavaScript zu realisieren.)

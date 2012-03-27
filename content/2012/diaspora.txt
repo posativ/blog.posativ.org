@@ -1,0 +1,79 @@
+---
+title: DIASPORA*
+date: 19.02.2012, 22:27
+tags: [Diaspora, P2P, planet]
+---
+
+Letzte Woche gab's im [lokalen Hackerspace][1] eine kurze Einführung in das
+*"ja-hab-ich-mal-von-gehört"*-Projekt:&nbsp;[DIASPORA*][2]. Diaspora ist der
+Versuch, Facebook/Google+ dezentral mit einer quelloffenen Software
+aufzubauen. Das Projekt wird demnächst zwei Jahre alt und ist immer noch im
+Alpha-Stadium, obwohl zunächst [angekündigt][3] wurde, innerhalb von drei Monaten
+fertig zu sein.
+
+# Funktionsweise
+
+Bei Diaspora heißen die einzelnen dezentralen Server *Pods* und sind komplett
+eigenständige Instanzen, die keine zentralen Knoten benötigen. Als
+anschauliches Beispiel nehme ich 'mal [jenaspora.de][4] und den offiziellen
+Pod [joindiaspora.com][5]. Die Nutzer aus Jena können auf diesem Pod ohne
+Umwege über *joindiaspora.com* kommunizieren und fällt dieser aus, kümmert das
+niemanden. Wenn sich ein Freund von mir nun auf *joindiaspora.com* angemeldet
+hat, ich aber auf *jenaspora.de* verweile, so gibt es nun eine Anfrage über
+das [webfinger-Protokoll][6], ob die Nutzerkennung `userid@domain.tld` auf dem
+jeweiligen Host vorhanden ist und falls ja, merkt sich *joindiaspora.com*
+diese Verbindung.
+
+Sollte nun ein Nutzer aus *jenaspora.de* in seinem Posting
+über die Aspekte (das ist das Zirkel-pendant zu Google+) den Nutzer vom
+anderen Pod mitadressiert haben, so wird *jenaspora.de* den Host, in diesem
+Fall *joindiaspora.com* pushen. So läuft das mit Posts, Kommentaren und
+privaten Nachrichten. Eine Besonderheit von Diaspora ist noch die
+verschlüsselte Kommunikation zwischen den Pods über ein Public-Key-Verfahren,
+das auch über eine SSL-Verbindung läuft. Innerhalb von Pod ist allerdings
+alles unverschlüsselt.
+
+Einen [eigenen Pod aufzusetzen][8] ist allerdings etwas schwierig, da manchmal
+der [Hauptentwicklungszweig][9] manchmal bricht und ein exaktes Setup von
+Nöten ist: Ruby on Rails mit Ruby am besten in Version 1.9, MySQL oder
+PostgreSQL und eine Domain samt gültigem SSL-Zertifikat (wünschenswert). Dazu
+kommt eine halbwegs aktuelle Linux-Distribution und viel Zeit zum
+Konfigurieren und Testen, ob die Kommunikation zwischen den einzelnen Pods
+funktioniert. Aber einmal aufgesetzt, läuft es stabil.
+
+# Alpha-Stadium
+
+[Diaspora][2] ist wirklich noch alpha, das beweist nicht nur die
+Entwicklungsstrategie. Es gibt noch eine Menge gewollter und ungewollter
+Ungereimtheiten:
+
+- [joindiaspora.com][5] ist überlastet und ein single-point-of-failure, der
+  theoretisch nie existieren sollte.
+- Nutzerdaten liegen für jeden Podbesitzer im Klartext in der Datenbank (wenn
+  auch nicht an einem zentralen Ort).
+- keine federation, d.h. wenn ein Pod wegen Wartungsarbeiten offline ist,
+  gehen Nachrichten unwideruflich verloren!
+- umständliches Setup, Ruby on Rails <del>ist scheiße</del> skaliert nicht
+  gut, siehe #1.
+- Amazon S3-Anbindung, da *joindiaspora.com* überlastet ist – Widerspruch zur
+  Dezentralität.
+- Entwicklungsschwerpunkt liegt bei [joindiaspora][5], was kontraproduktiv
+  ist.
+- offizielle Zertifikate von StartSSL, wenn man nicht Debian fährt, wo auch
+  [CAcert][7] integriert ist, sonst wird die Verbindung verweigert.
+- läuft nicht auf WLAN-Routern, da Minimum 256 MB RAM benötigt werden.
+
+Ich bin sozialen Netzen zwar inzwischen sehr abgeneigt, aber Diaspora könnte
+wirklich eine gute Alternative zum Mainstream-Facebook/Google+ werden. Ich bin
+gespannt auf das fertige System.
+
+
+[1]: http://hackspace-jena.de/wiki/doku.php/raum:start
+[2]: http://diasporaproject.org/
+[3]: http://blog.diasporafoundation.org/2010/04/14/kickstarter-pitch.html
+[4]: https://jenaspora.de/
+[5]: https://joindiaspora.com/
+[6]: https://en.wikipedia.org/wiki/Webfinger
+[7]: http://cacert.org/
+[8]: https://github.com/diaspora/diaspora/wiki/Installing-and-Running-Diaspora
+[9]: https://github.com/diaspora/diaspora

@@ -1,0 +1,57 @@
+---
+title: Wuala im März '10
+filters: [reST]
+date: 17.03.2010, 20:45
+tags: [Wuala]
+---
+
+Wuala Release: Seebach (08.03.2010)
+===================================
+
+- eines der wohl längsten requesteten Features ist nun implementiert worden
+  (*nein keine Iphone App*): List View aka **Detail Ansicht**
+
+  |listview|
+
+  Ist ziemlich praktisch. Thumbnails werden allerdings nur für Dateien angezeigt, Ordner behalten
+  die Defaultfarben. List View kann mittels Strg + F8 aktiviert werden.
+
+  Störend ist allerdings noch, dass die Listenansicht beim Gruppen- und Userprofil mit *kürzlich
+  angesehene Dateien* zugemüllt ist.
+
+- für Linux ist nun FUSE die Standard-FSI. Damit wird NFS endlich abgelöst. Der Umstieg von NFS zu
+  FUSE im Vergleich von jlan zu Dokan lief doch erstaunlich einfacher, rückblickend betrachtet ;)
+
+- Dokan ist inzwischen die Standard-FSI für alle Windows Varianten. Wer am alten jlan hängt,
+  der kann in der *wuala.cfg* die Zeile ``useJLan=1`` hinzufügen.
+
+- Dazu wurde der Batchupload verbessert sowie irgendein optisches Feedback:
+  *(Internal, external and command links can be visually distinguished)*
+
+- *Fixed various smaller bugs*
+
+  Dank des Mantis-Bugtrackers gibt es eine ziemlich vollständige Ansicht aller öffentlichen Bugfixes:
+  `bugs.wuala.com - Seebach  (Released 2010-01-28) <https://bugs.wuala.com/changelog_page.php?version_id=15>`_
+
+- Dazu wurde recht heimlich das maximale Dateigrößen-Limit auf `14 GiB angehoben <http://bugs.wuala.com/view.php?id=522>`_
+
+.. |listview| raw:: html
+
+    <a href="http://posativ.org/blog/img/blog/wuala/listview.png"><img
+    src="http://posativ.org/blog/img/blog/wuala/listview-small.png"
+    alt="Gruppen erstellen mit Secret Link" width="700" height="433"/></a>
+
+
+|full_see|_
+
+.. |full_see| replace:: vollständige Release Notes für Seebach
+.. _full_see: http://www.wuala.com/en/api/preview/Wuala/Release%20Notes/Release%20Notes%202010-03-08%20%20Seebach.txt
+
+Neuer Promotioncode: JournalduGeek 1GB
+=======================================
+
+Seit gestern geistert wieder ein Promotioncode durch die Wuala Community.
+
+**JournalduGeek** kann inzwischen direkt im Menü: *Extras* -> *Optionen* -> *Speicher kaufen*
+eingegeben. Danach wird einem sofort 1 GB gutgeschrieben.
+

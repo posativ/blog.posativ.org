@@ -1,0 +1,94 @@
+---
+title: "Wuala: Tipps & Tricks II"
+filters: [reST]
+date: 07.08.2009, 13:42
+tags: [Internals, Hacks, Wuala]
+---
+
+Und weiter geht's:
+
+Shortcuts
+=========
+
+Non-Standard
+------------
+Strg + Alt + D|F :
+        [win/osx|linux] Debug Dialog. Beinhaltet ein paar Tools bsw. für das Betrachten von Downloads in der Cloud.
+Strg + Alt + H   :
+        Aktiviert unter Optionen -> Verbindung eine alternative Verbindungsmöglichkeit (experimentell)
+Strg + Alt + P   :
+        Der Speicher wird neu berechnet
+Strg + Alt + S   :
+        Toggle Super Node; sollte veraltet sein, da meines Wissens eine Unterscheidung in Supernodes nicht mehr in diesem Sinne erfolgt
+Strg + Alt + U   :
+        Aktiviert im Downloadfenster Details_
+Strg + Alt + X   :
+        Stack Trace bzw. Dump wird erzeugt für Analysezwecke
+Strg + Alt + M   :
+        Lässt die Anzahl der simultanen Downloads einstellen
+
+Standard
+--------
+Strg + Alt + T/N :
+        Öffnet ein neues Wuala Fenster (je nach dem was selektiert ist, kann Strg + N auch zum Erstellen eines Ordners führen)
+Strg + X\|\C\|V :
+        Ausschneiden\|Kopieren\|Einfügen
+Strg + E :
+        Download in den Cache
+Strg + D :
+        Download in (Ordner, der beim ersten Mal erfragt wurde)
+
+Navigation
+----------
+F1 :
+        Öffnet http://www.wuala.com/de/support/
+F2 :
+        Objekt/Ordner/Datei umbenennen
+F3 :
+        Baumansicht (ein/aus)
+F4 :
+        Kommentaransicht (ein/aus)
+F5 :
+        Refresh/Aktualisieren
+F6|F7 :
+        Download-\|Uploadfenster (win only, wie mir scheint)
+F8 :
+        Aktiviert die Zeitmachinenansicht
+F9-F11 :
+        Wechselt zu Meine Dateien | Meine Freunde | Meine Gruppen
+
+F12 :
+        Detailansicht (ein/aus)
+
+Wuala Startparamenter unter Windows
+===================================
+
+Der Standardweg über die wuala.exe bietet nur eine geringe Anzahl an optionalen Argumenten. So kann über
+``"C:\Programme\Java\jre6\bin\javaw.exe" -Xms50m -Xmx1024m -ea -XX:+HeapDumpOnOutOfMemoryError -XX:MaxHeapFreeRatio=30 -XX:MinHeapFreeRatio=10 -jar "C:\Dokumente und EinstellungenUSER\Anwendungsdaten\Wuala\Roaming\Wuala.exe"``
+
+bzw.
+
+``"C:\Program Files\Java\jre6\bin\javaw.exe" -Xms50m -Xmx1024m -ea -XX:+HeapDumpOnOutOfMemoryError -XX:MaxHeapFreeRatio=30 -XX:MinHeapFreeRatio=10 -jar "C:\Documents and Settings\USER\Application Data\Wuala\Roaming\Wuala.exe"``
+
+ein eigener Parameter für die Größe des Arbeitsspeicher angegeben werden (-Xmx1024m in diesem Falle 1024MiB), Danke an Passer_.
+
+Das Ganze kann man wahlweise in eine Batch-Datei (wuala.bat) oder manuell in die Kommandozeile eintippen. USER muss natürlich individuell angepasst werden.
+
+Im übrigen lässt sich der Linux-Loader unter Windows mit den ähnlichen Argumenten oben starten, Info von rdirect_) .
+*Jede Anweisung geht nur über eine Zeile, Umbruch nur wegen der begrenzten Blogbreite*
+
+Drag & Drop unter Linux (evtl. auch Mac)
+========================================
+
+Unter Linux funktioniert bekanntlichermaßen das Hochladen von Dateien nicht über Drag&Drop, sondern über den umständlichen Weg
+
+Datei -> Ordner/Datei hochladen.
+
+Allerdings ist es möglich, Drag&Drop via Copy&Paste zu realisieren:
+
+Die Ordner/Dateien selektieren, Strg+C und Str+V in den Clienten und voilá.
+Aus dem Clienten heraus hingegen funktioniert das Drag&Drop.
+
+.. _Details: http://i239.photobucket.com/albums/ff172/posativ/wuala_download_details_small.jpg
+.. _Passer: http://www.wuala.com/Passer
+.. _rdirect: http://www.wuala.com/rdirect
