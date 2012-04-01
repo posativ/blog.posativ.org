@@ -143,6 +143,34 @@ body > .page {
   body > .page:hover {
     text-shadow: #aaaaaa 0px 0px 1px; }
 
+body .results_row {
+  border-bottom: 1px dotted #aaaaaa;
+  padding: 5px;
+  clear: both; }
+body .results_row_left {
+  display: inline;
+  font-size: 1.3em; }
+body .results_row_left a {
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  padding: 5px; }
+body .results_row_right {
+  color: #333333;
+  display: block;
+  padding-top: 9px;
+  float: right;
+  color: #333333;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 0.8em; }
+body #loader {
+  text-align: center;
+  margin-top: 100px;
+  height: 25px;
+  width: 100%;
+  background: url(/images/ajax-loader.gif);
+  background-position: center;
+  background-repeat: no-repeat; }
+
 #arc {
   border-collapse: collapse; }
   #arc th, #arc td {

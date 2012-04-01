@@ -46,7 +46,7 @@ PERMALINK_FORMAT = "/:year/:slug/"
 DATE_FORMAT = "%d.%m.%Y, %H:%M"
 DISQUS_SHORTNAME = "posativ"
 OUTPUT_IGNORE = ["js/", "files/", "img/", "images/", "*.css", "*.txt", "*.conf",
-                 "google*", "blog.sass", "favicon.ico"]
+                 "google*", "style.sass", "favicon.ico"]
 DEPLOYMENT = {
     "ls": "ls",
     "echo": "echo %s",

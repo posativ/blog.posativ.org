@@ -95,10 +95,10 @@ $(document).ready(function() {
       $('#query').val(query);
        if (query) {
         if (oldhtml == null) {
-          oldhtml = $('#blogbody').html();
+          oldhtml = $('body').html();
         }
-        $('#blogbody').html('<div id="loader"></div>');
-              $('#blogfooter').hide();
+        $('body').html('<div id="loader"></div>');
+              $('footer').hide();
               $('#query').blur().attr('disabled', true);
               if (entries == null) {
                 $.ajax({url:'/atom/full/index.xml?r='+(Math.random()*99999999999), dataType:'xml', success: function(data) {
@@ -112,10 +112,10 @@ $(document).ready(function() {
       }
           } else {
               if (oldhtml == null) {
-                  oldhtml = $('#blogbody').html();
+                  oldhtml = $('body').html();
               }
-              $('#blogbody').html(oldhtml);
-              $('#blogfooter').show();
+              $('body').html(oldhtml);
+              $('footer').show();
               $('#query').blur();
               oldhtml = null;
           }
