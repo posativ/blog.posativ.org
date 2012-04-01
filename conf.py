@@ -42,6 +42,8 @@ VIEWS = {
     },
 }
 
+SUMMARIZE_IDENTIFIER = 'weiterlesen'
+
 PERMALINK_FORMAT = "/:year/:slug/"
 DATE_FORMAT = "%d.%m.%Y, %H:%M"
 DISQUS_SHORTNAME = "posativ"

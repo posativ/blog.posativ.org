@@ -1,0 +1,34 @@
+---
+title: "Linkschleuder #21"
+date: 01.04.2012, 20:41
+tags: [Links, Screencasts, Python]
+---
+
+- [GitCasts](http://gitcasts.com/) – kostenfreie Screencasts über Git über Rebasing, Branching 
+  etc.
+- [Destroy All Software](https://www.destroyallsoftware.com/screencasts) – kurze, schnelle
+  (kommerzielle) Screencasts mit vielen kleinen Details über Ruby, UNIX
+  und Vim. Empfehlenswert!
+- [Cytoplasm](http://cytoplasm.somethingsido.com/) – static blogging in Python mit gigantischer
+  Dokumentation, aber komplizierter Konfiguration. Wäre ein Blick wert.
+- [Web Change Checker](https://github.com/cmur2/wcc) – ist ein mächtiges Toolkit um sich über
+  Änderung auf Webseiten per Email, XMPP oder RSS auf dem Laufenden zu halten. Überaus nützlich!
+- [PCRE](http://www.pcre.org/) – einmal pro Jahr wünsche ich mir mit `grep` multiline zu suchen
+  und ich finde heraus, dass das nicht funktioniert. Mit `pcre` soll wohl funktionieren, wenn auch
+  mit merkwürdigen CLI-Flags.
+- [AppFresh](http://metaquark.de/appfresh/mac) – ist ein ganz nettes Pendant zu
+  [Secunias PSI][4] für Windows und hat mich auf manche Updates hingewiesen.
+- [Vagrant](http://vagrantup.com/?v1) – *Virtualized development made easy.* 
+- [Measure Anything, Measure Everything][3] – viele und schöne Statistiken, war mir ein
+  Blogmark wert.
+- [Gprof2Dot](https://code.google.com/p/jrfonseca/wiki/Gprof2Dot) – verwandelt Profiling Daten von
+  Python, Java etc. pp. in einen gigantischen Graphen aus prozentualer Rechenzeit. [Sieht
+  fantastisch][1] aus!
+- [Writing a Python Command Line Interface with Sub-Commands][2], hat mir einen guten Denkanstoß
+  gegeben Python's (deprecated) `optparse` nicht so verkrampft zu nutzen, sondern einfach Flags
+  parsen lassen.
+
+[1]: /img/2012/gprof2dot.png
+[2]: http://jimmyg.org/blog/2009/python-command-line-interface-%28cli%29-with-sub-commands.html
+[3]: http://codeascraft.etsy.com/2011/02/15/measure-anything-measure-everything/
+[4]: https://secunia.com/vulnerability_scanning/personal/
