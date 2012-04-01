@@ -14,9 +14,9 @@ Detailverbesserungen im System selbst, ein kurzer Auszug:
   statische Seiten gebacken.
 - typographische Feinheiten, MathML und Silbentrennung für diverse Sprachen
 - RSS-Import, Autokompilierung bei Änderungen, Deployment
-- ein Jinja2-Filter mit dem man Jinja2 in Einträgen schreiben kann, denn I HERD
-  U LIEK JINJA2 SO I PUT A JINJA2 IN UR JINJA2 SO U CAN WRITE TEMPLATES WHILE U
-  WRITE TEMPLATES
+- einen Jinja2-Filter mit dem man Jinja2 in Einträgen schreiben kann, denn I
+  HERD U LIEK JINJA2 SO I PUT A JINJA2 IN UR JINJA2 SO U CAN WRITE TEMPLATES
+  WHILE U WRITE TEMPLATES
 - Aufräumen von verwaisten Dateien im Ausgabe-Verzeichnis
 - überarbeitete API ähnlich zur [Pelican][7]-API
 - einen portierten Acronym-Filter, der automatisch DSL, WSGI und XMPP dem
