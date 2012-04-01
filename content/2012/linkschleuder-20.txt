@@ -6,7 +6,7 @@ tags: [Links, Python, Git, Linux, planet]
 
 Und hier die Fortsetzung der [19](/2012/linkschleuder-19/), alles was ungleich OS X ist:
 
-## Web, Programming & Python
+# Web, Programming & Python
 
 - [comment_rave](http://raveraverave.co.uk/site/scripts/com.php) – ein freies Kommentarsystem auf
   PHP-Basis. Will ich schon seit *Jahren* testen!
@@ -31,7 +31,7 @@ Und hier die Fortsetzung der [19](/2012/linkschleuder-19/), alles was ungleich O
 - [Line endings](http://help.github.com/line-endings/) – *Mac and Linux users, you don’t get to sit
   this one out.*
 
-## Linux/Unix-Zeug
+# Linux/Unix-Zeug
 
 - [Linux. Das umfassende Handbuch](http://openbook.galileocomputing.de/linux/) – ein weiteres
   \<openbook\> von Galileo Computing in der neusten Auflage (via [Schockwellenreiter][6]).

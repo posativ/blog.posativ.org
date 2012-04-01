@@ -7,7 +7,7 @@ tags: [Links, OS X]
 Wieder eine dedizierte OS X Linkschleuder; aber nur weil es sonst zu unübersichtlich geworden wäre.
 Die nächste ist im Anflug: [Linkschleuder #20](/2012/linkschleuder-20/).
 
-## Äpps
+# Äpps
 
 - [Asepsis](http://asepsis.binaryage.com/) – nein, keine neue Krankheit sondern eine Ausgliederung
   des Codes aus TotalFinder in einen Dämon, der die berühmten `.DS_Store`-Dateien ganz raffiniert in
@@ -28,7 +28,7 @@ Die nächste ist im Anflug: [Linkschleuder #20](/2012/linkschleuder-20/).
 - [induction](http://inductionapp.com/) – ein open-source SQL/NoSQL Database Client für OS X.
   Testen!
 
-## Developer-Tools
+# Developer-Tools
 
 - [Homebrew 0.9](https://github.com/mxcl/homebrew/wiki/Homebrew-0.9) – der *missing package manager
   for OS X* hat einen Meilenstein geschafft und supported nun auf einfache Art und Weise andere
@@ -45,7 +45,7 @@ Die nächste ist im Anflug: [Linkschleuder #20](/2012/linkschleuder-20/).
 - [tmux unter OS X](https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard) – 
   `pbcopy` und `pbpaste` im `tmux` wiederherstellen.
 
-## Misc
+# Misc
 
 - [PDF Browser Plugin](http://www.schubert-it.com/pluginpdf/) – damit soll wohl Preview bzw. dessen
   Quartz-Komponente PDFs in Firefox und Co darstellen können.

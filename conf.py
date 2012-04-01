@@ -9,32 +9,32 @@ AUTHOR = "posativ"
 EMAIL = "info@posativ.org"
 ENTRIES_IGNORE = ["drafts/*", "bak/*"]
 
-FILTERS = ['markdown+codehilite(css_class=highlight)+mathml', 'typo']
+FILTERS = ['markdown+codehilite(css_class=highlight)+mathml', 'typo', 'h1']#'acronyms']
 VIEWS = {
     "/": {
-        "filters": ['sum', 'h1', 'hyph'],
+        "filters": ['sum', 'hyph'],
         "pagination": "/page/:num",
         "view": "index",
         "items_per_page": 12
     },
     "/:year/:slug/": {
-        "filters": ['h1', 'hyph'], "view": "entry"
+        "filters": "hyph", "view": "entry"
     },
     "/atom/index.xml": {
-        "filters": ["h2"], "view": "atom"
+        "filters": "h2", "view": "atom"
     },
     "/rss/": {
-        "filters": ["h2"], "view": "rss"
+        "filters": "h2", "view": "rss"
     },
     "/rss/planet/index.xml": {
-        "filters": ["h2"], "view": "rss",
+        "filters": "h2", "view": "rss",
         "if": lambda e: "planet" in e.tags,
     },
     "/articles/": {
         "view": "articles"
     },
     "/atom/full/index.xml": {
-        "filters": ["h2"], "view": "atom", "num_entries": 1000
+        "filters": "h2", "view": "atom", "num_entries": 1000
     },
     "/tag/:name/": {
         "filters": ['sum', 'h1', 'hyph'], "view":"tag",
@@ -52,3 +52,5 @@ DEPLOYMENT = {
     "echo": "echo %s",
     'blog': 'rsync -av --delete %s www@morloch:~/blog.posativ.org/',
 }
+
+# ACRONYMS_FILE =  "output/acronyms.txt"
