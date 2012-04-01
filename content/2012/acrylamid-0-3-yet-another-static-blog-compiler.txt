@@ -69,5 +69,5 @@ Acrylamid ist unter der revised BSD-Lizenz lizensiert und wird auf
 [3]: https://github.com/posativ/acrylamid
 [4]: http://jinja.pocoo.org/docs/api/#the-meta-api
 [5]: http://blog.posativ.org/2011/lilith-der-plan-zur-weltherrschaft/
-[6]: https://github.com/posativ/blog.posativ.org/blob/master/content/{{ entry.filename }}
+[6]: https://github.com/posativ/blog.posativ.org/blob/master/{{ entry.filename }}
 [7]: http://pelican.notmyidea.org/en/2.8/internals.html
