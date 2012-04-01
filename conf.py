@@ -9,7 +9,7 @@ AUTHOR = "posativ"
 EMAIL = "info@posativ.org"
 ENTRIES_IGNORE = ["drafts/*", "bak/*"]
 
-FILTERS = ['markdown+codehilite(css_class=highlight)+mathml', 'typo', 'h1']#'acronyms']
+FILTERS = ['markdown+codehilite(css_class=highlight)+mathml', 'typo', 'h1', 'acronyms']
 VIEWS = {
     "/": {
         "filters": ['sum', 'hyph'],
@@ -55,4 +55,4 @@ DEPLOYMENT = {
     'blog': 'rsync -av --delete %s www@morloch:~/blog.posativ.org/',
 }
 
-# ACRONYMS_FILE =  "output/acronyms.txt"
+ACRONYMS_FILE =  "output/acronyms.txt"
