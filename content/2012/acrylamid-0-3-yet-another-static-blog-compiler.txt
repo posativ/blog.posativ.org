@@ -1,0 +1,73 @@
+---
+title: Acrylamid 0.3 – yet another static blog compiler
+filter: jinja2
+date: 02.04.2012, 00:42
+tags: [Acrylamid, statische Seiten, HTML5]
+---
+
+Ich freue mich, heute *endlich* Version 0.3 meines statischen Blog-Compilers
+*"Acrylamid"* zu veröffentlichen (ehemals [lilith][1]). Einiges getan, so nutze
+ich HTML5 als Layout-Grundlage, habe eine neue [Artikel-Ansicht][2] und allerlei
+Detailverbesserungen im System selbst, ein kurzer Auszug:
+
+- full-featured Blog mit Index, Full-Entry, Artikel und Tags (WordPress halt) in
+  statische Seiten gebacken.
+- typographische Feinheiten, MathML und Silbentrennung für diverse Sprachen
+- RSS-Import, Autokompilierung bei Änderungen, Deployment
+- ein Jinja2-Filter mit dem man Jinja2 in Einträgen schreiben kann, denn I HERD
+  U LIEK JINJA2 SO I PUT A JINJA2 IN UR JINJA2 SO U CAN WRITE TEMPLATES WHILE U
+  WRITE TEMPLATES
+- Aufräumen von verwaisten Dateien im Ausgabe-Verzeichnis
+- überarbeitete API ähnlich zur [Pelican][7]-API
+- einen portierten Acronym-Filter, der automatisch DSL, WSGI und XMPP dem
+  weniger versierten Nutzer kurz erläutert
+
+Erwähnenswert ist übrigens die Ausführung von UNIX-Skripten direkt im Eintrag
+[{{ entry.filename.rsplit('/', 1)[1] }}][6]:
+
+    :::console
+    $> ls -l
+    {{ "ls -l" | system | indent(4) }}
+    $> find content | wc -l
+    {{ "find content | wc -l" | system | indent(4) }}
+    $> git log -3 --no-color --oneline
+    {{ "git log -3 --no-color --oneline" | system | indent(4) }}
+
+
+# Interna
+
+Das Wichtigste ist eigentlich das System für das Tracken von Änderungen im
+Content oder Layout auf dem Dateisystems. So müssen bei mehreren Durchläufen
+nur bestimmte Einträge neu gerendert werden, bei Layout-Änderungen kann sogar
+komplett auf den Cache zurückgegriffen werden. Dadurch reduziert sich die
+Rechenzeit von ehemals 45 Sekunden auf ungefähr eine Sekunde, wenn ich einen
+neuen Eintrag schreibe -- inklusive Änderung der Tag/RSS/Index-Ansichten.
+
+[Acrylamid][3] nutzt dafür tolle [Jinja2-Magie][4] um nur gezielt alle von den
+Änderungen am Template betroffenen Seiten neu zu rendern. Für die einzelnen
+Filter, die individuell pro Eintrag und Ansicht angewendet werden können, nutze
+ich ein komplexes System aus verzögerter Ausführung und Zurückführung auf 
+gemeinsame Filter, sodass Ansichten wie bsw. RSS ohne Silbentrennung und 
+Zusammenfassung und eine Index-Ansicht mit Silbentrennung und Zusammenfassung
+dennoch das gemeinsame Markdown-Intermediat nutzen, womit jede zusätzliche
+Ansicht ohne merkliche Erhöhung der Rechenzeit gerendert werden kann.
+
+# Weltherrschaftsplan
+
+Leider hat es mit [der Dominierung][5] noch nicht so ganz geklappt, die
+Suchfunktion ist mit dem HTML5-Layout wieder einmal unfunktional (ja ich hatte
+zwischenzeitlich eine statische Suche) und ich habe immer noch keine merkliche
+Unterstützung für Assets. Ich möchte auch testen inwiefern sich Acrylamid für
+große Blogs mit vielen hundert Einträgen eignet. Derzeit rennt er mir bei ca.
+160 Einträgen in unter einer Sekunde durch, wenn es nichts zu tun gibt.
+
+Acrylamid ist unter der revised BSD-Lizenz lizensiert und wird auf
+[GitHub][1] aktiv von mir entwickelt. Über Feedback freue ich mich!
+
+[1]: http://blog.posativ.org/2011/lilith-yet-another-blog-rewrite/
+[2]: http://blog.posativ.org/articles/
+[3]: https://github.com/posativ/acrylamid
+[4]: http://jinja.pocoo.org/docs/api/#the-meta-api
+[5]: http://blog.posativ.org/2011/lilith-der-plan-zur-weltherrschaft/
+[6]: https://github.com/posativ/blog.posativ.org/blob/master/content/{{ entry.filename }}
+[7]: http://pelican.notmyidea.org/en/2.8/internals.html

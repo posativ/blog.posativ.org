@@ -30,6 +30,7 @@ UI=User Interface
 UMTS=Universal Mobile Telecommunications System
 URI=Uniform Resource Indicator
 VM=Virtual Machine
+WSGI=Web Server Gateway Interface
 WYSIWYG=What you see is what you get
 XMPP=Extensible Messaging and Presence Protocol 
 YAML=Yet Another Markup Language

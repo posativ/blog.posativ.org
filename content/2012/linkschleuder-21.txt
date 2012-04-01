@@ -14,8 +14,8 @@ tags: [Links, Screencasts, Python]
 - [Web Change Checker](https://github.com/cmur2/wcc) – ist ein mächtiges Toolkit um sich über
   Änderung auf Webseiten per Email, XMPP oder RSS auf dem Laufenden zu halten. Überaus nützlich!
 - [PCRE](http://www.pcre.org/) – einmal pro Jahr wünsche ich mir mit `grep` multiline zu suchen
-  und ich finde heraus, dass das nicht funktioniert. Mit `pcre` soll wohl funktionieren, wenn auch
-  mit merkwürdigen CLI-Flags.
+  und ich finde heraus, dass das nicht funktioniert. Mit PCRE soll das wohl funktionieren, wenn
+  auch mit merkwürdigen CLI-Flags.
 - [AppFresh](http://metaquark.de/appfresh/mac) – ist ein ganz nettes Pendant zu
   [Secunias PSI][4] für Windows und hat mich auf manche Updates hingewiesen.
 - [Vagrant](http://vagrantup.com/?v1) – *Virtualized development made easy.* 
