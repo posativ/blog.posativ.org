@@ -9,40 +9,45 @@ AUTHOR = "posativ"
 EMAIL = "info@posativ.org"
 ENTRIES_IGNORE = ["drafts/*", "bak/*"]
 
+VIEWS_DIR = ['views/', ]
+
 FILTERS = ['markdown+codehilite(css_class=highlight)+mathml', 'typo', 'h1', 'acronyms']
 VIEWS = {
-    "/": {
-        "filters": ['sum', 'hyph'],
-        "pagination": "/page/:num",
-        "view": "index",
-        "items_per_page": 12
-    },
-    "/:year/:slug/": {
-        "filters": "hyph", "view": "entry"
-    },
-    "/atom/index.xml": {
-        "filters": "h2", "view": "atom"
-    },
-    "/rss/": {
-        "filters": "h2", "view": "rss"
-    },
-    "/rss/planet/index.xml": {
-        "filters": "h2", "view": "rss",
-        "if": lambda e: "planet" in e.tags,
-    },
-    "/articles/": {
-        "view": "articles"
-    },
-    "/atom/full/index.xml": {
-        "filters": "h2", "view": "atom", "num_entries": 1000
-    },
-    "/tag/:name/": {
-        "filters": ['sum', 'h1', 'hyph'], "view":"tag",
-        "pagination": "/tag/:name/:num", "items_per_page": 12
-    },
+
+    "/search/": {"view": "search"}
+#    "/": {
+#        "filters": ['sum', 'hyph'],
+#        "pagination": "/page/:num",
+#        "view": "index",
+#        "items_per_page": 12
+#    },
+#    "/:year/:slug/": {
+#        "filters": "hyph", "view": "entry"
+#    },
+#    "/atom/index.xml": {
+#        "filters": "h2", "view": "atom"
+#    },
+#    "/rss/": {
+#        "filters": "h2", "view": "rss"
+#    },
+#    "/rss/planet/index.xml": {
+#        "filters": "h2", "view": "rss",
+#        "if": lambda e: "planet" in e.tags,
+#    },
+#    "/articles/": {
+#        "view": "articles"
+#    },
+#    "/atom/full/index.xml": {
+#        "filters": "h2", "view": "atom", "num_entries": 1000
+#    },
+#    "/tag/:name/": {
+#        "filters": ['sum', 'h1', 'hyph'], "view":"tag",
+#        "pagination": "/tag/:name/:num", "items_per_page": 12
+#    },
 }
 
 SUMMARIZE_IDENTIFIER = 'weiterlesen'
+DEFAULT_ORPHANS = 1
 
 PERMALINK_FORMAT = "/:year/:slug/"
 DATE_FORMAT = "%d.%m.%Y, %H:%M"
