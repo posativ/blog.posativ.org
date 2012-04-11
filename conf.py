@@ -9,6 +9,8 @@ AUTHOR = "posativ"
 EMAIL = "info@posativ.org"
 ENTRIES_IGNORE = ["drafts/*", "bak/*"]
 
+FILTERS_DIR = ['filters/']
+
 FILTERS = ['markdown+codehilite(css_class=highlight)+mathml', 'typo', 'h1', 'acronyms']
 VIEWS = {
     "/": {
@@ -20,20 +22,20 @@ VIEWS = {
     "/:year/:slug/": {
         "filters": "hyph", "view": "entry"
     },
-    "/atom/index.xml": {
+    "/atom/": {
         "filters": "h2", "view": "atom"
     },
     "/rss/": {
         "filters": "h2", "view": "rss"
     },
-    "/rss/planet/index.xml": {
+    "/rss/planet/": {
         "filters": "h2", "view": "rss",
         "if": lambda e: "planet" in e.tags,
     },
     "/articles/": {
         "view": "articles"
     },
-    "/atom/full/index.xml": {
+    "/atom/full/": {
         "filters": "h2", "view": "atom", "num_entries": 1000
     },
     "/tag/:name/": {
@@ -47,8 +49,8 @@ SUMMARIZE_IDENTIFIER = 'weiterlesen'
 PERMALINK_FORMAT = "/:year/:slug/"
 DATE_FORMAT = "%d.%m.%Y, %H:%M"
 DISQUS_SHORTNAME = "posativ"
-OUTPUT_IGNORE = ["js/", "files/", "img/", "images/", "*.css", "*.txt", "*.conf",
-                 "google*", "style.sass", "favicon.ico"]
+OUTPUT_IGNORE += ["/js/", "/files/", "/img/", "*.css", "*.txt",
+                  "*.conf", "/google*", "*.sass", "favicon.ico"]
 DEPLOYMENT = {
     "ls": "ls",
     "echo": "echo %s",
