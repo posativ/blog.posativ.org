@@ -1,0 +1,52 @@
+---
+title: "Linkschleuder #22"
+date: 12.04.2012, 13:02
+tags: [JavaScript, OS X, Python, Links]
+---
+
+- [Microjs](http://microjs.com/) – Micro-Frameworks und Micro-Libraries von 
+  wenigen hundert Bytes bis drei, vier Kilobytes, die man über das 
+  Anti-Framework [Ender](http://ender.no.de/) auch einfach zusammenbasteln kann.
+- [JavaScript Patterns](http://shichuan.github.com/javascript-patterns/) – ist
+  eine recht ansehnliche Sammlung über allgemeine JS-Patterns, Design Patterns
+  JQuery und vieles mehr.
+- [GNU parallel](https://www.gnu.org/software/parallel/) – ist ein Tool für 
+  Linux (gibt auch einen BSD Port), das parallele Jobs in der Shell
+  vereinfachen soll (via [Noqqe](http://noqqe.de/blog/2012/01/08/gnu-parallel/)
+  mit vielen Beispielen dazu).
+- [Klaus](https://github.com/jonashaag/klaus) – *a simple Git web viewer that
+  Just Works™.*
+- [Cream Desktop Environment](- http://cream-project.org/) – GTK+ nach dem
+  KISS-Prinzip. Vielleicht eine Alternative zu Gnome/KDE.
+- [Curlish](http://packages.python.org/curlish/) – yet another buntes cURL.
+- [Inception](https://endno.de/~itsnotabigtruck/inception/) – für mehr Kontrolle
+  im N9 (dessen Meego Serie ja fortgesetzt wird als low-end System). Hab' das
+  Telefon nicht, aber Projektname und Seite gefällt mir sehr.
+- [Icefloor](http://www.hanynet.com/icefloor/index.html) – ein Front-End für
+  IPFW unter OS X Lion, soll aber noch nicht ganz fehlerfrei sein (via
+  [cmur2](http://mycrobase.de/)).
+- [Mediathek für Mac](http://appdrive.net/mediathek/) – die 
+  öffentlich-rechtlichen direkt am Mac streamen, frei wie Freibier.
+- [Reverend][] – ein einfacher bayesscher Filter implementiert in Python.
+- [coverage.py](http://nedbatchelder.com/code/coverage/) – ein Python-Skript, 
+  das die Code-Nutzung nach einem Durchlauf per Text oder HTML Ausgabe angibt.
+  Etwas buggy bei jinja2-Templates und allgemein fehlerbehaftet bei mir. Kann
+  ja noch werden.
+- [Konira](https://github.com/alfredodeza/konira) – ein Python Testing Framework
+  mit einer DSL! Das ist die wohl erste Python-DSL die mir je unterkommen ist
+  und sieht klasse aus ([rspec][2]-like)!
+- [LaTeX Templates](http://www.latextemplates.com/) – qualitative (englische) 
+  LaTeX-Templates für lau (via [Schockwellenreiter][3]).
+- [mobile Engeräte und freie Software][1] – eine gute Übersicht über den 
+  aktuellen Stand freier Software auf Smartphones (nein, Android ist noch immer
+  nicht *frei*) und Tablets. Sieht mau aus.
+- [How to nap](http://www.boston.com/bostonglobe/ideas/naps/) – jetzt 'mal was
+  ganz anderes: Nickerchen von ca. 20-45 Minuten sollen die Leistungsfähigkeit
+  am Abend enorm erhöhen.
+
+Ich hoffe, es ist für jeden 'was dabei.
+
+[Reverend]: https://bazaar.launchpad.net/~divmod-dev/divmod.org/trunk/files/head:/Reverend/
+[1]: http://adriank.redirectme.net/artikel/mobile-endgeraete-und-freie-software
+[2]: http://rspec.info/
+[3]: http://www.schockwellenreiter.de/blog/2012/04/11/peters-linkschleuder-107/
