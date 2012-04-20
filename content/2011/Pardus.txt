@@ -1,7 +1,7 @@
 ---
 title: Pardus – KDE as its best, aber…
 date: 18.09.2011, 17:42
-permalink: /2011/pardus-kde-as-its-best-aber
+permalink: /2011/pardus-kde-as-its-best-aber/
 tags: [KDE 4, planet]
 ---
 

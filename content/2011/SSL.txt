@@ -1,7 +1,7 @@
 ---
 title: Ab heute mit rudimentären SSL-Support
 date: 11.07.2011, 0:18
-permalink: /2011/ab-heute-mit-rudiment-ren-ssl-support
+permalink: /2011/ab-heute-mit-rudiment-ren-ssl-support/
 tags: [SSL, lighttpd]
 ---
 

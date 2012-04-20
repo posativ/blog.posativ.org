@@ -3,7 +3,7 @@ title: Eine unbegründete Abneigung gegen Apple
 
 date: 21.12.2010, 11:35
 tags: [Apple, OS X, iPhone, brew, Windows, Rant]
-permalink: /2010/eine-unbegr-ndete-abneigung-gegen-apple
+permalink: /2010/eine-unbegr-ndete-abneigung-gegen-apple/
 ---
 
 Ich bin seit kurzem stolzer Besitzer eines MacBook Pros. So mit 15-Zoll, wenig Festplattenspeicher,
