@@ -35,9 +35,9 @@ VIEWS = {
     "/articles/": {
         "view": "articles"
     },
-    "/atom/full/": {
-        "filters": "h2", "view": "atom", "num_entries": 1000
-    },
+#    "/atom/full/": {
+#        "filters": "h2", "view": "atom", "num_entries": 1000
+#    },
     "/tag/:name/": {
         "filters": ['sum', 'hyph'], "view":"tag",
         "pagination": "/tag/:name/:num", "items_per_page": 12
