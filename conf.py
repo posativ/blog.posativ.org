@@ -39,9 +39,11 @@ VIEWS = {
         "filters": "h2", "view": "atom", "num_entries": 1000
     },
     "/tag/:name/": {
-        "filters": ['sum', 'h1', 'hyph'], "view":"tag",
+        "filters": ['sum', 'hyph'], "view":"tag",
         "pagination": "/tag/:name/:num", "items_per_page": 12
     },
+
+    "/sitemap.xml": {"view": "Sitemap"}
 }
 
 SUMMARIZE_IDENTIFIER = 'weiterlesen'

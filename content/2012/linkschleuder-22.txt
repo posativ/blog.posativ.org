@@ -16,7 +16,7 @@ tags: [JavaScript, OS X, Python, Links]
   mit vielen Beispielen dazu).
 - [Klaus](https://github.com/jonashaag/klaus) – *a simple Git web viewer that
   Just Works™.*
-- [Cream Desktop Environment](- http://cream-project.org/) – GTK+ nach dem
+- [Cream Desktop Environment](http://cream-project.org/) – GTK+ nach dem
   KISS-Prinzip. Vielleicht eine Alternative zu Gnome/KDE.
 - [Curlish](http://packages.python.org/curlish/) – yet another buntes cURL.
 - [Inception](https://endno.de/~itsnotabigtruck/inception/) – für mehr Kontrolle

@@ -1,0 +1,38 @@
+---
+title: "Linkschleuder #23"
+date: 02.05.2012, 18:59
+tags: [GitHub, OS X, Links]
+---
+
+Wieder mal eine etwas umfangreicherer Auswurf zu allerlei nutzlosen bis nützlichen Projekten.
+
+# Misc
+
+- [octogit](https://github.com/myusuf3/octogit) – ein kleines Tool (mit [gigantischen Dependencies](https://github.com/myusuf3/octogit/pull/14)) für Github's Issues, das das Projekt automatisch aus dem unterliegenden Git-Repository entnimmt (und bei non-ASCII failt m).
+- [Github ❤ ~/](http://dotfiles.github.com/) – *Your unofficial guide to dotfiles on GitHub.*
+- [Nitro](http://nitrotasks.com/) – ein freies Programm für das TODO-Management.
+- [Funtoo](http://www.funtoo.org/wiki/Welcome) – wie der Name erwarten lässt, eine Art [Gentoo](http://www.gentoo.org/) nur git-based, verteilter Portage Tree und vieles mehr.
+- [t](https://github.com/sferik/t) – *t* ist Twitter für die CLI, die sich gut in die UNIX-Toolchain integriert.
+- [Snippets](http://trilandev.com/snippets/) – ist eine Art static compiler (angelehnt an [Pelican](http://pelican.notmyidea.org/)) für Code-Schnipsel, schon ganz hübsch.
+- [CasperJS](http://casperjs.org/) – ist ein Webkit/JS-Framework um Browser-Interaktionen automatisiert zu testen.
+- [Resizer](http://codebomber.com/jquery/resizer/) – *A responsive design bookmarklet* (gefunden von [sebix](http://sebix.github.com/)), alternativ gibt's auch [diesen Generator](http://www.benjaminkeen.com/misc/bricss/).
+- [Rezepte](https://github.com/plaetzchen/Rezepte) – verschiedene Kochrezepte, die mit social coding auf GitHub entstanden sind :-)
+- [Binärgewitter](http://www.radiotux.de/index.php?/categories/16-Binaergewitter) – ein Geek-Podcast und darum hörenswert!
+- [12 resulutions for programmers](http://matt.might.net/articles/programmers-resolutions/)
+
+# OS X
+
+- [Marked](http://markedapp.com/) – eine kostenpflichtige App für OS X, die einfach per [FSEvent](https://en.wikipedia.org/wiki/FSEvents) Markdown in besonders hübsch rendert. Mit eigenen Skripts kann man damit auch reStructuredText rendern.
+- [Clyppan](http://www.omh.cc/Clyppan-Clipboard-Manager-for-the-Mac/) – die Linuxer werden sich jetzt totlachen, aber um an alte Zwischenablagen zu kommen, müssen Mac-User schon 5 € investieren.
+- [TimeMachineScheduler](http://www.klieme.com/TimeMachineScheduler.html) – ist eine kostenlose Preference Pane, die z.B. das Backup-Intervall steuern kann (ist bug-lastig, wenn das Backup nicht immer angeschlossen ist!). Andernfalls hilft auch ein beherztes `sudo defaults write /System/Library/LaunchDaemons/com.apple.backupd-auto StartInterval -int 14400` um das Backup alle drei Stunden auszuführen.
+- [Disable or sleep secondary hard drive in Macbook](http://superuser.com/questions/251969/disable-or-sleep-secondary-hard-drive-in-macbook) – denn nach einem SSD-Upgrade ist es schon recht nervig, dass die zweite HDD endlos weiterläuft.
+
+# Python
+
+- [restview](http://mg.pov.lt/restview/) – ein sehr praktischer reStructuredText Viewer, leider ohne [Sphinx](http://sphinx.pocoo.org/)-Support.
+- [cram](http://pypi.python.org/pypi/cram) – BBD aka Behavior Driven development für CLI-Tools und wird unter anderem auch von [mercurial](http://mercurial.selenic.com/) genutzt.
+- [Python to Java](http://home.wlu.edu/~lambertk/pythontojava/) – weil es das Studium wieder verlangt: wieviel Boilerplate brauche ich, um ein Konstrukt von Python in Java zu schreiben. Eine sehr hilfreiche Referenz!
+- [Codetalker](https://github.com/jabapyth/codetalker) – *A succinct, pythonic parser + translator solution*
+- [microsearch](https://github.com/toastdriven/microsearch/blob/master/microsearch.py) – eine wunderbar dokumentierte Lösung für eine performante Search-Engine in Python.
+- [depgraph](http://www.tarind.com/depgraph.html) – *Generating Python Module Dependency Graphs*
+- [uWSGI](http://projects.unbit.it/uwsgi/wiki) – ein micro-[WSGI](https://en.wikipedia.org/wiki/Web_Server_Gateway_Interface) Server, der einen mit seinen CLI-Optionen regelrecht erschlägt: `wsgi --help | wc -l` ergeben 379 Zeilen. Selbst ausgereifte Tools wie `wget` oder `curl` haben nur knapp die Hälfte.
