@@ -6,13 +6,15 @@
   <title>{% block title %}{% endblock %}</title>
   <link media="all" href="{{ env.path + '/style.css' }}" rel="stylesheet" />
   <link href="/favicon.ico" rel="shortcut icon" />
+  {%- if 'sitemap' in env.views -%}
+      <link rel="sitemap" type="application/xml" title="Sitemap" href="{{ env.views.sitemap.path }}">
+  {%- endif%}
   <link href="{{ env.path + '/' }}" rel="home" />
   <link href="{{ env.path + '/atom/' }}" type="application/atom+xml" rel="alternate" title="Atom Feed" />
   <link href="{{ env.path + '/rss/' }}" type="application/rss+xml" rel="alternate" title="RSS Feed" />
-  <!--[if lt IE 9]><script src="../j/html5.js"></script><![endif]-->
-  <script type="text/javascript" src="/js/jquery-1.7.1.min.js"></script>
-  <script type="text/javascript" src="/js/jquery.bbq.min.js"></script>
-  <script type="text/javascript" src="/js/search.js"></script>
+  <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
   {%- endblock %}
 </head>
 <body>
@@ -24,13 +26,6 @@
         <li><a href="{{ env.path + '/atom/' }}">atom</a></li>
         <li><a href="{{ env.path + '/rss/' }}">rss</a></li>
         <li><a href="{{ env.path + '/articles/' }}">articles</a></li>
-        <li>
-          <div id="search">
-            <form id="search_form" method="post" action="/">
-              <input type="text" id="query" name="query" style="display: inline-block; width: 120px;" />
-            </form>
-          </div>
-        </li>
       </ul>
     </nav>
   </header>
