@@ -43,7 +43,7 @@ VIEWS = {
         "pagination": "/tag/:name/:num", "items_per_page": 12
     },
 
-    "/sitemap.xml": {"view": "Sitemap"}
+    "/sitemap.xml": {"view": "sitemap"}
 }
 
 SUMMARIZE_IDENTIFIER = 'weiterlesen'
@@ -56,7 +56,7 @@ OUTPUT_IGNORE += ["/js/", "/files/", "/img/", "*.css", "*.txt",
 DEPLOYMENT = {
     "ls": "ls",
     "echo": "echo %s",
-    'blog': 'rsync -av --delete %s www@morloch:~/blog.posativ.org/',
+    'blog': 'rsync -av --delete --exclude=".git/" %s www@morloch:~/blog.posativ.org/',
 }
 
 ACRONYMS_FILE =  "output/acronyms.txt"

