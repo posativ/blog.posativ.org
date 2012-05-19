@@ -1,7 +1,8 @@
 ---
-title: qq und die IT-Sicherheit
+title: Hack'd
 date: 18.05.2012, 20:37
 tags: Linux
+permalink: /2012/qq-und-die-it-sicherheit/
 ---
 
 Letzten Mittwoch bekam ich während einer Vorlesung 'ne Mail, dass das
