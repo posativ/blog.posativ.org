@@ -1,0 +1,39 @@
+---
+title: "Linkschleuder #24"
+date: 31.05.2012, 22:11
+tags: [Links, Python, Git]
+---
+
+- [The Hitchhiker’s Guide to  Python!][0] – etwas hübscher
+  und realitätsbezogener.
+- [Pinry][1] – ist ein privates Flickr in Django geschrieben und sieht echt
+  gut aus.
+- [ack][2] – *better than grep*
+- [lolcommits][3] – je Git Commit ein Foto mit der Webcam. Geil!
+- [Plumbum][4] – die Shell in Python, aber diesmal richtig™. Ein [pbs][5]++.
+- [0bin][6] – client-seitig verschlüsselter Pastebin. Vielleicht eine
+  Alternative zum kürzlich geschlossenen `paste.pocoo.org`.
+- [Celery][7] – weiß gar nicht, warum ich das aufgeschrieben hatte. Aber
+  *Distributed Task Queue* in Python ist immer nützlich. Supported neben Fork
+  auch Eventlets.
+- [ansi2html][8] – bunte Bash nach HTML, [bei mir][9] sogar inline.
+- [formd][10] – Verwandelt Markdown inline link style in reference style.
+  Gehört nach `/usr/local/bin/formd`.
+- [git-annex][11] – ein verteiltes Git für seine Daten ohne das Git überläuft.
+  Funktioniert für Nomaden wie für Archivisten und unterstützt auch S3 (+
+  encryption) und [bup][12]. Hätte ich keine Time-Machine, wäre das mein Tool
+  der Wahl.
+
+[0]: http://docs.python-guide.org/en/latest/index.html
+[1]: https://github.com/overshard/pinry
+[2]: http://betterthangrep.com/
+[3]: https://github.com/mroth/lolcommits
+[4]: http://plumbum.readthedocs.org/en/latest/
+[5]: https://github.com/amoffat/pbs
+[6]: https://github.com/sametmax/0bin
+[7]: http://celeryproject.org/
+[8]: https://github.com/ralphbean/ansi2html/
+[9]: https://github.com/posativ/ansi2html
+[10]: https://github.com/drbunsen/formd
+[11]: http://git-annex.branchable.com/
+[12]: https://github.com/apenwarr/bup

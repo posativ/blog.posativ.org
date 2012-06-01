@@ -31,7 +31,7 @@ Ende Februar.
 Ein besonderes Highlight hatten wir durch [Couch
 Surfing](http://www.couchsurfing.org/): wir konnten im Studentenwerk schlafen.
 Wer jetzt an geräumige Zimmer mit viel Komfort denkt, liegt falsch. Die
-heruntergekommen Bauten sind videoüberwacht und man darf nur als eignetragener
+heruntergekommen Bauten sind videoüberwacht und man darf nur als eingetragener
 Student überhaupt in das Haus hinein. Es teilen sich drei Menschen ein Zimmer,
 40 Menschen drei Toiletten und keiner macht sauber. Internetversorgung ist DIY,
 wer sich nicht mit 40 Leuten eine 56k-Verbindung teilen will, holt sich Internet
@@ -49,4 +49,4 @@ zum ermäßigten Tarif rein.
 {{ gallery("natur_*.JPG") }}
 
 Nach drei Tagen ging es mit der Eisenbahn über zwei Tage Richtung
-Jekaterinburg... *to be continued*.
+Yekaterinburg... *to be continued*.
