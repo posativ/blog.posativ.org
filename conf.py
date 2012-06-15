@@ -47,6 +47,7 @@ VIEWS = {
 }
 
 SUMMARIZE_IDENTIFIER = 'weiterlesen'
+TYPOGRAPHY_MODE = "a"
 
 PERMALINK_FORMAT = "/:year/:slug/"
 DATE_FORMAT = "%d.%m.%Y, %H:%M"

@@ -1,0 +1,97 @@
+---
+title: About Python Packages
+date: 15.06.2012, 14:28
+lang: en
+---
+
+<style>
+  p {
+    text-indent: 1em;
+  }
+</style>
+
+Recently I discovered [octogit][], a shiny tiny CLI application that just
+shows issues from [GitHub][] (uhm yes, it could also create an initial
+repository from terminal). No, it was not that tiny. It required about ten
+dependencies (which also required a few dependencies by their own) just to
+retrieve issues from GitHub. The best thing: most packages octogit depended on
+were [never actually used][] by the application itself but explicitly
+installed. Is this how we program today?
+
+This strongly reminds me of installing something with `apt-get` without
+*–no-install-recommends*. But in Python unfortunately we don’t have optional
+dependencies. Also that does not save us from developers that just pipe `pip
+freeze` into *setup.py* and release it on [PyPi][]. While it is common in the
+Linux world to rely on external libraries, on Windows or OS X most users
+expect a single executable that just works.
+
+The good part of python is its <del>bloated</del> huge standard library, the
+bad part is the complicated usage to achieve simple tasks such as retrieving
+URLs. Instead of writing `requests.get('http://foo.bar/')` it's a little [more
+complicated](https://gist.github.com/973705#gistcomment-56382). To do HTTP in
+python everyone recommends Kenneth Reitz' [requests][] although you don't need
+most of it features. Many developers are just too lazy to write highly
+complicated code to achieve a simple HTTP GET. So why not require a
+dependency, that can handle different authentication schemes including OAuth
+does parallel requests and SSL validation, too? That's what [requests][] is
+also capable of. In octogit there have been originally three python wrapper
+(no joke) around Git, one of them just to write `octogit status` instead `git
+status`. SRSLY?
+
+Exceptions. Everyone loves exceptions, especially in python. But there are
+packages, that don't provide exceptions such as [reStructuredText][] from
+`docutils`. They never raise an exception if your markup is wrong. So instead
+of raising an exception or fail silently, `docutils` will print this error
+bold into your document. Is that expected behavior? GitHub's parser may not be
+that powerful, but if it doesn't know a role or directive, it still shows no
+error in the final result. That's called user experience.
+
+# Conclusion
+
+So what do I expect from a package I `easy_install`? Note, there's no
+`easy_uninstall` or even a dependency-tracking uninstall system.
+
+- **avoid unnecessary dependencies**, take a look at *the* micro framework in
+  the python world: [Flask](http://flask.pocoo.org/). It relies on
+  [Jinja2](http://jinja.pocoo.org/docs/) and
+  [Werkzeug](http://werkzeug.pocoo.org/). Less than it's [counterpart][]!
+- **use built-in modules**, in recent versions of Python `simplejson` is
+  available as `import json` so there is absolutely no need to put this
+  hard-coded into your dependency list. Check whether the python version has
+  actually no support for `json` and then install it explicitly.
+- **focus on core functionality**, if you provide a framework such as
+  [requests][]. Don't include asynchronously requests as a core feature.
+  Instead Write your code so the developer can easily parallelize. It's still
+  a framework.
+- **provide useful exceptions**, if you develop a framework or library, the
+  raise it to application level or provide *useful* fall backs.
+
+In case of [octogit][] instead of three wrapper around Git there's the
+[dulwich](https://www.samba.org/~jelmer/dulwich/) project providing a Git in
+pure python without any further dependency. But even this dependency is not
+actually a core feature, so I removed it too.
+
+Within [Acrylamid](http://posativ.org/acrylamid/) I currently support seven
+additional eggs that are not automatically installed. Instead of `colorama` I
+did some research and found [ANSI escape code][] on Wikipedia, so there's no
+need for `colorama`. Instead of a full-blown YAML parser and writer (I only
+needed the first) I have my own parser, that can handle most simple cases. If
+that fails, the user can still `easy_install pyyaml`.
+
+While most developers know [virtualenv][] or similar tools, but why do we have
+`easy_install`? We are lucky not to have Ruby conditions where you can only
+install a package in it's own little [rvm][]. Within Python, we don't need
+that overhead. Although there is actually kinda `easy_uninstall` via
+<code>[eggdep][] PACKAGE | xargs pip uninstall -y</code>.
+
+[octogit]: http://myusuf3.github.com/octogit/
+[GitHub]: https://github.com/
+[never actually used]: https://github.com/JustinAzoff/octogit/commit/2b7de8637ed110d62e2531b0f2f7a9d719034bf3
+[PyPi]: http://pypi.python.org/
+[requests]: http://docs.python-requests.org/en/latest/index.html
+[counterpart]: https://github.com/kennethreitz/requests/blob/develop/setup.py
+[reStructuredText]: https://en.wikipedia.org/wiki/ReStructuredText
+[virtualenv]: http://pypi.python.org/pypi/virtualenv
+[ANSI escape code]: https://en.wikipedia.org/wiki/ANSI_escape_code
+[rvm]: https://rvm.io/
+[eggdep]: http://pypi.python.org/pypi/tl.eggdeps

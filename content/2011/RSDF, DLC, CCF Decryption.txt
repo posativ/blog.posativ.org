@@ -91,7 +91,7 @@ merkwürdig konzipiert. Hier ein DLC (stark gekürzt):
     
 Und zwar sind dort zwei base64-kodierte Strings drin, die dann auch im
 Algorithmus gesplittet werden müssen. Die Nutzdaten sind der erste Teil
-$$len(dlc)-88$$ und der *dlckey* ist logischerweise der Rest ab Position 88.
+`len(dlc) - 88` und der *dlckey* ist logischerweise der Rest ab Position 88.
 Dieser wird an eine <del>obfuscatedte</del> Adresse geschickt:
 
     :::bash
