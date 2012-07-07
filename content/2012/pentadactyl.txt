@@ -1,0 +1,41 @@
+---
+title: Pentadactyl
+filter: Jinja2
+date: 07.07.2012, 23:32
+summarize.maxwords: 30
+tags: Firefox
+---
+
+[Pentadactyl](http://5digits.org/pentadactyl/), so heißt mein Browser seit ein
+paar Wochen, ein weiteres meiner nun drei essentiellen Addons (die anderen
+heißen [HTTPS Everywhere](https://www.eff.org/https-everywhere/) sowie
+[Request Policy](https://www.requestpolicy.com/)) und gibt mir VI-bindings im Firefox.
+Wofür man das braucht? Für verdammt schnelles Browsen ...
+
+<img alt="Screenshot von Pentadactyl mit Follow Link"
+src="/img/2012/pentadactyl.png" style="box-shadow: 0px 0px 0px black; margin: 0;" />
+
+... und nach einer kurzen Eingewöhnungszeit und lesen der Dokumentation  unter
+`:help` (Strg+T und Strg+L gibt es nicht mehr, auch keine Adresszeile) geht
+das so locker von der Hand, dass man es nicht mehr missen möchte. Manchmal ist
+man aber so schnell, dass das Addon übelste Last erzeugt und der Firefox
+nahezu unbedienbar wird – gerade mit der aktuellen 13er Version – und das
+Addon wird leider eher mäßig aktualisiert (ich nutze  die [Nightly
+Builds](http://5digits.org/nightly/pentadactyl-latest.xpi)).
+
+Ein paar Anpassungen habe ich dennoch in meiner *~/.pentadactyl.rc*:
+
+{{ "cat ~/.pentadactylrc" | system | indent(4, True) }}
+
+Die History zurück- und vorblättern möchte ich ohne Shift (bin faul), wenn ich
+etwas eintippe, dann auch bitte mit `i` direkt ins erste Textfeld. Für
+etwas mehr `vi`-Feeling noch die Farbe für gefundene Elemente (suchen geht
+logischerweise per `/`) auf `vi`-gelb und ich bin glücklich.
+
+Der Nachteil ist aber eine gewisse Abhängigkeit zu dem Addon und immer wenn
+ich durch `h264` gezwungen mit Safari unterwegs bin, kommt mir die Steuerung
+mit <del>Maus</del> Gesten und Klicks unglaublich umständlich vor.
+
+Zugegeben, `vi` in der Konsole habe ich dennoch nicht wirklich drauf. Da nutze ich
+lieber [Sublime Text 2](http://www.sublimetext.com/2) (natürlich ohne
+*Vi*ntage ;-), aber Vi im Browser ist toll, denn da geht es ja nicht um Text!1
