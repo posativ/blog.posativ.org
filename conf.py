@@ -56,8 +56,8 @@ OUTPUT_IGNORE += ["/js/", "/files/", "/img/", "*.css", "*.txt",
                   "*.conf", "/google*", "*.sass", "favicon.ico"]
 DEPLOYMENT = {
     "ls": "ls",
-    "echo": "echo %s",
-    'blog': 'rsync -av --delete --exclude=".git/" %s www@morloch:~/blog.posativ.org/',
+    "echo": "echo $OUTPUT_DIR",
+    'blog': 'rsync -av --delete --exclude=".git/" $OUTPUT_DIR www@morloch:~/blog.posativ.org/',
 }
 
 ACRONYMS_FILE =  "output/acronyms.txt"

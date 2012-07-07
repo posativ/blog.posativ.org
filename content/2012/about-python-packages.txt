@@ -2,10 +2,11 @@
 title: About Python Packages
 date: 15.06.2012, 14:28
 lang: en
+tags: [Python, Acrylamid]
 ---
 
-<style>
-  p {
+<style scoped>
+  article > p {
     text-indent: 1em;
   }
 </style>

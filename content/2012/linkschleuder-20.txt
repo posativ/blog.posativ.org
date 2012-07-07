@@ -34,7 +34,7 @@ Und hier die Fortsetzung der [19](/2012/linkschleuder-19/), alles was ungleich O
 # Linux/Unix-Zeug
 
 - [Linux. Das umfassende Handbuch](http://openbook.galileocomputing.de/linux/) – ein weiteres
-  \<openbook\> von Galileo Computing in der neusten Auflage (via [Schockwellenreiter][6]).
+  <openbook\> von Galileo Computing in der neusten Auflage (via [Schockwellenreiter][6]).
 - [Suicide-Linux](http://sourceforge.net/projects/suicide-linux/) – *Encourages users not to
   misspell commands*, (die User Reviews sind auch sehr gut ;-)
 - [bashmarks](http://www.huyng.com/bashmarks-directory-bookmarks-for-the-shell/) – *directory
