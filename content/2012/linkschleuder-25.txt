@@ -1,0 +1,29 @@
+---
+title: "Linkschleuder #25"
+date: 16.06.2012, 16:05
+tags: [Links, Shell, planet]
+summarize.maxwords: 95
+---
+
+- [fish](http://ridiculousfish.com/shell/) – eine bunte, schnelle Shell, die
+  autocompletion, manpages on-the-fly und autosuggesstion anbietet. Vielleicht
+  eine Alternative zur lahmen [zsh](http://www.zsh.org/).
+- [Generic Colouriser](http://korpus.juls.savba.sk/~garabik/software/grc.html) –
+  denn Syntax-Highlighting in `less` ist nicht genug! Mit GRC werden sogar
+  `ping`, `syslog` und Konsorten bunt!1
+- [diskutil completion](https://bitbucket.org/ptone/diskutil_completion/src) –
+  für das äh <del>Appl</del> Darwin (!) Betriebssystem.
+- [Sage](http://www.sagemath.org/) – Matlab/Maple in OSS und Python,
+  malprobiern (via [Schockwellenreiter](http://www.schockwellenreiter.de/blog/2012/06/08/sage-update/)).
+- [Twostroke](https://github.com/charliesome/twostroke) – ist eine JavaScript
+  Implementierung in Ruby, die von [JSOS](https://github.com/charliesome/jsos)
+  – einem in JavaScript geschriebenen OS – als Interpreter genutzt wird.
+  Noch Fragen?
+- [re2](https://code.google.com/p/re2/) – eine regular expression engine mit
+  Automatentheorie im Hintergrund. Soll ziemlich abgehen und jeder weiß, *wie*
+  langsam [PCRE](http://www.pcre.org/) ist.
+- [SymbolHound](http://www.symbolhound.com/) – ist eine Search Engine, die auch
+  mit Sonderzeichen umgehen kann und auf Quelltexte spezialisiert ist.
+- And now for something complete different:
+  [Sushi selbst machen](http://www.indigoville.de/sushi/sushi.html), ist ganz
+  leicht und schmeckt verdammt lecker.
