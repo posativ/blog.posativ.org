@@ -1,0 +1,17 @@
+---
+title: Yo Dawg
+date: 05.08.2012, 01:59
+filter: jinja2
+summarize.maxwords: 23
+---
+
+I HERD U LIEK HTML SO I CONVERTED A PICTURE TO ANSI ESCAPE CODES AND BACK TO
+HTML SO U SEE FIREFOX SUCKS AT HTML.
+
+<pre>
+{{ "python -m fabulous.image output/img/2012/puke.jpg | ansi2html --inline" |
+system | replace('#d2d2d2', '#FFF') }}
+</pre>
+
+PS: dieser Beitrag enthält Farbe und sollte im Browser betrachtet werden. [Hier
+das Original](/img/2012/puke.jpg).
