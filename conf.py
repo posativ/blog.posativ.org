@@ -7,7 +7,7 @@ WWW_ROOT = "http://blog.posativ.org/"
 
 AUTHOR = "posativ"
 EMAIL = "info@posativ.org"
-ENTRIES_IGNORE = ["drafts/*", "bak/*"]
+ENTRIES_IGNORE = CONTENT_IGNORE = ["drafts/*", "bak/*"]
 
 FILTERS_DIR = ['filters/']
 

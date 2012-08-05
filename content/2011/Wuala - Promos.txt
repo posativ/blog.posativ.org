@@ -12,6 +12,7 @@ das *NoScript*-Nutzer allerdings vielfach erlauben müssen (Disqus_).
 Funktionierende Promotioncodes:
 -------------------------------
 
+* CONNECT-WITH-SUPPORT : 1 GB
 * 1000-answers : 1 GB (9. Mai '12)
 * WORLD_BACKUP_DAY : 1 GB (März '12)
 * I-LOVE-POLAND : 1 GB
@@ -22,7 +23,6 @@ Vergangene Promotioncodes:
 --------------------------
 
 * I-KNOW-ANDY : 1 GB
-* CONNECT-WITH-SUPPORT : 1 GB
 * I-KNOW-DOMINIK : 1 GB
 * I-KNOW-CAROLA : 1 GB
 * I-KNOW-FABIUS : 1 GB

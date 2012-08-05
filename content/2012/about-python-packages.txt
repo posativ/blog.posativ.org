@@ -5,12 +5,6 @@ lang: en
 tags: [Python, Acrylamid]
 ---
 
-<style scoped>
-  article > p {
-    text-indent: 1em;
-  }
-</style>
-
 Recently I discovered [octogit][], a shiny tiny CLI application that just
 shows issues from [GitHub][] (uhm yes, it could also create an initial
 repository from terminal). No, it was not that tiny. It required about ten

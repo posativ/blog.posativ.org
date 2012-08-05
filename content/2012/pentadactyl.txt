@@ -3,7 +3,7 @@ title: Pentadactyl
 filter: Jinja2
 date: 07.07.2012, 23:32
 summarize.maxwords: 30
-tags: Firefox
+tags: [Firefox, planet]
 ---
 
 [Pentadactyl](http://5digits.org/pentadactyl/), so heißt mein Browser seit ein
