@@ -25,7 +25,7 @@ Builds](http://5digits.org/nightly/pentadactyl-latest.xpi)).
 
 Ein paar Anpassungen habe ich dennoch in meiner *~/.pentadactyl.rc*:
 
-{{ "cat ~/.pentadactylrc" | system | indent(4, True) }}
+{{ "cat ~/.pentadactylrc | grep -v qmark" | system | indent(4, True) }}
 
 Die History zurück- und vorblättern möchte ich ohne Shift (bin faul), wenn ich
 etwas eintippe, dann auch bitte mit `i` direkt ins erste Textfeld. Für

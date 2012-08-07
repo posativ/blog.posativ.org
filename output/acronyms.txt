@@ -30,6 +30,7 @@ ORM=Object-Relational Mapping
 OSI=Open Source Initiative; Open Systems Interconnection
 OSS=Open Source Software
 QEMU=Quick EMUlator
+SIP=Session Initiation Protocol (Voice over Internet Protocol)
 SMTP=Simple Mail Transfer Protocol
 SPOF=Single Point of Failure
 SQL=Structured Query Language

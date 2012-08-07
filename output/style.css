@@ -89,6 +89,8 @@ body > article {
     list-style-type: disc; }
   body > article li {
     padding-top: 3px; }
+  body > article ol li:first-child {
+    padding-top: 0; }
   body > article pre, body > article code {
     font-family: "Bitstream Vera Sans Mono", monospace;
     font-size: 13px; }
@@ -105,6 +107,12 @@ body > article {
     max-width: 700px;
     margin: 0em 20px;
     box-shadow: 0px 0px 4px black; }
+  body > article sup {
+    vertical-align: 0.6em;
+    margin-left: 1px;
+    line-height: 0;
+    font-size: 0.7em;
+    margin-top: -10px; }
   body > article .amp {
     color: #666666;
     font-family: "Warnock Pro", "Goudy Old Style", "Palatino", "Book Antiqua", serif;
@@ -119,6 +127,13 @@ body > article {
     margin-top: 10px;
     background: none repeat scroll 0 0 #f0f0f0;
     overflow: auto; }
+  body > article hr {
+    border: 0;
+    height: 1px;
+    background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+    background-image: -moz-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+    background-image: -ms-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+    background-image: -o-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0)); }
   body > article > footer p {
     margin: 0 0 0 0;
     font-style: italic; }
