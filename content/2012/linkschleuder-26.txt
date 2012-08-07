@@ -1,0 +1,48 @@
+---
+title: "Linkschleuder #26"
+date: 05.08.2012, 13:56
+filter: [jinja2, Markdown+footnotes]
+tags: [Links, planet]
+---
+
+- [Darüber lacht Fefe][1] – eine nette Analyse von [Fefes Blog][2].
+- [Brackets][4] – ist ein noch in der Entwicklung befindlicher Open Source
+  Editor auf Basis von JavaScript und HTML für JavaScript und HTML von
+  Adobe für OS X[^1] und Windows.
+- [Markdoc][5] – ist ein leichtgewichtiges Wiki-System auf Markdown Basis.
+  Müsste ich mir mal näher anschauen.
+- [rbenv][6] – eine hoffentlich bessere Alternative zu [rvm][7].
+- [cputhrottle][8] – für Systeme, die ihre CPU nicht manuell drosseln können
+  (also halt OS X) und trotzdem geräuschlos Minecraft in der Vorlesung zocken
+  wollen.
+- [Backing up your Twitter account][9] – das läuft auch reibungslos. Empfehlenswert.
+- [99Lime][10] – denn [Twitter Bootstrap][11] ist zu sehr am Mainstream!1
+- [Weasy Print][12] – macht aus HTML/CSS ein PDF und das ohne Webkit oder Gecko.
+- [jitsi][13] – eine open source Alternative zu Skype (unterstützt SIP und XMPP).
+- [Lyvi][14] – ist ein Lyrics-Betrachter für die Kommandozeile und funktioniert
+  beispielsweise mit [cmus][15]
+
+Zum Schluss noch das Tool des Monats – [Fabuluos][16] – das sich in Verbindung
+mit [ansi2html][17] prima für den [vorherigen Beitrag][18] eignete ;-)
+
+[^1]: Da sie die [Builds](https://github.com/adobe/brackets/downloads) unter
+      OS X etwas verbockt haben, vorher `chmod +x Brackets.app/Contents/MacOS/Brackets`.
+
+[1]: http://www.security-informatics.de/blog/?p=956
+[2]: http://blog.fefe.de/
+[3]: http://gtdfh.branchable.com/
+[4]: http://brackets.io/
+[5]: http://markdoc.org/
+[6]: https://github.com/sstephenson/rbenv
+[7]: http://rvm.io
+[8]: http://www.willnolan.com/cputhrottle/cputhrottle.html
+[9]: http://blog.jphpsf.com/2012/05/07/backing-up-your-twitter-account-with-t/
+[10]: http://www.99lime.com/
+[11]: http://twitter.github.com/bootstrap/
+[12]: http://weasyprint.org/
+[13]: https://jitsi.org/index.php
+[14]: http://ok100.github.com/lyvi/
+[15]: http://blog.posativ.org/2011/cmus-c-music-player/
+[16]: http://lobstertech.com/fabulous.html
+[17]: https://github.com/ralphbean/ansi2html
+[18]: {{ env.prev }}
