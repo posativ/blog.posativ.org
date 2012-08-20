@@ -1,0 +1,16 @@
+---
+title: Wikiseiten (alphabetisch sortiert)
+filter: [Mako, Markdown]
+type: page
+permalink: /wiki/
+---
+
+<%
+    pages = (e for e in env.globals.pages
+      if e.filename.startswith("content/wiki/"))
+    pages = (e for e in pages if e.filename != entry.filename)
+%>
+
+% for page in sorted(pages, key=lambda k: k.title):
+- [${page.title}](${page.permalink})
+% endfor

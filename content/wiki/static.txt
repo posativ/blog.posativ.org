@@ -1,0 +1,7 @@
+---
+title: Static Site Compiler
+type: page
+---
+
+- [Liquid Luck](https://github.com/lepture/liquidluck)
+- [wp-md](https://github.com/quodlibetor/wp-md) – convert WordPress to Pelican, mynt and nikola.

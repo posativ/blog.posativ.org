@@ -1,0 +1,8 @@
+---
+title: Phones
+type: page
+---
+
+# Android
+
+- [F-Droid](http://f-droid.org/) – Android FOSS repository (much better with `root`).
