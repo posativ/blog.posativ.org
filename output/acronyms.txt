@@ -1,4 +1,5 @@
 AES=Advanced Encryption Standard 
+ASLR=Address Space Layout Randomization
 API=Application programming interface
 ASCII=American Standard Code for Information Interchange
 AUR=Arch Linux User-community Repository

@@ -101,8 +101,8 @@ from an earlier version of acrylamid (doing nothing):
 
 With some optimization acrylamid 0.2.1 is now about 4 times faster (685ms
 versus 140ms), just by lazy evaluate hyphenation patterns and docutils import.
-You can also pass ncalls, tottime, percall and so on instead of cumtime,
-see python's [profile][5] for all sort keys.
+You can also pass ncalls, time, percall and so on instead of cumtime,
+see python's [profile][5] for all sortable keys.
 
     :::text
     $> acrylamid --version

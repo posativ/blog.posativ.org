@@ -54,7 +54,7 @@ bekommen - ich hab immerhin via Paypal bezahlt: 2,99 € x 3 Monate (daher ohne 
 384 MB RAM sind in meinen Augen sowas von ausreichend: auf meinem SheevaPlug mit 512 MB RAM läuft
 ein ressourcenhungriger Musikstreamingserver [Subsonic](http://www.subsonic.org/), ein
 [TwonkyMedia server](http://www.twonkymedia.com/), 2x Wuala und [rtorrent](http://libtorrent.rakshasa.no/)
-samt [Webinterface](http://www.wtorrent-project.org/trac/) über [lighttpd][].
+samt [Webinterface](http://www.wtorrent-project.org/) über [lighttpd][].
 Belegt sind da im Schnitt 160 MB RAM, desweiteren wird mein simples Blog nicht mal annähernd
 an diese Grenze kommen.
 

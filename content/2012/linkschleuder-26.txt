@@ -20,7 +20,7 @@ tags: [Links, planet]
 - [Weasy Print][12] – macht aus HTML/CSS ein PDF und das ohne Webkit oder Gecko.
 - [jitsi][13] – eine open source Alternative zu Skype (unterstützt SIP und XMPP).
 - [Lyvi][14] – ist ein Lyrics-Betrachter für die Kommandozeile und funktioniert
-  beispielsweise mit [cmus][15]
+  beispielsweise mit [cmus][15].
 
 Zum Schluss noch das Tool des Monats – [Fabuluos][16] – das sich in Verbindung
 mit [ansi2html][17] prima für den [vorherigen Beitrag][18] eignete ;-)
