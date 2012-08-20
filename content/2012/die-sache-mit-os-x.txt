@@ -1,0 +1,68 @@
+---
+title: Die Sache mit OS X …
+date: 09.08.2012, 21:02
+filter: Markdown+footnotes
+tags: [Apple, OS X, Rant]
+---
+
+… hat einen Haken. Oder zwei. Eigentlich mehrere dutzend. Nachdem mehr oder
+weniger unfreiwilligem, aber geglückten Update auf [Mountain Lion][1], ist
+wieder klar geworden, dass Apple bei seinen Nuller-Releases immer die
+Nutzergemeinde in den [öffentlichen Betatest][2] einbezieht. Aber das ist der
+Preis für über 200[^1] (!1) [neue Features][3]. Abzüglich der 197 Features für
+die iCloud bleiben aber nur noch drei reale Features übrig – und nein, dass mit
+den Gesten für Vor- und Zurückgehen im Lexikon gehört nicht dazu.
+
+- Adressbuch muss explizit bei Zugriff freigegeben werden. Erst dadurch erfährt
+  man, dass bsw. Google Chrome Zugriff auf mein Adressbuch haben will. SRSLY?
+- einheitliche Mitteilungszentrale, die Growl wunderbar ersetzt (mit [HISS][4])
+
+Ups, waren doch nur zwei nützliche Features. Immerhin war die Auswahl groß.
+Solche Späße wie ASLR oder verlorene Features vom Vorvorgänger (Audio und
+Helligkeit in Viertel-Schritten regulieren) wieder einarbeiten, halte ich für
+selbstverständlich.
+
+Kommen wir aber zu ein paar Haken, die eher unbekannt sind:
+
+- der Vorvorgänger – [10.6 aka Snow Leopard][5] – hat keinen offiziellen Support
+  mehr und sein letztes Update kurz nach dem Release von [10.7 aka Lion][6]
+  bekommen. Ist das Upgrade somit „freiwillig”? Eher weniger.
+- die Sache mit der Sicherheit wird nicht besser. Apples iCloud-Wahn lässt so
+  [manche Hintertür offen][7]. Manchmal auch in [epischen Ausmaßen][8].
+- eine Datei unter neuem Namen zu speichern (aka Speichern unter) kann schonmal
+  die [Ausgangsdatei überschreiben][9]. Halt die BESTEN der BESTEN, SIR.
+- der Kernel ist IMMER NOCH EIN STÜCK SCHEISSE!
+- das [HFS+][10] – das Standard-Dateisystem für das OS X – hat ein [paar
+  kleinere Probleme][11]. Nichts ernsthaftes. Hat halt nur Hardlink-Support
+  dazugepatcht bekommen und die werden alle in einem versteckten Ordner unter
+  der Wurzel gespeichert. Aber das nutzt ja niemand. Ne, warte. Wie
+  funktionierte die Time Machine doch gleich? Mit mehreren hunderttausend
+  Hardlinks. In einem Ordner. Solange das nicht das Volumen einer Floppy-Disk
+  überschreitet, sollte es da aber keine Probleme geben.
+
+Aber ein alternatives Dateisystem wie das epische [ZFS][12] hat Apple verworfen,
+unklar warum. Auch der Kernel tut sich schwer, einmal gefassten RAM wieder
+freizugeben oder zwischen inaktiven und aktiven Programmen zu unterscheiden. So
+wird schonmal der aktive Browser in den Swap geschoben.
+
+Aber das wichtigste bei OS X ist ja, dass auch wenn sich irgendwas aufgehangen
+hat (vorzugsweise Safari), der Desktop trotzdem butterweich animiert ist. Zwar
+ist ein *Hard Reset* nötig um *wirklich* weiterzuarbeiten, aber der [erste
+Eindruck ist stimmig][13]. Da weiß man, was man hat.
+
+[^1]: nicht einmal das stimmt. Die Facebook-Integration ist (glücklicherweise)
+noch nicht vorhanden, somit sind es nur 195 „neue” Features m)
+
+[1]: https://en.wikipedia.org/wiki/OS_X_Mountain_Lion
+[2]: http://www.heise.de/mac-and-i/meldung/Mountain-Lion-MacBook-Nutzer-klagen-ueber-kuerzere-Akkulaufzeiten-1660232.html
+[3]: https://www.apple.com/de/osx/whats-new/features.html
+[4]: http://collect3.com.au/hiss/
+[5]: https://en.wikipedia.org/wiki/Mac_OS_X_Snow_Leopard
+[6]: https://en.wikipedia.org/wiki/Mac_OS_X_Lion
+[7]: http://mjtsai.com/blog/2012/08/07/filevault-2s-apple-id-backdoor/
+[8]: http://www.emptyage.com/post/28679875595/yes-i-was-hacked-hard
+[9]: http://macperformanceguide.com/MountainLion-SaveAs-data-destruction.html
+[10]: https://en.wikipedia.org/wiki/HFS%2B
+[11]: http://arstechnica.com/apple/2011/07/mac-os-x-10-7/12/#hfs-problems
+[12]: https://en.wikipedia.org/wiki/ZFS
+[13]: http://www.deimeke.net/dirk/blog/index.php?/archives/3077-Baby-Duck-Syndrom-....html
