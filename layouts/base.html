@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ conf.lang }}">
+<html lang="{% if entry is defined %}{{ entry.lang }}{% else %}{{ conf.lang }}{% endif %}">
 <head>
   {% block head -%}
   <meta charset="utf-8" />
