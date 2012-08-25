@@ -6,3 +6,10 @@ type: page
 # Android
 
 - [F-Droid](http://f-droid.org/) – Android FOSS repository (much better with `root`).
+- [CUSTOM Cyanogen Froyo General FAQ](http://forum.xda-developers.com/showthread.php?t=1066824)
+
+## Sony Xperia Mini Pro
+
+- [Guides, Tutorials, FAQs, Accessories](http://forum.xda-developers.com/showthread.php?t=944555)
+- [HYBROM](http://forum.xda-developers.com/showthread.php?t=1373435)
+- Summary for X10 Mini & Pro: http://forum.xda-developers.com/showthread.php?t=840356

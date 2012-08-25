@@ -44,6 +44,7 @@ unrelated
 - [inflect](http://pypi.python.org/pypi/inflect) – *Correctly generate plurals, singular nouns, ordinals, indefinite articles; convert numbers to words*
 - [grin](http://pypi.python.org/pypi/grin) – *A grep program configured the way I like it.*
 - [colors.py](https://github.com/mattrobenolt/colors.py) – *Convert colors between rgb, hsv, and hex, perform arithmetic, blend modes, and generate random colors within boundaries*
+- [blinker](http://pypi.python.org/pypi/blinker) – *Fast, simple object-to-object and broadcast signaling*
 
 2to3 transition
 ---------------
