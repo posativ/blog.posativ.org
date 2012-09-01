@@ -3,7 +3,7 @@ title: Regenwolken – hosting CloudApp on your own server
 date: 28.08.2011, 14:14
 lang: en
 tags: [CloudApp, Python, regenwolken]
-encoding: latin-1
+encoding: utf-8
 ---
 
 [<img src="/img/2011/freedombox.jpg" alt="Freedombox Logo by El Bazza"
@@ -41,11 +41,11 @@ Regenwolken can run either as stand-alone HTTP-server on port 80 or on as unpriv
 and using some `mod_proxy`-magic. Unfortunately it requires access to /etc/hosts
 to redirect *my.cl.ly* to your own server address. This will not break any
 “official” CloudApp links (*cl.ly*) and is only required for the upload itself.
-Other people get a normal, non-/etc/hosts hacked, [working link][12].
+Other people get a normal, non-/etc/hosts hacked, ~~[working link][12]~~.
 
 Regenwolken is licensed under BSD, two-clause and can be found on
 [GitHub][7]. Check [README.md][8] and [Issues][9] as well. Don't expect
-a full featured server API yet, it's currently [0.1-alpha][11].
+a full featured server API yet, it's currently ~~[0.1-alpha][11]~~[0.5][13].
 
 [1]: http://getcloudapp.com/
 [2]: http://itunes.apple.com/us/app/cloud/id417602904?mt=12&ls=1
@@ -59,3 +59,4 @@ a full featured server API yet, it's currently [0.1-alpha][11].
 [10]: https://secure.wikimedia.org/wikipedia/en/wiki/HTTP_digest_authentication
 [11]: https://github.com/posativ/regenwolken/tree/0.1-alpha
 [12]: http://l.khaos.at/items/4e5a2672f6966c4f31000008
+[13]: https://github.com/posativ/regenwolken/tree/0.5

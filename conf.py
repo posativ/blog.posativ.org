@@ -11,7 +11,7 @@ ENTRIES_IGNORE = CONTENT_IGNORE = ["drafts/*", "bak/*"]
 
 FILTERS_DIR = ['filters/']
 
-FILTERS = ['markdown+codehilite(css_class=highlight)+mathml', 'typo', 'h1', 'acronyms']
+FILTERS = ['markdown+codehilite(css_class=highlight)+mathml+sup+sub+delins', 'typo', 'h1', 'acronyms']
 VIEWS = {
     "/": {
         "filters": ['sum', 'hyph'],
@@ -35,9 +35,6 @@ VIEWS = {
     "/articles/": {
         "view": "articles"
     },
-#    "/atom/full/": {
-#        "filters": "h2", "view": "atom", "num_entries": 1000
-#    },
     "/tag/:name/": {
         "filters": ['sum', 'hyph'], "view":"tag",
         "pagination": "/tag/:name/:num", "items_per_page": 12
@@ -52,7 +49,7 @@ VIEWS = {
 #        e.filename.startswith("content/wiki/")},
 }
 
-SUMMARIZE_IDENTIFIER = 'weiterlesen'
+SUMMARIZE_LINK = '<span>&#8230;<a href="%s" class="continue">weiterlesen</a>.</span>'
 TYPOGRAPHY_MODE = "a"
 
 PERMALINK_FORMAT = "/:year/:slug/"
