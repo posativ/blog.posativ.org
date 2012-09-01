@@ -1,0 +1,9 @@
+---
+title: Beautiful Unittests in Python
+date: 18.05.2012, 21:23
+draft: True
+---
+
+- Ruby rpsec is awesome
+- Python's unittest framework are horrible
+- there's konira
