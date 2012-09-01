@@ -1,0 +1,55 @@
+---
+title: "Linkschleuder #27"
+date: 01.09.2012, 22:23
+tags: [Links, unix, HTML5, JavaScript]
+filter: Jinja2
+---
+
+{% set lolcat = "cat in Regenbogenfarben! Leider sind manche Farben auf weißem Grund schwer lesbar, sonst hätte ich das schon längst in production :)" %}
+
+- [GateOne][1] – ein HTML5 basierter Terminal Emulator und SSH Client mit
+  relativ vielen Features. Die Screenshots sind schon leicht beeindruckend.
+- [Amon][2] – ~~yet another~~ Monitoring Tool in Python geschrieben mit
+  Unterstützung für jedes andere ~~bloatige~~ große Ruby, Python und node.js
+  Framework. Benötigt allerdings eine MongoDB im Backend.
+- [phpVirtualbox][3] – kam über [Heise reingeflattert][4] – und solange man das
+  nicht der Welt präsentiert, vielleicht sogar nützlich.
+- [tmux-powerline][5] – ist eine Sammlung an *kleinen Skripts* für [tmux][6],
+  die eigentlich alles darstellen, was das Herz begehrt – und das sogar für
+  OS-abhängigen Applikationen á la Mail und Spotify.
+- [reposado][7] – *Host Apple Software Updates on the hardware and OS of your
+  choice* – wie man Windows Updates im eigenen Netz verteilt, ist [relativ
+  bekannt][8]. Neu ist mir, dass es auch Tools für Apple Updates gibt.
+- [libfvde][9] – und wo wir gerade bei Apple waren. Um auf seine FileVault2
+  geschützten Daten unter bsw. Linux zuzugreifen, gibt es inzwischen die
+  Bibliothek `libfvde`. Muss ich unbedingt testen!
+- [lolcat][10] – {{ "lolcat -f -p 2.0 | ansi2html --inline" | system(lolcat) }}
+- [Sed Einzeiler][12] – nützliche Skripte für [sed][13].
+- [H9RBS.js][14] – HTML9 Responsive Boilerstrap JS und es ist sogar
+  cross-universe kompatibel :-)
+- [Vanilla.js][15] – a fast, lightweight, cross-platforml
+  framework for building incredible, powerful JavaScript applications.
+
+Ach übrigens. Nutzt hier wer [OwnCloud][16] und freute sich
+total auf die Encryption, die mit Version 4.0 *serverseitig* – \*fazialpalmier\*
+– kam? Hier mal [eine kurze Krypto-Analyse][17]. Für PHP gewiss überragend
+"sicher". Also ich würd' das ja nicht nutzen.
+
+
+[1]: https://github.com/liftoff/GateOne
+[2]: https://github.com/martinrusev/amon
+[3]: https://code.google.com/p/phpvirtualbox/
+[4]: http://www.heise.de/open/artikel/Toolbox-Virtualbox-im-Browser-mit-phpVirtualbox-1668019.html
+[5]: https://github.com/erikw/tmux-powerline
+[6]: http://tmux.sourceforge.net/
+[7]: https://github.com/wdas/reposado
+[8]: https://de.wikipedia.org/wiki/Windows_Server_Update_Services
+[9]: https://code.google.com/p/libfvde/
+[10]: https://github.com/busyloop/lolcat
+[11]: http://linuxundich.de/de/ubuntu/lolcat-fur-ein-bisschen-mehr-farbe-im-terminal/
+[12]: http://sed.sourceforge.net/sed1line.txt
+[13]: https://de.wikipedia.org/wiki/Sed_(Unix
+[14]: http://html9responsiveboilerstrapjs.com/
+[15]: http://vanilla-js.com/
+[16]: http://owncloud.org/
+[17]: http://crypto.junod.info/2012/05/24/owncloud-4-0-and-encryption/
