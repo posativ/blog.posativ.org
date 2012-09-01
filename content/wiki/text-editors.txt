@@ -1,0 +1,16 @@
+---
+title: Text Editors
+type: page
+---
+
+# Sublime Text 2
+
+- [Getting Started][1]
+
+# TextMate
+
+- [Tables for Markdown and TextMate][2]
+
+
+[1]: http://net.tutsplus.com/tutorials/tools-and-tips/sublime-text-2-tips-and-tricks/
+[2]: http://www.leancrew.com/all-this/2008/08/tables-for-markdown-and-textmate/

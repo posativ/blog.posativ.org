@@ -1,0 +1,16 @@
+---
+title: Unix Tools (oder so ähnlich)
+type: page
+permalink: /wiki/unix-tools/
+---
+
+*
+This is the Unix philosophy: Write programs that do one thing and do it well. Write programs to work together. Write programs to handle text streams, because that is a universal interface.* – McIlroy: A Quarter Century of Unix
+
+# Vim
+
+- [Vim, you complete me](http://robots.thoughtbot.com/post/27041742805/vim-you-complete-me)
+
+# Einzeiler
+
+- [Sed](http://sed.sourceforge.net/sed1line.txt)

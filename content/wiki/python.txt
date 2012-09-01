@@ -7,58 +7,122 @@ permalink: /wiki/python/
 
 *Python is a programming language that lets you work more quickly and integrate your systems more effectively. You can learn to use Python and see almost immediate gains in productivity and lower maintenance costs.* (via [python.org]())
 
+Python Projects
+===============
+
+- [PyCheckup is an analysis of the top python projects on Github](http://pycheckup.herokuapp.com) and the [corresponding GitHub repo](https://github.com/mjp/pycheckup/)
+
+Shell Utilities
+===============
+
+- [grin][14] – *A grep program configured the way I like it.*
+- [Skypipe](https://github.com/progrium/skypipe) – magical command line tool that pipes data from everywhere to everywhere via øMQ.
+
+Web Apps
+========
+
+- [amon](https://github.com/martinrusev/amon) –  *Self-hosted server and web app monitoring*
+
 Links
 =====
 
-- [Python Imaging (formerly known as PIL)](https://github.com/python-imaging/Pillow)
-- [Python Modules You Should Know](http://www.topdog.za.net/category/pymysk/)
-- [Python Module of the Week](http://blog.doughellmann.com/search/label/PyMOTW)
+- [Python Imaging (formerly known as PIL)][1]
+- [Python Modules You Should Know][2]
+- [Python Module of the Week][3]
 
 Python Packaging
 ----------------
 
-- [Introduction](http://foobar.lu/wp/2012/05/13/a-comprehensive-step-through-python-packaging-a-k-a-setup-scripts/)
+- [Comprehensive Introduction][4]
+
+Algorithms
+----------
+
+- [Fast Non-Standard Data Structures for Python][5] – Bloom Filters, Numpy & Pandas, carray, Blist, BitArray, Linked Lists, Tries, Trees, etc.
+
+Frameworks
+----------
+
+- [monocle](https://github.com/saucelabs/monocle) – *An async programming framework with a blocking look-alike syntax.*
 
 Debugging
 ---------
 
-- [pytrace](https://github.com/alonho/pytrace) – *pytrace records function calls, arguments and return values** …
-- [pudb](http://pypi.python.org/pypi/pudb) – *A full-screen, console-based Python debugger*
-- [A guide to analyzing Python performance](http://www.huyng.com/posts/python-performance-analysis/)
+- [pytrace][6] – *pytrace records function calls, arguments and return values*
+- [pudb][7] – *A full-screen, console-based Python debugger*
+- [A guide to analyzing Python performance][8]
 
 Books
 -----
 
-- [Text Processing in Python](http://gnosis.cx/TPiP/)
+- [Text Processing in Python][9]
+- [List of Free Python Books](http://pythonbooks.revolunet.com)
 
 WSGI
 ----
 
-- [Python Deployment Anti-Patterns](http://hynek.me/articles/python-deployment-anti-patterns/)
-- [strainer](http://pypi.python.org/pypi/strainer) – *Provides middleware for detecting and correcting errors in web pages that are served via the standard WSGI protocol used by most Python web frameworks.*
+- [Python Deployment Anti-Patterns][10]
+- [strainer][11] – *Provides middleware for detecting and correcting errors in web pages that are served via the standard WSGI protocol used by most Python web frameworks.*
 
-unrelated
----------
+I18N
+----
 
-- [xmldiff](http://pypi.python.org/pypi/xmldiff)
-- [inflect](http://pypi.python.org/pypi/inflect) – *Correctly generate plurals, singular nouns, ordinals, indefinite articles; convert numbers to words*
-- [grin](http://pypi.python.org/pypi/grin) – *A grep program configured the way I like it.*
-- [colors.py](https://github.com/mattrobenolt/colors.py) – *Convert colors between rgb, hsv, and hex, perform arithmetic, blend modes, and generate random colors within boundaries*
-- [blinker](http://pypi.python.org/pypi/blinker) – *Fast, simple object-to-object and broadcast signaling*
+- [inflect][13] – *Correctly generate plurals, singular nouns, ordinals, indefinite articles; convert numbers to words*
+
+unrelated tools
+---------------
+
+- [colors.py][15] – *Convert colors between rgb, hsv, and hex, perform arithmetic, blend modes, and generate random colors within boundaries*
+- [blinker][16] – *Fast, simple object-to-object and broadcast signaling*
+- [pixeltable](https://github.com/discountgenius/pixeltable) – image to HTML converter
+
+unrelated libraries
+-------------------
+
+- [xmldiff][12]
+- [typequery](https://bitbucket.org/dahlia/typequery)
 
 2to3 transition
 ---------------
 
-- [unicode-nazi](http://pypi.python.org/pypi/unicode-nazi)
+- [unicode-nazi][17]
+
+GUI
+---
+
+- [Kivy](http://kivy.org/#home) – *Open source library for rapid development of applications that make use of innovative user interfaces, such as multi-touch apps.*
 
 IDEs
 ====
 
-- [Ninja-IDE](http://ninja-ide.org/) – open source, donations are welcome
-- [Vim Setup](http://www.reddit.com/r/Python/comments/w7z4h/alright_rpython_set_me_up_in_vim/)
+- [Ninja-IDE][18] – open source, donations are welcome
+- [Vim Setup][19]
 
 Podcasts
---------
+========
 
-- [Radio Free Python](http://radiofreepython.com/)
-- [Import This](http://import-this.de/infos/) – german podcast
+- [Radio Free Python][20]
+- [Import This][21] – german podcast
+
+
+[1]: https://github.com/python-imaging/Pillow
+[2]: http://www.topdog.za.net/category/pymysk/
+[3]: http://blog.doughellmann.com/search/label/PyMOTW
+[4]: http://foobar.lu/wp/2012/05/13/a-comprehensive-step-through-python-packaging-a-k-a-setup-scripts/
+[5]: http://kmike.ru/python-data-structures/
+[6]: https://github.com/alonho/pytrace
+[7]: http://pypi.python.org/pypi/pudb
+[8]: http://www.huyng.com/posts/python-performance-analysis/
+[9]: http://gnosis.cx/TPiP/
+[10]: http://hynek.me/articles/python-deployment-anti-patterns/
+[11]: http://pypi.python.org/pypi/strainer
+[12]: http://pypi.python.org/pypi/xmldiff
+[13]: http://pypi.python.org/pypi/inflect
+[14]: http://pypi.python.org/pypi/grin
+[15]: https://github.com/mattrobenolt/colors.py
+[16]: http://pypi.python.org/pypi/blinker
+[17]: http://pypi.python.org/pypi/unicode-nazi
+[18]: http://ninja-ide.org/
+[19]: http://www.reddit.com/r/Python/comments/w7z4h/alright_rpython_set_me_up_in_vim/
+[20]: http://radiofreepython.com/
+[21]: http://import-this.de/infos/

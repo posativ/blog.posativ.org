@@ -43,7 +43,13 @@ VIEWS = {
         "pagination": "/tag/:name/:num", "items_per_page": 12
     },
 
-    "/sitemap.xml": {"view": "sitemap"}
+    "/sitemap.xml": {"view": "sitemap"},
+
+    "/wiki/:slug/": {"view": "page", "condition": lambda e:
+        e.filename.startswith("content/wiki/")},
+
+#    "/wiki/changes/": {"view": "wikifeed", "condition": lambda e:
+#        e.filename.startswith("content/wiki/")},
 }
 
 SUMMARIZE_IDENTIFIER = 'weiterlesen'

@@ -1,0 +1,54 @@
+---
+title: Statische Seiten
+type: page
+---
+# static blog/site compiler written in Python
+
+- [rstblog][1] – reStructuredText und mehr nicht.
+- [Liquid Luck][2]
+- [Volt][3] – ein weiterer static blog compiler in Python, der genau nichts besser macht.
+- [Tinkerer][4] – ein weiterer static blog compiler in Python, der aber auf dem Dokumentationstool Sphinx basiert und [viele hübsche Directiven für reStructuredText][5] mitbringt.
+- [Nikola][6] – ist auch ein statische Seiten Generator mit Blog-Hintergrund und featured als Besonderheit i18n.
+- [StrangeCase][7] – ein yet another static site compiler written as CamelCase, keine erwähnenswerten Features.
+- [Alva][8] ist das Gegenstück zu Nikola und lässt einen Blogeintrage im Browser verfassen, die dann statisch gerendert werden.
+
+## Techniques
+
+- [HTML5 Technical Article Beautifier][9] – Syntax Highlighting, LaTeX, Matplotlib, GNUPlot, GraphViz und Inline Python
+
+# Markup Sprachen
+
+## reStructuredText
+
+*The reStructuredText (frequently abbreviated as reST) project is part of the Python programming language Docutils project of the Python Doc-SIG.* ([via][10])
+
+- [Quickstart][11]
+- [Online reStructuredText editor][12] – mit side-by-side Ansicht.
+
+# Exit
+
+- [wp-md][13] – convert WordPress to Pelican, mynt and nikola.
+- [Exitwp][14] – WordPress to Jykell.
+
+# Comment Systems
+
+- [Unobtrusive, self-hosted comments function to put onto existing web pages][15] – etwas meta
+- [Juvia][16] – sehr ausgereift, multi-user, email notifications, askimet Unterstützung. Leider für RoR.
+
+
+[1]: https://github.com/mitsuhiko/rstblog
+[2]: https://github.com/lepture/liquidluck
+[3]: https://github.com/bow/volt
+[4]: http://tinkerer.bitbucket.org/
+[5]: http://sphinx.pocoo.org/markup/index.html
+[6]: http://nikola.ralsina.com.ar/
+[7]: http://pypi.python.org/pypi/StrangeCase/v3.4.0
+[8]: http://lateral.netmanagers.com.ar/weblog/posts/alva.html
+[9]: http://lobstertech.com/lobsterblog.html
+[10]: https://en.wikipedia.org/wiki/ReStructuredText
+[11]: http://docutils.sourceforge.net/docs/user/rst/quickstart.html
+[12]: http://rst.ninjs.org/
+[13]: https://github.com/quodlibetor/wp-md
+[14]: https://github.com/thomasf/exitwp
+[15]: http://stackoverflow.com/q/2053217
+[16]: https://github.com/phusion/juvia
