@@ -21,7 +21,7 @@ problem][2]. I have this problem, too!*
 Workaround in Firefox
 =====================
 
-Anstatt sich ein neues Nutzerkonto zu klicken, wählt man stattdessen aus, dass
+~~Anstatt sich ein neues Nutzerkonto zu klicken, wählt man stattdessen aus, dass
 man bereits ein Konto hat. Dafür wird allerdings wirklich ein Konto benötigt,
 was zu einem unschönen Weg in die Kommandozeile führt (oder ins Webinterface,
 sofern der Server derartiges anbietet). Nachdem man sich auf seinem Server
@@ -29,7 +29,11 @@ einen Nutzer registriert hat, geht's weiter. Anstatt das Gerät mit dem
 drei-stelligen Code zu aktivieren (ich wüsste nicht, wie das mit eigenen
 Servern funktioniert), wählt man *"Ich habe das Gerät nicht bei mir"*, gibt
 seine Daten ein, wählt *"Eigenen Server verwenden..."* aus und gibt seine URL
-ein. Das war's.
+ein. Das war's.~~
+
+Nein, mein Fehler. Es ist genauso wie sonst auch: *Sync* -> *Neues Konto
+anlegen* -> *Eigenen Server* und fertig. Ein neues Gerät lässt sich ganz leicht
+über *Ich habe bereits ein Konto hinzufügen*.
 
 An Servern dürften damit wohl \*noch\* alle letztens aufgezählten
 funktionieren, ob, das habe ich aber nicht getestet:

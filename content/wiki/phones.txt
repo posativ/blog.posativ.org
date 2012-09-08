@@ -13,3 +13,6 @@ type: page
 - [Guides, Tutorials, FAQs, Accessories](http://forum.xda-developers.com/showthread.php?t=944555)
 - [HYBROM](http://forum.xda-developers.com/showthread.php?t=1373435)
 - Summary for X10 Mini & Pro: http://forum.xda-developers.com/showthread.php?t=840356
+
+
+- http://wiki.cyanogenmod.com/wiki/Sony_Ericsson_Xperia_Mini_Pro:_Full_Update_Guide

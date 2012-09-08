@@ -7,11 +7,11 @@ as "planet".
 
 ## See it in action
 
-    %> git clone https://github.com/posativ/blog.posativ.org.git && cd blog.posativ.org/
-    %> pip
-    %> acrylamid compile
-    %> acrylamid view
-    %> acrylamid deploy blog
+    $ git clone https://github.com/posativ/blog.posativ.org.git && cd blog.posativ.org/
+    $ pip
+    $ acrylamid compile
+    $ acrylamid view
+    $ acrylamid deploy blog
 
 Its the reason why I am developing [Acrylamid][1].
 

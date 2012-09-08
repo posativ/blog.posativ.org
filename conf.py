@@ -4,12 +4,13 @@
 
 SITENAME = "mecker. mecker. mecker."
 WWW_ROOT = "http://blog.posativ.org/"
+THEME = "theme/"
 
 AUTHOR = "posativ"
 EMAIL = "info@posativ.org"
-ENTRIES_IGNORE = CONTENT_IGNORE = ["drafts/*", "bak/*"]
 
-FILTERS_DIR = ['filters/']
+CONTENT_IGNORE = ["drafts/*", "bak/*"]
+STATIC = "dataset/"
 
 FILTERS = ['markdown+codehilite(css_class=highlight)+mathml+sup+sub+delins', 'typo', 'h1', 'acronyms']
 VIEWS = {
@@ -40,6 +41,12 @@ VIEWS = {
         "pagination": "/tag/:name/:num", "items_per_page": 12
     },
 
+    # produce a full text version of all Linkschleudern
+    "/linkschleuder/full/" : {
+         "filters": "hyph", "view": "index", "items_per_page": 1000,
+         "condition": lambda e: 'Links' in e.tags
+    },
+
     "/sitemap.xml": {"view": "sitemap"},
 
     "/wiki/:slug/": {"view": "page", "condition": lambda e:
@@ -63,4 +70,4 @@ DEPLOYMENT = {
     'blog': 'rsync -av --delete --exclude=".git/" $OUTPUT_DIR www@morloch:~/blog.posativ.org/',
 }
 
-ACRONYMS_FILE =  "output/acronyms.txt"
+ACRONYMS_FILE =  "acronyms.txt"

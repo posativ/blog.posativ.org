@@ -45,16 +45,15 @@ Installation
 Usage
 =====
 
-Currently, Firefox does not you create a user account on your own server.
+~~Currently, Firefox does not you create a user account on your own server.
 I [filed a bug][1] in a week ago. Therefore you need to set up every account
-manually:
+manually:~~
+
+The setup is exactly the same as the official way except you have to choose
+*custom server* and enter the url of your server.
 
     :::bash
-    $ ./weave.py --register myname:mypassword
-    [info] database for `myname` created at `.data/myname.91dfd9ddb4198aff`
     $ ./weave.py -p 8080
-    
-*Please note that only alpha-numerical characters are allowed!*
 
 The last command launches weave.py on port 8080. You can now configure mod_proxy
 in your webserver of choice or you some mod_fastcgi magic. See [README.md][2]

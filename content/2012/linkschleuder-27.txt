@@ -1,7 +1,7 @@
 ---
 title: "Linkschleuder #27"
 date: 01.09.2012, 22:23
-tags: [Links, unix, HTML5, JavaScript]
+tags: [Links, unix, HTML5, JavaScript, planet]
 filter: Jinja2
 ---
 
@@ -27,7 +27,7 @@ filter: Jinja2
 - [Sed Einzeiler][12] – nützliche Skripte für [sed][13].
 - [H9RBS.js][14] – HTML9 Responsive Boilerstrap JS und es ist sogar
   cross-universe kompatibel :-)
-- [Vanilla.js][15] – a fast, lightweight, cross-platforml
+- [Vanilla.js][15] – a fast, lightweight, cross-platform
   framework for building incredible, powerful JavaScript applications.
 
 Ach übrigens. Nutzt hier wer [OwnCloud][16] und freute sich
