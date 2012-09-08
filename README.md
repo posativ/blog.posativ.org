@@ -19,7 +19,9 @@ a small wiki, but Acrylamid is not real good at it …
     $ acrylamid view
     $ acrylamid deploy blog
 
-It's the reason why I am developing [Acrylamid][1].
+It's the reason why I am developing [Acrylamid][1]. 165 articles, some pages
+and over 200 static files take less than one second to compile. Can you do
+that with Pelican, Tinkerer, Nikola, whatsoever?
 
 [1]: https://github.com/posativ/acrylamid/
 [2]: http://blog.posativ.org/linkschleuder/full/
