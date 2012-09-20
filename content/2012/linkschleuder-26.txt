@@ -8,7 +8,7 @@ tags: [Links, planet]
 - [Darüber lacht Fefe][1] – eine nette Analyse von [Fefes Blog][2].
 - [Brackets][4] – ist ein noch in der Entwicklung befindlicher Open Source
   Editor auf Basis von JavaScript und HTML für JavaScript und HTML von
-  Adobe für OS X[^1] und Windows.
+  Adobe für OS X [^1] und Windows.
 - [Markdoc][5] – ist ein leichtgewichtiges Wiki-System auf Markdown Basis.
   Müsste ich mir mal näher anschauen.
 - [rbenv][6] – eine hoffentlich bessere Alternative zu [rvm][7].
