@@ -9,7 +9,7 @@ I HERD U LIEK HTML SO I CONVERTED A PICTURE TO ANSI ESCAPE CODES AND BACK TO
 HTML SO U SEE FIREFOX SUCKS AT HTML.
 
 <pre>
-{{ "python -m fabulous.image output/img/2012/puke.jpg | ansi2html --inline" |
+{{ "python -m fabulous.image dataset/img/2012/puke.jpg | ansi2html --inline" |
 system | replace('#d2d2d2', '#FFF') }}
 </pre>
 

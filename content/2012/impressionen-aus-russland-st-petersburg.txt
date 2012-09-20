@@ -7,7 +7,7 @@ summarize.maxwords: 60
 ---
 
 {% macro gallery(prefix, num=4) %}
-{% set images = "ls output/img/2012/st-petersburg/" ~ prefix ~ " | cut -d / -f 5"  %}
+{% set images = "ls dataset/img/2012/st-petersburg/" ~ prefix ~ " | cut -d / -f 5"  %}
 {% for bunch in images  | system | split | batch(num) %}
 <figure>
   {% for file in bunch %}
