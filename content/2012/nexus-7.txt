@@ -1,0 +1,33 @@
+---
+title: Google Nexus 7
+date: 19/09/2012
+tags: [Log, Android]
+---
+
+Der [@cmur2](http://mycrobase.de/) hat mich daran erinnert, dass ich ja auch 
+weniger Text, dafür mehr Inhalt (oder so ähnlich) bringen kann.
+
+Ich habe mir vor kurzem ein Tablet gekauft. Das [Google™ Nexus® 7][0] in der
+mickrigen 8 GB Variante. Ich hatte mir das auch gut überlegt (eigentlich nicht).
+Und auch wenn ich anfangs skeptisch bezüglich der Display-Größe war, so bin ich
+jetzt froh, nur ein 7" zu haben. Das ist die ideale Größe [^1] für ein Buch –
+das iPad wirkt dagegen monströs. Und es gab noch einen 20€ Gutschein dazu!11
+
+Der Gutschein war übrigens das Totschlagargument bei mir. Android-User geben ja
+prinzipiell kein Geld für Äpps aus. Ist ja Android und da ist alles ~~gute~~
+ja kostenlos!1 Ein [guten EPUB/PDF Reader][1] habe ich mir gegönnt, denn ich 
+beziehe meine Bücher meist aus … äh … *anderen* Quellen. Dazu noch ein 
+[Dateimanager mit SMB Support][2] und [Videoplayer ebenfalls mit SMB][3].
+
+An dieser Stelle möchte ich noch auf die Äpp [F-Droid](http://f-droid.org/)
+hinweisen, die ein Äpp Store für FOSS ist. Firefox, K9-Mail und auch GitHub
+lassen sich darüber installieren. Bevorzuge ich jedem proprietären System. Zumal
+es dort auch die Firefox Beta gibt.
+
+[^1]: Zumindest für die jüngere Generation. Die bevorzugte Schriftart ist
+      bekanntlich das Alter geteilt durch zwei.
+
+[0]: https://de.wikipedia.org/wiki/Nexus_7
+[1]: http://www.aldiko.com/
+[2]: https://play.google.com/store/apps/details?id=com.rhmsoft.fm.hd&hl=en
+[3]: http://www.bsplayer.com/bsplayer-german/home-page.html?BSPLAYER=7fc80dd0774f21e52621e648f9423d3e
