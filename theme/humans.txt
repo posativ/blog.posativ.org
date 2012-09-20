@@ -1,5 +1,4 @@
-/* TEAM */
-Your title: Martin Zimmermann
+Author: Martin Zimmermann
 Site: info@posativ.org
 Twitter: posativ
 Location: Jena, Germany
