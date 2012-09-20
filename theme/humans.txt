@@ -1,0 +1,11 @@
+/* TEAM */
+Your title: Martin Zimmermann
+Site: info@posativ.org
+Twitter: posativ
+Location: Jena, Germany
+
+/* SITE */
+Last update: 2012/09/20
+Standards: HTML5, CSS3
+Components: Jinja2, SASS
+Software: Acrylamid, Python
