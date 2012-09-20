@@ -12,7 +12,9 @@ EMAIL = "info@posativ.org"
 CONTENT_IGNORE = ["drafts/*", "bak/*"]
 STATIC = "dataset/"
 
-FILTERS = ['markdown+codehilite(css_class=highlight)+mathml+sup+sub+delins', 'typo', 'h1', 'acronyms']
+md = 'markdown+codehilite(css_class=highlight)+mathml+sup+sub+delins+footnotes' 
+
+FILTERS = [md, 'typo', 'h1', 'acronyms']
 VIEWS = {
     "/": {
         "filters": ['sum', 'hyph'],
@@ -42,18 +44,18 @@ VIEWS = {
     },
 
     # produce a full text version of all Linkschleudern
-    "/linkschleuder/full/" : {
+    "/linkschleuder/" : {
          "filters": "hyph", "view": "index", "items_per_page": 1000,
          "condition": lambda e: 'Links' in e.tags
     },
 
-    "/sitemap.xml": {"view": "sitemap"},
+    # atom feed for those
+    "/linkschleuder/feed/" : {
+         "filters": "h2", "view": "atom",
+         "condition": lambda e: 'Links' in e.tags
+    },
 
-    "/wiki/:slug/": {"view": "page", "condition": lambda e:
-        e.filename.startswith("content/wiki/")},
-
-#    "/wiki/changes/": {"view": "wikifeed", "condition": lambda e:
-#        e.filename.startswith("content/wiki/")},
+    "/sitemap.xml": {"view": "sitemap"}
 }
 
 SUMMARIZE_LINK = '<span>&#8230;<a href="%s" class="continue">weiterlesen</a>.</span>'
