@@ -39,8 +39,7 @@ VIEWS = {
         "view": "articles"
     },
     "/tag/:name/": {
-        "filters": ['sum', 'hyph'], "view":"tag",
-        "pagination": "/tag/:name/:num", "items_per_page": 12
+       "view": "tag", "template": "tags.html", "items_per_page": 1000
     },
 
     # produce a full text version of all Linkschleudern

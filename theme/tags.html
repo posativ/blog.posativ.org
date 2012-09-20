@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}{{ conf.sitename }} – Artikel mit „{{ env.tag }}” verschlagwortet {% endblock %}
+
+{% block content %}
+<article>
+  <h2>Artikel mit „{{ env.tag }}” verschlagwortet</h2>
+  <ul id="tags">
+  {% for entry in env.entrylist %}
+    <li><a href="{{ entry.permalink }}">{{ entry.title | e }}</a> —
+  {{ entry.date.strftime('%d. %B, %Y') }}</li>
+  {% endfor %}
+  </ul>
+</article>
+{% endblock %}
