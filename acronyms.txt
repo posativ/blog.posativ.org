@@ -12,6 +12,7 @@ DSL=Domain Specific Language
 DVS=Decentralized Versioning System
 ELF=Executable and Linking Format
 FIFO=First In, First Out
+FOSS=Free and open-source software
 FSI=Filesystem Integration
 FUSE=Filesystem in Userspace
 GNOME=GNU Network Object Model Environment

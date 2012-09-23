@@ -1,7 +1,7 @@
 ---
 title: Google Nexus 7
 date: 19/09/2012
-tags: [Log, Android]
+tags: [Android]
 ---
 
 Der [@cmur2](http://mycrobase.de/) hat mich daran erinnert, dass ich ja auch 
