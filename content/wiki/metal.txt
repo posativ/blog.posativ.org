@@ -1,9 +1,0 @@
----
-title: Metal
-type: page
----
-
-# Poetry Slam über Black Metal
-
-- ...
-- [Frosch! Metalbrother!](http://www.youtube.com/watch?v=86l8y9sZHKI&feature=plcp)
