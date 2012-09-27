@@ -1,0 +1,49 @@
+---
+title: "Linkschleuder #28"
+date: 27.09.2012, 21:16
+tags: [Links, planet]
+---
+
+- [tiptheweb](http://tiptheweb.org/) – wie [Flattr](https://flattr.com/) nur
+  lässt sich der Betrag gezielter steuern und es steht eine non-profit Organization
+  dahinter. Hoffentlich wird das populärer.
+- [redo](https://github.com/apenwarr/redo) – ein
+  [Make](https://en.wikipedia.org/wiki/Make_(software)) Ersatz, nur einfacher,
+  mächtiger und zuverlässiger. Nichts, was ich persönlich bisher an Make vermisst
+  habe.
+- [ranger](https://github.com/hut/ranger) – Vim-inspirierter Dateimanager für die
+  CLI. Ganz nett, nur sind die default-keybindings allesamt read-only. Aber ansonsten
+  macht das Teil Spaß.
+- [ToS;dr](http://tos-dr.info/#services) – *Terms of Service; Didn't Read* ist eine
+  recht junge Initiative um AGBs allgemein verständlich zu erklären. So wusste ich
+  zum Beispiel nicht, dass ich beim Twittern alle Rechte an meinem Text verliere. Das
+  Projekt ist übrigens [am ~~Kickstartern~~
+  Crowfunden](http://www.indiegogo.com/terms-of-service-didnt-read).
+- [ascii.io](http://ascii.io/) – ein YouTube für Terminal-Sessions. Für alle Fälle
+  geblogmarkt.
+- [tent](http://tent.io/) – *Tent is a protocol for social networking*. Was auch
+  immer das heißen mag.
+- [gitdocs](https://github.com/bazaarlabs/gitdocs) – eine eigene Dropbox auf Basis
+  von Ruby und Git. Hat sogar ein schickes Webinterface.
+- [Portspoof](http://portspoof.duszynski.eu/) – ein *service signature obfuscator*.
+  Emuliert so ziemlich jeden Dienst, den man sich vorstellen kann, um `nmap` für
+  mehrere Minuten zu beschäftigen.
+
+Passwörter verwalten. Manche können sich ausgehend von ein paar Masterpasswörtern per
+[PBKDF2](https://en.wikipedia.org/wiki/PBKDF2) für jede Website ein neues erdenken.
+Für alle anderen gibt es [KeePassX](https://www.keepassx.org/). Für die Integration
+in Firefox/Chrome gibt es nun [passifox](https://github.com/pfn/passifox) über
+[keepasshttp](https://github.com/pfn/keepasshttp), das die Passwörter über 256-bit
+AES/CBC per HTTP weiterreicht. Wem das zu viel des Guten ist, kann auch
+[pass](http://zx2c4.com/projects/password-store/) nutzen, das eher den UNIX Weg geht.
+
+„Du heißt 40 Mal wahrscheinlicher 王 als Jones” – [10 lessons for uncultured web
+developers][1] – nicht nur für Webentwickler. In [Animated GIFs the Hard
+Way](http://www.sublimetext.com/~jps/animated_gifs_the_hard_way.html) erzählt der
+Entwickler von [Sublime Text 2](http://www.sublimetext.com/2), wie aus mehreren
+Megabytes großen GIFs nur noch hundert Kilobyte große Animationen werden – allerdings
+mittels PNG. Und wo wir gerade bei GIFs waren: mit
+[gifsockets](https://github.com/videlalvaro/gifsockets) unterstützt auch der IE6
+Websockets.
+
+[1]: http://www.troyhunt.com/2012/09/10-lessons-for-uncultured-web-developers.html

@@ -1,0 +1,35 @@
+---
+title: Ich las im September
+filter: Jinja2
+date: 26.09.2012, 20:58
+tags: [ich]
+---
+
+Seitdem ich ein [buchförmiges Tablet]({{ env.prev }}) besitze, komme ich auch
+öfters zum Lesen. Ergriffen von der wunderschönen Inszenierung der [Tribute von
+Panem](https://de.wikipedia.org/wiki/Die_Tribute_von_Panem) habe ich kurz darauf
+[das
+Buch](http://www.amazon.de/Die-Tribute-Panem-T%C3%B6dliche-Spiele/dp/3841501346/)
+dazu gelesen und war ebenso begeistert. Leider sind die zwei weiteren Teile der
+Trilogie nicht annähernd so gut wie der erste, aber immer noch lesenswert.
+
+Noch bevor Fefe es [wieder erwähnte](https://blog.fefe.de/?ts=aea2f55b), hatte
+ich auch schon mit [Daemon](https://de.wikipedia.org/wiki/Daniel_Suarez#Werk)
+angefangen und bin inzwischen fertig. Mein Eindruck: Woah. Lange nicht mehr so
+ein interessantes Buch gehabt. Da kann ich nur sagen: Lesebefehl, Lesebefehl,
+Lesebefehl! Gerade wo wir das Jahr 2012 haben und ein Großteil der erwähnten
+Technologie inzwischen wirklich verfügbar ist. Beängstigend.
+
+Ebenfalls angefangen hatte ich [A Song of Ice and
+Fire](https://en.wikipedia.org/wiki/A_Song_of_Ice_and_Fire) – die Bücher zu [A
+Game of Thrones](https://en.wikipedia.org/wiki/A_Game_of_Thrones) – um zu
+spoilern, war aber vom Stil nicht wirklich angetan (der eher Viskosität von den
+Herrn der Ringe ähnelt). Dann warte ich lieber auf die Fortsetzung im April
+2013.
+
+Nicht in digital habe ich das [xkcd: volume
+0](http://www.amazon.de/Xkcd-Volume-Munroe-Randall-paperback/dp/B004YU6L0A/)
+gelesen. Klar, [xkcd](https://xkcd.com/) gibt's auch online kostenlos und
+umsonst. Allerdings blättere ich am Rechner ungern die ersten tausend Comics
+durch. Das Buch ist quasi ein Best Of und enthält ein paar unveröffentlichte
+Comics sowie nette Anmerkungen vom Autor.

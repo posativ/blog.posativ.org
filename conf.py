@@ -11,6 +11,7 @@ EMAIL = "info@posativ.org"
 
 CONTENT_IGNORE = ["drafts/*", "bak/*"]
 STATIC = "dataset/"
+STATIC_IGNORE += ['.DS_Store']
 
 md = 'markdown+codehilite(css_class=highlight)+mathml+sup+sub+delins+footnotes' 
 
@@ -63,8 +64,7 @@ TYPOGRAPHY_MODE = "a"
 PERMALINK_FORMAT = "/:year/:slug/"
 DATE_FORMAT = "%d.%m.%Y, %H:%M"
 DISQUS_SHORTNAME = "posativ"
-OUTPUT_IGNORE += ["/js/", "/files/", "/img/", "*.css", "*.txt",
-                  "*.conf", "/google*", "*.sass", "favicon.ico"]
+
 DEPLOYMENT = {
     "ls": "ls",
     "echo": "echo $OUTPUT_DIR",
