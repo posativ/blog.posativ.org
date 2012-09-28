@@ -2,11 +2,10 @@
 title: Yo Dawg
 date: 05.08.2012, 01:59
 filter: jinja2
-summarize.maxwords: 23
 ---
 
 I HERD U LIEK HTML SO I CONVERTED A PICTURE TO ANSI ESCAPE CODES AND BACK TO
-HTML SO U SEE FIREFOX SUCKS AT HTML.
+HTML SO U SEE FIREFOX SUCKS AT HTML. <!-- break -->
 
 <pre>
 {{ "python -m fabulous.image dataset/img/2012/puke.jpg | ansi2html --inline" |
