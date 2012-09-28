@@ -13,7 +13,7 @@ CONTENT_IGNORE = ["drafts/*", "bak/*"]
 STATIC = "dataset/"
 STATIC_IGNORE += ['.DS_Store']
 
-md = 'markdown+codehilite(css_class=highlight)+mathml+sup+sub+delins+footnotes' 
+md = 'markdown+codehilite(css_class=highlight)+mathml+sup+sub+delins+footnotes+abbr' 
 
 FILTERS = [md, 'typo', 'h1', 'acronyms']
 VIEWS = {

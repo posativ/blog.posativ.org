@@ -45,7 +45,7 @@ Other people get a normal, non-/etc/hosts hacked, ~~[working link][12]~~.
 
 Regenwolken is licensed under BSD, two-clause and can be found on
 [GitHub][7]. Check [README.md][8] and [Issues][9] as well. Don't expect
-a full featured server API yet, it's currently ~~[0.1-alpha][11]~~[0.5][13].
+a full featured server API yet, it's currently ~~[0.1-alpha][11] ~~[0.5][13].
 
 [1]: http://getcloudapp.com/
 [2]: http://itunes.apple.com/us/app/cloud/id417602904?mt=12&ls=1

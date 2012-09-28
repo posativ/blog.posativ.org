@@ -35,7 +35,8 @@ Für alle anderen gibt es [KeePassX](https://www.keepassx.org/). Für die Integr
 in Firefox/Chrome gibt es nun [passifox](https://github.com/pfn/passifox) über
 [keepasshttp](https://github.com/pfn/keepasshttp), das die Passwörter über 256-bit
 AES/CBC per HTTP weiterreicht. Wem das zu viel des Guten ist, kann auch
-[pass](http://zx2c4.com/projects/password-store/) nutzen, das eher den UNIX Weg geht.
+[pass](http://zx2c4.com/projects/password-store/) nutzen, das eher den UNIX Weg
+einschlägt.
 
 „Du heißt 40 Mal wahrscheinlicher 王 als Jones” – [10 lessons for uncultured web
 developers][1] – nicht nur für Webentwickler. In [Animated GIFs the Hard
@@ -47,3 +48,5 @@ mittels PNG. Und wo wir gerade bei GIFs waren: mit
 Websockets.
 
 [1]: http://www.troyhunt.com/2012/09/10-lessons-for-uncultured-web-developers.html
+*[CBC]: Cipher Block Chaining
+*[王]: Wang
