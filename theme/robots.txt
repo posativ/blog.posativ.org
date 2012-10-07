@@ -1,3 +1,8 @@
 User-agent: *
-Disallow: /impressum.txt
+Disallow: /
 
+User-agent: Googlebot
+User-agent: BingBot
+User-Agent: Slurp
+Allow: /
+Disallow: /impressum.txt
