@@ -11,8 +11,7 @@ bei mir hoste:
 
 - [rw.posativ.org](http://rw.posativ.org/) – regenwolken Instanz, voll
   funktionsfähig trotz `501 Not Implemented`
-- [posativ.org/weave/](https://posativ.org/weave/) – Firefox Sync Server, leider
-  temporär ~~tot~~ dysfunktional
+- [posativ.org/weave/](https://posativ.org/weave/) – Firefox Sync Server
 - [posativ.org/git/](https://posativ.org/git/) – simple Git Viewer
 - [posativ.org/decrypt/](http://posativ.org/decrypt/) – online RSDF, CCF und DLC
   encryption (keine Updates hierzu, wollt's nur erwähnen)

@@ -7,7 +7,7 @@ tags: [OS X, python, acrylamid]
 
 As a result of my last performance improvements to [acrylamid][1] I was not
 able anymore to measure the memory used via *Activity Monitor*. I can measure
-cpu time in many different ways using `time` or python's neat `-m cProfile -s
+cpu time in different ways using `time` or python's neat `-m cProfile -s
 cumulative` argument in front of my real program call, but I don't know any
 way to measure memory of fast ending applications.
 

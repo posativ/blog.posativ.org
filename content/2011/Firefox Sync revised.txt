@@ -9,14 +9,16 @@ ist, einen eigenen Server für Firefox Sync zu nehmen. Aber so unmöglich ist es
 dann gar nicht. Wenn man weiß, wie behindert das Setup ist, dann ist das
 kinderleicht.
 
-Was nicht geht: ein neues Konto auf dem eigenen Server anlegen. Warum? Weil
+~~Was nicht geht: ein neues Konto auf dem eigenen Server anlegen. Warum? Weil
 Mozilla diese Service-URL [auth.services.mozilla.com]() fest in den
 Firefox kodiert hat. Die API, um sich zu registrieren, hängt aber an obiger
 URL + `/user`, genauer gesagt `PUT /user/1.0/mein_username`. Da sich die URL
 für den Registrierungsserver (der Server ist in zwei Teilprojekte unterteilt,
 `server-reg` und `server-full`) nicht einmal in der [about:config]() einstellen
 lässt, wird dieser Workaround genutzt. Wir wissen ja, *[89 people have this
-problem][2]. I have this problem, too!*
+problem][2]. I have this problem, too!*~~
+
+Ist inzwischen alles ganz einfach.
 
 Workaround in Firefox
 =====================

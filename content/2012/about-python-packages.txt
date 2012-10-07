@@ -75,7 +75,7 @@ that fails, the user can still `easy_install pyyaml`.
 
 While most developers know [virtualenv][] or similar tools, but why do we have
 `easy_install`? We are lucky not to have Ruby conditions where you can only
-install a package in it's own little [rvm][]. Within Python, we don't need
+install a package in its own little [rvm][]. Within Python, we don't need
 that overhead. Although there is actually kinda `easy_uninstall` via
 <code>[eggdep][] PACKAGE | xargs pip uninstall -y</code>.
 

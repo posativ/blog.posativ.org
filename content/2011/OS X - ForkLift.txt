@@ -15,7 +15,7 @@ Since I am using a Mac, I am using [TotalFinder][3], because OS X' Finder sucks 
 - open you Applications folder, locate *ForkLift* and control-rightclick and select "show package content" and navigate to *Contents/Resources/*
 - backup the existing *forklift.icns* and move your converted *finder.icns* to *forklift.icns*
 
-Now your ForkLift icon is identical to Finder. Lets remove the Finder from Dock.app.
+Now your ForkLift icon is identical to Finder. Let's remove the Finder from Dock.app.
 
 - `cd` to */System/Library/CoreServices/Dock.app/Contents/Resources/* and open *DockMenus.plist*.
 - change "finder-quit" and/or "finder-running" (don't know, which one worked for me) to include

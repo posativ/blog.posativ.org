@@ -19,7 +19,7 @@ server](https://github.com/jedie/django-sync-server/) and formerly
 [weave-minimal](http://ymartin59.free.fr/wordpress/index.php/2011/03/05/my-own-firefox-sync-weave-server/)
 too, written in PHP but not supported anymore. But I've forked the official
 [`server-full`](https://hg.mozilla.org/services/server-full/) (well I
-completely rewrote) to a more easier installation without multiple backends
+completely rewrote) to a easier installation without multiple backends
 but completely relying on a simple sqlite database.
 
 Requirements
