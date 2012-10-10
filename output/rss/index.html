@@ -5,9 +5,56 @@
         <link>http://blog.posativ.org/</link>
         <description></description>
         <language>de</language>
-        <pubDate>Thu, 27 Sep 2012 20:16:00 GMT</pubDate>
+        <pubDate>Wed, 10 Oct 2012 13:29:00 GMT</pubDate>
         <docs>http://blog.posativ.org/rss/</docs>
         <generator>acrylamid 0.4.2</generator>
+        
+            <item>
+                <title>Abseits von Linux: FreeBSD</title>
+                <link>http://blog.posativ.org/2012/abseits-von-linux-freebsd/</link>
+                <description>&lt;p&gt;&lt;img src=&#34;/img/2012/freebsd.png&#34; alt=&#34;Freedombox Logo&#34; class=&#34;floatright no-shadow&#34; width=&#34;200px&#34; /&gt;&lt;/p&gt;
+        &lt;p&gt;Da mein derzeitiger Router – eine Time Capsule – doch sehr langsam für das Backup und vor allem Wiederherstellen (nicht unter einer Minute) ist, wird er durch ein neues Gerät ersetzt, das unter FreeBSD laufen soll&lt;!-- break --&gt;.&lt;/p&gt;
+        &lt;h3&gt;Was?&amp;nbsp;FreeBSD?&lt;/h3&gt;
+        &lt;p&gt;Hat &lt;a href=&#34;http://cre.fm/cre048&#34;&gt;man vielleicht schon einmal gehört&lt;/a&gt;. Ist kein Linux, sondern basiert – wer hätte es gedacht – auf dem FreeBSD Kernel, der im Unterschied zu Linux wesentlich weniger Treiber mitbringt und auch konzeptuell sehr verschieden ist. Im Gegensatz zu Ubuntu/Debian ist FreeBSD aus einem Guss. Sowohl der Kernel, das Basis-System als auch die Software wird von einer Community&amp;nbsp;betreut.&lt;/p&gt;
+        &lt;p&gt;FreeBSD bietet ein harmonisches Gesamtkonzept, ist äußerst leichtgewichtig, hat Packet Filtering, Jails und bietet mir eine immens große Software-Kollektion, deren Buildflags ich wie in Gentoo sehen und ändern kann. &lt;span class=&#34;caps&#34;&gt;ZFS&lt;/span&gt;! Auch wenn ich bei mir nicht den Anwendungsfall sehe, unterstützt FreeBSD eine &lt;em&gt;aktuelle&lt;/em&gt; Version von&amp;nbsp;&lt;span class=&#34;caps&#34;&gt;ZFS&lt;/span&gt;.&lt;/p&gt;
+        &lt;h3&gt;Warum überhaupt&amp;nbsp;&lt;span class=&#34;caps&#34;&gt;BSD&lt;/span&gt;?&lt;/h3&gt;
+        &lt;p&gt;Neben dem &amp;#8220;weil ich&amp;#8217;s kann&amp;#8221; gefällt mir das Konzept von FreeBSD deutlich besser als das von Ubuntu/Debian (zwei Distributionen, die ich seit mehreren Jahren nutze). Da wären zum einen die &lt;a href=&#34;https://www.gnu.org/software/coreutils/&#34;&gt;&lt;span class=&#34;caps&#34;&gt;GNU&lt;/span&gt; coreutils&lt;/a&gt;, also &lt;code&gt;ls&lt;/code&gt;, &lt;code&gt;cp&lt;/code&gt;, &lt;code&gt;sed&lt;/code&gt; und so weiter. Auch wenn das mit mehreren Gigabyte &lt;span class=&#34;caps&#34;&gt;RAM&lt;/span&gt; keine Rolle mehr spielt, sind diese Tools allesamt bloated. Als Beispiel biete ich &lt;code&gt;cp&lt;/code&gt;:&lt;/p&gt;
+        &lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span class=&#34;nv&#34;&gt;$ &lt;/span&gt;cp --help  &lt;span class=&#34;c&#34;&gt;# &lt;span class=&#34;caps&#34;&gt;BSD&lt;/span&gt;&lt;/span&gt;
+        cp &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;-R &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;-H | -L | -P&lt;span class=&#34;o&#34;&gt;]]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;-fi | -n&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;-apvX&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; source_file ... target_directory
+        
+        &lt;span class=&#34;nv&#34;&gt;$ &lt;/span&gt;cp --help | grep -E &lt;span class=&#34;s1&#34;&gt;&amp;#39;(  \-\w)|(  --\w)&amp;#39;&lt;/span&gt;  &lt;span class=&#34;c&#34;&gt;# &lt;span class=&#34;caps&#34;&gt;GNU&lt;/span&gt; coreutils, 31 flags&lt;/span&gt;
+        -a, --archive                same as -dR --preserve&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;all
+          --attributes-only        don&lt;span class=&#34;err&#34;&gt;&amp;#39;&lt;/span&gt;t copy the file data, just the attributes
+        ...
+        -v, --verbose                explain what is being &lt;span class=&#34;k&#34;&gt;done&lt;/span&gt;
+        -x, --one-file-system        stay on this file system
+        &lt;/pre&gt;&lt;/div&gt;
+        
+        
+        &lt;p&gt;Das ist bei jedem &lt;span class=&#34;caps&#34;&gt;GNU&lt;/span&gt; Tool der Fall und geht sogar so weit, dass &lt;code&gt;sed&lt;/code&gt; in der &lt;span class=&#34;caps&#34;&gt;GNU&lt;/span&gt; Variante &lt;a href=&#34;http://stackoverflow.com/questions/2320564/variations-of-sed-between-osx-and-gnu-linux&#34;&gt;nahezu inkompatibel&lt;/a&gt; zu &lt;span class=&#34;caps&#34;&gt;BSD&lt;/span&gt;&amp;nbsp;ist.&lt;/p&gt;
+        &lt;p&gt;Auf einer anderen Ebene bin ich als Entwickler auch ein Feind der &lt;span class=&#34;caps&#34;&gt;GPL&lt;/span&gt; und bevorzuge – wenn möglich – die &lt;span class=&#34;caps&#34;&gt;BSD&lt;/span&gt;-Lizenz, die im Gegenzug andere Entwickler nicht zwingen, unter gleichen Bedingungen zu veröffentlichen. So ziemlich alle &lt;span class=&#34;caps&#34;&gt;BSD&lt;/span&gt;-Derivate stehen unter der &lt;span class=&#34;caps&#34;&gt;BSD&lt;/span&gt; und sind dennoch frei wie&amp;nbsp;Linux.&lt;/p&gt;
+        &lt;h3&gt;NetBSD, OpenBSD und DragonFly&amp;nbsp;&lt;span class=&#34;caps&#34;&gt;BSD&lt;/span&gt;&lt;/h3&gt;
+        &lt;p&gt;Neben FreeBSD sind auch noch &lt;a href=&#34;http://www.netbsd.org/&#34;&gt;NetBSD&lt;/a&gt; und &lt;a href=&#34;http://www.openbsd.org/&#34;&gt;OpenBSD&lt;/a&gt; relativ bekannt. Ersteres ist quasi wie Gentoo und läuft auf jeder Architektur die man sich vorstellen kann &lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; rel=&#34;footnote&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;, letzteres hat seinen Fokus auf Sicherheit, Code-Qualität und entwickelt&lt;del&gt;e&lt;/del&gt; OpenSSL sowie&amp;nbsp;OpenSSH.&lt;/p&gt;
+        &lt;p&gt;&lt;a href=&#34;http://www.dragonflybsd.org/&#34;&gt;DragonFly &lt;span class=&#34;caps&#34;&gt;BSD&lt;/span&gt;&lt;/a&gt; als Fork von FreeBSD ist es ein relativ junges – 2003 angefangen – System mit vielen einzigartigen Features, z.B. virtuelle Kernel, deutlich verbessertes &lt;a href=&#34;https://en.wikipedia.org/wiki/Symmetric_multiprocessing&#34;&gt;&lt;span class=&#34;caps&#34;&gt;SMP&lt;/span&gt;&lt;/a&gt; &lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; rel=&#34;footnote&#34;&gt;2&lt;/a&gt;&lt;/sup&gt; und bietet mit &lt;span class=&#34;caps&#34;&gt;HAMMER&lt;/span&gt; ein neues Dateisystem (Linux Port ist in Arbeit), das dem &lt;span class=&#34;caps&#34;&gt;ZFS&lt;/span&gt; nicht unähnlich&amp;nbsp;ist.&lt;/p&gt;
+        &lt;p&gt;Für mich sprach gegen NetBSD, dass die Unterstützung von unzähligen Architekturen mir mit meiner 08/15 amd64 Architektur herzlich egal ist. OpenBSD ist sowieso uninteressant, denn die Sicherheit von Linux-Systemen hat mir bisher auch ausgereicht und DragonFly &lt;span class=&#34;caps&#34;&gt;BSD&lt;/span&gt; hat definitiv besseres verdient, denn als Router zu&amp;nbsp;fungieren.&lt;/p&gt;
+        &lt;h3&gt;Ausblick&lt;/h3&gt;
+        &lt;p&gt;FreeBSD ist nicht an einem Tag gelernt, auch wenn die kompakten Manpages es durchaus zulassen. Erwähnte ich eigentlich, dass wirklich &lt;em&gt;jedes&lt;/em&gt; Programm eine eigene Manpage hat? Das erleichtert den Einstieg ungemein und man lernt sehr schnell sehr viel über das&amp;nbsp;System.&lt;/p&gt;
+        &lt;p&gt;Auch wenn ich FreeBSD für sehr einsteigerfreundlich halte, ist es doch immens komplex. Gerade ein Konzept für das System (Stichpunkt Jails) zu entwickeln, erfordert etwas längere Erfahrung. Ein ungefähr tausend Seiten dickes &lt;a href=&#34;http://www.freebsd.org/doc/handbook/&#34;&gt;Handbuch gibt es in diversen Sprachen vom FreeBSD-Projekt&lt;/a&gt;, ich persönlich habe mir allerdings mit &amp;#8220;Der eigene Server mit FreeBSD 9: Konfiguration, Sicherheit und Pflege&amp;#8221; vom dpunkt-Verlag die Lernzeit etwas&amp;nbsp;verkürzt.&lt;/p&gt;
+        &lt;p&gt;&lt;em&gt;To be continued&amp;nbsp;&amp;#8230;&lt;/em&gt;&lt;/p&gt;
+        &lt;div class=&#34;footnote&#34;&gt;
+        &lt;hr /&gt;
+        &lt;ol&gt;
+        &lt;li id=&#34;fn:1&#34;&gt;
+        &lt;p&gt;Es sei noch angemerkt, dass der Paketmanager von NetBSD auch unter Linux läuft, sie auch &lt;a href=&#34;2010/pkgsrc-eine-lokale-unabhaengige-paketverwaltung/&#34;&gt;pkgsrc: eine lokale, unabhängige Paketverwaltung&lt;/a&gt;.&amp;#160;&lt;a href=&#34;#fnref:1&#34; rev=&#34;footnote&#34; title=&#34;Jump back to footnote 1 in the text&#34;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+        &lt;/li&gt;
+        &lt;li id=&#34;fn:2&#34;&gt;
+        &lt;p&gt;Ein Punkt, wo &lt;span class=&#34;caps&#34;&gt;OS&lt;/span&gt; X (speziell &lt;a href=&#34;https://en.wikipedia.org/wiki/Darwin_(operating_system)&#34;&gt;Darwin&lt;/a&gt;) immer noch suckt.&amp;#160;&lt;a href=&#34;#fnref:2&#34; rev=&#34;footnote&#34; title=&#34;Jump back to footnote 2 in the text&#34;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+        &lt;/li&gt;
+        &lt;/ol&gt;
+        &lt;/div&gt;</description>
+                <pubDate>Wed, 10 Oct 2012 13:29:00 GMT</pubDate>
+                <guid isPermaLink="false">tag:blog.posativ.org,2012-10-10:/2012/abseits-von-linux-freebsd</guid>
+            </item>
         
             <item>
                 <title>Linkschleuder #28</title>
@@ -1230,31 +1277,6 @@
         gespannt auf das fertige&amp;nbsp;System.&lt;/p&gt;</description>
                 <pubDate>Sun, 19 Feb 2012 21:27:00 GMT</pubDate>
                 <guid isPermaLink="false">tag:blog.posativ.org,2012-02-19:/2012/diaspora</guid>
-            </item>
-        
-            <item>
-                <title>weave-minimal Update</title>
-                <link>http://blog.posativ.org/2012/weave-minimal-update/</link>
-                <description>&lt;p&gt;Ich habe heute wieder etwas an meinem
-        &lt;a href=&#34;https://hg.mozilla.org/services/server-full/&#34;&gt;&lt;code&gt;server-full&lt;/code&gt;&lt;/a&gt;-Fork
-        &lt;a href=&#34;https://github.com/posativ/weave-minimal&#34;&gt;&lt;code&gt;weave-minimal&lt;/code&gt;&lt;/a&gt; gebastelt und habe es
-        geschafft, die Registrierung direkt im Firefox zu ermöglichen. Der
-        alternative Weg über die &lt;span class=&#34;caps&#34;&gt;&lt;abbr title=&#34;Command Line Interface&#34;&gt;CLI&lt;/abbr&gt;&lt;/span&gt; mit erweitertem Nutzernamen-Spektrum existiert
-        natürlich weiterhin.&amp;nbsp;Änderungskatalog:&lt;/p&gt;
-        &lt;ul&gt;
-        &lt;li&gt;direkte Registrierung im&amp;nbsp;&lt;span class=&#34;caps&#34;&gt;FF&lt;/span&gt;&lt;/li&gt;
-        &lt;li&gt;rudimentärer &lt;code&gt;/misc/1.0/captcha_html&lt;/code&gt;-Support (d.h. ohne reellen&amp;nbsp;Nutzen)&lt;/li&gt;
-        &lt;li&gt;mehr&amp;nbsp;standard-konform&lt;/li&gt;
-        &lt;li&gt;offene Registrierung per Default, einfach &lt;code&gt;ENABLE_REGISTER&lt;/code&gt; auf &lt;code&gt;False&lt;/code&gt;
-          setzen&lt;/li&gt;
-        &lt;/ul&gt;
-        &lt;h3&gt;Spielwiese&lt;/h3&gt;
-        &lt;p&gt;Unter &lt;code&gt;https://posativ.org/weave/&lt;/code&gt; läuft ein Sync-Server mit einer offenen
-        Registrierung; wer mir also vertraut (Passwort wird gesalzen als truncated 
-        sha1-Hash gespeichert) oder einfach nur Testen will, ob mein Server was
-        taugt – benötigt allerdings &lt;a href=&#34;http://www.cacert.org/index.php?id=3&#34;&gt;CAcert-Vertrauen&lt;/a&gt;, ist hier gerne&amp;nbsp;willkommen.&lt;/p&gt;</description>
-                <pubDate>Sat, 18 Feb 2012 21:41:00 GMT</pubDate>
-                <guid isPermaLink="false">tag:blog.posativ.org,2012-02-18:/2012/weave-minimal-update</guid>
             </item>
         </channel>
 </rss>

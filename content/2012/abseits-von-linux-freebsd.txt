@@ -1,0 +1,59 @@
+---
+title: "Abseits von Linux: FreeBSD"
+date: 10.10.2012, 14:29
+filter: [Jinja2, noabbr]
+tags: [FreeBSD, planet]
+---
+
+<img src="/img/2012/freebsd.png" alt="Freedombox Logo" class="floatright no-shadow" width="200px" />
+
+Da mein derzeitiger Router – eine Time Capsule – doch sehr langsam für das Backup und vor allem Wiederherstellen (nicht unter einer Minute) ist, wird er durch ein neues Gerät ersetzt, das unter FreeBSD laufen soll<!-- break -->.
+
+# Was? FreeBSD?
+
+Hat [man vielleicht schon einmal gehört][1]. Ist kein Linux, sondern basiert – wer hätte es gedacht – auf dem FreeBSD Kernel, der im Unterschied zu Linux wesentlich weniger Treiber mitbringt und auch konzeptuell sehr verschieden ist. Im Gegensatz zu Ubuntu/Debian ist FreeBSD aus einem Guss. Sowohl der Kernel, das Basis-System als auch die Software wird von einer Community betreut.
+
+FreeBSD bietet ein harmonisches Gesamtkonzept, ist äußerst leichtgewichtig, hat Packet Filtering, Jails und bietet mir eine immens große Software-Kollektion, deren Buildflags ich wie in Gentoo sehen und ändern kann. ZFS! Auch wenn ich bei mir nicht den Anwendungsfall sehe, unterstützt FreeBSD eine *aktuelle* Version von ZFS.
+
+# Warum überhaupt BSD?
+
+Neben dem "weil ich's kann" gefällt mir das Konzept von FreeBSD deutlich besser als das von Ubuntu/Debian (zwei Distributionen, die ich seit mehreren Jahren nutze). Da wären zum einen die [GNU coreutils][2], also `ls`, `cp`, `sed` und so weiter. Auch wenn das mit mehreren Gigabyte RAM keine Rolle mehr spielt, sind diese Tools allesamt bloated. Als Beispiel biete ich `cp`:
+
+    :::sh
+    $ cp --help  # BSD
+    {{ "/bin/cp --help 2>&1 | tail -n 1 || true" | system | indent(4) }}
+    
+    $ cp --help | grep -E '(  \-\w)|(  --\w)'  # GNU coreutils, 31 flags
+    -a, --archive                same as -dR --preserve=all
+      --attributes-only        don't copy the file data, just the attributes
+    ...
+    -v, --verbose                explain what is being done
+    -x, --one-file-system        stay on this file system
+
+Das ist bei jedem GNU Tool der Fall und geht sogar so weit, dass `sed` in der GNU Variante [nahezu inkompatibel][3] zu BSD ist.
+
+Auf einer anderen Ebene bin ich als Entwickler auch ein Feind der GPL und bevorzuge – wenn möglich – die BSD-Lizenz, die im Gegenzug andere Entwickler nicht zwingen, unter gleichen Bedingungen zu veröffentlichen. So ziemlich alle BSD-Derivate stehen unter der BSD und sind dennoch frei wie Linux.
+
+[1]: http://cre.fm/cre048
+[2]: https://www.gnu.org/software/coreutils/
+[3]: http://stackoverflow.com/questions/2320564/variations-of-sed-between-osx-and-gnu-linux
+
+# NetBSD, OpenBSD und DragonFly BSD
+
+Neben FreeBSD sind auch noch [NetBSD](http://www.netbsd.org/) und [OpenBSD](http://www.openbsd.org/) relativ bekannt. Ersteres ist quasi wie Gentoo und läuft auf jeder Architektur die man sich vorstellen kann [^1], letzteres hat seinen Fokus auf Sicherheit, Code-Qualität und entwickelt~~e~~ OpenSSL sowie OpenSSH.
+
+[DragonFly BSD](http://www.dragonflybsd.org/) als Fork von FreeBSD ist es ein relativ junges – 2003 angefangen – System mit vielen einzigartigen Features, z.B. virtuelle Kernel, deutlich verbessertes [SMP](https://en.wikipedia.org/wiki/Symmetric_multiprocessing) [^2] und bietet mit HAMMER ein neues Dateisystem (Linux Port ist in Arbeit), das dem ZFS nicht unähnlich ist.
+
+Für mich sprach gegen NetBSD, dass die Unterstützung von unzähligen Architekturen mir mit meiner 08/15 amd64 Architektur herzlich egal ist. OpenBSD ist sowieso uninteressant, denn die Sicherheit von Linux-Systemen hat mir bisher auch ausgereicht und DragonFly BSD hat definitiv besseres verdient, denn als Router zu fungieren.
+
+[^1]: Es sei noch angemerkt, dass der Paketmanager von NetBSD auch unter Linux läuft, sie auch [pkgsrc: eine lokale, unabhängige Paketverwaltung](2010/pkgsrc-eine-lokale-unabhaengige-paketverwaltung/).
+
+[^2]: Ein Punkt, wo OS X (speziell [Darwin](https://en.wikipedia.org/wiki/Darwin_(operating_system))) immer noch suckt.
+
+# Ausblick
+
+FreeBSD ist nicht an einem Tag gelernt, auch wenn die kompakten Manpages es durchaus zulassen. Erwähnte ich eigentlich, dass wirklich *jedes* Programm eine eigene Manpage hat? Das erleichtert den Einstieg ungemein und man lernt sehr schnell sehr viel über das System.
+
+Auch wenn ich FreeBSD für sehr einsteigerfreundlich halte, ist es doch immens komplex. Gerade ein Konzept für das System (Stichpunkt Jails) zu entwickeln, erfordert etwas längere Erfahrung. Ein ungefähr tausend Seiten dickes [Handbuch gibt es in diversen Sprachen vom FreeBSD-Projekt](http://www.freebsd.org/doc/handbook/), ich persönlich habe mir allerdings mit "Der eigene Server mit FreeBSD 9: Konfiguration, Sicherheit und Pflege" vom dpunkt-Verlag die Lernzeit etwas verkürzt.
+
+*To be continued ...*
