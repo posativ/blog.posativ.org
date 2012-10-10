@@ -33,14 +33,7 @@ Installation
 ============
 
     :::bash
-    $ easy_install -U werkzeug
-
-&nbsp;
-
-    :::bash
-    $ wget https://github.com/posativ/weave-minimal/tarball/master -O weave-minimal.tar.gz
-    $ tar xfz weave-minimal.tar.gz
-    $ cd posativ-weave-minimal
+    $ easy_install -U weave-minimal
 
 Usage
 =====
@@ -53,7 +46,7 @@ The setup is exactly the same as the official way except you have to choose
 *custom server* and enter the url of your server.
 
     :::bash
-    $ ./weave.py -p 8080
+    $ weave-minimal -p 8080
 
 The last command launches weave.py on port 8080. You can now configure mod_proxy
 in your webserver of choice or you some mod_fastcgi magic. See [README.md][2]
@@ -71,7 +64,7 @@ Hints
 - the user password is stored SHA1-hashed (first 16 characters) into the
   database filename `name.91dfd9ddb4198aff`.
 - in case your web server sucks and does not send `HTTP_X_SCRIPT_NAME`, start
-  `weave.py` with `--prefix=/url/prefix`.
+  `weave-minimal` with `--prefix=/url/prefix`.
 
 [1]: https://bugzilla.mozilla.org/show_bug.cgi?id=708256
 [2]: https://github.com/posativ/weave-minimal
