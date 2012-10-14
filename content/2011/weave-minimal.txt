@@ -2,7 +2,7 @@
 title: weave-minimal – a Firefox Sync full-server fork
 date: 18.12.2011, 17:35
 lang: en
-tags: [Mozilla, Firefox Sync, Python]
+tags: [Mozilla, Firefox, Sync, Python]
 ---
 
 The first time I tried to get a custom Firefox Sync server running, I used

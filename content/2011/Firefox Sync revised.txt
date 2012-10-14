@@ -1,57 +1,112 @@
 ---
 title: Firefox Sync auf dem eigenen Server. Ja. Wirklich.
-date: 7.12.2011, 20:01
-tags: [Firefox Sync, Python, planet]
+date: 14.10.2012, 12:23
+permalink: /2011/firefox-sync-auf-dem-eigenen-server-ja-wirklich/
+tags: [Firefox, Sync, Python, planet]
 ---
 
-Vor gut [zwei Wochen habe ich festgestellt][1], dass es irgendwie unmöglich
-ist, einen eigenen Server für Firefox Sync zu nehmen. Aber so unmöglich ist es
-dann gar nicht. Wenn man weiß, wie behindert das Setup ist, dann ist das
-kinderleicht.
+Da die Phrase "firefox sync eigener server" relativ häufig zu diesem Beitrag
+führt, aktualisiere ich ihn mal auf die letzten Änderungen. Für einen Firefox
+Sync Server, der einfach funktioniert™ braucht ihr folgendes:
 
-~~Was nicht geht: ein neues Konto auf dem eigenen Server anlegen. Warum? Weil
-Mozilla diese Service-URL [auth.services.mozilla.com]() fest in den
-Firefox kodiert hat. Die API, um sich zu registrieren, hängt aber an obiger
-URL + `/user`, genauer gesagt `PUT /user/1.0/mein_username`. Da sich die URL
-für den Registrierungsserver (der Server ist in zwei Teilprojekte unterteilt,
-`server-reg` und `server-full`) nicht einmal in der [about:config]() einstellen
-lässt, wird dieser Workaround genutzt. Wir wissen ja, *[89 people have this
-problem][2]. I have this problem, too!*~~
+- `python` ≥ 2.6
+- `sqlite` (meist schon vorinstalliert)
 
-Ist inzwischen alles ganz einfach.
+Meine `weave-minimal` Implementierung unterstützt mehrere User, die komplett
+voneinander abgeschottet sind und ist vollständig kompatibel zur offiziellen
+Implementierung (heißt, alle Tests laufen durch). Die Installation ist 'n
+Einzeiler:
 
-Workaround in Firefox
-=====================
+    :::sh
+    $ easy_install -U weave-minimal
 
-~~Anstatt sich ein neues Nutzerkonto zu klicken, wählt man stattdessen aus, dass
-man bereits ein Konto hat. Dafür wird allerdings wirklich ein Konto benötigt,
-was zu einem unschönen Weg in die Kommandozeile führt (oder ins Webinterface,
-sofern der Server derartiges anbietet). Nachdem man sich auf seinem Server
-einen Nutzer registriert hat, geht's weiter. Anstatt das Gerät mit dem
-drei-stelligen Code zu aktivieren (ich wüsste nicht, wie das mit eigenen
-Servern funktioniert), wählt man *"Ich habe das Gerät nicht bei mir"*, gibt
-seine Daten ein, wählt *"Eigenen Server verwenden..."* aus und gibt seine URL
-ein. Das war's.~~
+Wenn das nicht klappt, als `root` versuchen. Der Server selbst sollte
+allerdings mit eingeschränkten Rechten laufen. Sucht euch ein Verzeichnis aus,
+wo die Datenbank etc. hin soll und startet den Server mittels:
 
-Nein, mein Fehler. Es ist genauso wie sonst auch: *Sync* -> *Neues Konto
-anlegen* -> *Eigenen Server* und fertig. Ein neues Gerät lässt sich ganz leicht
-über *Ich habe bereits ein Konto hinzufügen*.
+    :::sh
+    $ weave-minimal --enable-registration
 
-An Servern dürften damit wohl \*noch\* alle letztens aufgezählten
-funktionieren, ob, das habe ich aber nicht getestet:
+Per default lauscht der Server auf 8080 und nimmt reguläre HTTP Anfragen
+entgegen. Heißt, per `mod_proxy` oder ähnlichem darauf zeigen. Unter
+[lighttpd](http://lighttpd.net/) sieht das wie folgt aus:
 
-- [offizielle Server-Implementierung](https://hg.mozilla.org/services/server-full/),
-  nicht gerade leicht zu installieren, Bloatware++.
-- [weave-minimal in PHP](http://ymartin59.free.fr/wordpress/index.php/2011/03/05/my-own-firefox-sync-weave-server/),
-  der ehemalige, offizielle Weave-Server, discontinued.
-- [Django Sync Server](https://github.com/jedie/django-sync-server/)
-- [ffpyweave](https://github.com/tolumak/ffpyweave), ein single-file CGI-Skript
-- [weave-minimal](https://github.com/posativ/weave-minimal), meine Implementierung
-  von `server-full` in Python, nur ohne Bloatware-Adapter.
+    :::perl
+    $HTTP["url"] =~ "^/weave/" {
+        proxy.server = ("" =>
+           (("host" => "127.0.0.1", "port" => 8080)))
+    }
 
-Derweil habe ich einen [Bugreport mit meinem Unmut gefiledt][3].
+In [der Readme][1] gibt es auch Anweisungen für [nginx][2] und einem
+`init.d`-Skript für Debian/Ubuntu. Die [Quellen liegen auf GitHub][3], Fehler
+nehme ich per [GitHub:Issues][4] oder [Disqus][5] entgegen.
 
+Per default werden die Daten im aktuellen Verzeichnis unter `.data`
+gespeichert, also sollte der Prozess auch immer vom selben Verzeichnis aus
+gestartet werden oder per `--data-dir` gesetzt werden. Für Debian/Ubuntu ist
+hier ein `init.d`-Skript, dass den Sync Server als `www`-Nutzer via
+`invoke-rc.d weave-minimal start` laufen lässt:
 
-[1]: /2011/firefox-sync-auf-dem-eigenen-server-vielleicht-nein/
-[2]: https://support.mozilla.com/de/questions/712986
-[3]: https://bugzilla.mozilla.org/show_bug.cgi?id=708256
+    :::sh
+    #!/bin/sh
+    # save to /etc/init.d/weave-minimal and chmod +x
+    
+    NAME=weave-minimal
+    USER=www
+    CMD=/usr/local/bin/weave-minimal
+
+    PORT=8080
+    DBPATH=/var/lib/weave-minimal/
+
+    if [ ! -d $DBPATH ]; then
+      mkdir /var/lib/weave-minimal
+      chown www /var/lib/weave-minimal
+    fi
+
+    case $1 in
+        start)
+        echo -n "Starting $NAME: "
+        start-stop-daemon --start --background --pidfile /var/run/$NAME.pid \
+        --chuid $USER --make-pidfile --exec $CMD -- --data-dir=$DBPATH \
+        --port=$PORT --enable-registration
+        echo "$NAME."
+           ;;
+    stop)  start-stop-daemon --stop --pidfile /var/run/$NAME.pid
+           ;;
+    esac
+
+[1]: https://github.com/posativ/weave-minimal#webserver-configuration
+[2]: http://nginx.org/
+[3]: https://github.com/posativ/weave-minimal
+[4]: https://github.com/posativ/weave-minimal/issues
+[5]: #disqus_thread
+
+# Firefox Setup
+
+Wie sonst auch: *Sync* → *Neues Konto anlegen* → *Eigenen Server* und fertig.
+Ein neues Gerät lässt sich ganz leicht über *Ich habe bereits ein Konto
+hinzufügen* und über "Gerät verbinden" in einem bereits verbundenem Client
+hinzufügen.
+
+<img alt="Firefox Sync Setup" src="/img/2012/setup.png" class="no-shadow" />
+
+Firefox für Android funktioniert ab Version 16 auch mit meiner Implementierung.
+Die API wird bis April 2013 kompatibel sein, danach kommt API Version 2.0 zum
+Einsatz, die deutlich schwieriger zu implementieren und zu deployen ist
+(wegen [Persona](https://www.mozilla.org/en-US/persona/)).
+
+Wenn eigene Zertifikate genutzt werden, sollten die vor dem Sync hinzugefügt
+werden, sonst funktioniert da nichts. Zum Testen biete ich immer noch eine Instanz
+unter [/weave](https://posativ.org/weave/) an.
+
+# alternative Server-Implementierungen
+
+- [weave-minimal in PHP][7], der ehemalige, offizielle Weave-Server in PHP,
+  discontinued. Wird von [balu][8] maintained als [FSyncMS][9].
+- [offizielle Server-Implementierung][6], nicht gerade leicht zu installieren, ausgelegt
+  für mehrere tausend Nutzer.
+
+[6]: https://hg.mozilla.org/services/server-full/
+[7]: http://ymartin59.free.fr/wordpress/index.php/2011/03/05/my-own-firefox-sync-weave-server/
+[8]: http://www.ohnekontur.de/
+[9]: https://github.com/balu-/FSyncMS/

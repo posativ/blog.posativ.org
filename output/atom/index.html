@@ -9,8 +9,107 @@
     <id>http://blog.posativ.org/</id>
     <link rel="alternate" type="text/html" href="http://blog.posativ.org/" />
     <link rel="self" type="application/atom+xml" href="http://blog.posativ.org/atom/" />
-    <updated>2012-10-10T12:29:00Z</updated>
+    <updated>2012-10-14T10:23:00Z</updated>
     <generator uri="https://github.com/posativ/acrylamid/" version="0.4.2">acrylamid</generator>
+        <entry>
+                <title>Firefox Sync auf dem eigenen Server. Ja. Wirklich.</title>
+                <link rel="alternate" type="text/html" href="http://blog.posativ.org/2011/firefox-sync-auf-dem-eigenen-server-ja-wirklich/" />
+                <id>tag:blog.posativ.org,2012-10-14:/2011/firefox-sync-auf-dem-eigenen-server-ja-wirklich</id>
+                <updated>2012-10-14T10:23:00Z</updated>
+                <author>
+                    <name>posativ</name>
+                    <uri>http://blog.posativ.org/</uri>
+                    <email>info@posativ.org</email>
+                </author>
+                <content type="html">&lt;p&gt;Da die Phrase &amp;#8220;firefox sync eigener server&amp;#8221; relativ häufig zu diesem Beitrag
+        führt, aktualisiere ich ihn mal auf die letzten Änderungen. Für einen Firefox
+        Sync Server, der einfach funktioniert™ braucht ihr&amp;nbsp;folgendes:&lt;/p&gt;
+        &lt;ul&gt;
+        &lt;li&gt;&lt;code&gt;python&lt;/code&gt; ≥&amp;nbsp;2.6&lt;/li&gt;
+        &lt;li&gt;&lt;code&gt;sqlite&lt;/code&gt; (meist schon&amp;nbsp;vorinstalliert)&lt;/li&gt;
+        &lt;/ul&gt;
+        &lt;p&gt;Meine &lt;code&gt;weave-minimal&lt;/code&gt; Implementierung unterstützt mehrere User, die komplett
+        voneinander abgeschottet sind und ist vollständig kompatibel zur offiziellen
+        Implementierung (heißt, alle Tests laufen durch). Die Installation ist &amp;#8216;n&amp;nbsp;Einzeiler:&lt;/p&gt;
+        &lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span class=&#34;nv&#34;&gt;$ &lt;/span&gt;easy_install -U weave-minimal
+        &lt;/pre&gt;&lt;/div&gt;
+        
+        
+        &lt;p&gt;Wenn das nicht klappt, als &lt;code&gt;root&lt;/code&gt; versuchen. Der Server selbst sollte
+        allerdings mit eingeschränkten Rechten laufen. Sucht euch ein Verzeichnis aus,
+        wo die Datenbank etc. hin soll und startet den Server&amp;nbsp;mittels:&lt;/p&gt;
+        &lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span class=&#34;nv&#34;&gt;$ &lt;/span&gt;weave-minimal --enable-registration
+        &lt;/pre&gt;&lt;/div&gt;
+        
+        
+        &lt;p&gt;Per default lauscht der Server auf 8080 und nimmt reguläre &lt;span class=&#34;caps&#34;&gt;HTTP&lt;/span&gt; Anfragen
+        entgegen. Heißt, per &lt;code&gt;mod_proxy&lt;/code&gt; oder ähnlichem darauf zeigen. Unter
+        &lt;a href=&#34;http://lighttpd.net/&#34;&gt;lighttpd&lt;/a&gt; sieht das wie folgt&amp;nbsp;aus:&lt;/p&gt;
+        &lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span class=&#34;nv&#34;&gt;$&lt;span class=&#34;caps&#34;&gt;HTTP&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;quot;url&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=~&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;quot;^/weave/&amp;quot;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+            &lt;span class=&#34;n&#34;&gt;proxy&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;server&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;quot;&amp;quot;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&amp;gt;&lt;/span&gt;
+               &lt;span class=&#34;p&#34;&gt;((&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;quot;host&amp;quot;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;quot;127.0.0.1&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;quot;port&amp;quot;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;8080&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)))&lt;/span&gt;
+        &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+        &lt;/pre&gt;&lt;/div&gt;
+        
+        
+        &lt;p&gt;In &lt;a href=&#34;https://github.com/posativ/weave-minimal#webserver-configuration&#34;&gt;der Readme&lt;/a&gt; gibt es auch Anweisungen für &lt;a href=&#34;http://nginx.org/&#34;&gt;nginx&lt;/a&gt; und einem
+        &lt;code&gt;init.d&lt;/code&gt;-Skript für Debian/Ubuntu. Die &lt;a href=&#34;https://github.com/posativ/weave-minimal&#34;&gt;Quellen liegen auf GitHub&lt;/a&gt;, Fehler
+        nehme ich per &lt;a href=&#34;https://github.com/posativ/weave-minimal/issues&#34;&gt;GitHub:Issues&lt;/a&gt; oder &lt;a href=&#34;#disqus_thread&#34;&gt;Disqus&lt;/a&gt;&amp;nbsp;entgegen.&lt;/p&gt;
+        &lt;p&gt;Per default werden die Daten im aktuellen Verzeichnis unter &lt;code&gt;.data&lt;/code&gt;
+        gespeichert, also sollte der Prozess auch immer vom selben Verzeichnis aus
+        gestartet werden oder per &lt;code&gt;--data-dir&lt;/code&gt; gesetzt werden. Für Debian/Ubuntu ist
+        hier ein &lt;code&gt;init.d&lt;/code&gt;-Skript, dass den Sync Server als &lt;code&gt;www&lt;/code&gt;-Nutzer via
+        &lt;code&gt;invoke-rc.d weave-minimal start&lt;/code&gt; laufen&amp;nbsp;lässt:&lt;/p&gt;
+        &lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span class=&#34;c&#34;&gt;#!/bin/sh&lt;/span&gt;
+        &lt;span class=&#34;c&#34;&gt;# save to /etc/init.d/weave-minimal and chmod +x&lt;/span&gt;
+        
+        &lt;span class=&#34;nv&#34;&gt;&lt;span class=&#34;caps&#34;&gt;NAME&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;weave-minimal
+        &lt;span class=&#34;nv&#34;&gt;&lt;span class=&#34;caps&#34;&gt;USER&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;www
+        &lt;span class=&#34;nv&#34;&gt;&lt;span class=&#34;caps&#34;&gt;CMD&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;/usr/local/bin/weave-minimal
+        
+        &lt;span class=&#34;nv&#34;&gt;&lt;span class=&#34;caps&#34;&gt;PORT&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;8080
+        &lt;span class=&#34;nv&#34;&gt;&lt;span class=&#34;caps&#34;&gt;DBPATH&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;/var/lib/weave-minimal/
+        
+        &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt; ! -d &lt;span class=&#34;nv&#34;&gt;$&lt;span class=&#34;caps&#34;&gt;DBPATH&lt;/span&gt;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;; &lt;span class=&#34;k&#34;&gt;then&lt;/span&gt;
+        &lt;span class=&#34;k&#34;&gt;  &lt;/span&gt;mkdir /var/lib/weave-minimal
+          chown www /var/lib/weave-minimal
+        &lt;span class=&#34;k&#34;&gt;fi&lt;/span&gt;
+        
+        &lt;span class=&#34;k&#34;&gt;case&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$1&lt;/span&gt; in
+            start&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+            &lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; -n &lt;span class=&#34;s2&#34;&gt;&amp;quot;Starting $&lt;span class=&#34;caps&#34;&gt;NAME&lt;/span&gt;: &amp;quot;&lt;/span&gt;
+            start-stop-daemon --start --background --pidfile /var/run/&lt;span class=&#34;nv&#34;&gt;$&lt;span class=&#34;caps&#34;&gt;NAME&lt;/span&gt;&lt;/span&gt;.pid &lt;span class=&#34;se&#34;&gt;\&lt;/span&gt;
+            --chuid &lt;span class=&#34;nv&#34;&gt;$&lt;span class=&#34;caps&#34;&gt;USER&lt;/span&gt;&lt;/span&gt; --make-pidfile --exec &lt;span class=&#34;nv&#34;&gt;$&lt;span class=&#34;caps&#34;&gt;CMD&lt;/span&gt;&lt;/span&gt; -- --data-dir&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$&lt;span class=&#34;caps&#34;&gt;DBPATH&lt;/span&gt;&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\&lt;/span&gt;
+            --port&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$&lt;span class=&#34;caps&#34;&gt;PORT&lt;/span&gt;&lt;/span&gt; --enable-registration
+            &lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;$&lt;span class=&#34;caps&#34;&gt;NAME&lt;/span&gt;.&amp;quot;&lt;/span&gt;
+               ;;
+        stop&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;  start-stop-daemon --stop --pidfile /var/run/&lt;span class=&#34;nv&#34;&gt;$&lt;span class=&#34;caps&#34;&gt;NAME&lt;/span&gt;&lt;/span&gt;.pid
+               ;;
+        &lt;span class=&#34;k&#34;&gt;esac&lt;/span&gt;
+        &lt;/pre&gt;&lt;/div&gt;
+        
+        
+        &lt;h3&gt;Firefox&amp;nbsp;Setup&lt;/h3&gt;
+        &lt;p&gt;Wie sonst auch: &lt;em&gt;Sync&lt;/em&gt; → &lt;em&gt;Neues Konto anlegen&lt;/em&gt; → &lt;em&gt;Eigenen Server&lt;/em&gt; und fertig.
+        Ein neues Gerät lässt sich ganz leicht über &lt;em&gt;Ich habe bereits ein Konto
+        hinzufügen&lt;/em&gt; und über &amp;#8220;Gerät verbinden&amp;#8221; in einem bereits verbundenem Client&amp;nbsp;hinzufügen.&lt;/p&gt;
+        &lt;p&gt;&lt;img alt=&#34;Firefox Sync Setup&#34; src=&#34;/img/2012/setup.png&#34; class=&#34;no-shadow&#34;/&gt;&lt;/p&gt;
+        &lt;p&gt;Firefox für Android funktioniert ab Version 16 auch mit meiner Implementierung.
+        Die &lt;span class=&#34;caps&#34;&gt;&lt;abbr title=&#34;Application programming interface&#34;&gt;API&lt;/abbr&gt;&lt;/span&gt; wird bis April 2013 kompatibel sein, danach kommt &lt;span class=&#34;caps&#34;&gt;&lt;abbr title=&#34;Application programming interface&#34;&gt;API&lt;/abbr&gt;&lt;/span&gt; Version 2.0 zum
+        Einsatz, die deutlich schwieriger zu implementieren und zu deployen ist
+        (wegen &lt;a href=&#34;https://www.mozilla.org/en-US/persona/&#34;&gt;Persona&lt;/a&gt;).&lt;/p&gt;
+        &lt;p&gt;Wenn eigene Zertifikate genutzt werden, sollten die vor dem Sync hinzugefügt
+        werden, sonst funktioniert da nichts. Zum Testen biete ich immer noch eine Instanz
+        unter &lt;a href=&#34;https://posativ.org/weave/&#34;&gt;/weave&lt;/a&gt;&amp;nbsp;an.&lt;/p&gt;
+        &lt;h3&gt;alternative&amp;nbsp;Server-Implementierungen&lt;/h3&gt;
+        &lt;ul&gt;
+        &lt;li&gt;&lt;a href=&#34;http://ymartin59.free.fr/wordpress/index.php/2011/03/05/my-own-firefox-sync-weave-server/&#34;&gt;weave-minimal in &lt;span class=&#34;caps&#34;&gt;PHP&lt;/span&gt;&lt;/a&gt;, der ehemalige, offizielle Weave-Server in &lt;span class=&#34;caps&#34;&gt;PHP&lt;/span&gt;,
+          discontinued. Wird von &lt;a href=&#34;http://www.ohnekontur.de/&#34;&gt;balu&lt;/a&gt; maintained als &lt;a href=&#34;https://github.com/balu-/FSyncMS/&#34;&gt;FSyncMS&lt;/a&gt;.&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;https://hg.mozilla.org/services/server-full/&#34;&gt;offizielle Server-Implementierung&lt;/a&gt;, nicht gerade leicht zu installieren, ausgelegt
+          für mehrere tausend&amp;nbsp;Nutzer.&lt;/li&gt;
+        &lt;/ul&gt;</content>
+            </entry>
+    
         <entry>
                 <title>Abseits von Linux: FreeBSD</title>
                 <link rel="alternate" type="text/html" href="http://blog.posativ.org/2012/abseits-von-linux-freebsd/" />
@@ -21,7 +120,7 @@
                     <uri>http://blog.posativ.org/</uri>
                     <email>info@posativ.org</email>
                 </author>
-                <content type="html">&lt;p&gt;&lt;img src=&#34;/img/2012/freebsd.png&#34; alt=&#34;Freedombox Logo&#34; class=&#34;floatright no-shadow&#34; width=&#34;200px&#34; /&gt;&lt;/p&gt;
+                <content type="html">&lt;p&gt;&lt;img src=&#34;/img/2012/freebsd.png&#34; alt=&#34;FreeBSD Logo&#34; class=&#34;floatright no-shadow&#34; width=&#34;200px&#34; /&gt;&lt;/p&gt;
         &lt;p&gt;Da mein derzeitiger Router – eine Time Capsule – doch sehr langsam für das Backup und vor allem Wiederherstellen (nicht unter einer Minute) ist, wird er durch ein neues Gerät ersetzt, das unter FreeBSD laufen soll&lt;!-- break --&gt;.&lt;/p&gt;
         &lt;h3&gt;Was?&amp;nbsp;FreeBSD?&lt;/h3&gt;
         &lt;p&gt;Hat &lt;a href=&#34;http://cre.fm/cre048&#34;&gt;man vielleicht schon einmal gehört&lt;/a&gt;. Ist kein Linux, sondern basiert – wer hätte es gedacht – auf dem FreeBSD Kernel, der im Unterschied zu Linux wesentlich weniger Treiber mitbringt und auch konzeptuell sehr verschieden ist. Im Gegensatz zu Ubuntu/Debian ist FreeBSD aus einem Guss. Sowohl der Kernel, das Basis-System als auch die Software wird von einer Community&amp;nbsp;betreut.&lt;/p&gt;
@@ -54,7 +153,7 @@
         &lt;hr /&gt;
         &lt;ol&gt;
         &lt;li id=&#34;fn:1&#34;&gt;
-        &lt;p&gt;Es sei noch angemerkt, dass der Paketmanager von NetBSD auch unter Linux läuft, sie auch &lt;a href=&#34;2010/pkgsrc-eine-lokale-unabhaengige-paketverwaltung/&#34;&gt;pkgsrc: eine lokale, unabhängige Paketverwaltung&lt;/a&gt;.&amp;#160;&lt;a href=&#34;#fnref:1&#34; rev=&#34;footnote&#34; title=&#34;Jump back to footnote 1 in the text&#34;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+        &lt;p&gt;Es sei noch angemerkt, dass der Paketmanager von NetBSD auch unter Linux läuft, sie auch &lt;a href=&#34;/2010/pkgsrc-eine-lokale-unabhaengige-paketverwaltung/&#34;&gt;pkgsrc: eine lokale, unabhängige Paketverwaltung&lt;/a&gt;.&amp;#160;&lt;a href=&#34;#fnref:1&#34; rev=&#34;footnote&#34; title=&#34;Jump back to footnote 1 in the text&#34;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
         &lt;/li&gt;
         &lt;li id=&#34;fn:2&#34;&gt;
         &lt;p&gt;Ein Punkt, wo &lt;span class=&#34;caps&#34;&gt;OS&lt;/span&gt; X (speziell &lt;a href=&#34;https://en.wikipedia.org/wiki/Darwin_(operating_system)&#34;&gt;Darwin&lt;/a&gt;) immer noch suckt.&amp;#160;&lt;a href=&#34;#fnref:2&#34; rev=&#34;footnote&#34; title=&#34;Jump back to footnote 2 in the text&#34;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
@@ -213,7 +312,7 @@
         &lt;li&gt;&lt;a href=&#34;https://code.google.com/p/libfvde/&#34;&gt;libfvde&lt;/a&gt; – und wo wir gerade bei Apple waren. Um auf seine FileVault2
           geschützten Daten unter bsw. Linux zuzugreifen, gibt es inzwischen die
           Bibliothek &lt;code&gt;libfvde&lt;/code&gt;. Muss ich unbedingt&amp;nbsp;testen!&lt;/li&gt;
-        &lt;li&gt;&lt;a href=&#34;https://github.com/busyloop/lolcat&#34;&gt;lolcat&lt;/a&gt; – &lt;span style=&#34;color: #7e00d2&#34;&gt;c&lt;/span&gt;&lt;span style=&#34;color: #7e00d2&#34;&gt;a&lt;/span&gt;&lt;span style=&#34;color: #7e00d2&#34;&gt;t&lt;/span&gt;&lt;span style=&#34;color: #5400d2&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #5400d2&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color: #5400d2&#34;&gt;n&lt;/span&gt;&lt;span style=&#34;color: #5400d2&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #5400d2&#34;&gt;R&lt;/span&gt;&lt;span style=&#34;color: #5400d2&#34;&gt;e&lt;/span&gt;&lt;span style=&#34;color: #2a2ad2&#34;&gt;g&lt;/span&gt;&lt;span style=&#34;color: #2a2ad2&#34;&gt;e&lt;/span&gt;&lt;span style=&#34;color: #2a2ad2&#34;&gt;n&lt;/span&gt;&lt;span style=&#34;color: #2a2ad2&#34;&gt;b&lt;/span&gt;&lt;span style=&#34;color: #2a2ad2&#34;&gt;o&lt;/span&gt;&lt;span style=&#34;color: #2a2ad2&#34;&gt;g&lt;/span&gt;&lt;span style=&#34;color: #2a2ad2&#34;&gt;e&lt;/span&gt;&lt;span style=&#34;color: #2a2ad2&#34;&gt;n&lt;/span&gt;&lt;span style=&#34;color: #0054d2&#34;&gt;f&lt;/span&gt;&lt;span style=&#34;color: #0054d2&#34;&gt;a&lt;/span&gt;&lt;span style=&#34;color: #0054d2&#34;&gt;r&lt;/span&gt;&lt;span style=&#34;color: #0054d2&#34;&gt;b&lt;/span&gt;&lt;span style=&#34;color: #0054d2&#34;&gt;e&lt;/span&gt;&lt;span style=&#34;color: #0054d2&#34;&gt;n&lt;/span&gt;&lt;span style=&#34;color: #0054d2&#34;&gt;!&lt;/span&gt;&lt;span style=&#34;color: #007ed2&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #007ed2&#34;&gt;L&lt;/span&gt;&lt;span style=&#34;color: #007ed2&#34;&gt;e&lt;/span&gt;&lt;span style=&#34;color: #007ed2&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color: #007ed2&#34;&gt;d&lt;/span&gt;&lt;span style=&#34;color: #007ed2&#34;&gt;e&lt;/span&gt;&lt;span style=&#34;color: #007ea8&#34;&gt;r&lt;/span&gt;&lt;span style=&#34;color: #00a8a8&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #00a8a8&#34;&gt;s&lt;/span&gt;&lt;span style=&#34;color: #00a8a8&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color: #00a8a8&#34;&gt;n&lt;/span&gt;&lt;span style=&#34;color: #00a8a8&#34;&gt;d&lt;/span&gt;&lt;span style=&#34;color: #00a8a8&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #00a8a8&#34;&gt;m&lt;/span&gt;&lt;span style=&#34;color: #00d27e&#34;&gt;a&lt;/span&gt;&lt;span style=&#34;color: #00d27e&#34;&gt;n&lt;/span&gt;&lt;span style=&#34;color: #00d27e&#34;&gt;c&lt;/span&gt;&lt;span style=&#34;color: #00d27e&#34;&gt;h&lt;/span&gt;&lt;span style=&#34;color: #00d27e&#34;&gt;e&lt;/span&gt;&lt;span style=&#34;color: #00d27e&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #00d27e&#34;&gt;F&lt;/span&gt;&lt;span style=&#34;color: #00d254&#34;&gt;a&lt;/span&gt;&lt;span style=&#34;color: #00d254&#34;&gt;r&lt;/span&gt;&lt;span style=&#34;color: #00d254&#34;&gt;b&lt;/span&gt;&lt;span style=&#34;color: #00d254&#34;&gt;e&lt;/span&gt;&lt;span style=&#34;color: #00d254&#34;&gt;n&lt;/span&gt;&lt;span style=&#34;color: #00d254&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #2ad22a&#34;&gt;a&lt;/span&gt;&lt;span style=&#34;color: #2ad22a&#34;&gt;u&lt;/span&gt;&lt;span style=&#34;color: #2ad22a&#34;&gt;f&lt;/span&gt;&lt;span style=&#34;color: #2ad22a&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #2ad22a&#34;&gt;w&lt;/span&gt;&lt;span style=&#34;color: #2ad22a&#34;&gt;e&lt;/span&gt;&lt;span style=&#34;color: #2ad22a&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color: #2ad22a&#34;&gt;ß&lt;/span&gt;&lt;span style=&#34;color: #54d200&#34;&gt;e&lt;/span&gt;&lt;span style=&#34;color: #54d200&#34;&gt;m&lt;/span&gt;&lt;span style=&#34;color: #54d200&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #54d200&#34;&gt;G&lt;/span&gt;&lt;span style=&#34;color: #54d200&#34;&gt;r&lt;/span&gt;&lt;span style=&#34;color: #54d200&#34;&gt;u&lt;/span&gt;&lt;span style=&#34;color: #7ed200&#34;&gt;n&lt;/span&gt;&lt;span style=&#34;color: #7ed200&#34;&gt;d&lt;/span&gt;&lt;span style=&#34;color: #7ed200&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #7ed200&#34;&gt;s&lt;/span&gt;&lt;span style=&#34;color: #7ed200&#34;&gt;c&lt;/span&gt;&lt;span style=&#34;color: #7ed200&#34;&gt;h&lt;/span&gt;&lt;span style=&#34;color: #7ed200&#34;&gt;w&lt;/span&gt;&lt;span style=&#34;color: #a8a800&#34;&gt;e&lt;/span&gt;&lt;span style=&#34;color: #a8a800&#34;&gt;r&lt;/span&gt;&lt;span style=&#34;color: #a8a800&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #a8a800&#34;&gt;l&lt;/span&gt;&lt;span style=&#34;color: #a8a800&#34;&gt;e&lt;/span&gt;&lt;span style=&#34;color: #a8a800&#34;&gt;s&lt;/span&gt;&lt;span style=&#34;color: #a8a800&#34;&gt;b&lt;/span&gt;&lt;span style=&#34;color: #a8a800&#34;&gt;a&lt;/span&gt;&lt;span style=&#34;color: #d27e00&#34;&gt;r&lt;/span&gt;&lt;span style=&#34;color: #d27e00&#34;&gt;,&lt;/span&gt;&lt;span style=&#34;color: #d27e00&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #d27e00&#34;&gt;s&lt;/span&gt;&lt;span style=&#34;color: #d27e00&#34;&gt;o&lt;/span&gt;&lt;span style=&#34;color: #d27e00&#34;&gt;n&lt;/span&gt;&lt;span style=&#34;color: #d25400&#34;&gt;s&lt;/span&gt;&lt;span style=&#34;color: #d25400&#34;&gt;t&lt;/span&gt;&lt;span style=&#34;color: #d25400&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #d25400&#34;&gt;h&lt;/span&gt;&lt;span style=&#34;color: #d25400&#34;&gt;ä&lt;/span&gt;&lt;span style=&#34;color: #d25400&#34;&gt;t&lt;/span&gt;&lt;span style=&#34;color: #d25400&#34;&gt;t&lt;/span&gt;&lt;span style=&#34;color: #d22a2a&#34;&gt;e&lt;/span&gt;&lt;span style=&#34;color: #d22a2a&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #d22a2a&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color: #d22a2a&#34;&gt;c&lt;/span&gt;&lt;span style=&#34;color: #d22a2a&#34;&gt;h&lt;/span&gt;&lt;span style=&#34;color: #d22a2a&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #d22a2a&#34;&gt;d&lt;/span&gt;&lt;span style=&#34;color: #d22a2a&#34;&gt;a&lt;/span&gt;&lt;span style=&#34;color: #d20054&#34;&gt;s&lt;/span&gt;&lt;span style=&#34;color: #d20054&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #d20054&#34;&gt;s&lt;/span&gt;&lt;span style=&#34;color: #d20054&#34;&gt;c&lt;/span&gt;&lt;span style=&#34;color: #d20054&#34;&gt;h&lt;/span&gt;&lt;span style=&#34;color: #d20054&#34;&gt;o&lt;/span&gt;&lt;span style=&#34;color: #d2007e&#34;&gt;n&lt;/span&gt;&lt;span style=&#34;color: #d2007e&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #d2007e&#34;&gt;l&lt;/span&gt;&lt;span style=&#34;color: #d2007e&#34;&gt;ä&lt;/span&gt;&lt;span style=&#34;color: #d2007e&#34;&gt;n&lt;/span&gt;&lt;span style=&#34;color: #d2007e&#34;&gt;g&lt;/span&gt;&lt;span style=&#34;color: #a8007e&#34;&gt;s&lt;/span&gt;&lt;span style=&#34;color: #a800a8&#34;&gt;t&lt;/span&gt;&lt;span style=&#34;color: #a800a8&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #a800a8&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color: #a800a8&#34;&gt;n&lt;/span&gt;&lt;span style=&#34;color: #a800a8&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #a800a8&#34;&gt;p&lt;/span&gt;&lt;span style=&#34;color: #a800a8&#34;&gt;r&lt;/span&gt;&lt;span style=&#34;color: #7e00a8&#34;&gt;o&lt;/span&gt;&lt;span style=&#34;color: #7e00d2&#34;&gt;d&lt;/span&gt;&lt;span style=&#34;color: #7e00d2&#34;&gt;u&lt;/span&gt;&lt;span style=&#34;color: #7e00d2&#34;&gt;c&lt;/span&gt;&lt;span style=&#34;color: #7e00d2&#34;&gt;t&lt;/span&gt;&lt;span style=&#34;color: #7e00d2&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color: #7e00d2&#34;&gt;o&lt;/span&gt;&lt;span style=&#34;color: #5400d2&#34;&gt;n&lt;/span&gt;&lt;span style=&#34;color: #5400d2&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #5400d2&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color: #5400d2&#34;&gt;)&lt;/span&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;https://github.com/busyloop/lolcat&#34;&gt;lolcat&lt;/a&gt; – &lt;span style=&#34;color: #0054d2&#34;&gt;c&lt;/span&gt;&lt;span style=&#34;color: #0054d2&#34;&gt;a&lt;/span&gt;&lt;span style=&#34;color: #0054d2&#34;&gt;t&lt;/span&gt;&lt;span style=&#34;color: #0054d2&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #007ed2&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color: #007ed2&#34;&gt;n&lt;/span&gt;&lt;span style=&#34;color: #007ed2&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #007ed2&#34;&gt;R&lt;/span&gt;&lt;span style=&#34;color: #007ed2&#34;&gt;e&lt;/span&gt;&lt;span style=&#34;color: #007ed2&#34;&gt;g&lt;/span&gt;&lt;span style=&#34;color: #007ea8&#34;&gt;e&lt;/span&gt;&lt;span style=&#34;color: #00a8a8&#34;&gt;n&lt;/span&gt;&lt;span style=&#34;color: #00a8a8&#34;&gt;b&lt;/span&gt;&lt;span style=&#34;color: #00a8a8&#34;&gt;o&lt;/span&gt;&lt;span style=&#34;color: #00a8a8&#34;&gt;g&lt;/span&gt;&lt;span style=&#34;color: #00a8a8&#34;&gt;e&lt;/span&gt;&lt;span style=&#34;color: #00a8a8&#34;&gt;n&lt;/span&gt;&lt;span style=&#34;color: #00a8a8&#34;&gt;f&lt;/span&gt;&lt;span style=&#34;color: #00a87e&#34;&gt;a&lt;/span&gt;&lt;span style=&#34;color: #00d27e&#34;&gt;r&lt;/span&gt;&lt;span style=&#34;color: #00d27e&#34;&gt;b&lt;/span&gt;&lt;span style=&#34;color: #00d27e&#34;&gt;e&lt;/span&gt;&lt;span style=&#34;color: #00d27e&#34;&gt;n&lt;/span&gt;&lt;span style=&#34;color: #00d27e&#34;&gt;!&lt;/span&gt;&lt;span style=&#34;color: #00d27e&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #00d254&#34;&gt;L&lt;/span&gt;&lt;span style=&#34;color: #00d254&#34;&gt;e&lt;/span&gt;&lt;span style=&#34;color: #00d254&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color: #00d254&#34;&gt;d&lt;/span&gt;&lt;span style=&#34;color: #00d254&#34;&gt;e&lt;/span&gt;&lt;span style=&#34;color: #00d254&#34;&gt;r&lt;/span&gt;&lt;span style=&#34;color: #2ad254&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #2ad22a&#34;&gt;s&lt;/span&gt;&lt;span style=&#34;color: #2ad22a&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color: #2ad22a&#34;&gt;n&lt;/span&gt;&lt;span style=&#34;color: #2ad22a&#34;&gt;d&lt;/span&gt;&lt;span style=&#34;color: #2ad22a&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #2ad22a&#34;&gt;m&lt;/span&gt;&lt;span style=&#34;color: #2ad22a&#34;&gt;a&lt;/span&gt;&lt;span style=&#34;color: #54d22a&#34;&gt;n&lt;/span&gt;&lt;span style=&#34;color: #54d200&#34;&gt;c&lt;/span&gt;&lt;span style=&#34;color: #54d200&#34;&gt;h&lt;/span&gt;&lt;span style=&#34;color: #54d200&#34;&gt;e&lt;/span&gt;&lt;span style=&#34;color: #54d200&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #54d200&#34;&gt;F&lt;/span&gt;&lt;span style=&#34;color: #54d200&#34;&gt;a&lt;/span&gt;&lt;span style=&#34;color: #7ed200&#34;&gt;r&lt;/span&gt;&lt;span style=&#34;color: #7ed200&#34;&gt;b&lt;/span&gt;&lt;span style=&#34;color: #7ed200&#34;&gt;e&lt;/span&gt;&lt;span style=&#34;color: #7ed200&#34;&gt;n&lt;/span&gt;&lt;span style=&#34;color: #7ed200&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #7ed200&#34;&gt;a&lt;/span&gt;&lt;span style=&#34;color: #7ea800&#34;&gt;u&lt;/span&gt;&lt;span style=&#34;color: #a8a800&#34;&gt;f&lt;/span&gt;&lt;span style=&#34;color: #a8a800&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #a8a800&#34;&gt;w&lt;/span&gt;&lt;span style=&#34;color: #a8a800&#34;&gt;e&lt;/span&gt;&lt;span style=&#34;color: #a8a800&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color: #a8a800&#34;&gt;ß&lt;/span&gt;&lt;span style=&#34;color: #a8a800&#34;&gt;e&lt;/span&gt;&lt;span style=&#34;color: #a87e00&#34;&gt;m&lt;/span&gt;&lt;span style=&#34;color: #d27e00&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #d27e00&#34;&gt;G&lt;/span&gt;&lt;span style=&#34;color: #d27e00&#34;&gt;r&lt;/span&gt;&lt;span style=&#34;color: #d27e00&#34;&gt;u&lt;/span&gt;&lt;span style=&#34;color: #d27e00&#34;&gt;n&lt;/span&gt;&lt;span style=&#34;color: #d27e00&#34;&gt;d&lt;/span&gt;&lt;span style=&#34;color: #d25400&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #d25400&#34;&gt;s&lt;/span&gt;&lt;span style=&#34;color: #d25400&#34;&gt;c&lt;/span&gt;&lt;span style=&#34;color: #d25400&#34;&gt;h&lt;/span&gt;&lt;span style=&#34;color: #d25400&#34;&gt;w&lt;/span&gt;&lt;span style=&#34;color: #d25400&#34;&gt;e&lt;/span&gt;&lt;span style=&#34;color: #d2542a&#34;&gt;r&lt;/span&gt;&lt;span style=&#34;color: #d22a2a&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #d22a2a&#34;&gt;l&lt;/span&gt;&lt;span style=&#34;color: #d22a2a&#34;&gt;e&lt;/span&gt;&lt;span style=&#34;color: #d22a2a&#34;&gt;s&lt;/span&gt;&lt;span style=&#34;color: #d22a2a&#34;&gt;b&lt;/span&gt;&lt;span style=&#34;color: #d22a2a&#34;&gt;a&lt;/span&gt;&lt;span style=&#34;color: #d22a2a&#34;&gt;r&lt;/span&gt;&lt;span style=&#34;color: #d22a54&#34;&gt;,&lt;/span&gt;&lt;span style=&#34;color: #d20054&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #d20054&#34;&gt;s&lt;/span&gt;&lt;span style=&#34;color: #d20054&#34;&gt;o&lt;/span&gt;&lt;span style=&#34;color: #d20054&#34;&gt;n&lt;/span&gt;&lt;span style=&#34;color: #d20054&#34;&gt;s&lt;/span&gt;&lt;span style=&#34;color: #d20054&#34;&gt;t&lt;/span&gt;&lt;span style=&#34;color: #d2007e&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #d2007e&#34;&gt;h&lt;/span&gt;&lt;span style=&#34;color: #d2007e&#34;&gt;ä&lt;/span&gt;&lt;span style=&#34;color: #d2007e&#34;&gt;t&lt;/span&gt;&lt;span style=&#34;color: #d2007e&#34;&gt;t&lt;/span&gt;&lt;span style=&#34;color: #d2007e&#34;&gt;e&lt;/span&gt;&lt;span style=&#34;color: #a8007e&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #a800a8&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color: #a800a8&#34;&gt;c&lt;/span&gt;&lt;span style=&#34;color: #a800a8&#34;&gt;h&lt;/span&gt;&lt;span style=&#34;color: #a800a8&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #a800a8&#34;&gt;d&lt;/span&gt;&lt;span style=&#34;color: #a800a8&#34;&gt;a&lt;/span&gt;&lt;span style=&#34;color: #a800a8&#34;&gt;s&lt;/span&gt;&lt;span style=&#34;color: #7e00a8&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #7e00d2&#34;&gt;s&lt;/span&gt;&lt;span style=&#34;color: #7e00d2&#34;&gt;c&lt;/span&gt;&lt;span style=&#34;color: #7e00d2&#34;&gt;h&lt;/span&gt;&lt;span style=&#34;color: #7e00d2&#34;&gt;o&lt;/span&gt;&lt;span style=&#34;color: #7e00d2&#34;&gt;n&lt;/span&gt;&lt;span style=&#34;color: #7e00d2&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #5400d2&#34;&gt;l&lt;/span&gt;&lt;span style=&#34;color: #5400d2&#34;&gt;ä&lt;/span&gt;&lt;span style=&#34;color: #5400d2&#34;&gt;n&lt;/span&gt;&lt;span style=&#34;color: #5400d2&#34;&gt;g&lt;/span&gt;&lt;span style=&#34;color: #5400d2&#34;&gt;s&lt;/span&gt;&lt;span style=&#34;color: #5400d2&#34;&gt;t&lt;/span&gt;&lt;span style=&#34;color: #542ad2&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #2a2ad2&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color: #2a2ad2&#34;&gt;n&lt;/span&gt;&lt;span style=&#34;color: #2a2ad2&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #2a2ad2&#34;&gt;p&lt;/span&gt;&lt;span style=&#34;color: #2a2ad2&#34;&gt;r&lt;/span&gt;&lt;span style=&#34;color: #2a2ad2&#34;&gt;o&lt;/span&gt;&lt;span style=&#34;color: #2a2ad2&#34;&gt;d&lt;/span&gt;&lt;span style=&#34;color: #2a54d2&#34;&gt;u&lt;/span&gt;&lt;span style=&#34;color: #0054d2&#34;&gt;c&lt;/span&gt;&lt;span style=&#34;color: #0054d2&#34;&gt;t&lt;/span&gt;&lt;span style=&#34;color: #0054d2&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color: #0054d2&#34;&gt;o&lt;/span&gt;&lt;span style=&#34;color: #0054d2&#34;&gt;n&lt;/span&gt;&lt;span style=&#34;color: #0054d2&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #007ed2&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color: #007ed2&#34;&gt;)&lt;/span&gt;&lt;/li&gt;
         &lt;li&gt;&lt;a href=&#34;http://sed.sourceforge.net/sed1line.txt&#34;&gt;Sed Einzeiler&lt;/a&gt; – nützliche Skripte für &lt;a href=&#34;https://de.wikipedia.org/wiki/Sed_(Unix&#34;&gt;sed&lt;/a&gt;.&lt;/li&gt;
         &lt;li&gt;&lt;a href=&#34;http://html9responsiveboilerstrapjs.com/&#34;&gt;&lt;span class=&#34;caps&#34;&gt;H9RBS&lt;/span&gt;.js&lt;/a&gt; – &lt;span class=&#34;caps&#34;&gt;HTML9&lt;/span&gt; Responsive Boilerstrap &lt;span class=&#34;caps&#34;&gt;JS&lt;/span&gt; und es ist sogar
           cross-universe kompatibel&amp;nbsp;:-)&lt;/li&gt;
@@ -987,15 +1086,15 @@
         &lt;span class=&#34;go&#34;&gt;-rw----r--  1 ich staff 1942 Sep 28 13:35 conf.py&lt;/span&gt;
         &lt;span class=&#34;go&#34;&gt;drwx--xr-x  8 ich staff  272 Sep 27 01:05 content&lt;/span&gt;
         &lt;span class=&#34;go&#34;&gt;drwx--xr-x  8 ich staff  272 Sep  8 23:53 dataset&lt;/span&gt;
-        &lt;span class=&#34;go&#34;&gt;drwxr-xr-x 25 ich staff  850 Sep 29 13:11 output&lt;/span&gt;
+        &lt;span class=&#34;go&#34;&gt;drwxr-xr-x 25 ich staff  850 Okt 10 16:23 output&lt;/span&gt;
         &lt;span class=&#34;go&#34;&gt;drwx--xr-x 14 ich staff  476 Sep 29 15:06 theme&lt;/span&gt;
         &lt;span class=&#34;go&#34;&gt;drwx--xr-x  4 ich staff  136 Sep  1 21:00 views&lt;/span&gt;
         &lt;span class=&#34;gp&#34;&gt;$&lt;/span&gt;&amp;gt; find content | wc -l
         &lt;span class=&#34;go&#34;&gt;186&lt;/span&gt;
         &lt;span class=&#34;gp&#34;&gt;$&lt;/span&gt;&amp;gt; git log -3 --no-color --oneline
-        &lt;span class=&#34;go&#34;&gt;cb2d218 make use of &amp;lt;!-- break --&amp;gt;&lt;/span&gt;
-        &lt;span class=&#34;go&#34;&gt;55bb6f3 use abbr extension from markdown&lt;/span&gt;
-        &lt;span class=&#34;go&#34;&gt;0ba5de1 remove drafts&lt;/span&gt;
+        &lt;span class=&#34;go&#34;&gt;c205428 new entry &amp;quot;content/2012/abseits-von-linux-freebsd.txt&amp;quot;&lt;/span&gt;
+        &lt;span class=&#34;go&#34;&gt;26778ec update weave-minimal usage&lt;/span&gt;
+        &lt;span class=&#34;go&#34;&gt;2b39870 more fine grained robots.txt&lt;/span&gt;
         &lt;/pre&gt;&lt;/div&gt;
         
         
@@ -1339,70 +1438,5 @@
           geblogmarkt, man weiß ja nie (via
           &lt;a href=&#34;http://www.zipfelmaus.com/blog/last-weeks-top-5-links/&#34;&gt;Zipfelmaus&lt;/a&gt;).&lt;/li&gt;
         &lt;/ul&gt;</content>
-            </entry>
-    
-        <entry>
-                <title>DIASPORA*</title>
-                <link rel="alternate" type="text/html" href="http://blog.posativ.org/2012/diaspora/" />
-                <id>tag:blog.posativ.org,2012-02-19:/2012/diaspora</id>
-                <updated>2012-02-19T20:27:00Z</updated>
-                <author>
-                    <name>posativ</name>
-                    <uri>http://blog.posativ.org/</uri>
-                    <email>info@posativ.org</email>
-                </author>
-                <content type="html">&lt;p&gt;Letzte Woche gab&amp;#8217;s im &lt;a href=&#34;http://hackspace-jena.de/wiki/doku.php/raum:start&#34;&gt;lokalen Hackerspace&lt;/a&gt; eine kurze Einführung in das
-        &lt;em&gt;&amp;#8220;ja-hab-ich-mal-von-gehört&amp;#8221;&lt;/em&gt;-Projekt:&amp;nbsp;&lt;a href=&#34;http://diasporaproject.org/&#34;&gt;&lt;span class=&#34;caps&#34;&gt;DIASPORA&lt;/span&gt;*&lt;/a&gt;. Diaspora ist der
-        Versuch, Facebook/Google+ dezentral mit einer quelloffenen Software
-        aufzubauen. Das Projekt wird demnächst zwei Jahre alt und ist immer noch im
-        Alpha-Stadium, obwohl zunächst &lt;a href=&#34;http://blog.diasporafoundation.org/2010/04/14/kickstarter-pitch.html&#34;&gt;angekündigt&lt;/a&gt; wurde, innerhalb von drei Monaten
-        fertig zu&amp;nbsp;sein.&lt;/p&gt;
-        &lt;h3&gt;Funktionsweise&lt;/h3&gt;
-        &lt;p&gt;Bei Diaspora heißen die einzelnen dezentralen Server &lt;em&gt;Pods&lt;/em&gt; und sind komplett
-        eigenständige Instanzen, die keine zentralen Knoten benötigen. Als
-        anschauliches Beispiel nehme ich &amp;#8216;mal &lt;a href=&#34;https://jenaspora.de/&#34;&gt;jenaspora.de&lt;/a&gt; und den offiziellen
-        Pod &lt;a href=&#34;https://joindiaspora.com/&#34;&gt;joindiaspora.com&lt;/a&gt;. Die Nutzer aus Jena können auf diesem Pod ohne
-        Umwege über &lt;em&gt;joindiaspora.com&lt;/em&gt; kommunizieren und fällt dieser aus, kümmert das
-        niemanden. Wenn sich ein Freund von mir nun auf &lt;em&gt;joindiaspora.com&lt;/em&gt; angemeldet
-        hat, ich aber auf &lt;em&gt;jenaspora.de&lt;/em&gt; verweile, so gibt es nun eine Anfrage über
-        das &lt;a href=&#34;https://en.wikipedia.org/wiki/Webfinger&#34;&gt;webfinger-Protokoll&lt;/a&gt;, ob die Nutzerkennung &lt;code&gt;userid@domain.tld&lt;/code&gt; auf dem
-        jeweiligen Host vorhanden ist und falls ja, merkt sich &lt;em&gt;joindiaspora.com&lt;/em&gt;
-        diese&amp;nbsp;Verbindung.&lt;/p&gt;
-        &lt;p&gt;Sollte nun ein Nutzer aus &lt;em&gt;jenaspora.de&lt;/em&gt; in seinem Posting
-        über die Aspekte (das ist das Zirkel-pendant zu Google+) den Nutzer vom
-        anderen Pod mitadressiert haben, so wird &lt;em&gt;jenaspora.de&lt;/em&gt; den Host, in diesem
-        Fall &lt;em&gt;joindiaspora.com&lt;/em&gt; pushen. So läuft das mit Posts, Kommentaren und
-        privaten Nachrichten. Eine Besonderheit von Diaspora ist noch die
-        verschlüsselte Kommunikation zwischen den Pods über ein Public-Key-Verfahren,
-        das auch über eine &lt;span class=&#34;caps&#34;&gt;SSL&lt;/span&gt;-Verbindung läuft. Innerhalb von Pod ist allerdings
-        alles&amp;nbsp;unverschlüsselt.&lt;/p&gt;
-        &lt;p&gt;Einen &lt;a href=&#34;https://github.com/diaspora/diaspora/wiki/Installing-and-Running-Diaspora&#34;&gt;eigenen Pod aufzusetzen&lt;/a&gt; ist allerdings etwas schwierig, da manchmal
-        der &lt;a href=&#34;https://github.com/diaspora/diaspora&#34;&gt;Hauptentwicklungszweig&lt;/a&gt; manchmal bricht und ein exaktes Setup von
-        Nöten ist: Ruby on Rails mit Ruby am besten in Version 1.9, MySQL oder
-        PostgreSQL und eine Domain samt gültigem &lt;span class=&#34;caps&#34;&gt;SSL&lt;/span&gt;-Zertifikat (wünschenswert). Dazu
-        kommt eine halbwegs aktuelle Linux-Distribution und viel Zeit zum
-        Konfigurieren und Testen, ob die Kommunikation zwischen den einzelnen Pods
-        funktioniert. Aber einmal aufgesetzt, läuft es&amp;nbsp;stabil.&lt;/p&gt;
-        &lt;h3&gt;Alpha-Stadium&lt;/h3&gt;
-        &lt;p&gt;&lt;a href=&#34;http://diasporaproject.org/&#34;&gt;Diaspora&lt;/a&gt; ist wirklich noch alpha, das beweist nicht nur die
-        Entwicklungsstrategie. Es gibt noch eine Menge gewollter und ungewollter&amp;nbsp;Ungereimtheiten:&lt;/p&gt;
-        &lt;ul&gt;
-        &lt;li&gt;&lt;a href=&#34;https://joindiaspora.com/&#34;&gt;joindiaspora.com&lt;/a&gt; ist überlastet und ein single-point-of-failure, der
-          theoretisch nie existieren&amp;nbsp;sollte.&lt;/li&gt;
-        &lt;li&gt;Nutzerdaten liegen für jeden Podbesitzer im Klartext in der Datenbank (wenn
-          auch nicht an einem zentralen&amp;nbsp;Ort).&lt;/li&gt;
-        &lt;li&gt;keine federation, d.h. wenn ein Pod wegen Wartungsarbeiten offline ist,
-          gehen Nachrichten unwideruflich&amp;nbsp;verloren!&lt;/li&gt;
-        &lt;li&gt;umständliches Setup, Ruby on Rails &lt;del&gt;ist scheiße&lt;/del&gt; skaliert nicht
-          gut, siehe&amp;nbsp;#1.&lt;/li&gt;
-        &lt;li&gt;Amazon S3-Anbindung, da &lt;em&gt;joindiaspora.com&lt;/em&gt; überlastet ist – Widerspruch zur&amp;nbsp;Dezentralität.&lt;/li&gt;
-        &lt;li&gt;Entwicklungsschwerpunkt liegt bei &lt;a href=&#34;https://joindiaspora.com/&#34;&gt;joindiaspora&lt;/a&gt;, was kontraproduktiv&amp;nbsp;ist.&lt;/li&gt;
-        &lt;li&gt;offizielle Zertifikate von StartSSL, wenn man nicht Debian fährt, wo auch
-          &lt;a href=&#34;http://cacert.org/&#34;&gt;CAcert&lt;/a&gt; integriert ist, sonst wird die Verbindung&amp;nbsp;verweigert.&lt;/li&gt;
-        &lt;li&gt;läuft nicht auf &lt;span class=&#34;caps&#34;&gt;WLAN&lt;/span&gt;-Routern, da Minimum 256 &lt;span class=&#34;caps&#34;&gt;MB&lt;/span&gt; &lt;span class=&#34;caps&#34;&gt;RAM&lt;/span&gt; benötigt&amp;nbsp;werden.&lt;/li&gt;
-        &lt;/ul&gt;
-        &lt;p&gt;Ich bin sozialen Netzen zwar inzwischen sehr abgeneigt, aber Diaspora könnte
-        wirklich eine gute Alternative zum Mainstream-Facebook/Google+ werden. Ich bin
-        gespannt auf das fertige&amp;nbsp;System.&lt;/p&gt;</content>
             </entry>
     </feed>

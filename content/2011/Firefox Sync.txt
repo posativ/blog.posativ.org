@@ -1,7 +1,7 @@
 ---
 title: Firefox Sync auf dem eigenen Server. Vielleicht. Nein.
 date: 26.11.2011, 23:03
-tags: [Firefox Sync, Python, Rant]
+tags: [Firefox, Sync, Python, Rant]
 ---
 
 So habe ich heute Firefox <del>Weave</del> Sync kennengelernt. Ich dacht mir,

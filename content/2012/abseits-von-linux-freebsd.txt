@@ -5,7 +5,7 @@ filter: [Jinja2, noabbr]
 tags: [FreeBSD, planet]
 ---
 
-<img src="/img/2012/freebsd.png" alt="Freedombox Logo" class="floatright no-shadow" width="200px" />
+<img src="/img/2012/freebsd.png" alt="FreeBSD Logo" class="floatright no-shadow" width="200px" />
 
 Da mein derzeitiger Router – eine Time Capsule – doch sehr langsam für das Backup und vor allem Wiederherstellen (nicht unter einer Minute) ist, wird er durch ein neues Gerät ersetzt, das unter FreeBSD laufen soll<!-- break -->.
 
@@ -46,7 +46,7 @@ Neben FreeBSD sind auch noch [NetBSD](http://www.netbsd.org/) und [OpenBSD](http
 
 Für mich sprach gegen NetBSD, dass die Unterstützung von unzähligen Architekturen mir mit meiner 08/15 amd64 Architektur herzlich egal ist. OpenBSD ist sowieso uninteressant, denn die Sicherheit von Linux-Systemen hat mir bisher auch ausgereicht und DragonFly BSD hat definitiv besseres verdient, denn als Router zu fungieren.
 
-[^1]: Es sei noch angemerkt, dass der Paketmanager von NetBSD auch unter Linux läuft, sie auch [pkgsrc: eine lokale, unabhängige Paketverwaltung](2010/pkgsrc-eine-lokale-unabhaengige-paketverwaltung/).
+[^1]: Es sei noch angemerkt, dass der Paketmanager von NetBSD auch unter Linux läuft, sie auch [pkgsrc: eine lokale, unabhängige Paketverwaltung](/2010/pkgsrc-eine-lokale-unabhaengige-paketverwaltung/).
 
 [^2]: Ein Punkt, wo OS X (speziell [Darwin](https://en.wikipedia.org/wiki/Darwin_(operating_system))) immer noch suckt.
 
