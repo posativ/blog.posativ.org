@@ -9,7 +9,7 @@ tags: [Apple, OS X, Rant]
 weniger unfreiwilligem, aber geglückten Update auf [Mountain Lion][1], ist
 wieder klar geworden, dass Apple bei seinen Nuller-Releases immer die
 Nutzergemeinde in den [öffentlichen Betatest][2] einbezieht. Aber das ist der
-Preis für über 200[^1] (!1) [neue Features][3]. Abzüglich der 197 Features für
+Preis für über 200 [^1] (!1) [neue Features][3]. Abzüglich der 197 Features für
 die iCloud bleiben aber nur noch drei reale Features übrig – und nein, dass mit
 den Gesten für Vor- und Zurückgehen im Lexikon gehört nicht dazu.
 

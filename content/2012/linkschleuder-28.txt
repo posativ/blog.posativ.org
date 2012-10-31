@@ -18,7 +18,7 @@ tags: [Links, planet]
   recht junge Initiative um AGBs allgemein verständlich zu erklären. So wusste ich
   zum Beispiel nicht, dass ich beim Twittern alle Rechte an meinem Text verliere. Das
   Projekt ist übrigens [am ~~Kickstartern~~
-  Crowfunden](http://www.indiegogo.com/terms-of-service-didnt-read).
+  Crowdfunden](http://www.indiegogo.com/terms-of-service-didnt-read).
 - [ascii.io](http://ascii.io/) – ein YouTube für Terminal-Sessions. Für alle Fälle
   geblogmarkt.
 - [tent](http://tent.io/) – *Tent is a protocol for social networking*. Was auch

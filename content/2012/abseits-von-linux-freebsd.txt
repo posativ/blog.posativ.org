@@ -2,7 +2,7 @@
 title: "Abseits von Linux: FreeBSD"
 date: 10.10.2012, 14:29
 filter: [Jinja2, noabbr]
-tags: [FreeBSD, planet]
+tags: [FreeBSD, pkgsrc, planet]
 ---
 
 <img src="/img/2012/freebsd.png" alt="FreeBSD Logo" class="floatright no-shadow" width="200px" />

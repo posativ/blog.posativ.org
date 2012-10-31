@@ -1,6 +1,5 @@
 ---
 title: "pkgsrc: eine lokale, unabhängige Paketverwaltung"
-
 tags: [pkgsrc, NetBSD]
 date: 17.07.2010, 17:13
 ---
@@ -88,7 +87,7 @@ Software-Releases entschieden:
 Als nächstes muss nun unser lokales root eingerichtet werden:
 
     :::bash
-    $ ./bootstrap --workdir ~/pkgsrc --prefix ~/pkgsrc/usr --pkgdbdir ~/pkgsrc/var/db \
+    $ ./bootstrap/bootstrap --workdir ~/pkgsrc --prefix ~/pkgsrc/usr --pkgdbdir ~/pkgsrc/var/db \
       --sysconfdir ~/pkgsrc/etc --varbase ~/pkgsrc/var --unprivileged
 
 Das dauert eine Weile und richtet unter *~/pkgsrc* etwas ähnliches wie unter */* ein. Mit dazu wird
@@ -112,10 +111,10 @@ Python befindet sich in z.B. *lang/python26/*. Die Installationsroutine ist sehr
     :::bash
     $ cd ~/net/lang/python26
     $ bmake
-    #Abhängigkeiten werden aufgelöst, Pakete lokal kompiliert
+    # Abhängigkeiten werden aufgelöst, Pakete lokal kompiliert
     $ bmake install
 
-    #Cleanup der Sources
+    # Cleanup der Sources
     $ bmake clean
     $ bmake clean-depends
 
