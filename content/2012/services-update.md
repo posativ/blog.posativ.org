@@ -1,8 +1,6 @@
----
 title: Services Update
 date: 31.08.2012, 17:01
 tags: [CloudApp, regenwolken, Git, Firefox, Sync]
----
 
 Wer jetzt denkt, ich schreibe jetzt nur, um zwischen den Linkschleudern immer
 ein paar reguläre Texte zu haben – der hat recht! Nichtsdestotrotz möchte ich

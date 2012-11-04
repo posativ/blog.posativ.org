@@ -9,7 +9,10 @@ THEME = "theme/"
 AUTHOR = "posativ"
 EMAIL = "info@posativ.org"
 
+METASTYLE = 'native'
+
 CONTENT_IGNORE = ["drafts/*", "bak/*"]
+CONTENT_EXTENSION = '.md'
 STATIC = "dataset/"
 STATIC_IGNORE += ['.DS_Store']
 
