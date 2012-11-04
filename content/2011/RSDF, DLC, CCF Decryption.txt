@@ -10,8 +10,8 @@ Nur so lange <del>der Vorrat</del> die API reicht. Entwicklung auf GitHub:
 
 ---
 
-[decrypt]: https://posativ.org/decrypt/
-[opendlc]: https://github.com/posativ/opendlc
+[decrypt]: http://posativ.org/decrypt/
+[opendlc]: http://github.com/posativ/opendlc
 
 Ich bin es leid. Es gibt Software dafür, eine behinderter als die andere. Von
 ganz schwer bis fast: [jDownloader][1], [Cryptload][2], [CinuxLoader][3],

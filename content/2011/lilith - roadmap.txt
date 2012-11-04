@@ -85,8 +85,8 @@ Aber alles in allem sollte man es mal ausprobieren :-)
 
 [1]: https://github.com/posativ/lilith
 [2]: http://blog.posativ.org/2011/mit-mathml-in-die-steinzeit/
-[3]: https://posativ.org/lilith/
-[4]: https://github.com/posativ/luna
+[3]: http://posativ.org/lilith/
+[4]: http://github.com/posativ/luna
 [5]: http://nanoc.stoneship.org/
 [6]: http://www.blosxom.com/
 [7]: http://docs.python.org/library/
