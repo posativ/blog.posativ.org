@@ -36,7 +36,7 @@
 
 {% block footer %}
     {{ super() }}
-    {% if conf.disqus_shortname and env.type == 'index' %}
+    {% if conf.disqus_shortname and env.type in ('index', 'entry') %}
         <script type="text/javascript">
             /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
             var disqus_shortname = '{{ conf.disqus_shortname }}'; // required: replace example with your forum shortname
