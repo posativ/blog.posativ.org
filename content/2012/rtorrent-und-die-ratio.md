@@ -1,6 +1,6 @@
 Title: rTorrent und die Ratio
 Date: 04.11.2012, 23:58
-Tags: rtorrent, Open Source
+Tags: [rtorrent, Open Source]
 
 Bevor ich's vergesse: [rTorrent][1] ist der beste Torrent-Client  für jedes
 gescheite Betriebssystem. Wobei sich für den schnellen Torrent für zwischendurch
@@ -15,7 +15,7 @@ locker 7 MB/sec in Schweden schwierig macht. Hier kommt `rtorrent`, genauer
 gesagt `libtorrent` ins Spiel. [libtorrent][3] ist open-source und der Grund,
 warum `rtorrent` sogar auf meinem lahmen SheevaPlug Spaß machte. Aber zurück zu
 dem Problem mit der Ratio: nicht etwa der Tracker prüft, was man herunter- und
-hochlädst – nein, das ist die Aufgabe des Clients. Hrhr.
+hochlädt – nein, das ist die Aufgabe des Clients. Hrhr.
 
     :::diff
     diff --git a/src/tracker/tracker_http.cc b/src/tracker/tracker_http.cc
