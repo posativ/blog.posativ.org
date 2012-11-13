@@ -4,5 +4,6 @@ Disallow: /
 User-agent: Googlebot
 User-agent: BingBot
 User-Agent: Slurp
+User-Agent: yacybot
 Allow: /
 Disallow: /impressum.txt
