@@ -1,6 +1,6 @@
 ---
 title: "Wuala: Promotion Codes / Geschenkkarten"
-filters: [reST]
+filters: [reST, Jinja2]
 date: 23.05.2011, 09:31
 tags: [Wuala]
 ---
@@ -19,6 +19,8 @@ Funktionierende Promotioncodes:
 * I-LOVE-POLAND : 1 GB
 * I-KNOW-MARKUS : 1 GB
 * SKYFISH-IS-COOL : 1 GB (Anfang Mai, '11)
+
+Zuletzt geändert am {{ "%d. %B '%y um %H:%M" | time.strftime(entry.lastmodified | time.localtime) }}.
 
 Vergangene Promotioncodes:
 --------------------------
