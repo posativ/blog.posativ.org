@@ -2,7 +2,7 @@
 title: "Linkschleuder #2"
 
 date: 03.10.2010, 11:24
-tags: [Links, CoffeeScript, Flask, CSS Preprocessors, mp3val]
+tags: [Links, JavaScript, CSS]
 ---
 
 So, bevor ich am Montag nach Jena ziehe und wahrscheinlich erstmal kein Internet habe,

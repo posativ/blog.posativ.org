@@ -1,7 +1,7 @@
 ---
 title: Redmine (+sqlite3) + Lighttpd + Thin
 date: 13.09.2011, 13:18
-tags: [Redmine, lighttpd, thin, sqlite3, Debian Squeeze]
+tags: [Redmine, lighttpd, sqlite3, Debian]
 permalink: /2011/redmine-sqlite3-lighttpd-thin/
 ---
 
@@ -15,7 +15,7 @@ Wir brauchen sqlite, headers und 'nen Ruby-Interpreter (64-Bit). Und alles als r
 
 	:::console
 	# apt-get install libsqlite3-dev
-	
+
 	# wget http://rubyenterpriseedition.googlecode.com/files/ruby-enterprise_1.8.7-2011.03_amd64_debian6.0.deb
 	# dpkg -i ruby-enterprise_1.8.7-2011.03_amd64_debian6.0.deb
 	# which ruby # -> /usr/local/bin/ruby
@@ -23,17 +23,17 @@ Wir brauchen sqlite, headers und 'nen Ruby-Interpreter (64-Bit). Und alles als r
 	# rm ruby-enterprise_1.8.7-2011.03_amd64_debian6.0.deb
 
 So, weil Redmine ein bisschen behindert ist, gibt es eine regelrechte [Whitelist][13], welche Dependencies funktionieren. Ich installiere hier  Version 1.2.1.
-	
+
 	:::console
 	# gem install sqlite3
 	# gem install rails -v=2.3.11
 	# gem install rack -v=1.1.0
 	# gem install i18n -v=0.4.2
 	# gem install rake -v=0.8.7
-	
+
 	## rails|rack|rake --version müssen die installierten anzeigen, sonst läuft's schief.
 	## deinstallieren falscher Versionen: gem uninstall -v=x.y.z lib
-	
+
 # Redmine installieren
 
 Mein Webserver-Konfiguration ist wie folgt. Ich habe einen Benutzer *www*, der den `lighttpd` ausführt und der in */home/www/* zu Hause ist. Je virtuellen Host ist im Verzeichnis die Domain, z.b. `posativ.org`, `blog.posativ.org`, in welchen dann das servierte Zeug liegen soll. Ich plane, Redmine per Sub-URI, also nicht in `/`, sondern unter `/redmine` zu installieren, daher liegt mein Redmine in */home/www/posativ.org/redmine/*.
@@ -44,12 +44,12 @@ Weil ich Git mag und mir kein Subversion ins Haus kommt, ist mein Redmine vom in
 	$ pwd # -> /home/www/posativ.org/
 	$ git clone https://github.com/edavis10/redmine.git
 	$ git checkout 1.2.1
-	
+
 	$ cat config/database.yml
 	production:
 	  adapter: sqlite3
 	  database: db/redmine.db
-	
+
 	$ rake generate_session_store
 	$ RAILS_ENV=production rake db:migrate
 
@@ -63,9 +63,9 @@ Wir brauchen erstmal [thin][14], als root:
 	# gem install thin
 	# thin install
 	# /usr/sbin/update-rc.d -f thin defaults
-	
+
 Das ermöglicht ein bequemes `invoke-rc.d thin start|stop` und startet `thin` beim Hochfahren automatisch.
-	
+
 	:::console
 	# pwd # -> /home/www/posativ.org/redmine
 	# thin config -C /etc/thin/redmine.yml
@@ -73,7 +73,7 @@ Das ermöglicht ein bequemes `invoke-rc.d thin start|stop` und startet `thin` be
 Erstellt dann die basic-Konfiguration, die ich dann wie folgt abgewandelt habe:
 
 	:::yaml
-	--- 
+	---
 	address: 127.0.0.1
 	pid: tmp/pids/thin.pid
 	timeout: 30
@@ -82,32 +82,32 @@ Erstellt dann die basic-Konfiguration, die ich dann wie folgt abgewandelt habe:
 	log: log/thin.log
 	max_conns: 1024
 	require: []
-	
+
 	environment: production
 	max_persistent_conns: 512
 	daemonize: true
 	chdir: /home/www/posativ.org/redmine
 	prefix: /redmine
-	
+
 Über `prefix` lässt sich ganz leicht die Sub-URI definieren. Jetzt noch `thin` starten:
 
 	:::console
 	# invoke-rc.d thin start
 	[start] /etc/thin/redmine.yml ...
-	
+
 Die dazugehörige `lighttpd.conf` sieht so aus:
 
 	:::perl
 	server.modules += ("mod_proxy")
-	
+
     $HTTP["url"] =~ "/redmine" {
        proxy.server = ("" =>
            (("host" => "127.0.0.1", "port" => 3001)))
     }
-	
+
 Wenn das klappt, dann gibt's jetzt [hier][15] ein Redmine ([Theme][16]) zu sehen. Hurraa!
-	
-	
+
+
 [1]: http://www.redmine.org/projects/redmine/wiki/HowTo_install_Redmine_on_Debian_with_Passenger
 [2]: http://www.redmine.org/projects/redmine/wiki/HowTo_configure_Nginx_to_run_Redmine
 [3]: https://httpd.apache.org/

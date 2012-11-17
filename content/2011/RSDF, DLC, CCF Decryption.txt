@@ -1,7 +1,7 @@
 ---
 title: RSDF/DLC/CCF Decryption
 date: 18.08.2011, 18:33
-tags: [Python, Szene]
+tag: Python
 ---
 
 **tl;dr** [decrypt!][decrypt] RSDF, DLC und CCF online. In bunt und in Farbe!1
@@ -58,7 +58,7 @@ bekannten Schlüssels trivial ([via][via]).
     import binascii
     import base64
     from Crypto.Cipher import AES
-    
+
     def decrypt(rsdf):
 
         key = binascii.unhexlify("8C35192D964DC3182C6F84F3252239EB4A320D2500000000")
@@ -66,17 +66,17 @@ bekannten Schlüssels trivial ([via][via]).
         iv = binascii.unhexlify("FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF")
         IV_Cipher = AES.new(key, AES.MODE_ECB)
         iv = IV_Cipher.encrypt(iv)
-    
+
         aes = AES.new(key, AES.MODE_CFB, iv)
         data = binascii.unhexlify("".join(rsdf.split())).splitlines()
-    
+
         urls = []
         for link in data:
             link = base64.b64decode(link)
             link = aes.decrypt(link)
             link = link.replace("CCF: ","")
             urls.append(link)
-        
+
         return urls
 
 [pycrypto]: https://www.dlitz.net/software/pycrypto/
@@ -88,7 +88,7 @@ DLC steht für Download Link Container, sagt Wiki, und ist irgendwie sehr
 merkwürdig konzipiert. Hier ein DLC (stark gekürzt):
 
     xQba6qa7UKC...zAHRs1eMdtNB/C8g==cGNSRlhycHR1bFpHdmN...lFUTmgyR2EzY2JjbVJhag==
-    
+
 Und zwar sind dort zwei base64-kodierte Strings drin, die dann auch im
 Algorithmus gesplittet werden müssen. Die Nutzdaten sind der erste Teil
 `len(dlc) - 88` und der *dlckey* ist logischerweise der Rest ab Position 88.
@@ -112,18 +112,18 @@ getan. Hier mal der grobe Algorithmus, den ich fast identisch vom
     import urllib2
 
     def decrypt(dlc, key, iv, name):
-    
+
         api = "http://service.jdownloader.org/dlcrypt/service.php?srcType=dlc&destType=%s&data=%s"
         urlopen = urllib2.build_opener()
         urlopen.addheaders = [("User-Agent", "Mozilla/5.0 (Macintosh ... some headers"), ]
-                          
+
         aes = AES.new(key, AES.MODE_CBC, iv)
-        
+
         dlckey = dlc[(-88):]
         dlcdata = base64.standard_b64decode(dlc[:(-88)])
         data = urlopen.open(api % (name, dlckey)).read()
         rc = data.replace("<rc>", "").replace("</rc>", "")
-    
+
         dlckey = aes.decrypt(base64.standard_b64decode(rc))
         aes = AES.new(dlckey, AES.MODE_CBC, dlckey)
         return base64.standard_b64decode(aes.decrypt(dlcdata))
@@ -134,7 +134,7 @@ getan. Hier mal der grobe Algorithmus, den ich fast identisch vom
 - **iv**: Initialisierungsvektor, wohl gebunden an den *key*
 - **name**: User-Agent für die anfragende Software. Mir bekannt (und nicht
   geblacklistet) sind: *rsdc*, *load* und&nbsp;*pylo*
-  
+
 Damit erhalten wir ein doch etwas merkwürdiges XML-File:
 
     :::xml
@@ -198,7 +198,7 @@ Der API-Aufruf für CCF nach DLC Conversion (crap-to-crap) sieht wie folgt aus
     import mimetools
 
     def decrypt(ccf):
-    
+
         ## {{{ http://code.activestate.com/recipes/146306-http-client-to-post-using-multipartform-data/#c3
         def post_multipart(host, selector, fields, files):
             content_type, body = encode_multipart_formdata(fields, files)

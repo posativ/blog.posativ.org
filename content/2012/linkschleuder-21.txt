@@ -1,10 +1,10 @@
 ---
 title: "Linkschleuder #21"
 date: 01.04.2012, 20:41
-tags: [Links, Screencasts, Python]
+tags: [Links, Python]
 ---
 
-- [GitCasts](http://gitcasts.com/) – kostenfreie Screencasts über Git über Rebasing, Branching 
+- [GitCasts](http://gitcasts.com/) – kostenfreie Screencasts über Git über Rebasing, Branching
   etc.
 - [Destroy All Software](https://www.destroyallsoftware.com/screencasts) – kurze, schnelle
   (kommerzielle) Screencasts mit vielen kleinen Details über Ruby, UNIX
@@ -18,7 +18,7 @@ tags: [Links, Screencasts, Python]
   auch mit merkwürdigen CLI-Flags.
 - [AppFresh](http://metaquark.de/appfresh/mac) – ist ein ganz nettes Pendant zu
   [Secunias PSI][4] für Windows und hat mich auf manche Updates hingewiesen.
-- [Vagrant](http://vagrantup.com/?v1) – *Virtualized development made easy.* 
+- [Vagrant](http://vagrantup.com/?v1) – *Virtualized development made easy.*
 - [Measure Anything, Measure Everything][3] – viele und schöne Statistiken, war mir ein
   Blogmark wert.
 - [Gprof2Dot](https://code.google.com/p/jrfonseca/wiki/Gprof2Dot) – verwandelt Profiling Daten von

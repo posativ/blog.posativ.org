@@ -17,7 +17,7 @@ da ich neue `kernel26-header` installiert hatte. Der erste Schritt mit dem neuen
 glibc`. Vertraut mir. Danach geht alles seinen gewohnten Gang. Die Repos sind ansehnlich gefüllt und haben auch direkt `yaourt`
 mit bei, womit einem das Tor zum [AUR](https://aur.archlinux.org/) offen steht. Sehr feine Sache!
 
-Heute kam mir die Idee, wieder wertvolle Zeit meines Lebens mit trivialen Installationen zu vergeuden. Diesmal: 
+Heute kam mir die Idee, wieder wertvolle Zeit meines Lebens mit trivialen Installationen zu vergeuden. Diesmal:
 [EtherPad](http://etherpad.org/). Deren [Installationsseite](http://doc.etherpad.org/ep/tag/?query=installation)
 zeigt mir übrigens auch schon bestimmt seit 'nem Monat einen 502 Bad Gateway an. Installationsanleitung? Vollig überbewertet!1
 Zurück zum Plug. Bei dem Arch Linux hört *java* auf den Namen `openjre7`. Irgendwie eine sinnlose Wortschöpfung. Dahinter verbirgt

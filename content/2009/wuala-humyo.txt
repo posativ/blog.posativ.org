@@ -2,7 +2,7 @@
 title: "Ein Blick über den Tellerrand: humyo"
 filters: [reST]
 date: 12.10.2009, 11:56
-tags: [humyo, Wuala, Backup]
+tag: Wuala
 ---
 
 Auf der Suche nach Alternativen bin ich kürzlich auf humyo_ gestoßen.

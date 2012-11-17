@@ -2,7 +2,7 @@
 title: Das Blog System läuft wieder
 filters: reST
 date: 06.09.2009, 20:27
-tags: [ich, PyBlosxom, hosteurope]
+tags: [blog, PyBlosxom]
 ---
 
 So, es hat gerade einmal 5-6h in Anspruch genommen, eine komplett neue Blogsoftware aufzusetzen. Ich habe schon gestern Nacht das Grundgerüst zum Laufen bekommen.

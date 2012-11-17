@@ -1,10 +1,10 @@
 Title: rTorrent und die Ratio
 Date: 04.11.2012, 23:58
-Tags: [rtorrent, Open Source]
+Tags: [rtorrent, Open Source, brew]
 
 Bevor ich's vergesse: [rTorrent][1] ist der beste Torrent-Client  für jedes
 gescheite Betriebssystem. Wobei sich für den schnellen Torrent für zwischendurch
-[aria2][2] auch gut eignet. Leider wird letzteres häufig bei geschlossenen 
+[aria2][2] auch gut eignet. Leider wird letzteres häufig bei geschlossenen
 Urlaubsfotosaustausch-Trackern häufig gesperrt – und der User-Agent lässt sich
 leider nicht via `--useragent=foo/1.0` ändern.
 
@@ -31,7 +31,7 @@ hochlädt – nein, das ist die Aufgabe des Clients. Hrhr.
          << "&downloaded=" << completed_adjusted
          << "&left=" << download_left;
 
-Das ist der entscheidende Punkt in der `libtorrent`. Ich selbst habe noch nie 
+Das ist der entscheidende Punkt in der `libtorrent`. Ich selbst habe noch nie
 probiert, die Download-Größe zu fälschen. Das fällt eventuell auf, wenn jemand
 zwar fünfzig Bilder heruntergeladen, aber jeweils nur 140 MiB statt 1,4 GiB. Für
 [homebrew][4]-Nutzer habe ich hier auch gleich die passende [Formula][5]. Ich

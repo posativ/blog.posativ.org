@@ -2,7 +2,7 @@
 title: "100 Zeilen Python: Twitter Timeline als RSS-Feed"
 
 date: 19.09.2010, 17:35
-tags: [Twitter, Python]
+tags: [Twitter, CGI, Python]
 ---
 
 Mit dem 31. August hat Twitter die Basic-Authentication deaktiviert. An sich eine feine Sache, allerdings
@@ -10,7 +10,7 @@ zum Nachteil der RSS-Reader. Ich habe nun in knapp 100 Zeilen Python ein CGI-Skr
 per default 50 Einträge der Timeline holt und @User sowie #Hash-Tags verlinkt. Als Extra gibt es noch
 ein automatisches URL-Resolving, sofern das über HTTP Statuscode 302 funktioniert (z.B. [bit.ly](http://bit.ly/)).
 
-[<img src="http://blog.posativ.org/img/python/twirss.png" class="shadow" 
+[<img src="http://blog.posativ.org/img/python/twirss.png" class="shadow"
 width="720" alt="Liferea mit Twitter Timeline als RSS-Feed" />](http://blog.posativ.org/img/python/twirss.png)
 
 *twirss* getauft, benötigt mindestens Python 2.6, da auf das Python-Twitter-Interface [tweepy](http://github.com/joshthecoder/tweepy)
@@ -24,7 +24,7 @@ erreichen könnte.
 
 Installation auf dem eigenen Webserver mit Python als Skriptsprache ist einfaches Kopieren.
 [Liferea](http://liferea.sourceforge.net/) kann sogar einen Befehl ausführen und damit
-ist das Skript auch ohne Server lauffähig:  
+ist das Skript auch ohne Server lauffähig:
 „`python twirss/index.py | sed 1d`“
 
 # OAuth

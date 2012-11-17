@@ -1,7 +1,7 @@
 ---
 title: OS X – Lion Upgrade
 date: 22.07.2011, 23:31
-tags: [OS X, Lion]
+tags: [OS X, Lion, MathML]
 ---
 
 Ja, ich fange jetzt auch schon wie alle anderen an. Aber wenigstens diskutiere
@@ -29,7 +29,7 @@ Unnütze in ~/Library zu löschen. ~/Library ist jetzt übrigens hidden, was auc
 ziemlich scheiße ist, aber das lässt sich mittels
 
     chflags nohidden ~/Library/
-    
+
 ändern. Der Aufräum-Aktion fiel dann auch endlich Thunderbird zum Opfer. Dieses
 Software hat trotz Versionssprung verdammt viele Ecken und Kanten.
 

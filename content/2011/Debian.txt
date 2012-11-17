@@ -1,7 +1,7 @@
 ---
 title: Debian. Ich hasse dich.
 date: 26.08.2011, 00:21
-tags: [Rant, Debian Squeeze, planet]
+tags: [Rant, Debian, planet]
 ---
 
 Meine Server laufen alle mit Debian. Debian Squeeze, das einzige OS, das
@@ -50,9 +50,9 @@ in zweihundert Unterpakete zu schnüren.
     0 aktualisiert, 84 neu installiert, 0 zu entfernen und 0 nicht aktualisiert.
     Es müssen noch 30,2 MB von 31,1 MB an Archiven heruntergeladen werden.
     Nach dieser Operation werden 88,5 MB Plattenplatz zusätzlich benutzt.
-    
+
     ... dumdidum ...
-    
+
     libdevmapper1.02.1 (2:1.02.48-5) wird eingerichtet ...
     dmsetup (2:1.02.48-5) wird eingerichtet ...
     lvm2 (2.02.66-5) wird eingerichtet ...
@@ -69,16 +69,16 @@ der Knaller:
     :::text
     # apt-get purge collectd-utils
     Paketlisten werden gelesen... Fertig
-    Abhängigkeitsbaum wird aufgebaut       
+    Abhängigkeitsbaum wird aufgebaut
     Statusinformationen werden eingelesen... Fertig
     Die folgenden Pakete werden ENTFERNT:
       collectd-utils*
     0 aktualisiert, 0 neu installiert, 1 zu entfernen und 0 nicht aktualisiert.
     Nach dieser Operation werden 147 kB Plattenplatz freigegeben.
-    
+
     # apt-get autoremove
     Paketlisten werden gelesen... Fertig
-    Abhängigkeitsbaum wird aufgebaut       
+    Abhängigkeitsbaum wird aufgebaut
     Statusinformationen werden eingelesen... Fertig
     0 aktualisiert, 0 neu installiert, 0 zu entfernen und 0 nicht aktualisiert.
 

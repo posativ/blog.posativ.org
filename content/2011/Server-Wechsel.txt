@@ -1,7 +1,7 @@
 ---
 title: Server Umzug – wieder einmal
 date: 22.07.2011, 20:27
-tags: [Blog, V-Server]
+tags: [Blog, V-Server, I2P]
 ---
 
 [Das Jahr ist fast rum][0] und ich habe wieder einen neuen vServer-Anbieter.

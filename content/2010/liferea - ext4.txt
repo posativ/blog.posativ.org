@@ -2,7 +2,7 @@
 title: Liferea unter ext4
 
 date: 03.09.2010, 11:12
-tags: [Liferea, Arch Linux]
+tags: [Arch Linux]
 ---
 
 Nachdem ich vor einiger Zeit vom völlig untauglichen [Akregator](http://de.wikipedia.org/wiki/Kontact#Akregator)
@@ -18,5 +18,5 @@ einem Stromausfall erhöht): [liferea-ext4](http://aur.archlinux.org/packages.ph
 Danach muss man nur noch `export LIFEREA_SYNCHRONOUS=0` in seine *~/.bashrc* reinschreiben und
 sourcen und Liferea arbeitet schneller und leiser!
 
-`liferea-ext4 1.7.4-1`  
+`liferea-ext4 1.7.4-1`
 `A GTK desktop news aggregator for online news feeds and weblogs patched for ext4 filesystem to improve speed`

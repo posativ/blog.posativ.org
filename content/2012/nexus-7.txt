@@ -1,10 +1,10 @@
 ---
 title: Google Nexus 7
 date: 19/09/2012
-tags: [Android]
+tag: Android
 ---
 
-Der [@cmur2](http://mycrobase.de/) hat mich daran erinnert, dass ich ja auch 
+Der [@cmur2](http://mycrobase.de/) hat mich daran erinnert, dass ich ja auch
 weniger Text, dafür mehr Inhalt (oder so ähnlich) bringen kann.
 
 Ich habe mir vor kurzem ein Tablet gekauft. Das [Google™ Nexus® 7][0] in der
@@ -15,8 +15,8 @@ das iPad wirkt dagegen monströs. Und es gab noch einen 20€ Gutschein dazu!11
 
 Der Gutschein war übrigens das Totschlagargument bei mir. Android-User geben ja
 prinzipiell kein Geld für Äpps aus. Ist ja Android und da ist alles ~~gute~~
-ja kostenlos!1 Ein [guten EPUB/PDF Reader][1] habe ich mir gegönnt, denn ich 
-beziehe meine Bücher meist aus … äh … *anderen* Quellen. Dazu noch ein 
+ja kostenlos!1 Ein [guten EPUB/PDF Reader][1] habe ich mir gegönnt, denn ich
+beziehe meine Bücher meist aus … äh … *anderen* Quellen. Dazu noch ein
 [Dateimanager mit SMB Support][2] und [Videoplayer ebenfalls mit SMB][3].
 
 An dieser Stelle möchte ich noch auf die Äpp [F-Droid](http://f-droid.org/)

@@ -2,7 +2,7 @@
 title: Acrylamid 0.3 – yet another static blog compiler
 filter: jinja2
 date: 02.04.2012, 00:42
-tags: [Acrylamid, statische Seiten, HTML5]
+tags: [Acrylamid, statische Seiten, HTML5, MathML]
 ---
 
 Ich freue mich, heute *endlich* Version 0.3 meines statischen Blog-Compilers
@@ -26,11 +26,11 @@ Erwähnenswert ist übrigens die Ausführung von UNIX-Skripten direkt im Eintrag
 [{{ entry.filename.rsplit('/', 1)[1] }}][6]:
 
     :::console
-    $> ls -l
+    $ ls -l
     {{ "ls -l" | system | indent(4) }}
-    $> find content | wc -l
+    $ find content | wc -l
     {{ "find content | wc -l" | system | indent(4) }}
-    $> git log -3 --no-color --oneline
+    $ git log -3 --oneline
     {{ "git log -3 --no-color --oneline" | system | indent(4) }}
 
 
@@ -46,8 +46,8 @@ neuen Eintrag schreibe -- inklusive Änderung der Tag/RSS/Index-Ansichten.
 [Acrylamid][3] nutzt dafür tolle [Jinja2-Magie][4] um nur gezielt alle von den
 Änderungen am Template betroffenen Seiten neu zu rendern. Für die einzelnen
 Filter, die individuell pro Eintrag und Ansicht angewendet werden können, nutze
-ich ein komplexes System aus verzögerter Ausführung und Zurückführung auf 
-gemeinsame Filter, sodass Ansichten wie bsw. RSS ohne Silbentrennung und 
+ich ein komplexes System aus verzögerter Ausführung und Zurückführung auf
+gemeinsame Filter, sodass Ansichten wie bsw. RSS ohne Silbentrennung und
 Zusammenfassung und eine Index-Ansicht mit Silbentrennung und Zusammenfassung
 dennoch das gemeinsame Markdown-Intermediat nutzen, womit jede zusätzliche
 Ansicht ohne merkliche Erhöhung der Rechenzeit gerendert werden kann.

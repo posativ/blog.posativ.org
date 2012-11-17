@@ -14,7 +14,7 @@ noch wunderschön zweimal `fbcdn.net` eingebunden hatte... reden sonst immer um
 Datenschutz etc. pp., aber dann das. Hat was verlogenes.
 
 Nun sind sie gleich dabei und haben [eine Anleitung][5] von Linus Neumann
-([re:Fefes Blog][6] \<3) erstellen lassen, allerdings nicht für die Twitter
+([re:Fefes Blog][6] <3) erstellen lassen, allerdings nicht für die Twitter
 und Flattr-Buttons. Denn das ist natürlich GANZ WAS ANDERES!!1
 
 Diese Problematik ist aber essentiell. Wo ziehe ich den Strich zwischen

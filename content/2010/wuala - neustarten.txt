@@ -1,32 +1,34 @@
 ---
 title: Wuala automatisch neustarten [Skript für den Serverbetrieb]
-filters: [markdown]
 tags: [Python, Wuala]
 date: 20.07.2010, 21:04
 ---
 
-Wuala läuft _nie_ 100% stabil. Das kann sicherlich jeder Nutzer bezeugen - immerhin ist Wuala
-eine Software im Beta-Stadium (, die dafür dennoch erstaunlich stabil läuft).
+Wuala läuft _nie_ 100% stabil. Das kann sicherlich jeder Nutzer bezeugen -
+immerhin ist Wuala eine Software im Beta-Stadium (, die dafür dennoch
+erstaunlich stabil läuft).
 
-Allerdings ist ein nahezu 100% laufendes Wuala für den Serverbetrieb wichtig, denn sonst erhält man
-die 100 Gigabyte Speicher nicht - nur, weil sich Wuala mal wieder verabschiedet hat und man
-nicht die Muße hat, stündlich zu gucken, ob noch alles läuft.
+Allerdings ist ein nahezu 100% laufendes Wuala für den Serverbetrieb wichtig,
+denn sonst erhält man die 100 Gigabyte Speicher nicht - nur, weil sich Wuala mal
+wieder verabschiedet hat und man nicht die Muße hat, stündlich zu gucken, ob
+noch alles läuft.
 
 alive.py - automatisches Neustarten von Wuala, falls es crasht
 ==============================================================
 
 Ich habe seit einigen Wochen ein Python-Skript in Betrieb , dass einen nahtlosen
-Betrieb von Wuala erlaubt. Dabei wird das Skript mittels `python alive.py user` aufgerufen
-und wird, sobald kein weiterer Prozess von Wuala läuft, Wuala neustarten. Dabei wird Wuala
-als Hintergrundprozess aufgerufen oder per [dtach](http://dtach.sourceforge.net/) verbunden.
+Betrieb von Wuala erlaubt. Dabei wird das Skript mittels `python alive.py user`
+aufgerufen und wird, sobald kein weiterer Prozess von Wuala läuft, Wuala
+neustarten. Dabei wird Wuala als Hintergrundprozess aufgerufen oder per
+[dtach](http://dtach.sourceforge.net/) verbunden.
 
-Zusätzlich kann mit den Argumenten `status user` bzw. `kill user` die pid des Wualas für *user*
-ausgeben bzw. das Wuala des *user* killen.
+Zusätzlich kann mit den Argumenten `status user` bzw. `kill user` die pid des
+Wualas für *user* ausgeben bzw. das Wuala des *user* killen.
 
 Beispiel: wuala
 ---------------
 
-    :::console
+    :::bash
     # python alive.py wuala &
     # python alive.py status wuala
     4829

@@ -1,7 +1,7 @@
 ---
 title: nginx
 date: 07.01.2012, 22:03
-tags: [lighttpd, nginx, planet]
+tags: [lighttpd, nginx, CGI, SSL, planet]
 ---
 
 Seit heute rennt das Blog unter [nginx][1]. Der Grund ist einfach:
@@ -86,7 +86,7 @@ Einstellungen”.
 
 In der Präambel lässt sich zudem noch die verwendete Cipher wählen und so
 ein Angriff mittels BEAST verhindern.
-    
+
     :::nginx
     server {
         listen       443;
@@ -110,7 +110,7 @@ ein Angriff mittels BEAST verhindern.
 
 ## 5. rewrite rules
 
-Das war zunächst das größte Problem. Ich pflege Rückwärtskompatibilität 
+Das war zunächst das größte Problem. Ich pflege Rückwärtskompatibilität
 zwischen meinen (inzwischen vier) Blogs mit unterschiedlicher Software und
 Permalinks. Einfach sind URI -> URI rewrites-Rules:
 
@@ -148,7 +148,7 @@ Rechenaufwand):
 - nginx erlaubt kein POST/PUT auf statisches HTML, denn sonst wäre es ja CGI
   (was aber auch nicht geht, dazu gleich mehr). Aber auch dafür gibt es die
   merkwürdigsten Workarounds (POST auf statisches HTML wirft 405):
-  
+
         :::nginx
         error_page 405 = @405;
         location       = @405 {

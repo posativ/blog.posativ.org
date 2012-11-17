@@ -4,8 +4,8 @@ date: 28.07.2010, 22:51
 tags: [Python]
 ---
 
-<a href="http://bing.com/fd/hpk2/LeafCutterAnts_DE-DE3252262952.jpg">
-<img src="http://bing.com/fd/hpk2/LeafCutterAnts_DE-DE3252262952.jpg" alt="Ameisen" width="760" class="shadow" />
+<a href="http://www.istartedsomething.com/bingimages/cache/LeafCutterAnts_DE-DE3252262952.jpg">
+<img src="http://www.istartedsomething.com/bingimages/cache/LeafCutterAnts_DE-DE3252262952.jpg" alt="Ameisen" width="660" class="shadow" />
 </a>
 
 Ich plane ja einen Header in mein Blog einzupflegen; so in etwa wie [hier](http://www.schockwellenreiter.de/).

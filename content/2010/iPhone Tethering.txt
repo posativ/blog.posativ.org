@@ -2,7 +2,7 @@
 title: Das iPhone und das Tethering
 
 date: 30.09.2010, 11:19
-tags: [iPhone, Tethering, Arch Linux, simyo]
+tags: [iPhone, Tethering, Arch Linux]
 ---
 
 # Einstellungen im iPhone

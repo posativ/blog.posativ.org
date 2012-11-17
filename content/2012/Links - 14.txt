@@ -1,7 +1,7 @@
 ---
 title: "Linkschleuder #14"
 date: 20.01.2012, 10:43
-tags: [Links, unix, Firefox, Sync]
+tags: [Links, unix, Firefox, Sync, polipo]
 ---
 
 
@@ -10,7 +10,7 @@ tags: [Links, unix, Firefox, Sync]
 - [weaveclient-chromium-continued](https://bitbucket.org/aykevl93/weaveclient-chromium-continued/overview)
   – nicht getestet, aber wäre cool, wenn das funktioniert.
 - [puppet](http://projects.puppetlabs.com/projects/puppet) – automatisiertes
-  Einrichten eines *nix-Systems mit einer Ruby-DSL.  
+  Einrichten eines *nix-Systems mit einer Ruby-DSL.
   „Puppet, an automated administrative engine for your \*nix systems, performs
   administrative tasks (such as adding users, installing packages, and
   updating server configurations) based on a centralized specification.“

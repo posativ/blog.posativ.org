@@ -1,7 +1,7 @@
 ---
 title: Arch Linux und das iPhone mit iOS 4
 date: 27.09.2010, 17:44
-tags: [Arch Linux, libimobiledevice, KDE 4, iPhone, iOS]
+tags: [Arch Linux, KDE 4, iPhone, iOS]
 ---
 
 Vor kurzem habe ich ein älteres iPhone-Modell geerbt, das immerhin simlock-frei ist: iPhone 3G. Mit
@@ -33,7 +33,7 @@ Ich habe mich totgesucht, aber nebenbei interessante Quellen gefunden:
 gemounted werden muss. Das ganze schaut in Dolphin dann so aus. (Ist leider etwas langsam, da es wie
 ein Netzlaufwerk arbeitet...)
 
-[<img src="http://blog.posativ.org/img/linux/kio_afc.png" class="shadow" 
+[<img src="http://blog.posativ.org/img/linux/kio_afc.png" class="shadow"
 width="720" alt="Dolphin mit iPhone" />](http://blog.posativ.org/img/linux/kio_afc.png)
 
 # iPhone und libgpod

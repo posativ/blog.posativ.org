@@ -2,7 +2,7 @@
 title: Die Sache mit OS X …
 date: 09.08.2012, 21:02
 filter: Markdown+footnotes
-tags: [Apple, OS X, Rant]
+tags: [Apple, OS X, Rant, Cloud]
 ---
 
 … hat einen Haken. Oder zwei. Eigentlich mehrere dutzend. Nachdem mehr oder

@@ -2,7 +2,7 @@
 title: Das Drama um KDE 4.5.0
 
 date: 16.08.2010, 18:03
-tags: [KDE 4, Arch Linux]
+tags: [KDE, Arch Linux]
 ---
 
 Seit sechs Tagen ist KDE 4.5 draußen. Seltsamerweise ist es immer noch nicht in den Repositories,

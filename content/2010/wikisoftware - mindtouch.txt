@@ -2,7 +2,7 @@
 title: "Wiki-Software: MindTouch Deki"
 
 date: 25.08.2010, 00:25
-tags: [Wiki, C#, PHP]
+tags: [Wiki, PHP]
 ---
 
 Ich suche für mich eine Art Personal Wiki. Das hat sich als schwierige Aufgabe herausgestellt,

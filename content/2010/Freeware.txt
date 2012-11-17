@@ -2,7 +2,7 @@
 title: Das Elend mit Freeware
 
 date: 18.11.2010, 21:00
-tags: [Microsoft, Apple, Open Source, Windows]
+tags: [Apple, Open Source, Windows]
 ---
 
 Als ich gut einen Monat nur Internet via iPhone Tethering hatte, ist mir bewusst geworden, wie

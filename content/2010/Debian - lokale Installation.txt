@@ -2,7 +2,7 @@
 title: lokale Debian Squeeze Installation über QEMU
 
 date: 27.07.2010, 12:24
-tags: [QEMU, V-Server, Debian]
+tags: [V-Server, Debian]
 ---
 
 Inzwischen wurde mein [kleiner vServer](https://www.proplay.biz/vps_premium.html) freigeschaltet,

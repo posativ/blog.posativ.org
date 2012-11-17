@@ -2,7 +2,7 @@
 title: "Linkschleuder #1"
 
 date: 29.09.2010, 23:22
-tags: [Links, CSS Preprocessors, statische Seiten]
+tags: [Links, CSS, statische Seiten]
 ---
 
 Man kann ja so ein Blog auch mal kurz als Wiki missbrauchen, solange es kein gutes auf dem

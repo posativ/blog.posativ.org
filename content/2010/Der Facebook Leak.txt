@@ -1,7 +1,7 @@
 ---
 title: Der facebook-„Leak“
 date: 31.07.2010, 16:07
-tags: [Ruby, thepiratebay.org, Facebook]
+tags: [Ruby, Facebook]
 ---
 
 Seit gestern früh gibt es einen [gewaltigen Torrent][] in der Piratenbucht *(hatten die

@@ -1,7 +1,7 @@
 ---
 title: "Linkschleuder #10"
 date: 16.12.2011, 19:31
-tags: [Links, unix, Web, Ruby, OS X, planet]
+tags: [Links, unix, Ruby, OS X, planet]
 ---
 
 - [daemontools](http://cr.yp.to/daemontools.html) – nein nicht die [Daemon

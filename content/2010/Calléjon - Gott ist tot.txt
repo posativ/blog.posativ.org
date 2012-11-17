@@ -2,7 +2,7 @@
 title: Gott ist tot – Calléjon
 date: 27.11.2010, 12:59
 filter: rst
-tags: [Calléjon, YouTube]
+tag: Calléjon
 permalink: /2010/gott-ist-tot-call-jon/
 ---
 

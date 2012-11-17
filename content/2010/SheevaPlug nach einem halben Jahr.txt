@@ -2,7 +2,7 @@
 title: SheevaPlug nach einem halben Jahr
 
 date: 08.08.2010, 22:20
-tags: [Debian Squeeze, Wuala, I2P]
+tags: [Debian, Wuala, rtorrent, I2P]
 ---
 
 Inzwischen habe das SheevaPlug seit über einem halben Jahr und kann nun quasi einen

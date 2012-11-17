@@ -1,29 +1,33 @@
 ---
 title: JMStV
 date: 30.11.2010, 22:49
-tags: [JMStV]
 ---
 
-Ist schon eine [üble Geschichte][]. Wer hätte gedacht, dass in diesem (ich dachte anfangs, das sei
-ein Scherz) Vertrag so etwas übles auf Deutschland zukommen kann. Das ist im gewissen Sinne genial.
-Unter dem Deckmantel der ungewollten Aufklärung ([sozialethisch desorientierend][] einself) wird ein
-effektives Zensurmaßnahme unter das Volk gejubelt. Das ist soweit durchgekommen, dass es nur noch der
-Zustimmung eines Bundeslandes bedarf. Ein Teil von mir hofft ja, dass das durchkommt, dann wird Orwell
-endlich mal Realität. Hätte was.
+Ist schon eine [üble Geschichte][]. Wer hätte gedacht, dass in diesem (ich
+dachte anfangs, das sei ein Scherz) Vertrag so etwas übles auf Deutschland
+zukommen kann. Das ist im gewissen Sinne genial. Unter dem Deckmantel der
+ungewollten Aufklärung ([sozialethisch desorientierend][] einself) wird ein
+effektives Zensurmaßnahme unter das Volk gejubelt. Das ist soweit
+durchgekommen, dass es nur noch der Zustimmung eines Bundeslandes bedarf. Ein
+Teil von mir hofft ja, dass das durchkommt, dann wird Orwell endlich mal
+Realität. Hätte was.
 
-Ist es nicht interessant, dass Deutschland so empört ist vor Zensur im Ausland, aber selbst so ein
-geniales Gesetz durchdrückt? Indem freie Meinungsäußerung im Netz für das Individuum unbezahlbar wird
-und mit einer ständigen Angst vor unrealistisch hohen Abmahnungen Angst geschürt wird, ist der Grundstein
-für weiteres gelegt. Kennen wir ja. Viel haben wir doch gelernt, in unserem fortgeschrittenen,
-aufgeklärten Land.
+Ist es nicht interessant, dass Deutschland so empört ist vor Zensur im
+Ausland, aber selbst so ein geniales Gesetz durchdrückt? Indem freie
+Meinungsäußerung im Netz für das Individuum unbezahlbar wird und mit einer
+ständigen Angst vor unrealistisch hohen Abmahnungen Angst geschürt wird, ist
+der Grundstein für weiteres gelegt. Kennen wir ja. Viel haben wir doch
+gelernt, in unserem fortgeschrittenen, aufgeklärten Land.
 
-Mich interessiert ja, ob das wirklich von irgendwo her geplant wurde (unvorstellbar, bei unserem Personal)
-oder ob das einfach durch Inkompetenz geschaffen wurde. Beides kann ich mir nicht so recht vorstellen.
+Mich interessiert ja, ob das wirklich von irgendwo her geplant wurde
+(unvorstellbar, bei unserem Personal) oder ob das einfach durch Inkompetenz
+geschaffen wurde. Beides kann ich mir nicht so recht vorstellen.
 
-Was das für diesen unwichtigen Internetauftritt bedeutet, ist ja klar. Der vServer ist im Voraus bezahlt,
-darauf läuft auch noch ein [quasselcore](http://quassel-irc.org/). Ergo wird [lighttpd](http://www.lighttpd.net/)
-per `cron` tagsüber ausgeschaltet. Tja, das war's dann wohl mit dem Web 3.0 und unserer ach so geliebten
-Meinungsfreiheit.
+Was das für diesen unwichtigen Internetauftritt bedeutet, ist ja klar. Der
+vServer ist im Voraus bezahlt, darauf läuft auch noch ein [quasselcore](http
+://quassel-irc.org/). Ergo wird [lighttpd](http://www.lighttpd.net/) per `cron`
+tagsüber ausgeschaltet. Tja, das war's dann wohl mit dem Web 3.0 und unserer ach
+so geliebten Meinungsfreiheit.
 
 
 [üble Geschichte]: http://www.heise.de/newsticker/meldung/Blog-macht-wegen-neuem-Jugendschutzgesetz-dicht-Updates-1144566.html
