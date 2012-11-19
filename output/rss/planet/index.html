@@ -1,0 +1,981 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>mecker. mecker. mecker.</title>
+        <link>http://blog.posativ.org/</link>
+        <description></description>
+        <language>de</language>
+        <pubDate>Sun, 14 Oct 2012 11:23:00 GMT</pubDate>
+        <docs>http://blog.posativ.org/rss/planet/</docs>
+        <generator>acrylamid 0.5.0</generator>
+        
+            <item>
+                <title>Firefox Sync auf dem eigenen Server. Ja. Wirklich.</title>
+                <link>http://blog.posativ.org/2011/firefox-sync-auf-dem-eigenen-server-ja-wirklich/</link>
+                <description>&lt;p&gt;Da die Phrase &amp;#8220;firefox sync eigener server&amp;#8221; relativ häufig zu diesem Beitrag
+        führt, aktualisiere ich ihn mal auf die letzten Änderungen. Für einen Firefox
+        Sync Server, der einfach funktioniert™ braucht ihr&amp;nbsp;folgendes:&lt;/p&gt;
+        &lt;ul&gt;
+        &lt;li&gt;&lt;code&gt;python&lt;/code&gt; ≥&amp;nbsp;2.6&lt;/li&gt;
+        &lt;li&gt;&lt;code&gt;sqlite&lt;/code&gt; (meist schon&amp;nbsp;vorinstalliert)&lt;/li&gt;
+        &lt;/ul&gt;
+        &lt;p&gt;Meine &lt;code&gt;weave-minimal&lt;/code&gt; Implementierung unterstützt mehrere User, die komplett
+        voneinander abgeschottet sind und ist vollständig kompatibel zur offiziellen
+        Implementierung (heißt, alle Tests laufen durch). Die Installation ist &amp;#8216;n&amp;nbsp;Einzeiler:&lt;/p&gt;
+        &lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span class=&#34;nv&#34;&gt;$ &lt;/span&gt;easy_install -U weave-minimal
+        &lt;/pre&gt;&lt;/div&gt;
+        
+        
+        &lt;p&gt;Wenn das nicht klappt, als &lt;code&gt;root&lt;/code&gt; versuchen. Der Server selbst sollte
+        allerdings mit eingeschränkten Rechten laufen. Sucht euch ein Verzeichnis aus,
+        wo die Datenbank etc. hin soll und startet den Server&amp;nbsp;mittels:&lt;/p&gt;
+        &lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span class=&#34;nv&#34;&gt;$ &lt;/span&gt;weave-minimal --enable-registration
+        &lt;/pre&gt;&lt;/div&gt;
+        
+        
+        &lt;p&gt;Per default lauscht der Server auf 8080 und nimmt reguläre &lt;span class=&#34;caps&#34;&gt;HTTP&lt;/span&gt; Anfragen
+        entgegen. Heißt, per &lt;code&gt;mod_proxy&lt;/code&gt; oder ähnlichem darauf zeigen. Unter
+        &lt;a href=&#34;http://lighttpd.net/&#34;&gt;lighttpd&lt;/a&gt; sieht das wie folgt&amp;nbsp;aus:&lt;/p&gt;
+        &lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span class=&#34;nv&#34;&gt;$&lt;span class=&#34;caps&#34;&gt;HTTP&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;quot;url&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=~&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;quot;^/weave/&amp;quot;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+            &lt;span class=&#34;n&#34;&gt;proxy&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;server&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;quot;&amp;quot;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&amp;gt;&lt;/span&gt;
+               &lt;span class=&#34;p&#34;&gt;((&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;quot;host&amp;quot;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;quot;127.0.0.1&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;quot;port&amp;quot;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;8080&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)))&lt;/span&gt;
+        &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+        &lt;/pre&gt;&lt;/div&gt;
+        
+        
+        &lt;p&gt;In &lt;a href=&#34;https://github.com/posativ/weave-minimal#webserver-configuration&#34;&gt;der Readme&lt;/a&gt; gibt es auch Anweisungen für &lt;a href=&#34;http://nginx.org/&#34;&gt;nginx&lt;/a&gt; und einem
+        &lt;code&gt;init.d&lt;/code&gt;-Skript für Debian/Ubuntu. Die &lt;a href=&#34;https://github.com/posativ/weave-minimal&#34;&gt;Quellen liegen auf GitHub&lt;/a&gt;, Fehler
+        nehme ich per &lt;a href=&#34;https://github.com/posativ/weave-minimal/issues&#34;&gt;GitHub:Issues&lt;/a&gt; oder &lt;a href=&#34;#disqus_thread&#34;&gt;Disqus&lt;/a&gt;&amp;nbsp;entgegen.&lt;/p&gt;
+        &lt;p&gt;Per default werden die Daten im aktuellen Verzeichnis unter &lt;code&gt;.data&lt;/code&gt;
+        gespeichert, also sollte der Prozess auch immer vom selben Verzeichnis aus
+        gestartet werden oder per &lt;code&gt;--data-dir&lt;/code&gt; gesetzt werden. Für Debian/Ubuntu ist
+        hier ein &lt;code&gt;init.d&lt;/code&gt;-Skript, dass den Sync Server als &lt;code&gt;www&lt;/code&gt;-Nutzer via
+        &lt;code&gt;invoke-rc.d weave-minimal start&lt;/code&gt; laufen&amp;nbsp;lässt:&lt;/p&gt;
+        &lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span class=&#34;c&#34;&gt;#!/bin/sh&lt;/span&gt;
+        &lt;span class=&#34;c&#34;&gt;# save to /etc/init.d/weave-minimal and chmod +x&lt;/span&gt;
+        
+        &lt;span class=&#34;nv&#34;&gt;&lt;span class=&#34;caps&#34;&gt;NAME&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;weave-minimal
+        &lt;span class=&#34;nv&#34;&gt;&lt;span class=&#34;caps&#34;&gt;USER&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;www
+        &lt;span class=&#34;nv&#34;&gt;&lt;span class=&#34;caps&#34;&gt;CMD&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;/usr/local/bin/weave-minimal
+        
+        &lt;span class=&#34;nv&#34;&gt;&lt;span class=&#34;caps&#34;&gt;PORT&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;8080
+        &lt;span class=&#34;nv&#34;&gt;&lt;span class=&#34;caps&#34;&gt;DBPATH&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;/var/lib/weave-minimal/
+        
+        &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt; ! -d &lt;span class=&#34;nv&#34;&gt;$&lt;span class=&#34;caps&#34;&gt;DBPATH&lt;/span&gt;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;; &lt;span class=&#34;k&#34;&gt;then&lt;/span&gt;
+        &lt;span class=&#34;k&#34;&gt;  &lt;/span&gt;mkdir /var/lib/weave-minimal
+          chown www /var/lib/weave-minimal
+        &lt;span class=&#34;k&#34;&gt;fi&lt;/span&gt;
+        
+        &lt;span class=&#34;k&#34;&gt;case&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$1&lt;/span&gt; in
+            start&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+            &lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; -n &lt;span class=&#34;s2&#34;&gt;&amp;quot;Starting $&lt;span class=&#34;caps&#34;&gt;NAME&lt;/span&gt;: &amp;quot;&lt;/span&gt;
+            start-stop-daemon --start --background --pidfile /var/run/&lt;span class=&#34;nv&#34;&gt;$&lt;span class=&#34;caps&#34;&gt;NAME&lt;/span&gt;&lt;/span&gt;.pid &lt;span class=&#34;se&#34;&gt;\&lt;/span&gt;
+            --chuid &lt;span class=&#34;nv&#34;&gt;$&lt;span class=&#34;caps&#34;&gt;USER&lt;/span&gt;&lt;/span&gt; --make-pidfile --exec &lt;span class=&#34;nv&#34;&gt;$&lt;span class=&#34;caps&#34;&gt;CMD&lt;/span&gt;&lt;/span&gt; -- --data-dir&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$&lt;span class=&#34;caps&#34;&gt;DBPATH&lt;/span&gt;&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\&lt;/span&gt;
+            --port&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$&lt;span class=&#34;caps&#34;&gt;PORT&lt;/span&gt;&lt;/span&gt; --enable-registration
+            &lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;$&lt;span class=&#34;caps&#34;&gt;NAME&lt;/span&gt;.&amp;quot;&lt;/span&gt;
+               ;;
+        stop&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;  start-stop-daemon --stop --pidfile /var/run/&lt;span class=&#34;nv&#34;&gt;$&lt;span class=&#34;caps&#34;&gt;NAME&lt;/span&gt;&lt;/span&gt;.pid
+               ;;
+        &lt;span class=&#34;k&#34;&gt;esac&lt;/span&gt;
+        &lt;/pre&gt;&lt;/div&gt;
+        
+        
+        &lt;h3&gt;Firefox&amp;nbsp;Setup&lt;/h3&gt;
+        &lt;p&gt;Wie sonst auch: &lt;em&gt;Sync&lt;/em&gt; → &lt;em&gt;Neues Konto anlegen&lt;/em&gt; → &lt;em&gt;Eigenen Server&lt;/em&gt; und fertig.
+        Ein neues Gerät lässt sich ganz leicht über &lt;em&gt;Ich habe bereits ein Konto
+        hinzufügen&lt;/em&gt; und über &amp;#8220;Gerät verbinden&amp;#8221; in einem bereits verbundenem Client&amp;nbsp;hinzufügen.&lt;/p&gt;
+        &lt;p&gt;&lt;img alt=&#34;Firefox Sync Setup&#34; src=&#34;/img/2012/setup.png&#34; class=&#34;no-shadow&#34;/&gt;&lt;/p&gt;
+        &lt;p&gt;Firefox für Android funktioniert ab Version 16 auch mit meiner Implementierung.
+        Die &lt;span class=&#34;caps&#34;&gt;&lt;abbr title=&#34;Application programming interface&#34;&gt;API&lt;/abbr&gt;&lt;/span&gt; wird bis April 2013 kompatibel sein, danach kommt &lt;span class=&#34;caps&#34;&gt;&lt;abbr title=&#34;Application programming interface&#34;&gt;API&lt;/abbr&gt;&lt;/span&gt; Version 2.0 zum
+        Einsatz, die deutlich schwieriger zu implementieren und zu deployen ist
+        (wegen &lt;a href=&#34;https://www.mozilla.org/en-US/persona/&#34;&gt;Persona&lt;/a&gt;).&lt;/p&gt;
+        &lt;p&gt;Wenn eigene Zertifikate genutzt werden, sollten die vor dem Sync hinzugefügt
+        werden, sonst funktioniert da nichts. Zum Testen biete ich immer noch eine Instanz
+        unter &lt;a href=&#34;https://posativ.org/weave/&#34;&gt;/weave&lt;/a&gt;&amp;nbsp;an.&lt;/p&gt;
+        &lt;h3&gt;alternative&amp;nbsp;Server-Implementierungen&lt;/h3&gt;
+        &lt;ul&gt;
+        &lt;li&gt;&lt;a href=&#34;http://ymartin59.free.fr/wordpress/index.php/2011/03/05/my-own-firefox-sync-weave-server/&#34;&gt;weave-minimal in &lt;span class=&#34;caps&#34;&gt;PHP&lt;/span&gt;&lt;/a&gt;, der ehemalige, offizielle Weave-Server in &lt;span class=&#34;caps&#34;&gt;PHP&lt;/span&gt;,
+          discontinued. Wird von &lt;a href=&#34;http://www.ohnekontur.de/&#34;&gt;balu&lt;/a&gt; maintained als &lt;a href=&#34;https://github.com/balu-/FSyncMS/&#34;&gt;FSyncMS&lt;/a&gt;.&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;https://hg.mozilla.org/services/server-full/&#34;&gt;offizielle Server-Implementierung&lt;/a&gt;, nicht gerade leicht zu installieren, ausgelegt
+          für mehrere tausend&amp;nbsp;Nutzer.&lt;/li&gt;
+        &lt;/ul&gt;</description>
+                <pubDate>Sun, 14 Oct 2012 11:23:00 GMT</pubDate>
+                <guid isPermaLink="false">tag:blog.posativ.org,2012-10-14:/2011/firefox-sync-auf-dem-eigenen-server-ja-wirklich</guid>
+            </item>
+        
+            <item>
+                <title>Abseits von Linux: FreeBSD</title>
+                <link>http://blog.posativ.org/2012/abseits-von-linux-freebsd/</link>
+                <description>&lt;p&gt;&lt;img src=&#34;/img/2012/freebsd.png&#34; alt=&#34;FreeBSD Logo&#34; class=&#34;floatright no-shadow&#34; width=&#34;200px&#34; /&gt;&lt;/p&gt;
+        &lt;p&gt;Da mein derzeitiger Router – eine Time Capsule – doch sehr langsam für das Backup und vor allem Wiederherstellen (nicht unter einer Minute) ist, wird er durch ein neues Gerät ersetzt, das unter FreeBSD laufen soll&lt;!-- break --&gt;.&lt;/p&gt;
+        &lt;h3&gt;Was?&amp;nbsp;FreeBSD?&lt;/h3&gt;
+        &lt;p&gt;Hat &lt;a href=&#34;http://cre.fm/cre048&#34;&gt;man vielleicht schon einmal gehört&lt;/a&gt;. Ist kein Linux, sondern basiert – wer hätte es gedacht – auf dem FreeBSD Kernel, der im Unterschied zu Linux wesentlich weniger Treiber mitbringt und auch konzeptuell sehr verschieden ist. Im Gegensatz zu Ubuntu/Debian ist FreeBSD aus einem Guss. Sowohl der Kernel, das Basis-System als auch die Software wird von einer Community&amp;nbsp;betreut.&lt;/p&gt;
+        &lt;p&gt;FreeBSD bietet ein harmonisches Gesamtkonzept, ist äußerst leichtgewichtig, hat Packet Filtering, Jails und bietet mir eine immens große Software-Kollektion, deren Buildflags ich wie in Gentoo sehen und ändern kann. &lt;span class=&#34;caps&#34;&gt;ZFS&lt;/span&gt;! Auch wenn ich bei mir nicht den Anwendungsfall sehe, unterstützt FreeBSD eine &lt;em&gt;aktuelle&lt;/em&gt; Version von&amp;nbsp;&lt;span class=&#34;caps&#34;&gt;ZFS&lt;/span&gt;.&lt;/p&gt;
+        &lt;h3&gt;Warum überhaupt&amp;nbsp;&lt;span class=&#34;caps&#34;&gt;BSD&lt;/span&gt;?&lt;/h3&gt;
+        &lt;p&gt;Neben dem &amp;#8220;weil ich&amp;#8217;s kann&amp;#8221; gefällt mir das Konzept von FreeBSD deutlich besser als das von Ubuntu/Debian (zwei Distributionen, die ich seit mehreren Jahren nutze). Da wären zum einen die &lt;a href=&#34;https://www.gnu.org/software/coreutils/&#34;&gt;&lt;span class=&#34;caps&#34;&gt;GNU&lt;/span&gt; coreutils&lt;/a&gt;, also &lt;code&gt;ls&lt;/code&gt;, &lt;code&gt;cp&lt;/code&gt;, &lt;code&gt;sed&lt;/code&gt; und so weiter. Auch wenn das mit mehreren Gigabyte &lt;span class=&#34;caps&#34;&gt;RAM&lt;/span&gt; keine Rolle mehr spielt, sind diese Tools allesamt bloated. Als Beispiel biete ich &lt;code&gt;cp&lt;/code&gt;:&lt;/p&gt;
+        &lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span class=&#34;nv&#34;&gt;$ &lt;/span&gt;cp --help  &lt;span class=&#34;c&#34;&gt;# &lt;span class=&#34;caps&#34;&gt;BSD&lt;/span&gt;&lt;/span&gt;
+        cp &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;-R &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;-H | -L | -P&lt;span class=&#34;o&#34;&gt;]]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;-fi | -n&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;-apvX&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; source_file ... target_directory
+        
+        &lt;span class=&#34;nv&#34;&gt;$ &lt;/span&gt;cp --help | grep -E &lt;span class=&#34;s1&#34;&gt;&amp;#39;(  \-\w)|(  --\w)&amp;#39;&lt;/span&gt;  &lt;span class=&#34;c&#34;&gt;# &lt;span class=&#34;caps&#34;&gt;GNU&lt;/span&gt; coreutils, 31 flags&lt;/span&gt;
+        -a, --archive                same as -dR --preserve&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;all
+          --attributes-only        don&lt;span class=&#34;err&#34;&gt;&amp;#39;&lt;/span&gt;t copy the file data, just the attributes
+        ...
+        -v, --verbose                explain what is being &lt;span class=&#34;k&#34;&gt;done&lt;/span&gt;
+        -x, --one-file-system        stay on this file system
+        &lt;/pre&gt;&lt;/div&gt;
+        
+        
+        &lt;p&gt;Das ist bei jedem &lt;span class=&#34;caps&#34;&gt;GNU&lt;/span&gt; Tool der Fall und geht sogar so weit, dass &lt;code&gt;sed&lt;/code&gt; in der &lt;span class=&#34;caps&#34;&gt;GNU&lt;/span&gt; Variante &lt;a href=&#34;http://stackoverflow.com/questions/2320564/variations-of-sed-between-osx-and-gnu-linux&#34;&gt;nahezu inkompatibel&lt;/a&gt; zu &lt;span class=&#34;caps&#34;&gt;BSD&lt;/span&gt;&amp;nbsp;ist.&lt;/p&gt;
+        &lt;p&gt;Auf einer anderen Ebene bin ich als Entwickler auch ein Feind der &lt;span class=&#34;caps&#34;&gt;GPL&lt;/span&gt; und bevorzuge – wenn möglich – die &lt;span class=&#34;caps&#34;&gt;BSD&lt;/span&gt;-Lizenz, die im Gegenzug andere Entwickler nicht zwingen, unter gleichen Bedingungen zu veröffentlichen. So ziemlich alle &lt;span class=&#34;caps&#34;&gt;BSD&lt;/span&gt;-Derivate stehen unter der &lt;span class=&#34;caps&#34;&gt;BSD&lt;/span&gt; und sind dennoch frei wie&amp;nbsp;Linux.&lt;/p&gt;
+        &lt;h3&gt;NetBSD, OpenBSD und DragonFly&amp;nbsp;&lt;span class=&#34;caps&#34;&gt;BSD&lt;/span&gt;&lt;/h3&gt;
+        &lt;p&gt;Neben FreeBSD sind auch noch &lt;a href=&#34;http://www.netbsd.org/&#34;&gt;NetBSD&lt;/a&gt; und &lt;a href=&#34;http://www.openbsd.org/&#34;&gt;OpenBSD&lt;/a&gt; relativ bekannt. Ersteres ist quasi wie Gentoo und läuft auf jeder Architektur die man sich vorstellen kann &lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; rel=&#34;footnote&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;, letzteres hat seinen Fokus auf Sicherheit, Code-Qualität und entwickelt&lt;del&gt;e&lt;/del&gt; OpenSSL sowie&amp;nbsp;OpenSSH.&lt;/p&gt;
+        &lt;p&gt;&lt;a href=&#34;http://www.dragonflybsd.org/&#34;&gt;DragonFly &lt;span class=&#34;caps&#34;&gt;BSD&lt;/span&gt;&lt;/a&gt; als Fork von FreeBSD ist es ein relativ junges – 2003 angefangen – System mit vielen einzigartigen Features, z.B. virtuelle Kernel, deutlich verbessertes &lt;a href=&#34;https://en.wikipedia.org/wiki/Symmetric_multiprocessing&#34;&gt;&lt;span class=&#34;caps&#34;&gt;SMP&lt;/span&gt;&lt;/a&gt; &lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; rel=&#34;footnote&#34;&gt;2&lt;/a&gt;&lt;/sup&gt; und bietet mit &lt;span class=&#34;caps&#34;&gt;HAMMER&lt;/span&gt; ein neues Dateisystem (Linux Port ist in Arbeit), das dem &lt;span class=&#34;caps&#34;&gt;ZFS&lt;/span&gt; nicht unähnlich&amp;nbsp;ist.&lt;/p&gt;
+        &lt;p&gt;Für mich sprach gegen NetBSD, dass die Unterstützung von unzähligen Architekturen mir mit meiner 08/15 amd64 Architektur herzlich egal ist. OpenBSD ist sowieso uninteressant, denn die Sicherheit von Linux-Systemen hat mir bisher auch ausgereicht und DragonFly &lt;span class=&#34;caps&#34;&gt;BSD&lt;/span&gt; hat definitiv besseres verdient, denn als Router zu&amp;nbsp;fungieren.&lt;/p&gt;
+        &lt;h3&gt;Ausblick&lt;/h3&gt;
+        &lt;p&gt;FreeBSD ist nicht an einem Tag gelernt, auch wenn die kompakten Manpages es durchaus zulassen. Erwähnte ich eigentlich, dass wirklich &lt;em&gt;jedes&lt;/em&gt; Programm eine eigene Manpage hat? Das erleichtert den Einstieg ungemein und man lernt sehr schnell sehr viel über das&amp;nbsp;System.&lt;/p&gt;
+        &lt;p&gt;Auch wenn ich FreeBSD für sehr einsteigerfreundlich halte, ist es doch immens komplex. Gerade ein Konzept für das System (Stichpunkt Jails) zu entwickeln, erfordert etwas längere Erfahrung. Ein ungefähr tausend Seiten dickes &lt;a href=&#34;http://www.freebsd.org/doc/handbook/&#34;&gt;Handbuch gibt es in diversen Sprachen vom FreeBSD-Projekt&lt;/a&gt;, ich persönlich habe mir allerdings mit &amp;#8220;Der eigene Server mit FreeBSD 9: Konfiguration, Sicherheit und Pflege&amp;#8221; vom dpunkt-Verlag die Lernzeit etwas&amp;nbsp;verkürzt.&lt;/p&gt;
+        &lt;p&gt;&lt;em&gt;To be continued&amp;nbsp;&amp;#8230;&lt;/em&gt;&lt;/p&gt;
+        &lt;div class=&#34;footnote&#34;&gt;
+        &lt;hr /&gt;
+        &lt;ol&gt;
+        &lt;li id=&#34;fn:1&#34;&gt;
+        &lt;p&gt;Es sei noch angemerkt, dass der Paketmanager von NetBSD auch unter Linux läuft, sie auch &lt;a href=&#34;/2010/pkgsrc-eine-lokale-unabhaengige-paketverwaltung/&#34;&gt;pkgsrc: eine lokale, unabhängige Paketverwaltung&lt;/a&gt;.&amp;#160;&lt;a href=&#34;#fnref:1&#34; rev=&#34;footnote&#34; title=&#34;Jump back to footnote 1 in the text&#34;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+        &lt;/li&gt;
+        &lt;li id=&#34;fn:2&#34;&gt;
+        &lt;p&gt;Ein Punkt, wo &lt;span class=&#34;caps&#34;&gt;OS&lt;/span&gt; X (speziell &lt;a href=&#34;https://en.wikipedia.org/wiki/Darwin_(operating_system)&#34;&gt;Darwin&lt;/a&gt;) immer noch suckt.&amp;#160;&lt;a href=&#34;#fnref:2&#34; rev=&#34;footnote&#34; title=&#34;Jump back to footnote 2 in the text&#34;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+        &lt;/li&gt;
+        &lt;/ol&gt;
+        &lt;/div&gt;</description>
+                <pubDate>Wed, 10 Oct 2012 13:29:00 GMT</pubDate>
+                <guid isPermaLink="false">tag:blog.posativ.org,2012-10-10:/2012/abseits-von-linux-freebsd</guid>
+            </item>
+        
+            <item>
+                <title>Linkschleuder #28</title>
+                <link>http://blog.posativ.org/2012/linkschleuder-28/</link>
+                <description>&lt;ul&gt;
+        &lt;li&gt;&lt;a href=&#34;http://tiptheweb.org/&#34;&gt;tiptheweb&lt;/a&gt; – wie &lt;a href=&#34;https://flattr.com/&#34;&gt;Flattr&lt;/a&gt; nur
+          lässt sich der Betrag gezielter steuern und es steht eine non-profit Organization
+          dahinter. Hoffentlich wird das&amp;nbsp;populärer.&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;https://github.com/apenwarr/redo&#34;&gt;redo&lt;/a&gt; – ein
+          &lt;a href=&#34;https://en.wikipedia.org/wiki/Make_(software)&#34;&gt;Make&lt;/a&gt; Ersatz, nur einfacher,
+          mächtiger und zuverlässiger. Nichts, was ich persönlich bisher an Make vermisst&amp;nbsp;habe.&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;https://github.com/hut/ranger&#34;&gt;ranger&lt;/a&gt; – Vim-inspirierter Dateimanager für die
+          &lt;span class=&#34;caps&#34;&gt;&lt;abbr title=&#34;Command Line Interface&#34;&gt;CLI&lt;/abbr&gt;&lt;/span&gt;. Ganz nett, nur sind die default-keybindings allesamt read-only. Aber ansonsten
+          macht das Teil&amp;nbsp;Spaß.&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;http://tos-dr.info/#services&#34;&gt;ToS;dr&lt;/a&gt; – &lt;em&gt;Terms of Service; Didn&amp;#8217;t Read&lt;/em&gt; ist eine
+          recht junge Initiative um AGBs allgemein verständlich zu erklären. So wusste ich
+          zum Beispiel nicht, dass ich beim Twittern alle Rechte an meinem Text verliere. Das
+          Projekt ist übrigens &lt;a href=&#34;http://www.indiegogo.com/terms-of-service-didnt-read&#34;&gt;am &lt;del&gt;Kickstartern&lt;/del&gt;
+          Crowdfunden&lt;/a&gt;.&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;http://ascii.io/&#34;&gt;ascii.io&lt;/a&gt; – ein YouTube für Terminal-Sessions. Für alle Fälle&amp;nbsp;geblogmarkt.&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;http://tent.io/&#34;&gt;tent&lt;/a&gt; – &lt;em&gt;Tent is a protocol for social networking&lt;/em&gt;. Was auch
+          immer das heißen&amp;nbsp;mag.&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;https://github.com/bazaarlabs/gitdocs&#34;&gt;gitdocs&lt;/a&gt; – eine eigene Dropbox auf Basis
+          von Ruby und Git. Hat sogar ein schickes&amp;nbsp;Webinterface.&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;http://portspoof.duszynski.eu/&#34;&gt;Portspoof&lt;/a&gt; – ein &lt;em&gt;service signature obfuscator&lt;/em&gt;.
+          Emuliert so ziemlich jeden Dienst, den man sich vorstellen kann, um &lt;code&gt;nmap&lt;/code&gt; für
+          mehrere Minuten zu&amp;nbsp;beschäftigen.&lt;/li&gt;
+        &lt;/ul&gt;
+        &lt;p&gt;Passwörter verwalten. Manche können sich ausgehend von ein paar Masterpasswörtern per
+        &lt;a href=&#34;https://en.wikipedia.org/wiki/PBKDF2&#34;&gt;&lt;span class=&#34;caps&#34;&gt;PBKDF2&lt;/span&gt;&lt;/a&gt; für jede Website ein neues erdenken.
+        Für alle anderen gibt es &lt;a href=&#34;https://www.keepassx.org/&#34;&gt;KeePassX&lt;/a&gt;. Für die Integration
+        in Firefox/Chrome gibt es nun &lt;a href=&#34;https://github.com/pfn/passifox&#34;&gt;passifox&lt;/a&gt; über
+        &lt;a href=&#34;https://github.com/pfn/keepasshttp&#34;&gt;keepasshttp&lt;/a&gt;, das die Passwörter über 256-bit
+        &lt;span class=&#34;caps&#34;&gt;&lt;abbr title=&#34;Advanced Encryption Standard&#34;&gt;AES&lt;/abbr&gt;&lt;/span&gt;/&lt;abbr title=&#34;Cipher Block Chaining&#34;&gt;&lt;span class=&#34;caps&#34;&gt;CBC&lt;/span&gt;&lt;/abbr&gt; per &lt;span class=&#34;caps&#34;&gt;HTTP&lt;/span&gt; weiterreicht. Wem das zu viel des Guten ist, kann auch
+        &lt;a href=&#34;http://zx2c4.com/projects/password-store/&#34;&gt;pass&lt;/a&gt; nutzen, das eher den &lt;span class=&#34;caps&#34;&gt;UNIX&lt;/span&gt; Weg&amp;nbsp;einschlägt.&lt;/p&gt;
+        &lt;p&gt;„Du heißt 40 Mal wahrscheinlicher &lt;abbr title=&#34;Wang&#34;&gt;王&lt;/abbr&gt; als Jones” – &lt;a href=&#34;http://www.troyhunt.com/2012/09/10-lessons-for-uncultured-web-developers.html&#34;&gt;10 lessons for uncultured web
+        developers&lt;/a&gt; – nicht nur für Webentwickler. In &lt;a href=&#34;http://www.sublimetext.com/~jps/animated_gifs_the_hard_way.html&#34;&gt;Animated GIFs the Hard
+        Way&lt;/a&gt; erzählt der
+        Entwickler von &lt;a href=&#34;http://www.sublimetext.com/2&#34;&gt;Sublime Text 2&lt;/a&gt;, wie aus mehreren
+        Megabytes großen GIFs nur noch hundert Kilobyte große Animationen werden – allerdings
+        mittels &lt;span class=&#34;caps&#34;&gt;PNG&lt;/span&gt;. Und wo wir gerade bei GIFs waren: mit
+        &lt;a href=&#34;https://github.com/videlalvaro/gifsockets&#34;&gt;gifsockets&lt;/a&gt; unterstützt auch der &lt;span class=&#34;caps&#34;&gt;IE6&lt;/span&gt;&amp;nbsp;Websockets.&lt;/p&gt;</description>
+                <pubDate>Thu, 27 Sep 2012 20:16:00 GMT</pubDate>
+                <guid isPermaLink="false">tag:blog.posativ.org,2012-09-27:/2012/linkschleuder-28</guid>
+            </item>
+        
+            <item>
+                <title>Linkschleuder #27</title>
+                <link>http://blog.posativ.org/2012/linkschleuder-27/</link>
+                <description>&lt;ul&gt;
+        &lt;li&gt;&lt;a href=&#34;https://github.com/liftoff/GateOne&#34;&gt;GateOne&lt;/a&gt; – ein &lt;span class=&#34;caps&#34;&gt;HTML5&lt;/span&gt; basierter Terminal Emulator und &lt;span class=&#34;caps&#34;&gt;&lt;abbr title=&#34;Secure Shell&#34;&gt;SSH&lt;/abbr&gt;&lt;/span&gt; Client mit
+          relativ vielen Features. Die Screenshots sind schon leicht&amp;nbsp;beeindruckend.&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;https://github.com/martinrusev/amon&#34;&gt;Amon&lt;/a&gt; – &lt;del&gt;yet another&lt;/del&gt; Monitoring Tool in Python geschrieben mit
+          Unterstützung für jedes andere &lt;del&gt;bloatige&lt;/del&gt; große Ruby, Python und node.js
+          Framework. Benötigt allerdings eine MongoDB im&amp;nbsp;Backend.&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;https://code.google.com/p/phpvirtualbox/&#34;&gt;phpVirtualbox&lt;/a&gt; – kam über &lt;a href=&#34;http://www.heise.de/open/artikel/Toolbox-Virtualbox-im-Browser-mit-phpVirtualbox-1668019.html&#34;&gt;Heise reingeflattert&lt;/a&gt; – und solange man das
+          nicht der Welt präsentiert, vielleicht sogar&amp;nbsp;nützlich.&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;https://github.com/erikw/tmux-powerline&#34;&gt;tmux-powerline&lt;/a&gt; – ist eine Sammlung an &lt;em&gt;kleinen Skripts&lt;/em&gt; für &lt;a href=&#34;http://tmux.sourceforge.net/&#34;&gt;tmux&lt;/a&gt;,
+          die eigentlich alles darstellen, was das Herz begehrt – und das sogar für
+          &lt;span class=&#34;caps&#34;&gt;OS&lt;/span&gt;-abhängigen Applikationen á la Mail und&amp;nbsp;Spotify.&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;https://github.com/wdas/reposado&#34;&gt;reposado&lt;/a&gt; – &lt;em&gt;Host Apple Software Updates on the hardware and &lt;span class=&#34;caps&#34;&gt;OS&lt;/span&gt; of your
+          choice&lt;/em&gt; – wie man Windows Updates im eigenen Netz verteilt, ist &lt;a href=&#34;https://de.wikipedia.org/wiki/Windows_Server_Update_Services&#34;&gt;relativ
+          bekannt&lt;/a&gt;. Neu ist mir, dass es auch Tools für Apple Updates&amp;nbsp;gibt.&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;https://code.google.com/p/libfvde/&#34;&gt;libfvde&lt;/a&gt; – und wo wir gerade bei Apple waren. Um auf seine FileVault2
+          geschützten Daten unter bsw. Linux zuzugreifen, gibt es inzwischen die
+          Bibliothek &lt;code&gt;libfvde&lt;/code&gt;. Muss ich unbedingt&amp;nbsp;testen!&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;https://github.com/busyloop/lolcat&#34;&gt;lolcat&lt;/a&gt; – &lt;span style=&#34;color: #a8a800&#34;&gt;c&lt;/span&gt;&lt;span style=&#34;color: #a8a800&#34;&gt;a&lt;/span&gt;&lt;span style=&#34;color: #a8a800&#34;&gt;t&lt;/span&gt;&lt;span style=&#34;color: #a8a800&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #a8a800&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color: #a8a800&#34;&gt;n&lt;/span&gt;&lt;span style=&#34;color: #a87e00&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #d27e00&#34;&gt;R&lt;/span&gt;&lt;span style=&#34;color: #d27e00&#34;&gt;e&lt;/span&gt;&lt;span style=&#34;color: #d27e00&#34;&gt;g&lt;/span&gt;&lt;span style=&#34;color: #d27e00&#34;&gt;e&lt;/span&gt;&lt;span style=&#34;color: #d27e00&#34;&gt;n&lt;/span&gt;&lt;span style=&#34;color: #d27e00&#34;&gt;b&lt;/span&gt;&lt;span style=&#34;color: #d25400&#34;&gt;o&lt;/span&gt;&lt;span style=&#34;color: #d25400&#34;&gt;g&lt;/span&gt;&lt;span style=&#34;color: #d25400&#34;&gt;e&lt;/span&gt;&lt;span style=&#34;color: #d25400&#34;&gt;n&lt;/span&gt;&lt;span style=&#34;color: #d25400&#34;&gt;f&lt;/span&gt;&lt;span style=&#34;color: #d25400&#34;&gt;a&lt;/span&gt;&lt;span style=&#34;color: #d2542a&#34;&gt;r&lt;/span&gt;&lt;span style=&#34;color: #d22a2a&#34;&gt;b&lt;/span&gt;&lt;span style=&#34;color: #d22a2a&#34;&gt;e&lt;/span&gt;&lt;span style=&#34;color: #d22a2a&#34;&gt;n&lt;/span&gt;&lt;span style=&#34;color: #d22a2a&#34;&gt;!&lt;/span&gt;&lt;span style=&#34;color: #d22a2a&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #d22a2a&#34;&gt;L&lt;/span&gt;&lt;span style=&#34;color: #d22a2a&#34;&gt;e&lt;/span&gt;&lt;span style=&#34;color: #d20054&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color: #d20054&#34;&gt;d&lt;/span&gt;&lt;span style=&#34;color: #d20054&#34;&gt;e&lt;/span&gt;&lt;span style=&#34;color: #d20054&#34;&gt;r&lt;/span&gt;&lt;span style=&#34;color: #d20054&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #d20054&#34;&gt;s&lt;/span&gt;&lt;span style=&#34;color: #d20054&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color: #d2007e&#34;&gt;n&lt;/span&gt;&lt;span style=&#34;color: #d2007e&#34;&gt;d&lt;/span&gt;&lt;span style=&#34;color: #d2007e&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #d2007e&#34;&gt;m&lt;/span&gt;&lt;span style=&#34;color: #d2007e&#34;&gt;a&lt;/span&gt;&lt;span style=&#34;color: #d2007e&#34;&gt;n&lt;/span&gt;&lt;span style=&#34;color: #a8007e&#34;&gt;c&lt;/span&gt;&lt;span style=&#34;color: #a800a8&#34;&gt;h&lt;/span&gt;&lt;span style=&#34;color: #a800a8&#34;&gt;e&lt;/span&gt;&lt;span style=&#34;color: #a800a8&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #a800a8&#34;&gt;F&lt;/span&gt;&lt;span style=&#34;color: #a800a8&#34;&gt;a&lt;/span&gt;&lt;span style=&#34;color: #a800a8&#34;&gt;r&lt;/span&gt;&lt;span style=&#34;color: #a800a8&#34;&gt;b&lt;/span&gt;&lt;span style=&#34;color: #7e00a8&#34;&gt;e&lt;/span&gt;&lt;span style=&#34;color: #7e00d2&#34;&gt;n&lt;/span&gt;&lt;span style=&#34;color: #7e00d2&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #7e00d2&#34;&gt;a&lt;/span&gt;&lt;span style=&#34;color: #7e00d2&#34;&gt;u&lt;/span&gt;&lt;span style=&#34;color: #7e00d2&#34;&gt;f&lt;/span&gt;&lt;span style=&#34;color: #7e00d2&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #5400d2&#34;&gt;w&lt;/span&gt;&lt;span style=&#34;color: #5400d2&#34;&gt;e&lt;/span&gt;&lt;span style=&#34;color: #5400d2&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color: #5400d2&#34;&gt;ß&lt;/span&gt;&lt;span style=&#34;color: #5400d2&#34;&gt;e&lt;/span&gt;&lt;span style=&#34;color: #5400d2&#34;&gt;m&lt;/span&gt;&lt;span style=&#34;color: #2a2ad2&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #2a2ad2&#34;&gt;G&lt;/span&gt;&lt;span style=&#34;color: #2a2ad2&#34;&gt;r&lt;/span&gt;&lt;span style=&#34;color: #2a2ad2&#34;&gt;u&lt;/span&gt;&lt;span style=&#34;color: #2a2ad2&#34;&gt;n&lt;/span&gt;&lt;span style=&#34;color: #2a2ad2&#34;&gt;d&lt;/span&gt;&lt;span style=&#34;color: #2a2ad2&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #2a2ad2&#34;&gt;s&lt;/span&gt;&lt;span style=&#34;color: #0054d2&#34;&gt;c&lt;/span&gt;&lt;span style=&#34;color: #0054d2&#34;&gt;h&lt;/span&gt;&lt;span style=&#34;color: #0054d2&#34;&gt;w&lt;/span&gt;&lt;span style=&#34;color: #0054d2&#34;&gt;e&lt;/span&gt;&lt;span style=&#34;color: #0054d2&#34;&gt;r&lt;/span&gt;&lt;span style=&#34;color: #0054d2&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #0054d2&#34;&gt;l&lt;/span&gt;&lt;span style=&#34;color: #007ed2&#34;&gt;e&lt;/span&gt;&lt;span style=&#34;color: #007ed2&#34;&gt;s&lt;/span&gt;&lt;span style=&#34;color: #007ed2&#34;&gt;b&lt;/span&gt;&lt;span style=&#34;color: #007ed2&#34;&gt;a&lt;/span&gt;&lt;span style=&#34;color: #007ed2&#34;&gt;r&lt;/span&gt;&lt;span style=&#34;color: #007ed2&#34;&gt;,&lt;/span&gt;&lt;span style=&#34;color: #007ea8&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #00a8a8&#34;&gt;s&lt;/span&gt;&lt;span style=&#34;color: #00a8a8&#34;&gt;o&lt;/span&gt;&lt;span style=&#34;color: #00a8a8&#34;&gt;n&lt;/span&gt;&lt;span style=&#34;color: #00a8a8&#34;&gt;s&lt;/span&gt;&lt;span style=&#34;color: #00a8a8&#34;&gt;t&lt;/span&gt;&lt;span style=&#34;color: #00a8a8&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #00a8a8&#34;&gt;h&lt;/span&gt;&lt;span style=&#34;color: #00d27e&#34;&gt;ä&lt;/span&gt;&lt;span style=&#34;color: #00d27e&#34;&gt;t&lt;/span&gt;&lt;span style=&#34;color: #00d27e&#34;&gt;t&lt;/span&gt;&lt;span style=&#34;color: #00d27e&#34;&gt;e&lt;/span&gt;&lt;span style=&#34;color: #00d27e&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #00d27e&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color: #00d27e&#34;&gt;c&lt;/span&gt;&lt;span style=&#34;color: #00d254&#34;&gt;h&lt;/span&gt;&lt;span style=&#34;color: #00d254&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #00d254&#34;&gt;d&lt;/span&gt;&lt;span style=&#34;color: #00d254&#34;&gt;a&lt;/span&gt;&lt;span style=&#34;color: #00d254&#34;&gt;s&lt;/span&gt;&lt;span style=&#34;color: #00d254&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #2ad22a&#34;&gt;s&lt;/span&gt;&lt;span style=&#34;color: #2ad22a&#34;&gt;c&lt;/span&gt;&lt;span style=&#34;color: #2ad22a&#34;&gt;h&lt;/span&gt;&lt;span style=&#34;color: #2ad22a&#34;&gt;o&lt;/span&gt;&lt;span style=&#34;color: #2ad22a&#34;&gt;n&lt;/span&gt;&lt;span style=&#34;color: #2ad22a&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #2ad22a&#34;&gt;l&lt;/span&gt;&lt;span style=&#34;color: #2ad22a&#34;&gt;ä&lt;/span&gt;&lt;span style=&#34;color: #54d200&#34;&gt;n&lt;/span&gt;&lt;span style=&#34;color: #54d200&#34;&gt;g&lt;/span&gt;&lt;span style=&#34;color: #54d200&#34;&gt;s&lt;/span&gt;&lt;span style=&#34;color: #54d200&#34;&gt;t&lt;/span&gt;&lt;span style=&#34;color: #54d200&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #54d200&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color: #7ed200&#34;&gt;n&lt;/span&gt;&lt;span style=&#34;color: #7ed200&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #7ed200&#34;&gt;p&lt;/span&gt;&lt;span style=&#34;color: #7ed200&#34;&gt;r&lt;/span&gt;&lt;span style=&#34;color: #7ed200&#34;&gt;o&lt;/span&gt;&lt;span style=&#34;color: #7ed200&#34;&gt;d&lt;/span&gt;&lt;span style=&#34;color: #7ed200&#34;&gt;u&lt;/span&gt;&lt;span style=&#34;color: #a8a800&#34;&gt;c&lt;/span&gt;&lt;span style=&#34;color: #a8a800&#34;&gt;t&lt;/span&gt;&lt;span style=&#34;color: #a8a800&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color: #a8a800&#34;&gt;o&lt;/span&gt;&lt;span style=&#34;color: #a8a800&#34;&gt;n&lt;/span&gt;&lt;span style=&#34;color: #a8a800&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #a8a800&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color: #a8a800&#34;&gt;)&lt;/span&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;http://sed.sourceforge.net/sed1line.txt&#34;&gt;Sed Einzeiler&lt;/a&gt; – nützliche Skripte für &lt;a href=&#34;https://de.wikipedia.org/wiki/Sed_(Unix&#34;&gt;sed&lt;/a&gt;.&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;http://html9responsiveboilerstrapjs.com/&#34;&gt;&lt;span class=&#34;caps&#34;&gt;H9RBS&lt;/span&gt;.js&lt;/a&gt; – &lt;span class=&#34;caps&#34;&gt;HTML9&lt;/span&gt; Responsive Boilerstrap &lt;span class=&#34;caps&#34;&gt;JS&lt;/span&gt; und es ist sogar
+          cross-universe kompatibel&amp;nbsp;:-)&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;http://vanilla-js.com/&#34;&gt;Vanilla.js&lt;/a&gt; – a fast, lightweight, cross-platform
+          framework for building incredible, powerful JavaScript&amp;nbsp;applications.&lt;/li&gt;
+        &lt;/ul&gt;
+        &lt;p&gt;Ach übrigens. Nutzt hier wer &lt;a href=&#34;http://owncloud.org/&#34;&gt;OwnCloud&lt;/a&gt; und freute sich
+        total auf die Encryption, die mit Version 4.0 &lt;em&gt;serverseitig&lt;/em&gt; – *fazialpalmier*
+        – kam? Hier mal &lt;a href=&#34;http://crypto.junod.info/2012/05/24/owncloud-4-0-and-encryption/&#34;&gt;eine kurze Krypto-Analyse&lt;/a&gt;. Für &lt;span class=&#34;caps&#34;&gt;PHP&lt;/span&gt; gewiss überragend
+        &amp;#8220;sicher&amp;#8221;. Also ich würd&amp;#8217; das ja nicht&amp;nbsp;nutzen.&lt;/p&gt;</description>
+                <pubDate>Sat, 01 Sep 2012 21:23:00 GMT</pubDate>
+                <guid isPermaLink="false">tag:blog.posativ.org,2012-09-01:/2012/linkschleuder-27</guid>
+            </item>
+        
+            <item>
+                <title>Linkschleuder #26</title>
+                <link>http://blog.posativ.org/2012/linkschleuder-26/</link>
+                <description>&lt;ul&gt;
+        &lt;li&gt;&lt;a href=&#34;http://www.security-informatics.de/blog/?p=956&#34;&gt;Darüber lacht Fefe&lt;/a&gt; – eine nette Analyse von &lt;a href=&#34;http://blog.fefe.de/&#34;&gt;Fefes Blog&lt;/a&gt;.&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;http://brackets.io/&#34;&gt;Brackets&lt;/a&gt; – ist ein noch in der Entwicklung befindlicher Open Source
+          Editor auf Basis von JavaScript und &lt;span class=&#34;caps&#34;&gt;HTML&lt;/span&gt; für JavaScript und &lt;span class=&#34;caps&#34;&gt;HTML&lt;/span&gt; von
+          Adobe für &lt;span class=&#34;caps&#34;&gt;OS&lt;/span&gt; X &lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; rel=&#34;footnote&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; und&amp;nbsp;Windows.&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;http://markdoc.org/&#34;&gt;Markdoc&lt;/a&gt; – ist ein leichtgewichtiges Wiki-System auf Markdown Basis.
+          Müsste ich mir mal näher&amp;nbsp;anschauen.&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;https://github.com/sstephenson/rbenv&#34;&gt;rbenv&lt;/a&gt; – eine hoffentlich bessere Alternative zu &lt;a href=&#34;http://rvm.io&#34;&gt;rvm&lt;/a&gt;.&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;http://www.willnolan.com/cputhrottle/cputhrottle.html&#34;&gt;cputhrottle&lt;/a&gt; – für Systeme, die ihre &lt;span class=&#34;caps&#34;&gt;CPU&lt;/span&gt; nicht manuell drosseln können
+          (also halt &lt;span class=&#34;caps&#34;&gt;OS&lt;/span&gt; X) und trotzdem geräuschlos Minecraft in der Vorlesung zocken&amp;nbsp;wollen.&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;http://blog.jphpsf.com/2012/05/07/backing-up-your-twitter-account-with-t/&#34;&gt;Backing up your Twitter account&lt;/a&gt; – das läuft auch reibungslos.&amp;nbsp;Empfehlenswert.&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;http://www.99lime.com/&#34;&gt;99Lime&lt;/a&gt; – denn &lt;a href=&#34;http://twitter.github.com/bootstrap/&#34;&gt;Twitter Bootstrap&lt;/a&gt; ist zu sehr am&amp;nbsp;Mainstream!1&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;http://weasyprint.org/&#34;&gt;Weasy Print&lt;/a&gt; – macht aus &lt;span class=&#34;caps&#34;&gt;HTML&lt;/span&gt;/&lt;span class=&#34;caps&#34;&gt;CSS&lt;/span&gt; ein &lt;span class=&#34;caps&#34;&gt;PDF&lt;/span&gt; und das ohne Webkit oder&amp;nbsp;Gecko.&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;https://jitsi.org/index.php&#34;&gt;jitsi&lt;/a&gt; – eine open source Alternative zu Skype (unterstützt &lt;span class=&#34;caps&#34;&gt;&lt;abbr title=&#34;Session Initiation Protocol (Voice over Internet Protocol)&#34;&gt;SIP&lt;/abbr&gt;&lt;/span&gt; und&amp;nbsp;&lt;span class=&#34;caps&#34;&gt;&lt;abbr title=&#34;Extensible Messaging and Presence Protocol&#34;&gt;XMPP&lt;/abbr&gt;&lt;/span&gt;).&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;http://ok100.github.com/lyvi/&#34;&gt;Lyvi&lt;/a&gt; – ist ein Lyrics-Betrachter für die Kommandozeile und funktioniert
+          beispielsweise mit &lt;a href=&#34;http://blog.posativ.org/2011/cmus-c-music-player/&#34;&gt;cmus&lt;/a&gt;.&lt;/li&gt;
+        &lt;/ul&gt;
+        &lt;p&gt;Zum Schluss noch das Tool des Monats – &lt;a href=&#34;http://lobstertech.com/fabulous.html&#34;&gt;Fabuluos&lt;/a&gt; – das sich in Verbindung
+        mit &lt;a href=&#34;https://github.com/ralphbean/ansi2html&#34;&gt;ansi2html&lt;/a&gt; prima für den &lt;a href=&#34;/2012/yo-dawg&#34;&gt;vorherigen Beitrag&lt;/a&gt; eignete&amp;nbsp;;-)&lt;/p&gt;
+        &lt;div class=&#34;footnote&#34;&gt;
+        &lt;hr /&gt;
+        &lt;ol&gt;
+        &lt;li id=&#34;fn:1&#34;&gt;
+        &lt;p&gt;Da sie die &lt;a href=&#34;https://github.com/adobe/brackets/downloads&#34;&gt;Builds&lt;/a&gt; unter
+          &lt;span class=&#34;caps&#34;&gt;OS&lt;/span&gt; X etwas verbockt haben, vorher &lt;code&gt;chmod +x Brackets.app/Contents/MacOS/Brackets&lt;/code&gt;.&amp;#160;&lt;a href=&#34;#fnref:1&#34; rev=&#34;footnote&#34; title=&#34;Jump back to footnote 1 in the text&#34;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+        &lt;/li&gt;
+        &lt;/ol&gt;
+        &lt;/div&gt;</description>
+                <pubDate>Sun, 05 Aug 2012 12:56:00 GMT</pubDate>
+                <guid isPermaLink="false">tag:blog.posativ.org,2012-08-05:/2012/linkschleuder-26</guid>
+            </item>
+        
+            <item>
+                <title>Pentadactyl</title>
+                <link>http://blog.posativ.org/2012/pentadactyl/</link>
+                <description>&lt;p&gt;&lt;a href=&#34;http://5digits.org/pentadactyl/&#34;&gt;Pentadactyl&lt;/a&gt;, so heißt mein Browser seit ein
+        paar Wochen, ein weiteres meiner nun drei essentiellen Addons (die anderen
+        heißen &lt;a href=&#34;https://www.eff.org/https-everywhere/&#34;&gt;&lt;span class=&#34;caps&#34;&gt;HTTPS&lt;/span&gt; Everywhere&lt;/a&gt; sowie
+        &lt;a href=&#34;https://www.requestpolicy.com/&#34;&gt;Request Policy&lt;/a&gt;) und gibt mir &lt;span class=&#34;caps&#34;&gt;VI&lt;/span&gt;-bindings im Firefox.
+        Wofür man das braucht? Für verdammt schnelles Browsen
+        &lt;!-- break --&gt; &amp;#8230;&lt;/p&gt;
+        &lt;p&gt;&lt;img alt=&#34;Screenshot von Pentadactyl mit Follow Link&#34; src=&#34;/img/2012/pentadactyl.png&#34; style=&#34;box-shadow: 0px 0px 0px black; margin: 0;&#34;/&gt;&lt;/p&gt;
+        &lt;p&gt;&amp;#8230; und nach einer kurzen Eingewöhnungszeit und lesen der Dokumentation  unter
+        &lt;code&gt;:help&lt;/code&gt; (Strg+T und Strg+L gibt es nicht mehr, auch keine Adresszeile) geht
+        das so locker von der Hand, dass man es nicht mehr missen möchte. Manchmal ist
+        man aber so schnell, dass das Addon übelste Last erzeugt und der Firefox
+        nahezu unbedienbar wird – gerade mit der aktuellen 13er Version – und das
+        Addon wird leider eher mäßig aktualisiert (ich nutze  die &lt;a href=&#34;http://5digits.org/nightly/pentadactyl-latest.xpi&#34;&gt;Nightly
+        Builds&lt;/a&gt;).&lt;/p&gt;
+        &lt;p&gt;Ein paar Anpassungen habe ich dennoch in meiner &lt;em&gt;~/.pentadactyl.rc&lt;/em&gt;:&lt;/p&gt;
+        &lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span class=&#34;n&#34;&gt;map&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;h&lt;/span&gt;  &lt;span class=&#34;n&#34;&gt;H&lt;/span&gt;
+        &lt;span class=&#34;n&#34;&gt;map&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;l&lt;/span&gt;  &lt;span class=&#34;n&#34;&gt;L&lt;/span&gt;
+        &lt;span class=&#34;n&#34;&gt;map&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;gi&lt;/span&gt;
+        &lt;span class=&#34;n&#34;&gt;set&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;defsearch&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ge&lt;/span&gt;
+        
+        &lt;span class=&#34;n&#34;&gt;set&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;hlfind&lt;/span&gt;
+        &lt;span class=&#34;n&#34;&gt;highlight&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Find&lt;/span&gt;   &lt;span class=&#34;n&#34;&gt;background&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; #&lt;span class=&#34;n&#34;&gt;d6c149&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;color&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; #000&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+        &lt;span class=&#34;n&#34;&gt;highlight&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;HintElem&lt;/span&gt;   &lt;span class=&#34;n&#34;&gt;background&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;rgba&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;255&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; 209&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; 20&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; 0&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;7&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; !&lt;span class=&#34;n&#34;&gt;important&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+        
+        &lt;span class=&#34;n&#34;&gt;nmap&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;builtin&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;D&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;gTd&lt;/span&gt;
+        
+        &lt;span class=&#34;n&#34;&gt;source&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;~/&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;urls&lt;/span&gt;
+        &lt;/pre&gt;&lt;/div&gt;
+        
+        
+        &lt;p&gt;Die History zurück- und vorblättern möchte ich ohne Shift (bin faul), wenn ich
+        etwas eintippe, dann auch bitte mit &lt;code&gt;i&lt;/code&gt; direkt ins erste Textfeld. Für
+        etwas mehr &lt;code&gt;vi&lt;/code&gt;-Feeling noch die Farbe für gefundene Elemente (suchen geht
+        logischerweise per &lt;code&gt;/&lt;/code&gt;) auf &lt;code&gt;vi&lt;/code&gt;-gelb und ich bin&amp;nbsp;glücklich.&lt;/p&gt;
+        &lt;p&gt;Der Nachteil ist aber eine gewisse Abhängigkeit zu dem Addon und immer wenn
+        ich durch &lt;code&gt;h264&lt;/code&gt; gezwungen mit Safari unterwegs bin, kommt mir die Steuerung
+        mit &lt;del&gt;Maus&lt;/del&gt; Gesten und Klicks unglaublich umständlich&amp;nbsp;vor.&lt;/p&gt;
+        &lt;p&gt;Zugegeben, &lt;code&gt;vi&lt;/code&gt; in der Konsole habe ich dennoch nicht wirklich drauf. Da nutze ich
+        lieber &lt;a href=&#34;http://www.sublimetext.com/2&#34;&gt;Sublime Text 2&lt;/a&gt; (natürlich ohne
+        &lt;em&gt;Vi&lt;/em&gt;ntage ;-), aber Vi im Browser ist toll, denn da geht es ja nicht um&amp;nbsp;Text!1&lt;/p&gt;</description>
+                <pubDate>Sat, 07 Jul 2012 22:32:00 GMT</pubDate>
+                <guid isPermaLink="false">tag:blog.posativ.org,2012-07-07:/2012/pentadactyl</guid>
+            </item>
+        
+            <item>
+                <title>Linkschleuder #25</title>
+                <link>http://blog.posativ.org/2012/linkschleuder-25/</link>
+                <description>&lt;ul&gt;
+        &lt;li&gt;&lt;a href=&#34;http://ridiculousfish.com/shell/&#34;&gt;fish&lt;/a&gt; – eine bunte, schnelle Shell, die
+          autocompletion, manpages on-the-fly und autosuggesstion anbietet. Vielleicht
+          eine Alternative zur lahmen &lt;a href=&#34;http://www.zsh.org/&#34;&gt;zsh&lt;/a&gt;.&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;http://korpus.juls.savba.sk/~garabik/software/grc.html&#34;&gt;Generic Colouriser&lt;/a&gt; –
+          denn Syntax-Highlighting in &lt;code&gt;less&lt;/code&gt; ist nicht genug! Mit &lt;span class=&#34;caps&#34;&gt;GRC&lt;/span&gt; werden sogar
+          &lt;code&gt;ping&lt;/code&gt;, &lt;code&gt;syslog&lt;/code&gt; und Konsorten&amp;nbsp;bunt!1&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;https://bitbucket.org/ptone/diskutil_completion/src&#34;&gt;diskutil completion&lt;/a&gt; –
+          für das äh &lt;del&gt;Appl&lt;/del&gt; Darwin (!)&amp;nbsp;Betriebssystem.&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;http://www.sagemath.org/&#34;&gt;Sage&lt;/a&gt; – Matlab/Maple in &lt;span class=&#34;caps&#34;&gt;&lt;abbr title=&#34;Open Source Software&#34;&gt;OSS&lt;/abbr&gt;&lt;/span&gt; und Python,
+          malprobiern (via &lt;a href=&#34;http://www.schockwellenreiter.de/blog/2012/06/08/sage-update/&#34;&gt;Schockwellenreiter&lt;/a&gt;).&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;https://github.com/charliesome/twostroke&#34;&gt;Twostroke&lt;/a&gt; – ist eine JavaScript
+          Implementierung in Ruby, die von &lt;a href=&#34;https://github.com/charliesome/jsos&#34;&gt;&lt;span class=&#34;caps&#34;&gt;JSOS&lt;/span&gt;&lt;/a&gt;
+          – einem in JavaScript geschriebenen &lt;span class=&#34;caps&#34;&gt;OS&lt;/span&gt; – als Interpreter genutzt wird.
+          Noch&amp;nbsp;Fragen?&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;https://code.google.com/p/re2/&#34;&gt;re2&lt;/a&gt; – eine regular expression engine mit
+          Automatentheorie im Hintergrund. Soll ziemlich abgehen und jeder weiß, &lt;em&gt;wie&lt;/em&gt;
+          langsam &lt;a href=&#34;http://www.pcre.org/&#34;&gt;&lt;span class=&#34;caps&#34;&gt;PCRE&lt;/span&gt;&lt;/a&gt;&amp;nbsp;ist.&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;http://www.symbolhound.com/&#34;&gt;SymbolHound&lt;/a&gt; – ist eine Search Engine, die auch
+          mit Sonderzeichen umgehen kann und auf Quelltexte spezialisiert&amp;nbsp;ist.&lt;/li&gt;
+        &lt;li&gt;And now for something complete different:
+          &lt;a href=&#34;http://www.indigoville.de/sushi/sushi.html&#34;&gt;Sushi selbst machen&lt;/a&gt;, ist ganz
+          leicht und schmeckt verdammt&amp;nbsp;lecker.&lt;/li&gt;
+        &lt;/ul&gt;</description>
+                <pubDate>Sat, 16 Jun 2012 15:05:00 GMT</pubDate>
+                <guid isPermaLink="false">tag:blog.posativ.org,2012-06-16:/2012/linkschleuder-25</guid>
+            </item>
+        
+            <item>
+                <title>Linkschleuder #20</title>
+                <link>http://blog.posativ.org/2012/linkschleuder-20/</link>
+                <description>&lt;p&gt;Und hier die Fortsetzung der &lt;a href=&#34;/2012/linkschleuder-19/&#34;&gt;19&lt;/a&gt;, alles was ungleich &lt;span class=&#34;caps&#34;&gt;OS&lt;/span&gt; X&amp;nbsp;ist:&lt;/p&gt;
+        &lt;h3&gt;Web, Programming &lt;span class=&#34;amp&#34;&gt;&amp;amp;&lt;/span&gt;&amp;nbsp;Python&lt;/h3&gt;
+        &lt;ul&gt;
+        &lt;li&gt;&lt;a href=&#34;http://raveraverave.co.uk/site/scripts/com.php&#34;&gt;comment_rave&lt;/a&gt; – ein freies Kommentarsystem auf
+          &lt;span class=&#34;caps&#34;&gt;PHP&lt;/span&gt;-Basis. Will ich schon seit &lt;em&gt;Jahren&lt;/em&gt;&amp;nbsp;testen!&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;http://www.asciiflow.com/&#34;&gt;Asciiflow&lt;/a&gt; – ein &lt;span class=&#34;caps&#34;&gt;&lt;abbr title=&#34;American Standard Code for Information Interchange&#34;&gt;ASCII&lt;/abbr&gt;&lt;/span&gt; Flow Diagramm Werkzeug im&amp;nbsp;Browser.&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;https://github.com/rstacruz/sparkup&#34;&gt;Sparkup&lt;/a&gt; – Yet another &lt;span class=&#34;caps&#34;&gt;HTML&lt;/span&gt; Präprozessor, der einen &lt;span class=&#34;caps&#34;&gt;HTML&lt;/span&gt;
+          schneller schreiben lässt. Mit &lt;a href=&#34;http://www.youtube.com/watch?v=Jw3jipcenKc&#34;&gt;Video-Beweis&lt;/a&gt;!1&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;http://pycoders.us4.list-manage.com/subscribe?u=9735795484d2e4c204da82a29&amp;amp;id=64134e0a27&#34;&gt;Pycoder&amp;#8217;s Weekly&lt;/a&gt; – eine privacy-unaware (?) Liste, die wöchentlich (manchmal wirklich)
+          interessante Links rund um Python verschickt. Blöd ist, dass die Mail im Browser besser weitaus
+          aussieht und außerdem keine echten Links gesetzt&amp;nbsp;werden.&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;http://www.rafekettler.com/magicmethods.html&#34;&gt;A Guide to Python&amp;#8217;s Magic Methods&lt;/a&gt; –
+          und der Vollständigkeit halber gleich noch das Python &lt;a href=&#34;http://docs.python.org/reference/datamodel.html&#34;&gt;Data
+          model&lt;/a&gt;.&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;https://code.google.com/p/pyp/&#34;&gt;pyp&lt;/a&gt; – eine Python-Werkzeug für das on-the-fly Pipen in Shells
+          mit builtin-Helpers und&amp;nbsp;so.&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;https://github.com/stochastic-technologies/goatfish&#34;&gt;goatfish&lt;/a&gt; – eine Python Library, das
+          schemaloses &lt;span class=&#34;caps&#34;&gt;&lt;abbr title=&#34;Object-Relational Mapping&#34;&gt;ORM&lt;/abbr&gt;&lt;/span&gt; in eine SQLite pumpt. Vielleicht ein Fallback, wenn es keine große NoSQL-Datenbank&amp;nbsp;gibt.&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;http://v1v3kn.tumblr.com/post/18238156967/roll-your-own-autocomplete-solution-using-tries&#34;&gt;Tries&lt;/a&gt;
+          – &lt;em&gt;Roll your own autocomplete solution using&amp;nbsp;Tries.&lt;/em&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html&#34;&gt;A Note About Git Commit Messages&lt;/a&gt; – wie man &lt;em&gt;gute&lt;/em&gt; Commit Nachrichten schreibt. Brachte mich
+          vom past tense zum present&amp;nbsp;tense.&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;http://help.github.com/line-endings/&#34;&gt;Line endings&lt;/a&gt; – &lt;em&gt;Mac and Linux users, you don’t get to sit
+          this one&amp;nbsp;out.&lt;/em&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+        &lt;h3&gt;Linux/Unix-Zeug&lt;/h3&gt;
+        &lt;ul&gt;
+        &lt;li&gt;&lt;a href=&#34;http://openbook.galileocomputing.de/linux/&#34;&gt;Linux. Das umfassende Handbuch&lt;/a&gt; – ein weiteres
+          &amp;lt;openbook&gt; von Galileo Computing in der neusten Auflage (via &lt;a href=&#34;http://www.schockwellenreiter.de/blog/2012/02/14/lesefutter-fur-klamme-geldborsen/&#34;&gt;Schockwellenreiter&lt;/a&gt;).&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;http://sourceforge.net/projects/suicide-linux/&#34;&gt;Suicide-Linux&lt;/a&gt; – &lt;em&gt;Encourages users not to
+          misspell commands&lt;/em&gt;, (die User Reviews sind auch sehr gut&amp;nbsp;;-)&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;http://www.huyng.com/bashmarks-directory-bookmarks-for-the-shell/&#34;&gt;bashmarks&lt;/a&gt; – &lt;em&gt;directory
+          bookmarks for the&amp;nbsp;shell.&lt;/em&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;http://www.corntab.com/pages/crontab-gui&#34;&gt;crontab-gui&lt;/a&gt; – &lt;em&gt;A visual crontab&amp;nbsp;utility.&lt;/em&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;http://oss.oetiker.ch/smokeping/&#34;&gt;SmokePing&lt;/a&gt; – ein Tool, das die Netzwerk-Latenz misst und in
+          eine &lt;span class=&#34;caps&#34;&gt;RDD&lt;/span&gt; schreibt. &lt;a href=&#34;http://blog.koehntopp.de/uploads/graph-noch-besser.png&#34;&gt;Sieht echt gut aus&lt;/a&gt;!&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;http://www.openwall.com/john/&#34;&gt;john&lt;/a&gt; – ist eigentlich ein Passwort-Cracker, kann aber auch
+          (limitiert) Wortlisten erstellen. Aber nicht so gut wie &lt;code&gt;crunch&lt;/code&gt;.&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;http://sourceforge.net/projects/crunch-wordlist/&#34;&gt;crunch&lt;/a&gt; – ein Wortlisten-Generator, der aus
+          einem Charsets alle Permutationen bestimmter Länge und Komplexität erstellt. Eignet sich prima für
+          &lt;code&gt;aircrack-ng&lt;/code&gt;&amp;#8216;s &lt;span class=&#34;caps&#34;&gt;STDIN&lt;/span&gt;&amp;nbsp;:-)&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;https://github.com/aziz/tmuxinator&#34;&gt;tmuxinator&lt;/a&gt; – &lt;em&gt;Create and manage tmux sessions&amp;nbsp;easily.&lt;/em&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;https://github.com/remiprev/teamocil&#34;&gt;Teamocil&lt;/a&gt; – &lt;em&gt;Teamocil is a simple tool used to
+          automatically create sessions, windows and splits in tmux with &lt;span class=&#34;caps&#34;&gt;&lt;abbr title=&#34;YAML Ain&#39;t Markup Language&#34;&gt;YAML&lt;/abbr&gt;&lt;/span&gt; files.&lt;/em&gt;&amp;nbsp;Testen!&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;http://gpodder.org/downloads&#34;&gt;gpodder&lt;/a&gt; – ein Podcast-Client für diverse OSes, will man aber nicht
+          händisch für &lt;span class=&#34;caps&#34;&gt;OS&lt;/span&gt; X mit &lt;span class=&#34;caps&#34;&gt;&lt;abbr title=&#34;Graphical User Interface&#34;&gt;GUI&lt;/abbr&gt;&lt;/span&gt; kompilieren. Hier verlinkt, weil es einen netten &lt;span class=&#34;caps&#34;&gt;&lt;abbr title=&#34;Command Line Interface&#34;&gt;CLI&lt;/abbr&gt;&lt;/span&gt;-Clienten&amp;nbsp;hat.&lt;/li&gt;
+        &lt;/ul&gt;</description>
+                <pubDate>Sun, 25 Mar 2012 23:13:00 GMT</pubDate>
+                <guid isPermaLink="false">tag:blog.posativ.org,2012-03-26:/2012/linkschleuder-20</guid>
+            </item>
+        
+            <item>
+                <title>DIASPORA*</title>
+                <link>http://blog.posativ.org/2012/diaspora/</link>
+                <description>&lt;p&gt;Letzte Woche gab&amp;#8217;s im &lt;a href=&#34;http://hackspace-jena.de/wiki/doku.php/raum:start&#34;&gt;lokalen Hackerspace&lt;/a&gt; eine kurze Einführung in das
+        &lt;em&gt;&amp;#8220;ja-hab-ich-mal-von-gehört&amp;#8221;&lt;/em&gt;-Projekt:&amp;nbsp;&lt;a href=&#34;http://diasporaproject.org/&#34;&gt;&lt;span class=&#34;caps&#34;&gt;DIASPORA&lt;/span&gt;*&lt;/a&gt;. Diaspora ist der
+        Versuch, Facebook/Google+ dezentral mit einer quelloffenen Software
+        aufzubauen. Das Projekt wird demnächst zwei Jahre alt und ist immer noch im
+        Alpha-Stadium, obwohl zunächst &lt;a href=&#34;http://blog.diasporafoundation.org/2010/04/14/kickstarter-pitch.html&#34;&gt;angekündigt&lt;/a&gt; wurde, innerhalb von drei Monaten
+        fertig zu&amp;nbsp;sein.&lt;/p&gt;
+        &lt;h3&gt;Funktionsweise&lt;/h3&gt;
+        &lt;p&gt;Bei Diaspora heißen die einzelnen dezentralen Server &lt;em&gt;Pods&lt;/em&gt; und sind komplett
+        eigenständige Instanzen, die keine zentralen Knoten benötigen. Als
+        anschauliches Beispiel nehme ich &amp;#8216;mal &lt;a href=&#34;https://jenaspora.de/&#34;&gt;jenaspora.de&lt;/a&gt; und den offiziellen
+        Pod &lt;a href=&#34;https://joindiaspora.com/&#34;&gt;joindiaspora.com&lt;/a&gt;. Die Nutzer aus Jena können auf diesem Pod ohne
+        Umwege über &lt;em&gt;joindiaspora.com&lt;/em&gt; kommunizieren und fällt dieser aus, kümmert das
+        niemanden. Wenn sich ein Freund von mir nun auf &lt;em&gt;joindiaspora.com&lt;/em&gt; angemeldet
+        hat, ich aber auf &lt;em&gt;jenaspora.de&lt;/em&gt; verweile, so gibt es nun eine Anfrage über
+        das &lt;a href=&#34;https://en.wikipedia.org/wiki/Webfinger&#34;&gt;webfinger-Protokoll&lt;/a&gt;, ob die Nutzerkennung &lt;code&gt;userid@domain.tld&lt;/code&gt; auf dem
+        jeweiligen Host vorhanden ist und falls ja, merkt sich &lt;em&gt;joindiaspora.com&lt;/em&gt;
+        diese&amp;nbsp;Verbindung.&lt;/p&gt;
+        &lt;p&gt;Sollte nun ein Nutzer aus &lt;em&gt;jenaspora.de&lt;/em&gt; in seinem Posting
+        über die Aspekte (das ist das Zirkel-pendant zu Google+) den Nutzer vom
+        anderen Pod mitadressiert haben, so wird &lt;em&gt;jenaspora.de&lt;/em&gt; den Host, in diesem
+        Fall &lt;em&gt;joindiaspora.com&lt;/em&gt; pushen. So läuft das mit Posts, Kommentaren und
+        privaten Nachrichten. Eine Besonderheit von Diaspora ist noch die
+        verschlüsselte Kommunikation zwischen den Pods über ein Public-Key-Verfahren,
+        das auch über eine &lt;span class=&#34;caps&#34;&gt;SSL&lt;/span&gt;-Verbindung läuft. Innerhalb von Pod ist allerdings
+        alles&amp;nbsp;unverschlüsselt.&lt;/p&gt;
+        &lt;p&gt;Einen &lt;a href=&#34;https://github.com/diaspora/diaspora/wiki/Installing-and-Running-Diaspora&#34;&gt;eigenen Pod aufzusetzen&lt;/a&gt; ist allerdings etwas schwierig, da manchmal
+        der &lt;a href=&#34;https://github.com/diaspora/diaspora&#34;&gt;Hauptentwicklungszweig&lt;/a&gt; manchmal bricht und ein exaktes Setup von
+        Nöten ist: Ruby on Rails mit Ruby am besten in Version 1.9, MySQL oder
+        PostgreSQL und eine Domain samt gültigem &lt;span class=&#34;caps&#34;&gt;SSL&lt;/span&gt;-Zertifikat (wünschenswert). Dazu
+        kommt eine halbwegs aktuelle Linux-Distribution und viel Zeit zum
+        Konfigurieren und Testen, ob die Kommunikation zwischen den einzelnen Pods
+        funktioniert. Aber einmal aufgesetzt, läuft es&amp;nbsp;stabil.&lt;/p&gt;
+        &lt;h3&gt;Alpha-Stadium&lt;/h3&gt;
+        &lt;p&gt;&lt;a href=&#34;http://diasporaproject.org/&#34;&gt;Diaspora&lt;/a&gt; ist wirklich noch alpha, das beweist nicht nur die
+        Entwicklungsstrategie. Es gibt noch eine Menge gewollter und ungewollter&amp;nbsp;Ungereimtheiten:&lt;/p&gt;
+        &lt;ul&gt;
+        &lt;li&gt;&lt;a href=&#34;https://joindiaspora.com/&#34;&gt;joindiaspora.com&lt;/a&gt; ist überlastet und ein single-point-of-failure, der
+          theoretisch nie existieren&amp;nbsp;sollte.&lt;/li&gt;
+        &lt;li&gt;Nutzerdaten liegen für jeden Podbesitzer im Klartext in der Datenbank (wenn
+          auch nicht an einem zentralen&amp;nbsp;Ort).&lt;/li&gt;
+        &lt;li&gt;keine federation, d.h. wenn ein Pod wegen Wartungsarbeiten offline ist,
+          gehen Nachrichten unwideruflich&amp;nbsp;verloren!&lt;/li&gt;
+        &lt;li&gt;umständliches Setup, Ruby on Rails &lt;del&gt;ist scheiße&lt;/del&gt; skaliert nicht
+          gut, siehe&amp;nbsp;#1.&lt;/li&gt;
+        &lt;li&gt;Amazon S3-Anbindung, da &lt;em&gt;joindiaspora.com&lt;/em&gt; überlastet ist – Widerspruch zur&amp;nbsp;Dezentralität.&lt;/li&gt;
+        &lt;li&gt;Entwicklungsschwerpunkt liegt bei &lt;a href=&#34;https://joindiaspora.com/&#34;&gt;joindiaspora&lt;/a&gt;, was kontraproduktiv&amp;nbsp;ist.&lt;/li&gt;
+        &lt;li&gt;offizielle Zertifikate von StartSSL, wenn man nicht Debian fährt, wo auch
+          &lt;a href=&#34;http://cacert.org/&#34;&gt;CAcert&lt;/a&gt; integriert ist, sonst wird die Verbindung&amp;nbsp;verweigert.&lt;/li&gt;
+        &lt;li&gt;läuft nicht auf &lt;span class=&#34;caps&#34;&gt;WLAN&lt;/span&gt;-Routern, da Minimum 256 &lt;span class=&#34;caps&#34;&gt;MB&lt;/span&gt; &lt;span class=&#34;caps&#34;&gt;RAM&lt;/span&gt; benötigt&amp;nbsp;werden.&lt;/li&gt;
+        &lt;/ul&gt;
+        &lt;p&gt;Ich bin sozialen Netzen zwar inzwischen sehr abgeneigt, aber Diaspora könnte
+        wirklich eine gute Alternative zum Mainstream-Facebook/Google+ werden. Ich bin
+        gespannt auf das fertige&amp;nbsp;System.&lt;/p&gt;</description>
+                <pubDate>Sun, 19 Feb 2012 21:27:00 GMT</pubDate>
+                <guid isPermaLink="false">tag:blog.posativ.org,2012-02-19:/2012/diaspora</guid>
+            </item>
+        
+            <item>
+                <title>polipo – a caching web proxy</title>
+                <link>http://blog.posativ.org/2012/polipo-a-caching-web-proxy/</link>
+                <description>&lt;p&gt;In den zwei vergangenen Wochen habe ich viel mit Proxy-Techniken rumgespielt.
+        Anfangs noch ein &lt;a href=&#34;https://de.wikipedia.org/wiki/SOCKS&#34;&gt;SOCKSv5&lt;/a&gt; über &lt;span class=&#34;caps&#34;&gt;&lt;abbr title=&#34;Secure Shell&#34;&gt;SSH&lt;/abbr&gt;&lt;/span&gt; getunnelt, über direkte &lt;span class=&#34;caps&#34;&gt;HTTP&lt;/span&gt;
+        Authentifizierung mit &lt;a href=&#34;http://www.pps.jussieu.fr/~jch/software/polipo/&#34;&gt;polipo&lt;/a&gt; und &lt;a href=&#34;http://privoxy.org/&#34;&gt;Privoxy&lt;/a&gt; im Chaining auf einem 128
+        MiB &lt;span class=&#34;caps&#34;&gt;RAM&lt;/span&gt; &lt;a href=&#34;http://edis.ch/&#34;&gt;Host in der Schweiz&lt;/a&gt;. Leider entsprach das nicht direkt meinem
+        Wunsch, den Verkehr bis zum anonymisierenden Proxy im Klartext zu schicken –
+        und langsam(er) war es auch. Für zwei Tage hatte ich auch mein SheevaPlug als
+        caching web proxy missbraucht, nur machte das in der Verbindung mit Privoxy
+        nicht allzu viel Spaß: über 3 Sekunden für ein Aufruf von &lt;code&gt;spiegel.de&lt;/code&gt;.&lt;/p&gt;
+        &lt;p&gt;Das primäre Problem mit &lt;span class=&#34;caps&#34;&gt;&lt;abbr title=&#34;Secure Shell&#34;&gt;SSH&lt;/abbr&gt;&lt;/span&gt; war das Abbrechen der Verbindung in jedem Fall
+        nach dem Ruhezustand (wenn nicht schon nach 5 Minuten nichts tun, was
+        zumindest mit &lt;code&gt;KeepAlive&lt;/code&gt; gehalten werden kann, eine &lt;span class=&#34;caps&#34;&gt;&lt;abbr title=&#34;Domain Specific Language&#34;&gt;DSL&lt;/abbr&gt;&lt;/span&gt;-Zwangstrennung
+        überlebt das nicht). Zu spät habe ich von &lt;a href=&#34;http://www.harding.motd.ca/autossh/&#34;&gt;autossh&lt;/a&gt; erfahren und habe
+        stattdessen mit der Äpp &lt;a href=&#34;http://www.chipmunkninja.com/Tunneler-0.9---An-SSH-1g@&#34;&gt;Tunneler&lt;/a&gt; bzw. dessen Nachfolger &lt;a href=&#34;http://chipmunkninja.com/Tunneler&#34;&gt;TunnelerX&lt;/a&gt;
+        (free as in free beer) gespielt, wo letzteres zwar die Ports richtig
+        hinbekommt, nur ersteres aber die SOCKSv5-Verbindung – reconnecten nach dem
+        Schlafen kann es auch&amp;nbsp;nicht.&lt;/p&gt;
+        &lt;p&gt;Mit &lt;span class=&#34;caps&#34;&gt;&lt;abbr title=&#34;Domain Specific Language&#34;&gt;DSL&lt;/abbr&gt;&lt;/span&gt; ~4500 macht ein Setup mit einem caching web proxy in der Schweiz wenig
+        Sinn, viel cooler wäre ja ein lokaler (oder im &lt;span class=&#34;caps&#34;&gt;LAN&lt;/span&gt;, sofern man im heimischen
+        W-&lt;span class=&#34;caps&#34;&gt;LAN&lt;/span&gt; ist) Proxy der das Pseudo-Scheiß-Caching vom Firefox und Konsorten
+        ausgleicht. Hier ein Tipp unter &lt;span class=&#34;caps&#34;&gt;OS&lt;/span&gt; X: &lt;a href=&#34;https://github.com/dustinrue/ControlPlane&#34;&gt;ControlPlane&lt;/a&gt;, open-source, ist ein
+        Tool, dass verschiedene (Netzwerk-) Einstellungen je nach Abstand des Mondes
+        oder Wifi &lt;span class=&#34;caps&#34;&gt;SSID&lt;/span&gt;/&lt;span class=&#34;caps&#34;&gt;BSSID&lt;/span&gt; aktivieren kann. So kann für das Uni-Netz der heimische
+        Proxy-Server deaktiviert werden und sobald wieder das &amp;#8216;traute Netz da ist&amp;nbsp;aktivieren.&lt;/p&gt;
+        &lt;h3&gt;polipo&lt;/h3&gt;
+        &lt;p&gt;Warum &lt;a href=&#34;http://www.pps.jussieu.fr/~jch/software/polipo/&#34;&gt;polipo&lt;/a&gt;? Primär, weil es für Einzelbenutzer oder wenige Clients
+        konzipiert ist. Wer die hunderttausend Optionen im &lt;a href=&#34;http://www.squid-cache.org/&#34;&gt;squid&lt;/a&gt; kennt, kann
+        sicherlich auch den nutzen. Polipo gibt&amp;#8217;s im &lt;a href=&#34;https://github.com/mxcl/homebrew/&#34;&gt;homebrew&lt;/a&gt;-Repository, bringt
+        allerdings kein &lt;code&gt;launchd&lt;/code&gt;-Skript mit (gibt&amp;#8217;s unten). Da ich meinem MacBook Pro
+        letztens ein &lt;span class=&#34;caps&#34;&gt;RAM&lt;/span&gt;-Upgrade gegeben habe, darf polipo maximal ein halbes Gigabyte
+        &lt;span class=&#34;caps&#34;&gt;RAM&lt;/span&gt; nutzen – und das empfehle ich jedem. Denn polipo ist etwas buggy. Es hat
+        zwar einen Maintainer, aber die Commits halten sich in Grenzen. Wenn ich über
+        &lt;del&gt;vkontakte.ru&lt;/del&gt; &lt;a href=&#34;http://vk.com/&#34;&gt;vk.com&lt;/a&gt; einige Songs im &lt;span class=&#34;caps&#34;&gt;HTML5&lt;/span&gt; Player
+        streame, dann gibt es nach neun oder zehn&amp;nbsp;ein&lt;/p&gt;
+        &lt;blockquote&gt;
+        &lt;p&gt;Short on chunk memory &amp;#8211; attempting to punch holes in the middle of&amp;nbsp;objects.&lt;/p&gt;
+        &lt;/blockquote&gt;
+        &lt;p&gt;und das bedeutet nichts gutes, denn es wird mitten im Streaming der Content
+        gelöscht und die Verbindung abgebrochen, da es an &lt;span class=&#34;caps&#34;&gt;RAM&lt;/span&gt; mangelt. YouTube
+        betrifft es ebenso. Aber nichtsdestotrotz sollte man polipo nutzen, denn neben
+        40 &lt;span class=&#34;caps&#34;&gt;MB&lt;/span&gt;/s Downstream (Firefox&amp;#8217; &lt;span class=&#34;caps&#34;&gt;XML&lt;/span&gt; Parser ist wirklich langsam ;-) bringt polipo
+        auch nützliche Privacy-Optionen&amp;nbsp;mit:&lt;/p&gt;
+        &lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span class=&#34;c&#34;&gt;# censoredHeaders = from, accept-language&lt;/span&gt;
+        &lt;span class=&#34;n&#34;&gt;censorReferer&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;maybe&lt;/span&gt;
+        &lt;span class=&#34;n&#34;&gt;censoredHeaders&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;accept&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;language&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;from&lt;/span&gt;
+        &lt;/pre&gt;&lt;/div&gt;
+        
+        
+        &lt;p&gt;und kann auch direkt einen eigenen &lt;span class=&#34;caps&#34;&gt;DNS&lt;/span&gt;-Server wie &lt;a href=&#34;http://thekelleys.org.uk/dnsmasq/doc.html&#34;&gt;dnsmasq&lt;/a&gt; nutzen (meine
+        Hoffnung war ja, dass polipo&amp;#8217;s &lt;code&gt;proxyOffline = true&lt;/code&gt; offline &amp;#8220;Browsen&amp;#8221; bringt,
+        aber die &lt;span class=&#34;caps&#34;&gt;DNS&lt;/span&gt;-Queries werden dennoch ein &lt;em&gt;Fehler: Server nicht gefunden&lt;/em&gt;&amp;nbsp;bringen).&lt;/p&gt;
+        &lt;h3&gt;~/Library/LaunchAgents/org.posativ.polipo.plist&lt;/h3&gt;
+        &lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span class=&#34;cp&#34;&gt;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;&lt;span class=&#34;caps&#34;&gt;UTF&lt;/span&gt;-8&amp;quot;?&amp;gt;&lt;/span&gt;
+        &lt;span class=&#34;cp&#34;&gt;&amp;lt;!&lt;span class=&#34;caps&#34;&gt;DOCTYPE&lt;/span&gt; plist &lt;span class=&#34;caps&#34;&gt;PUBLIC&lt;/span&gt; &amp;quot;-//Apple//&lt;span class=&#34;caps&#34;&gt;DTD&lt;/span&gt; &lt;span class=&#34;caps&#34;&gt;PLIST&lt;/span&gt; 1.0//&lt;span class=&#34;caps&#34;&gt;EN&lt;/span&gt;&amp;quot; &amp;quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&amp;quot;&amp;gt;&lt;/span&gt;
+        &lt;span class=&#34;nt&#34;&gt;&amp;lt;plist&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;version=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;quot;1.0&amp;quot;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&#34;nt&#34;&gt;&amp;lt;dict&amp;gt;&lt;/span&gt;
+            &lt;span class=&#34;nt&#34;&gt;&amp;lt;key&amp;gt;&lt;/span&gt;Label&lt;span class=&#34;nt&#34;&gt;&amp;lt;/key&amp;gt;&lt;/span&gt;
+            &lt;span class=&#34;nt&#34;&gt;&amp;lt;string&amp;gt;&lt;/span&gt;org.posativ.polipo&lt;span class=&#34;nt&#34;&gt;&amp;lt;/string&amp;gt;&lt;/span&gt;
+            &lt;span class=&#34;nt&#34;&gt;&amp;lt;key&amp;gt;&lt;/span&gt;ProgramArguments&lt;span class=&#34;nt&#34;&gt;&amp;lt;/key&amp;gt;&lt;/span&gt;
+            &lt;span class=&#34;nt&#34;&gt;&amp;lt;array&amp;gt;&lt;/span&gt;
+                &lt;span class=&#34;nt&#34;&gt;&amp;lt;string&amp;gt;&lt;/span&gt;/usr/local/bin/polipo&lt;span class=&#34;nt&#34;&gt;&amp;lt;/string&amp;gt;&lt;/span&gt;
+                &lt;span class=&#34;nt&#34;&gt;&amp;lt;string&amp;gt;&lt;/span&gt;-c&lt;span class=&#34;nt&#34;&gt;&amp;lt;/string&amp;gt;&lt;/span&gt;
+                &lt;span class=&#34;nt&#34;&gt;&amp;lt;string&amp;gt;&lt;/span&gt;/usr/local/etc/polipo/config&lt;span class=&#34;nt&#34;&gt;&amp;lt;/string&amp;gt;&lt;/span&gt;
+            &lt;span class=&#34;nt&#34;&gt;&amp;lt;/array&amp;gt;&lt;/span&gt;
+            &lt;span class=&#34;nt&#34;&gt;&amp;lt;key&amp;gt;&lt;/span&gt;RunAtLoad&lt;span class=&#34;nt&#34;&gt;&amp;lt;/key&amp;gt;&lt;/span&gt;
+            &lt;span class=&#34;nt&#34;&gt;&amp;lt;true/&amp;gt;&lt;/span&gt;
+        &lt;span class=&#34;nt&#34;&gt;&amp;lt;/dict&amp;gt;&lt;/span&gt;
+        &lt;span class=&#34;nt&#34;&gt;&amp;lt;/plist&amp;gt;&lt;/span&gt;
+        &lt;/pre&gt;&lt;/div&gt;
+        
+        
+        &lt;p&gt;Diese plist generiert mir &lt;a href=&#34;http://www.peterborgapps.com/lingon/&#34;&gt;Lingon&lt;/a&gt; für &lt;code&gt;/usr/local/bin/polipo -c /usr/local/etc/polipo/config&lt;/code&gt; und sollte in den genannten Ort kopiert
+        werden, sodass polipo beim Anmelden gestartet wird. Mit &lt;code&gt;launchctl load
+        ~/Library/LaunchAgents/org.posativ.polipo.plist&lt;/code&gt; wird der Daemon&amp;nbsp;gestartet.&lt;/p&gt;
+        &lt;h3&gt;Adblocking mit&amp;nbsp;adzapper&lt;/h3&gt;
+        &lt;p&gt;Privoxy ist für gewöhnlich das Tool der Wahl wenn es um Werbeblocken auf
+        Proxy-Seite geht, aber da es viel &lt;span class=&#34;caps&#34;&gt;CPU&lt;/span&gt;-Leistung verbrät, habe ich mich nach
+        Alternativen umgeschaut. Primär Alternativen, die mit den &lt;a href=&#34;https://easylist.adblockplus.org/de/&#34;&gt;Easylisten von
+        Adblock&lt;/a&gt; kompatibel sind. &lt;a href=&#34;http://www.pps.jussieu.fr/~jch/software/polipo/&#34;&gt;polipo&lt;/a&gt; hat zwar auch ein regex-kompatibles
+        &lt;code&gt;polipo.forbidden&lt;/code&gt;-file, aber die verfügbaren &lt;a href=&#34;http://rightfootin.blogspot.com/2009/11/ad-blocking-with-polipo.html&#34;&gt;adblock2polipo.(py|rb)&lt;/a&gt;
+        produzieren inkompatible reguläre Ausdrücke. Ob der Fehler bei der Liste oder
+        polipo liegt, weiß ich nicht. Allerdings bringt polipo ein &lt;em&gt;redirector&lt;/em&gt;
+        Feature mit. Das zwischen ein Perl-Programm wie z.B. &lt;a href=&#34;http://adzapper.sourceforge.net/&#34;&gt;adzapper&lt;/a&gt; &lt;span class=&#34;caps&#34;&gt;HTTP&lt;/span&gt; (ohne
+        S) und filtert anhand einiger regulären&amp;nbsp;Ausdrücke:&lt;/p&gt;
+        &lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;wget http://adzapper.sourceforge.net/scripts/squid_redirect -O /usr/local/bin/adzapper
+        &lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;redirector = /usr/local/bin/adzapper&amp;quot;&lt;/span&gt; &amp;gt;&amp;gt; /usr/local/etc/polipo/config
+        
+        launchctl unload ~/Library/LaunchAgents/org.posativ.polipo.plist
+        launchctl load ~/Library/LaunchAgents/org.posativ.polipo.plist
+        &lt;/pre&gt;&lt;/div&gt;
+        
+        
+        &lt;p&gt;Alternativ ginge auch eine &lt;code&gt;forward /&lt;/code&gt;-Direktive zu beispielsweise &lt;a href=&#34;http://bfilter.sourceforge.net/index.php&#34;&gt;bfilter&lt;/a&gt; mit aktivem&amp;nbsp;Adblock-Support.&lt;/p&gt;</description>
+                <pubDate>Sun, 29 Jan 2012 19:21:00 GMT</pubDate>
+                <guid isPermaLink="false">tag:blog.posativ.org,2012-01-29:/2012/polipo-a-caching-web-proxy</guid>
+            </item>
+        
+            <item>
+                <title>WhatsApp Privacy Policy: Verschlüsselung im Transportmedium.</title>
+                <link>http://blog.posativ.org/2012/whatsapp-privacy-policy-verschluesselung-im-transportmedium/</link>
+                <description>&lt;p&gt;&lt;a href=&#34;http://www.whatsapp.com/&#34;&gt;WhatsApp&lt;/a&gt; kennt sicherlich jeder Smartphone-Nutzer. Hat über &lt;a href=&#34;http://blog.whatsapp.com/index.php/2012/01/1-million-is-so-2011/&#34;&gt;zwei
+        Millionen&lt;/a&gt; aktive Nutzer zu jeder Stunde und ist für jede mobile Plattform
+        verfügbar, leider nur nicht für den Desktop. Das lässt sich ja vielleicht
+        ändern, dachte ich mir und schmiss &lt;a href=&#34;https://wireshark.org/&#34;&gt;WireShark&lt;/a&gt;&amp;nbsp;an:&lt;/p&gt;
+        &lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;WA............Android-2.7.431.........~.......Z*.....8..........~._......Xbm9uY2
+        U9IjE4ODAwNzM1MDU3OS IscW9wPSJhdXRoIixjaGFyc2V0PXV0Zi04LGFsZ29yaXRobT1tZDUtc2Vzc
+        w==.........cmVhbG09InMud2hhdHNhcHAubmV0IixyZXNwb25zZT0yZTY4M2U0YjlhNTA2ODdhMmN
+        mODA3NDQ1MTMxODM3Yyxub25jZT0iMTg4MDA3MzUwNTc5IixkaWdlc3QtdXJpP SJ4bXBwL3Mud2hhdH
+        NhcHAubmV0Iixjbm9uY2U9IjFtOWRzdGM2NzY1ZHQiLHFvcD1hdXRoLHVzZXJuYW1lPSI0OTE2MzYzMT
+        A2MTMiLG5jPTAwMDAwMDAx.#.......Rj#.13050253130. 1620558113....t8..+......t..a..
+        Ich....HC..:....{.M....Ua$....HC..2.:..........,..H8...491896312624.C../..../...
+        404......J......H8.C..2.........s&amp;lt;C..APA91bHEmfHjKPpBwu3MJLCOtK4hFMwe0ZWHdXimFDr1
+        pxIa18rznmbZ6FLB-7pFMVwX0GJiVPcUWCaAvnwTR0O_LVfEENMr--GtpzSy2FbWtq1IKSOG9_Z0N6Kz
+        LlIit9JaKaui47VY....t......491521283131..!..HC..3.:....491521283131.....{.L.)..H8
+        ...491721883139.C..3......{.L...16990....t.....4914682512635..&amp;quot;..HC..4.:...
+        4914682512635.....{.L.+..H8..4915152523662.C..4......{.L...128494....t......t8..
+        .491896312624.
+        &lt;/pre&gt;&lt;/div&gt;
+        
+        
+        &lt;p&gt;Sieht ziemlich unleserlich aus. Die ersten zwei Bytes beginnen wohl das
+        interne &lt;span class=&#34;caps&#34;&gt;&lt;abbr title=&#34;Extensible Messaging and Presence Protocol&#34;&gt;XMPP&lt;/abbr&gt;&lt;/span&gt;-Protokoll, WhatsApp-Version und dann&amp;#8230; äh ja. Dann sind da meine
+        Telefonnummer, Name, Ziel-Nummer (+ deren Zweitnummer und Geburtsdatum) der&amp;nbsp;Gesprächspartnerin.&lt;/p&gt;
+        &lt;ul&gt;
+        &lt;li&gt;Version: &lt;em&gt;Android-2.7.431&lt;/em&gt;&lt;/li&gt;
+        &lt;li&gt;meine Nummer: &lt;em&gt;491896312624&lt;/em&gt;&lt;/li&gt;
+        &lt;li&gt;Zielnummer: &lt;em&gt;4914682512635&lt;/em&gt;&lt;/li&gt;
+        &lt;li&gt;Zweit-Nummer: &lt;em&gt;4915152523662&lt;/em&gt;&lt;/li&gt;
+        &lt;li&gt;Geburtsdatum: &lt;em&gt;16990&lt;/em&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+        &lt;p&gt;Wohlgemerkt ist das ein Dump, wenn ich die App einfach öffne. Wenn Text kommt,
+        dann ist da etwas weniger (Nachricht: Ich doch nicht&amp;nbsp;xD).&lt;/p&gt;
+        &lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;.F..]....4914682512635...C..316008602-1......O..........Ich doch nicht xD.@..]8
+        ...4914682512635.C..316008602-1........O....C..316008602-1...
+        &lt;/pre&gt;&lt;/div&gt;
+        
+        
+        &lt;p&gt;Ich war etwas erstaunt. WhatsApp verschlüsselt &amp;#8211; aber nur das eigene
+        Protokoll, was mit den Nutzerdaten passiert, ist ihnen egal. Ich kann mir
+        keine Erklärung dafür geben. Rechenleistung geht ja eh schon drauf, indem das
+        Protokoll verschlüsselt wird, warum also nicht gleich noch den Rest
+        verschlüsseln? Hauptsache keiner entwickelt einen Desktop-Clienten außerhalb
+        ihres&amp;nbsp;Einflussbereiches!11&lt;/p&gt;
+        &lt;p&gt;Im öffentlichen Hotspot sind die Daten für jedermann lesbar, für
+        verschlüsseltes &lt;span class=&#34;caps&#34;&gt;WLAN&lt;/span&gt; kann der Beitreber &lt;code&gt;ngrep&lt;/code&gt;-en und dass &lt;span class=&#34;caps&#34;&gt;GMS&lt;/span&gt;/&lt;span class=&#34;caps&#34;&gt;&lt;abbr title=&#34;Universal Mobile Telecommunications System&#34;&gt;UMTS&lt;/abbr&gt;&lt;/span&gt; nicht
+        mehr sicher ist, weiß man spätestens nach dem &lt;a href=&#34;http://www.spiegel.de/netzwelt/netzpolitik/0,1518,776465,00.html&#34;&gt;Skandal in Dresden&lt;/a&gt;. Das
+        Problem ist auch &lt;a href=&#34;http://rickey-g.blogspot.com/2011/05/whatsapp-connection-details.html&#34;&gt;nicht&lt;/a&gt; &lt;a href=&#34;http://shakal.blog.de/2011/03/22/whatsapp-risiken-10872342/&#34;&gt;unbekannt&lt;/a&gt;, nur hat es noch keiner genug
+        reverse&amp;nbsp;engineered.&lt;/p&gt;
+        &lt;p&gt;&lt;em&gt;&lt;span class=&#34;caps&#34;&gt;PS&lt;/span&gt;: alle personenbezogenen Informationen sind&amp;nbsp;anonymisiert.&lt;/em&gt;&lt;/p&gt;</description>
+                <pubDate>Sun, 15 Jan 2012 22:43:00 GMT</pubDate>
+                <guid isPermaLink="false">tag:blog.posativ.org,2012-01-15:/2012/whatsapp-privacy-policy-verschluesselung-im-transportmedium</guid>
+            </item>
+        
+            <item>
+                <title>Linkschleuder #12</title>
+                <link>http://blog.posativ.org/2012/linkschleuder-12/</link>
+                <description>&lt;p&gt;Es wird leider auch nicht&amp;nbsp;weniger:&lt;/p&gt;
+        &lt;ul&gt;
+        &lt;li&gt;&lt;a href=&#34;http://maps3d.svc.nokia.com/webgl/&#34;&gt;Nokias Google Maps Fork&lt;/a&gt; – ohne Flash,
+          sondern in WebGL. Sehr performant und echt beeindruckende&amp;nbsp;Qualität.&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;http://airdroid.com/&#34;&gt;Wireless Android Management&lt;/a&gt; – ein sehr hübsches
+          Webinterface auf Knopfdruck. So lassen sich bsw. &lt;span class=&#34;caps&#34;&gt;SMS&lt;/span&gt; im Browser&amp;nbsp;schreiben.&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;http://torcloudservers.com/&#34;&gt;Tor bridges in the Amazon cloud&lt;/a&gt; –
+          vorgefertigte Tor-Images für Amazons &lt;span class=&#34;caps&#34;&gt;EC2&lt;/span&gt;, &lt;del&gt;ab 3$/Monat für gut 15 &lt;span class=&#34;caps&#34;&gt;GB&lt;/span&gt; Traffic&lt;/del&gt;
+          ersten 15 &lt;span class=&#34;caps&#34;&gt;GB&lt;/span&gt; Traffic sind kostenfrei, bei maximal 40 GiB kann das bis zu 3$/Monat&amp;nbsp;kosten.&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;http://johnmacfarlane.net/pandoc/&#34;&gt;Pandoc&lt;/a&gt; – a universal document&amp;nbsp;converter.&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;http://www.dehats.com/drupal/?q=node/58&#34;&gt;Lita&lt;/a&gt; – SQLite Administration Tool
+          (mittels Adobe Air) ohne Error-Handling. Aber&amp;nbsp;hübsch.&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;https://github.com/tthibo/SQL-Tutorial&#34;&gt;&lt;span class=&#34;caps&#34;&gt;&lt;abbr title=&#34;Structured Query Language&#34;&gt;SQL&lt;/abbr&gt;&lt;/span&gt; Tutorial using SQLite&lt;/a&gt; und
+          &lt;a href=&#34;http://www.sqlite.org/syntaxdiagrams.html&#34;&gt;Syntax-Diagramme&lt;/a&gt; haben mir bei
+          der Entwicklung von &lt;a href=&#34;https://github.com/posativ/weave-minimal/&#34;&gt;weave-minimal&lt;/a&gt; sehr&amp;nbsp;geholfen!&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;http://www.sublimetext.com/&#34;&gt;Sublime Text 2&lt;/a&gt; – auch wenn ich&amp;#8217;s schon
+          erwähnt hatte. Der Texteditor ist derzeit das nonplusultra. Es macht so viel
+          Spaß damit zu&amp;nbsp;arbeiten.&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;https://github.com/vesln/issues&#34;&gt;GitHub Issue&lt;/a&gt; – ein &lt;span class=&#34;caps&#34;&gt;&lt;abbr title=&#34;Command Line Interface&#34;&gt;CLI&lt;/abbr&gt;&lt;/span&gt; Programm für
+          GitHub&amp;#8217;s Issues (wer hätte das gedacht) in&amp;nbsp;Node.js.&lt;/li&gt;
+        &lt;/ul&gt;</description>
+                <pubDate>Mon, 09 Jan 2012 13:56:00 GMT</pubDate>
+                <guid isPermaLink="false">tag:blog.posativ.org,2012-01-09:/2012/linkschleuder-12</guid>
+            </item>
+        
+            <item>
+                <title>nginx</title>
+                <link>http://blog.posativ.org/2012/nginx/</link>
+                <description>&lt;p&gt;Seit heute rennt das Blog unter &lt;a href=&#34;http://nginx.org/&#34;&gt;nginx&lt;/a&gt;. Der Grund ist einfach:
+        &lt;a href=&#34;http://www.lighttpd.net/&#34;&gt;lighttpd&lt;/a&gt; ist behindert zu konfigurieren, hat keine aktuellen/coolen
+        Features und ist zudem noch langsamer als nginx. Ich hoffte seit knapp einem
+        Jahr, dass sich in der Entwicklung was tut, aber außer einer Beta-Version mit
+        integriertem &lt;a href=&#34;http://redmine.lighttpd.net/wiki/1/AbsoLUAtion&#34;&gt;lua&lt;/a&gt;-Support (um überhaupt ein &lt;a href=&#34;http://redmine.lighttpd.net/wiki/1/Docs:Configuration#Conditional-Configuration&#34;&gt;if-else&lt;/a&gt; statt if-else-if
+        konfigurieren zu können) und zahlreichen &lt;em&gt;&lt;a href=&#34;http://blog.posativ.org/2011/lighttpd-git-grack-http-417/&#34;&gt;Won&amp;#8217;t&lt;/a&gt; &lt;a href=&#34;http://redmine.lighttpd.net/issues/1532&#34;&gt;fixes&lt;/a&gt;&lt;/em&gt; für 1.4.x hat
+        sich leider rein gar nichts&amp;nbsp;getan.&lt;/p&gt;
+        &lt;p&gt;Warum &lt;a href=&#34;http://nginx.org/&#34;&gt;nginx&lt;/a&gt;? Ja, das weiß ich auch nicht, aber die &lt;a href=&#34;https://en.wikipedia.org/wiki/Comparison_of_lightweight_web_servers&#34;&gt;Alternativen&lt;/a&gt; zu
+        non-Apache mit geringem Memory-Footprint, vielen Features und opensource sehen
+        schlecht aus. &lt;a href=&#34;https://en.wikipedia.org/wiki/Thttpd&#34;&gt;thttpd&lt;/a&gt; hat kein &lt;code&gt;mod_proxy&lt;/code&gt;, &lt;a href=&#34;http://www.cherokee-project.com/&#34;&gt;Cherokee&lt;/a&gt; bringt gleich
+        ein Web-&lt;span class=&#34;caps&#34;&gt;&lt;abbr title=&#34;Graphical User Interface&#34;&gt;GUI&lt;/abbr&gt;&lt;/span&gt; zur Administration mit und &lt;a href=&#34;http://www.litespeedtech.com/overview.html&#34;&gt;LiteSpeed Web Server&lt;/a&gt; ist nicht
+        quell-offen. Also, was sind die Features von&amp;nbsp;nginx?&lt;/p&gt;
+        &lt;ul&gt;
+        &lt;li&gt;schnell und&amp;nbsp;leichtgewichtig&lt;/li&gt;
+        &lt;li&gt;logische Konfiguration (was ich schon für behinderte Logik-Krämpfe mit lighttpd&amp;nbsp;hatte&amp;#8230;)&lt;/li&gt;
+        &lt;li&gt;mod_proxy, mod_fastcgi, expires, &lt;a href=&#34;https://en.wikipedia.org/wiki/PCRE&#34;&gt;&lt;span class=&#34;caps&#34;&gt;PCRE&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+        &lt;h3&gt;Moving from lighttpd to&amp;nbsp;nginx&lt;/h3&gt;
+        &lt;p&gt;Die Umstellung von lighttpd nach nginx ist nicht ganz ohne. Prinzipiell ist
+        alles anders und nginx hat keine Unterstützung für &lt;span class=&#34;caps&#34;&gt;&lt;abbr title=&#34;Common Gateway Interface&#34;&gt;CGI&lt;/abbr&gt;&lt;/span&gt; und rewrite-Regeln auf
+        Query-Parametern. Außerdem spawnt nginx nicht automatisch einen &lt;span class=&#34;caps&#34;&gt;PHP&lt;/span&gt;-Prozess
+        für FastCGI und erlaubt keine &lt;span class=&#34;caps&#34;&gt;POST&lt;/span&gt;-Requests auf statische Seiten &amp;#8211; aber das
+        lässt sich&amp;nbsp;umgehen.&lt;/p&gt;
+        &lt;h4&gt;1. Präambel -&amp;nbsp;/etc/nginx/nginx.conf&lt;/h4&gt;
+        &lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span class=&#34;k&#34;&gt;user&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;www-data&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+        &lt;span class=&#34;k&#34;&gt;worker_processes&lt;/span&gt;  &lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+        
+        &lt;span class=&#34;k&#34;&gt;error_log&lt;/span&gt;  &lt;span class=&#34;s&#34;&gt;/var/log/nginx/error.log&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+        &lt;span class=&#34;k&#34;&gt;pid&lt;/span&gt;        &lt;span class=&#34;s&#34;&gt;/var/run/nginx.pid&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+        
+        &lt;span class=&#34;k&#34;&gt;events&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt; &lt;span class=&#34;kn&#34;&gt;worker_connections&lt;/span&gt;  &lt;span class=&#34;mi&#34;&gt;2048&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+        
+        &lt;span class=&#34;k&#34;&gt;http&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+            &lt;span class=&#34;kn&#34;&gt;include&lt;/span&gt;       &lt;span class=&#34;s&#34;&gt;/etc/nginx/mime.types&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+        
+            &lt;span class=&#34;c1&#34;&gt;#access_log /var/log/nginx/access.log;&lt;/span&gt;
+        
+            &lt;span class=&#34;c1&#34;&gt;# cbc-mode ciphers might be vulnerable (&lt;span class=&#34;caps&#34;&gt;BEAST&lt;/span&gt;)&lt;/span&gt;
+            &lt;span class=&#34;kn&#34;&gt;ssl_ciphers&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&lt;span class=&#34;caps&#34;&gt;RC4&lt;/span&gt;:&lt;span class=&#34;caps&#34;&gt;HIGH&lt;/span&gt;:!aNULL:!&lt;span class=&#34;caps&#34;&gt;MD5&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+            &lt;span class=&#34;kn&#34;&gt;ssl_prefer_server_ciphers&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;on&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+        
+            &lt;span class=&#34;kn&#34;&gt;sendfile&lt;/span&gt;        &lt;span class=&#34;no&#34;&gt;on&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+            &lt;span class=&#34;kn&#34;&gt;keepalive_timeout&lt;/span&gt;  &lt;span class=&#34;mi&#34;&gt;65&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+            &lt;span class=&#34;kn&#34;&gt;tcp_nodelay&lt;/span&gt;        &lt;span class=&#34;no&#34;&gt;on&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+        
+            &lt;span class=&#34;kn&#34;&gt;gzip&lt;/span&gt;  &lt;span class=&#34;no&#34;&gt;on&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+            &lt;span class=&#34;kn&#34;&gt;gzip_disable&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;quot;&lt;span class=&#34;caps&#34;&gt;MSIE&lt;/span&gt;&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;[1-6]\.(?!.*&lt;span class=&#34;caps&#34;&gt;SV1&lt;/span&gt;)&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+            &lt;span class=&#34;kn&#34;&gt;index&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;index.php&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;index.htm&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;index.html&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+        
+            &lt;span class=&#34;kn&#34;&gt;include&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;/etc/nginx/conf.d/*.conf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+        &lt;/pre&gt;&lt;/div&gt;
+        
+        
+        &lt;h4&gt;2. vhosts -&amp;nbsp;/etc/nginx/conf.d/posativ.org.conf&lt;/h4&gt;
+        &lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span class=&#34;k&#34;&gt;server&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+            &lt;span class=&#34;kn&#34;&gt;listen&lt;/span&gt;       &lt;span class=&#34;mi&#34;&gt;80&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+            &lt;span class=&#34;kn&#34;&gt;server_name&lt;/span&gt;  &lt;span class=&#34;s&#34;&gt;posativ.org&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+            &lt;span class=&#34;kn&#34;&gt;root&lt;/span&gt;         &lt;span class=&#34;s&#34;&gt;/home/www/posativ.org&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+        
+            &lt;span class=&#34;kn&#34;&gt;location&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;^~&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;/blog&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+                &lt;span class=&#34;kn&#34;&gt;include&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;conf.d/pyblosxom.redirect&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+            &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+        
+            &lt;span class=&#34;kn&#34;&gt;location&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;~&lt;/span&gt; &lt;span class=&#34;sr&#34;&gt;^/(redmine|git)/&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+                &lt;span class=&#34;kn&#34;&gt;rewrite&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;^/(.*)&lt;/span&gt;$ &lt;span class=&#34;s&#34;&gt;https://posativ.org/&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$1&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;redirect&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+            &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+        &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+        &lt;/pre&gt;&lt;/div&gt;
+        
+        
+        &lt;p&gt;Selbsterklärend. Nicht mehr und nicht weniger will ich konfigurieren. Statt
+        im lighty irgendwelche obskuren Redirects auf Sockets != 443 zu kreieren,
+        gibt es hier ganz klar das Konzept „ich lausche auf diesen Ports mit folgenden&amp;nbsp;Einstellungen”.&lt;/p&gt;
+        &lt;h4&gt;3.&amp;nbsp;&lt;span class=&#34;caps&#34;&gt;SSL&lt;/span&gt;&lt;/h4&gt;
+        &lt;p&gt;In der Präambel lässt sich zudem noch die verwendete Cipher wählen und so
+        ein Angriff mittels &lt;span class=&#34;caps&#34;&gt;BEAST&lt;/span&gt;&amp;nbsp;verhindern.&lt;/p&gt;
+        &lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span class=&#34;k&#34;&gt;server&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+            &lt;span class=&#34;kn&#34;&gt;listen&lt;/span&gt;       &lt;span class=&#34;mi&#34;&gt;443&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+            &lt;span class=&#34;kn&#34;&gt;server_name&lt;/span&gt;  &lt;span class=&#34;s&#34;&gt;posativ.org&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+            &lt;span class=&#34;kn&#34;&gt;root&lt;/span&gt;         &lt;span class=&#34;s&#34;&gt;/home/www/posativ.org&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+        
+            &lt;span class=&#34;kn&#34;&gt;ssl&lt;/span&gt;             &lt;span class=&#34;no&#34;&gt;on&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+            &lt;span class=&#34;kn&#34;&gt;ssl_certificate&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;certs/posativ.org.crt&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+            &lt;span class=&#34;kn&#34;&gt;ssl_certificate_key&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;certs/posativ.org.key&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+        
+            &lt;span class=&#34;kn&#34;&gt;location&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;^~&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;/redmine&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+                &lt;span class=&#34;kn&#34;&gt;proxy_pass&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;http://127.0.0.1:3001&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+            &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+        
+            &lt;span class=&#34;kn&#34;&gt;location&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;^~&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;/git&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+                &lt;span class=&#34;kn&#34;&gt;proxy_pass&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;http://127.0.0.1:7654&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+            &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+        
+            &lt;span class=&#34;c1&#34;&gt;# ...&lt;/span&gt;
+        &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+        &lt;/pre&gt;&lt;/div&gt;
+        
+        
+        &lt;h4&gt;5. rewrite&amp;nbsp;rules&lt;/h4&gt;
+        &lt;p&gt;Das war zunächst das größte Problem. Ich pflege Rückwärtskompatibilität
+        zwischen meinen (inzwischen vier) Blogs mit unterschiedlicher Software und
+        Permalinks. Einfach sind &lt;span class=&#34;caps&#34;&gt;&lt;abbr title=&#34;Uniform Resource Indicator&#34;&gt;URI&lt;/abbr&gt;&lt;/span&gt; -&amp;gt; &lt;span class=&#34;caps&#34;&gt;&lt;abbr title=&#34;Uniform Resource Indicator&#34;&gt;URI&lt;/abbr&gt;&lt;/span&gt;&amp;nbsp;rewrites-Rules:&lt;/p&gt;
+        &lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;    &lt;span class=&#34;c1&#34;&gt;# lighttpd&lt;/span&gt;
+            &lt;span class=&#34;k&#34;&gt;url.redirect&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;quot;/blog/?$&amp;quot;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;https://blog.posativ.org/&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;...&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+        &lt;/pre&gt;&lt;/div&gt;
+        
+        
+        &lt;p&gt;&amp;nbsp;&lt;/p&gt;
+        &lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;    &lt;span class=&#34;c1&#34;&gt;# nginx&lt;/span&gt;
+            &lt;span class=&#34;k&#34;&gt;rewrite&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;quot;^/blog/?&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$&amp;quot;&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;quot;http://blog.posativ.org/&amp;quot;&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;permanent&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+            &lt;span class=&#34;k&#34;&gt;...&lt;/span&gt;
+        &lt;/pre&gt;&lt;/div&gt;
+        
+        
+        &lt;p&gt;Mit &lt;code&gt;perl -pe &#34;s/\&#34;(.+)\&#34; =&amp;gt; \&#34;(.+)\&#34;,/rewrite \&#34;\^\1\&#34; \&#34;\2\&#34; permanent;/g&#34;&lt;/code&gt;
+        hatte ich das grob von lighttpd auf nginx übertragen. Problem: nginx kann kein
+        rewrite auf die Request-Parameter (zurecht aber auch). Das sollte nicht nur
+        mich mit meinen anfänglichen &lt;code&gt;/?p=1dcdd17&lt;/code&gt; stören, auch diverse &lt;a href=&#34;http://frank.geekheim.de/&#34;&gt;andere
+        Blogs&lt;/a&gt; haben dieses &lt;span class=&#34;caps&#34;&gt;URL&lt;/span&gt;-Schema. Warum das nicht direkt von den
+        rewrite-Regeln unterstützt wird, ist klar: die Query-Parameterreihenfolge ist
+        variabel. Aber es ist nginx und da geht alles (wenn auch mit erhöhtem&amp;nbsp;Rechenaufwand):&lt;/p&gt;
+        &lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span class=&#34;k&#34;&gt;location&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;/&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+            &lt;span class=&#34;c1&#34;&gt;# das `?` am Ende leitet die &lt;span class=&#34;caps&#34;&gt;GET&lt;/span&gt;-Request Paramter nicht weiter&lt;/span&gt;
+            &lt;span class=&#34;kn&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$arg_p&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;1dcdd17)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+                &lt;span class=&#34;kn&#34;&gt;rewrite&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;^&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;http://blog.posativ.org/2011/weitere-html-abstraktion-in-python/?&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;permanent&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+                &lt;span class=&#34;c1&#34;&gt;# ...&lt;/span&gt;
+            &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+        &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+        &lt;/pre&gt;&lt;/div&gt;
+        
+        
+        &lt;h4&gt;6. weitere&amp;nbsp;Eigenheiten&lt;/h4&gt;
+        &lt;ul&gt;
+        &lt;li&gt;
+        &lt;p&gt;nginx erlaubt kein &lt;span class=&#34;caps&#34;&gt;POST&lt;/span&gt;/&lt;span class=&#34;caps&#34;&gt;PUT&lt;/span&gt; auf statisches &lt;span class=&#34;caps&#34;&gt;HTML&lt;/span&gt;, denn sonst wäre es ja &lt;span class=&#34;caps&#34;&gt;&lt;abbr title=&#34;Common Gateway Interface&#34;&gt;CGI&lt;/abbr&gt;&lt;/span&gt;
+          (was aber auch nicht geht, dazu gleich mehr). Aber auch dafür gibt es die
+          merkwürdigsten Workarounds (&lt;span class=&#34;caps&#34;&gt;POST&lt;/span&gt; auf statisches &lt;span class=&#34;caps&#34;&gt;HTML&lt;/span&gt; wirft&amp;nbsp;405):&lt;/p&gt;
+        &lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span class=&#34;k&#34;&gt;error_page&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;405&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;@405&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+        &lt;span class=&#34;k&#34;&gt;location&lt;/span&gt;       &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;@405&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+            &lt;span class=&#34;kn&#34;&gt;root&lt;/span&gt;    &lt;span class=&#34;s&#34;&gt;/home/www/blog.posativ.org&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+        &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+        &lt;/pre&gt;&lt;/div&gt;
+        
+        
+        &lt;/li&gt;
+        &lt;li&gt;
+        &lt;p&gt;&lt;span class=&#34;caps&#34;&gt;&lt;abbr title=&#34;Common Gateway Interface&#34;&gt;CGI&lt;/abbr&gt;&lt;/span&gt; wird auch nicht unterstützt, denn es ist langsam und erfordert viel
+          Verwaltungs-Logik. Das macht bsw. lighttpd speicherhungriger als Apache (!),
+          wenn Google mal ein &lt;span class=&#34;caps&#34;&gt;&lt;abbr title=&#34;Common Gateway Interface&#34;&gt;CGI&lt;/abbr&gt;&lt;/span&gt;-hosted Mercurial-Webinterface crawlt. Statt &lt;span class=&#34;caps&#34;&gt;&lt;abbr title=&#34;Common Gateway Interface&#34;&gt;CGI&lt;/abbr&gt;&lt;/span&gt;
+          sollte FastCGI oder Proxy-Magie genutzt werden. Für &lt;span class=&#34;caps&#34;&gt;PHP&lt;/span&gt; spawnt nginx keinen
+          Prozess, der muss vorher auch angelegt werden. Für Debian gibt es dafür ein
+          &lt;a href=&#34;http://wiki.nginx.org/PHPFcgiExample#Spawning_a_FastCGI_Process&#34;&gt;&lt;code&gt;init.d&lt;/code&gt;-Skript&lt;/a&gt; und nach einem &lt;code&gt;invoke.rc-d start php-fcgi&lt;/code&gt; lauscht
+          ein &lt;span class=&#34;caps&#34;&gt;PHP&lt;/span&gt;-Prozess auf Port&amp;nbsp;9000.&lt;/p&gt;
+        &lt;/li&gt;
+        &lt;/ul&gt;
+        &lt;h3&gt;Rückblick&lt;/h3&gt;
+        &lt;p&gt;&lt;a href=&#34;http://www.lighttpd.net/&#34;&gt;lighttpd&lt;/a&gt; war zwei Jahre mein treuer Begleiter im Kampf gegen Apaches
+        behinderte &lt;span class=&#34;caps&#34;&gt;XML&lt;/span&gt;-like Konfiguration mit kleinem Speicherverbrauch, aber die
+        Konfiguration ist inzwischen mehr als willkürlich. Schon eine Umordnung von
+        Statements, die logisch gleichwertig sind, kann das Problem lösen oder erst&amp;nbsp;erzeugen.&lt;/p&gt;
+        &lt;p&gt;Die nginx Konfiguration ist weitaus intuitiver, besitzt mehr Funktionialität
+        und trotzdem ist der Server schlanker, &lt;a href=&#34;http://wiki.nginx.org/Modules&#34;&gt;modularer&lt;/a&gt; und leistungsfähiger
+        als&amp;nbsp;lighttpd.&lt;/p&gt;
+        &lt;p&gt;&lt;span class=&#34;caps&#34;&gt;KTHXBYE&lt;/span&gt;&amp;nbsp;lighttpd.&lt;/p&gt;</description>
+                <pubDate>Sat, 07 Jan 2012 21:03:00 GMT</pubDate>
+                <guid isPermaLink="false">tag:blog.posativ.org,2012-01-07:/2012/nginx</guid>
+            </item>
+        
+            <item>
+                <title>Linkschleuder #10</title>
+                <link>http://blog.posativ.org/2011/linkschleuder-10/</link>
+                <description>&lt;ul&gt;
+        &lt;li&gt;&lt;a href=&#34;http://cr.yp.to/daemontools.html&#34;&gt;daemontools&lt;/a&gt; – nein nicht die &lt;a href=&#34;http://www.daemon-tools.cc/&#34;&gt;Daemon
+          Tools&lt;/a&gt;, um äh Sicherheitskopien zu mounten, sondern einen
+          Prozess-Supervisor wie &lt;code&gt;init.d&lt;/code&gt; und kann im userspace laufen
+          (&lt;a href=&#34;http://uberspace.de/&#34;&gt;via&lt;/a&gt;).&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;http://code.dogmap.org/runwhen/&#34;&gt;runwhen&lt;/a&gt; – eine Art besseres &lt;code&gt;cron&lt;/code&gt;.
+          Unterstützt z.B. direktes Ausführen eines Tasks und kann sekundengenau
+          Arbeiten (&lt;a href=&#34;http://uberspace.de/dokuwiki/system:runwhen&#34;&gt;via&lt;/a&gt;).&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;http://www.getontracks.org/&#34;&gt;Tracks&lt;/a&gt; – eine nette Todoliste mit Ruby on Rails,
+          die gerade mal lächerliche 100 &lt;span class=&#34;caps&#34;&gt;MB&lt;/span&gt; &lt;span class=&#34;caps&#34;&gt;RAM&lt;/span&gt; idle verbrät. Unterstützt&amp;nbsp;Mobil-Geräte.&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;http://piwigo.org/&#34;&gt;Piwigo&lt;/a&gt; – your own photo gallery (in &lt;span class=&#34;caps&#34;&gt;PHP&lt;/span&gt; und MySQL),
+          gibt&amp;#8217;s direkt im Repository von Debian und Ubuntu. Ganz hübsch, aber ein
+          leichter Overkill für einen&amp;nbsp;Einzelnutzer.&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;http://macfusionapp.org/&#34;&gt;Macfusion&lt;/a&gt; – &lt;span class=&#34;caps&#34;&gt;&lt;abbr title=&#34;Secure Shell&#34;&gt;SSH&lt;/abbr&gt;&lt;/span&gt; &lt;span class=&#34;amp&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;caps&#34;&gt;FTP&lt;/span&gt; Filesystem im Userspace
+          aka &lt;span class=&#34;caps&#34;&gt;&lt;abbr title=&#34;Filesystem in Userspace&#34;&gt;FUSE&lt;/abbr&gt;&lt;/span&gt;. Mit&amp;nbsp;&lt;span class=&#34;caps&#34;&gt;&lt;abbr title=&#34;Graphical User Interface&#34;&gt;GUI&lt;/abbr&gt;&lt;/span&gt;!1&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;http://mac.github.com/&#34;&gt;github:mac&lt;/a&gt; – gibt&amp;#8217;s in Version 1.1 und unterstützt
+          unter anderem partielles Hinzufügen aka &lt;code&gt;git
+          add --patch&lt;/code&gt; (wenn auch sehr&amp;nbsp;umständlich).&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;http://redmine.lighttpd.net/wiki/lighttpd/AbsoLUAtion&#34;&gt;Lua Scripting im lighty 1.5&lt;/a&gt;
+          – könnte &lt;a href=&#34;/2011/grack-redmine-auth-git-smart-http/&#34;&gt;Grack+Redmine&lt;/a&gt; unnötig
+          machen, würde es denn irgendwann Version 1.5&amp;nbsp;geben.&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;https://github.com/aaronsw/html2text&#34;&gt;&lt;span class=&#34;caps&#34;&gt;HTML&lt;/span&gt; nach Text konvertieren&lt;/a&gt; – ist sogar
+          Markdow-valide, was da hinterher&amp;nbsp;rauskommt!&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;http://hisz.rsoe.hu/&#34;&gt;Disaster and Emergency AlertMap&lt;/a&gt; – auch mit
+          &lt;a href=&#34;http://hisz.rsoe.hu/alertmap/index2.php&#34;&gt;Europa&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;http://developer.yahoo.com/yslow/&#34;&gt;YSlow&lt;/a&gt; – Yahoo Tool um die
+          Webseiten-Geschwindigkeit zu&amp;nbsp;analysieren.&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;http://rubybestpractices.com/&#34;&gt;Ruby Best Practices (Buch)&lt;/a&gt; – &lt;em&gt;&amp;#8220;We can all
+          write better Ruby code&amp;#8221;&lt;/em&gt;.&lt;/li&gt;
+        &lt;/ul&gt;</description>
+                <pubDate>Fri, 16 Dec 2011 18:31:00 GMT</pubDate>
+                <guid isPermaLink="false">tag:blog.posativ.org,2011-12-16:/2011/linkschleuder-10</guid>
+            </item>
+        
+            <item>
+                <title>Pardus – KDE as its best, aber…</title>
+                <link>http://blog.posativ.org/2011/pardus-kde-as-its-best-aber/</link>
+                <description>&lt;p&gt;So sehr ich das &lt;a href=&#34;http://kde.org/&#34;&gt;&lt;span class=&#34;caps&#34;&gt;&lt;abbr title=&#34;K-Desktop Environment; Kolorful Diskfilling Environment&#34;&gt;KDE&lt;/abbr&gt;&lt;/span&gt;-Projekt&lt;/a&gt; auch mag, so schlecht ist die Integration in
+        die einzelnen Distributionen. Während Kubuntu fürchterlich failt, bietet Arch
+        Linux plain &lt;span class=&#34;caps&#34;&gt;&lt;abbr title=&#34;K-Desktop Environment; Kolorful Diskfilling Environment&#34;&gt;KDE&lt;/abbr&gt;&lt;/span&gt; an – ohne jegliche tiefergehende Integration ins System.
+        Debian dümpelt mit irgendeiner uralten Version herum und eigentlich nervt &lt;span class=&#34;caps&#34;&gt;&lt;abbr title=&#34;K-Desktop Environment; Kolorful Diskfilling Environment&#34;&gt;KDE&lt;/abbr&gt;&lt;/span&gt;
+        auch selbst, weil es für ein Desktop-System unglaublich schwergewichtig ist.
+        So zählen &lt;a href=&#34;https://blog.fefe.de/?ts=b2f6c021&#34;&gt;Java&lt;/a&gt; und MySQL zu den Dependencies – für vergleichsweise
+        triviale Aufgaben. Das nervt. Aber besser als der Kinderdesktop von Gnome.
+        Denn etwas Niveau bin ich seit Windows 7 und &lt;span class=&#34;caps&#34;&gt;OS&lt;/span&gt; X auch schon&amp;nbsp;gewohnt.&lt;/p&gt;
+        &lt;p&gt;&lt;a href=&#34;/img/2011/pardus_login.png&#34;&gt;&lt;img src=&#34;/img/2011/pardus_login.png&#34; class=&#34;shadow floatleft right left&#34; alt=&#34;Pardus Login&#34; width=&#34;270&#34;/&gt;&lt;/a&gt;&lt;/p&gt;
+        &lt;p&gt;So kam ich über &lt;a href=&#34;http://www.kde.org/download/distributions.php&#34;&gt;Distributions Shipping &lt;span class=&#34;caps&#34;&gt;&lt;abbr title=&#34;K-Desktop Environment; Kolorful Diskfilling Environment&#34;&gt;KDE&lt;/abbr&gt;&lt;/span&gt;&lt;/a&gt; zu &lt;a href=&#34;http://www.pardus.org.tr/eng/&#34;&gt;Pardus&lt;/a&gt;. Ich hatte
+        langeweile und habe es in einem virtuellen Würfel mal rasch angeworden. Leider
+        war ich zu blöd und hatte den offensichtlichen &lt;a href=&#34;http://www.pardus.org.tr/eng/download/&#34;&gt;Live-&lt;span class=&#34;caps&#34;&gt;CD&lt;/span&gt; Download&lt;/a&gt; nicht
+        gesehen und musste &lt;del&gt;leider&lt;/del&gt; Ubuntu überschreiben. Installation war
+        mehr als einfach und hat ein hübsches Qt-&lt;span class=&#34;caps&#34;&gt;&lt;abbr title=&#34;User Interface&#34;&gt;UI&lt;/abbr&gt;&lt;/span&gt; und einen selbst geschriebenen
+        Installer ( inPython) – bei meinem Desktop-System kam er allerdings nicht
+        damit klar, dass FreeBSD andere Partitionlayouts nutzt und stürzt da immer ab.
+        Da hilft&amp;#8217;s nur, einmal mit Ubuntu anders zu partitionieren und dann geht es&amp;nbsp;problemlos.&lt;/p&gt;
+        &lt;p&gt;Installiert ist Pardus der Hammer. Anstatt den Anwender einfach auf den
+        Desktop zu werfen, werden einige grundlegende Optionen abgefragt: Öffnen mit
+        1- oder 2-fachen Klick, Desktop-Hintergrund und Aktualisierunghinweise. Das
+        ist deutlich angenehmer als sich selbst durch die elendigen
+        Systemeinstellungen von &lt;span class=&#34;caps&#34;&gt;&lt;abbr title=&#34;K-Desktop Environment; Kolorful Diskfilling Environment&#34;&gt;KDE&lt;/abbr&gt;&lt;/span&gt; zu schlagen. (Täte Ubuntu auch mal ganz gut).
+        Pardus installiert auch gleich den aktuellsten Firefox, LibreOffice und &lt;span class=&#34;caps&#34;&gt;VLC&lt;/span&gt;,
+        sodass ich sofort ein funktionales &lt;span class=&#34;caps&#34;&gt;OS&lt;/span&gt; habe. Und das wichtigste: &lt;span class=&#34;caps&#34;&gt;&lt;abbr title=&#34;K-Desktop Environment; Kolorful Diskfilling Environment&#34;&gt;KDE&lt;/abbr&gt;&lt;/span&gt; ist auf
+        dem neusten Stand! Ein rundum Wohlfühl-Paket, das Windows Systemen durchaus
+        ebenbürtig&amp;nbsp;ist.&lt;/p&gt;
+        &lt;p&gt;&lt;a href=&#34;/img/2011/pardus_start.png&#34;&gt;&lt;img src=&#34;/img/2011/pardus_start.png&#34; class=&#34;shadow floatright right left&#34; alt=&#34;Pardus Start&#34; width=&#34;230&#34;/&gt;&lt;/a&gt;&lt;/p&gt;
+        &lt;p&gt;Aber. Aber dieses System ist für den gemeinen Linuxer einfach scheiße! Schön,
+        wenn alles out-of-the-box geht, aber das funktioniert nur solange wie man sich
+        im Rahmen des Durchschnittsnutzers bewegt. Aber. Diese Distribution &lt;span class=&#34;caps&#34;&gt;HAT&lt;/span&gt;.
+        &lt;span class=&#34;caps&#34;&gt;KEINE&lt;/span&gt;. &lt;span class=&#34;caps&#34;&gt;DOKUMENTATION&lt;/span&gt;. &lt;span class=&#34;caps&#34;&gt;NICHTS&lt;/span&gt;! Schön, dass das Projekt vom türkischen Staat
+        unterstützt wird, aber ohne Dokumentation des Konzepts und administrativer
+        Eingriffe außerhalb der grafischen Oberfläche bringt einem dieses System
+        &lt;span class=&#34;caps&#34;&gt;NICHTS&lt;/span&gt;. Gar nichts! Dieses recht hübsch strukturierte &lt;a href=&#34;http://en.pardus-wiki.org/Main_Page&#34;&gt;Wiki&lt;/a&gt; bietet echt
+        &lt;span class=&#34;caps&#34;&gt;NULL&lt;/span&gt; Informationen. Ich habe nach diversen Seiten erstmal erfahren, dass ihr
+        Paketmanager auf der Konsole &lt;code&gt;pisi&lt;/code&gt; heißt. Ne liebe Entwickler. Das könnt ihr
+        gleich proprietär vertreiben, das würde keinen Unterschied machen. Das ist wie
+        bei Android/Etherpad: Open Source auf dem Papier, aber dem Endnutzer null
+        Transparenz zeigen. Zudem habt ihr auch noch bei Apple &lt;a href=&#34;/img/2011/pardus_boot.png&#34;&gt;geklaut&lt;/a&gt;!&lt;/p&gt;</description>
+                <pubDate>Sun, 18 Sep 2011 16:42:00 GMT</pubDate>
+                <guid isPermaLink="false">tag:blog.posativ.org,2011-09-18:/2011/pardus-kde-as-its-best-aber</guid>
+            </item>
+        
+            <item>
+                <title>Debian. Ich hasse dich.</title>
+                <link>http://blog.posativ.org/2011/debian-ich-hasse-dich/</link>
+                <description>&lt;p&gt;Meine Server laufen alle mit Debian. Debian Squeeze, das einzige &lt;span class=&#34;caps&#34;&gt;OS&lt;/span&gt;, das
+        Software mitliefert, die noch älter als die bei &lt;span class=&#34;caps&#34;&gt;OS&lt;/span&gt; X ist. Debian, dem
+        wunderbarsten &lt;span class=&#34;caps&#34;&gt;OS&lt;/span&gt; aller Zeiten. Aber mal ehrlich. &lt;span class=&#34;caps&#34;&gt;DEBIAN&lt;/span&gt; &lt;span class=&#34;caps&#34;&gt;IST&lt;/span&gt;&amp;nbsp;&lt;span class=&#34;caps&#34;&gt;DRECK&lt;/span&gt;!&lt;/p&gt;
+        &lt;p&gt;Ich kann es absolut nicht nachvollziehen, was alle an diesem behinderten &lt;span class=&#34;caps&#34;&gt;APT&lt;/span&gt;
+        finden. Das Teil ist ein &lt;span class=&#34;caps&#34;&gt;FAIL&lt;/span&gt;! Es dient der automatischen Dependency-Auflösung,
+        aber wie oft brauche ich denn diese übelste Dependency-Auflösung, wenn ich eh
+        nur ein Repository nutze – nämlich das von Debian. Und sollte ich nur kurz auf
+        die Idee kommen, mal ein anderes einzubinden, dann sollte ich schnellstens das
+        komplette System sichern. Denn eins steht fest: einmal apt-get install/upgrade
+        ausgeführt und es gibt &lt;span class=&#34;caps&#34;&gt;NIE&lt;/span&gt;, &lt;span class=&#34;caps&#34;&gt;NIE&lt;/span&gt; &lt;span class=&#34;caps&#34;&gt;WIEDER&lt;/span&gt; ein&amp;nbsp;Zurück.&lt;/p&gt;
+        &lt;p&gt;Nun gut, dann habe ich ein testweise anderes Repository eingebunden und
+        installiere z.B. das neuste Python. Und ich weiß nicht wieso, aber auf einmal
+        will er mir seinen gesamten Testing-Branch unterjubeln für eine Software, die
+        drei Abhängigkeiten hat und keine davon heißt &lt;code&gt;linux-kernel&lt;/code&gt;. Wenn ich mir
+        dann mein System zerschossen habe und merke, hey, das mit &lt;code&gt;python2.7&lt;/code&gt; war
+        keine gute Idee. Ja, dann kann man entweder anfangen, mühsam dieses
+        kackbehinderte Log-File durchzusehen und &lt;span class=&#34;caps&#34;&gt;MANUELL&lt;/span&gt; jedes Packages zu
+        deinstallieren oder man sichert seine liebsten Daten und macht eine&amp;nbsp;Neuinstallation.&lt;/p&gt;
+        &lt;p&gt;Ich habe Debian in meinem Leben öfters installiert als Windows. Und zwar
+        einfach aus dem Grund: &lt;code&gt;apt-get install collectd-utils&lt;/code&gt;, schwupps eine Milliarde
+        Dependencies für ein &lt;a href=&#34;http://collectd.org/wiki/index.php/First_steps&#34;&gt;Tool ohne Abhängigkeiten&lt;/a&gt; installiert. Also mal
+        ehrlich. &lt;span class=&#34;caps&#34;&gt;WELCHER&lt;/span&gt; &lt;span class=&#34;caps&#34;&gt;BEKNACKTE&lt;/span&gt; &lt;span class=&#34;caps&#34;&gt;MAINTAINER&lt;/span&gt; &lt;span class=&#34;caps&#34;&gt;TUT&lt;/span&gt; &lt;span class=&#34;caps&#34;&gt;DA&lt;/span&gt; &lt;span class=&#34;caps&#34;&gt;LVM&lt;/span&gt; &lt;span class=&#34;caps&#34;&gt;UND&lt;/span&gt; &lt;span class=&#34;caps&#34;&gt;CO&lt;/span&gt; &lt;span class=&#34;caps&#34;&gt;REIN&lt;/span&gt;? Das ist ein
+        modulares Monitoring-Tool und bei &lt;code&gt;libboost&lt;/code&gt; scheut ihr auch keine Mühen, das
+        in zweihundert Unterpakete zu&amp;nbsp;schnüren.&lt;/p&gt;
+        &lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;Die folgenden NEUEN Pakete werden installiert:
+        collectd collectd-utils cpp cpp-4.4 dbus-x11 dmsetup fancontrol gconf2 gconf2-common
+        hicolor-icon-theme libasound2 libatk1.0-0 libatk1.0-data libavahi-client3 libavahi-common-data
+        libavahi-common3 libcanberra-gtk-module libcanberra-gtk0 libcanberra0 libcap-ng0
+        libcollectdclient0 libcups2 libdbus-glib-1-2 libdevmapper1.02.1 libesmtp5 libgconf2-4 libgmp3c2
+        libgtk2.0-0 libgtk2.0-bin libgtk2.0-common libhal1 libice6 libidl0 libjasper1 libjpeg62
+        liblua5.1-0 libmemcached5 libmpfr4 libmysqlclient16 libnotify1 libogg0 libopenipmi0 liboping0
+        liborbit2 libpcap0.8 libperl5.10 libpq5 libprotobuf-c0 libpython2.6 libreadline5 libsensors4
+        libsm6 libsnmp-base libsnmp15 libstartup-notification0 libtdb1 libtiff4 libtokyocabinet8
+        libtokyotyrant3 libupsclient1 libvirt0 libvorbis0a libvorbisfile3 libwnck-common libwnck22
+        libxcb-atom1 libxcb-aux0 libxcb-event1 libxcomposite1 libxcursor1 libxdamage1 libxenstore3.0
+        libxfixes3 libxi6 libxinerama1 libxrandr2 libxres1 libyajl1 lm-sensors lvm2 mysql-common
+        notification-daemon psmisc shared-mime-info
+        0 aktualisiert, 84 neu installiert, 0 zu entfernen und 0 nicht aktualisiert.
+        Es müssen noch 30,2 MB von 31,1 MB an Archiven heruntergeladen werden.
+        Nach dieser Operation werden 88,5 MB Plattenplatz zusätzlich benutzt.
+        
+        ... dumdidum ...
+        
+        libdevmapper1.02.1 (2:1.02.48-5) wird eingerichtet ...
+        dmsetup (2:1.02.48-5) wird eingerichtet ...
+        lvm2 (2.02.66-5) wird eingerichtet ...
+        Setting up LVM Volume Groups  Reading all physical volumes.  This may take a while...
+          No volume groups found
+          /proc/devices: No entry for misc found
+          Is device-mapper driver missing from kernel?
+          Failure to communicate with kernel device-mapper driver.
+          No volume groups found
+        &lt;/pre&gt;&lt;/div&gt;
+        
+        
+        &lt;p&gt;&lt;span class=&#34;caps&#34;&gt;ACH&lt;/span&gt; &lt;span class=&#34;caps&#34;&gt;NE&lt;/span&gt;! Kein &lt;span class=&#34;caps&#34;&gt;LVM&lt;/span&gt; gefunden? Na &lt;span class=&#34;caps&#34;&gt;DAMIT&lt;/span&gt; konnte wohl &lt;span class=&#34;caps&#34;&gt;NIEMAND&lt;/span&gt; rechnen! Und jetzt
+        der&amp;nbsp;Knaller:&lt;/p&gt;
+        &lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;# apt-get purge collectd-utils
+        Paketlisten werden gelesen... Fertig
+        Abhängigkeitsbaum wird aufgebaut
+        Statusinformationen werden eingelesen... Fertig
+        Die folgenden Pakete werden ENTFERNT:
+          collectd-utils*
+        0 aktualisiert, 0 neu installiert, 1 zu entfernen und 0 nicht aktualisiert.
+        Nach dieser Operation werden 147 kB Plattenplatz freigegeben.
+        
+        # apt-get autoremove
+        Paketlisten werden gelesen... Fertig
+        Abhängigkeitsbaum wird aufgebaut
+        Statusinformationen werden eingelesen... Fertig
+        0 aktualisiert, 0 neu installiert, 0 zu entfernen und 0 nicht aktualisiert.
+        &lt;/pre&gt;&lt;/div&gt;
+        
+        
+        &lt;p&gt;&lt;span class=&#34;caps&#34;&gt;ALTER&lt;/span&gt;! Jetzt habe ich mir die behindertsten Dependencies eingefangen und jetzt
+        lässt der mich allen ernstes mit dem &lt;span class=&#34;caps&#34;&gt;GESAMTEN&lt;/span&gt; &lt;span class=&#34;caps&#34;&gt;MIST&lt;/span&gt; stehen. Danke, Debian. Ich
+        sehe, hinter dir steht eine große, durchdachte&amp;nbsp;Entwicklung.&lt;/p&gt;</description>
+                <pubDate>Thu, 25 Aug 2011 23:21:00 GMT</pubDate>
+                <guid isPermaLink="false">tag:blog.posativ.org,2011-08-26:/2011/debian-ich-hasse-dich</guid>
+            </item>
+        </channel>
+</rss>
