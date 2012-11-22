@@ -558,18 +558,18 @@
         Addon wird leider eher mäßig aktualisiert (ich nutze  die &lt;a href=&#34;http://5digits.org/nightly/pentadactyl-latest.xpi&#34;&gt;Nightly
         Builds&lt;/a&gt;).&lt;/p&gt;
         &lt;p&gt;Ein paar Anpassungen habe ich dennoch in meiner &lt;em&gt;~/.pentadactyl.rc&lt;/em&gt;:&lt;/p&gt;
-        &lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span class=&#34;n&#34;&gt;map&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;h&lt;/span&gt;  &lt;span class=&#34;n&#34;&gt;H&lt;/span&gt;
-        &lt;span class=&#34;n&#34;&gt;map&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;l&lt;/span&gt;  &lt;span class=&#34;n&#34;&gt;L&lt;/span&gt;
-        &lt;span class=&#34;n&#34;&gt;map&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;gi&lt;/span&gt;
-        &lt;span class=&#34;n&#34;&gt;set&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;defsearch&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ge&lt;/span&gt;
+        &lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;map &lt;span class=&#34;k&#34;&gt;h&lt;/span&gt;  H
+        map &lt;span class=&#34;k&#34;&gt;l&lt;/span&gt;  L
+        map &lt;span class=&#34;k&#34;&gt;i&lt;/span&gt; gi
+        &lt;span class=&#34;k&#34;&gt;set&lt;/span&gt; defsearch&lt;span class=&#34;p&#34;&gt;=&lt;/span&gt;ge
         
-        &lt;span class=&#34;n&#34;&gt;set&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;hlfind&lt;/span&gt;
-        &lt;span class=&#34;n&#34;&gt;highlight&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Find&lt;/span&gt;   &lt;span class=&#34;n&#34;&gt;background&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; #&lt;span class=&#34;n&#34;&gt;d6c149&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;color&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; #000&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
-        &lt;span class=&#34;n&#34;&gt;highlight&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;HintElem&lt;/span&gt;   &lt;span class=&#34;n&#34;&gt;background&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;rgba&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;255&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; 209&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; 20&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; 0&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;7&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; !&lt;span class=&#34;n&#34;&gt;important&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+        &lt;span class=&#34;k&#34;&gt;set&lt;/span&gt; hlfind
+        &lt;span class=&#34;nb&#34;&gt;highlight&lt;/span&gt; Find   &lt;span class=&#34;nb&#34;&gt;background&lt;/span&gt;: &lt;span class=&#34;mh&#34;&gt;#d6c149&lt;/span&gt;; &lt;span class=&#34;k&#34;&gt;color&lt;/span&gt;: #&lt;span class=&#34;m&#34;&gt;000&lt;/span&gt;;
+        &lt;span class=&#34;nb&#34;&gt;highlight&lt;/span&gt; HintElem   &lt;span class=&#34;nb&#34;&gt;background&lt;/span&gt;: rgba&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;255&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;209&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;20&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;.&lt;span class=&#34;m&#34;&gt;7&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;!&lt;/span&gt;important;
         
-        &lt;span class=&#34;n&#34;&gt;nmap&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;builtin&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;D&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;gTd&lt;/span&gt;
+        nmap &lt;span class=&#34;p&#34;&gt;-&lt;/span&gt;builtin D gTd
         
-        &lt;span class=&#34;n&#34;&gt;source&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;~/&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;urls&lt;/span&gt;
+        source &lt;span class=&#34;p&#34;&gt;~&lt;/span&gt;/.urls
         &lt;/pre&gt;&lt;/div&gt;
         
         
