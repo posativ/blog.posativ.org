@@ -4,6 +4,9 @@ date: 21.07.2011, 12:48
 tags: [lilith, Acrylamid, PyBlosxom]
 ---
 
+**Update:** [lilith, inzwischen Acrylamid in einer aktuelleren
+Vorstellung](http://blog.posativ.org/2012/acrylamid-0-3-yet-another-static-blog-compiler/).
+
 Ich entwickle [lilith][1] derzeit recht aktiv weiter. Neben so hübschen Sachen
 wie [MathML][2] ist es jetzt auch einigermaßen fehlerfrei. Da waren ein paar
 echt grobe Schnitzer drin, dass ich erstaunt war, wie gut es dennoch lief. Aber

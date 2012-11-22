@@ -1,13 +1,15 @@
 ---
 title: lilith – yet another blog rewrite
-
 date: 15.06.2011, 01:09
 tags: [lilith, Acrylamid, YAML]
 ---
 
+**Update:** [lilith, nun Acrylamid in einer aktuelleren
+Vorstellung](http://blog.posativ.org/2012/acrylamid-0-3-yet-another-static-blog-compiler/).
+
 Doch schon. Sechs Monate später als erwartet. Hatte ja
 [dieses klitzekleine Problem](http://blog.posativ.org/2011/von-zeitreisen-und-informationsgeheimnissen/),
-mein Projekt [lilith](http://posativ.org/lilith/) (Backend meines Blogs) war
+mein Projekt [~~lilith~~ Acrylamid](http://posativ.org/acrylamid/) (Backend meines Blogs) war
 nahezu fertig und ich kannte damals noch nicht die wunderbaren Vorteile eines
 *Distributed Version Control Systems* und damit [GitHub](https://github.com/).
 Nunja, die „paar” Stunden Arbeit waren weg. Aber genug geweint, jetzt gibt es
@@ -43,10 +45,10 @@ Was diese neue Version nun kann:
   [http://blog.posativ.org/atom/](http://blog.posativ.org/atom/) respektive
   [http://blog.posativ.org/rss/](http://blog.posativ.org/rss/) erreichbar sind.
 
-- erwähnte ich eigentlich schon, dass [lilith](http://posativ.org/lilith/)
+- erwähnte ich eigentlich schon, dass [~~lilith~~ Acrylamid](http://posativ.org/acrylamid/)
   *wirklich* Open Source ist und aktiv bei GitHub weiterentwickelt wird? Glaubt
   ihr mir nicht? Hier die URL:
-  [https://github.com/posativ/lilith](https://github.com/posativ/lilith)
+  [https://github.com/posativ/acrylamid](https://github.com/posativ/acrylamid)
 
 Was bleibt, ist das hässliche Design, die schlecht lesbare Schrift und der miese
 Content. Aber dafür mit automatischen Zeilenumbrüchen!1!
