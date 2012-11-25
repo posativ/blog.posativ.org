@@ -11,7 +11,7 @@ Da mein derzeitiger Router – eine Time Capsule – doch sehr langsam für das 
 
 # Was? FreeBSD?
 
-Hat [man vielleicht schon einmal gehört][1]. Ist kein Linux, sondern basiert – wer hätte es gedacht – auf dem FreeBSD Kernel, der im Unterschied zu Linux wesentlich weniger Treiber mitbringt und auch konzeptuell sehr verschieden ist. Im Gegensatz zu Ubuntu/Debian ist FreeBSD aus einem Guss. Sowohl der Kernel, das Basis-System als auch die Software wird von einer Community betreut.
+Hat [man vielleicht schon einmal gehört][1]. Ist kein Linux, sondern basiert – wer hätte es gedacht – auf dem FreeBSD-Kernel, der im Unterschied zu Linux wesentlich weniger Treiber mitbringt und auch konzeptuell sehr verschieden ist. Im Gegensatz zu Ubuntu/Debian ist FreeBSD aus einem Guss. Sowohl der Kernel, das Basis-System als auch die Software wird von einer Community betreut.
 
 FreeBSD bietet ein harmonisches Gesamtkonzept, ist äußerst leichtgewichtig, hat Packet Filtering, Jails und bietet mir eine immens große Software-Kollektion, deren Buildflags ich wie in Gentoo sehen und ändern kann. ZFS! Auch wenn ich bei mir nicht den Anwendungsfall sehe, unterstützt FreeBSD eine *aktuelle* Version von ZFS.
 

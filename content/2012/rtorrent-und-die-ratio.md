@@ -1,5 +1,6 @@
-Title: rTorrent und die Ratio
-Date: 04.11.2012, 23:58
+Title: rTorrent und die Ratio (+ Transmission)
+Date: 25.11.2012, 21:21
+Permalink: /2012/rtorrent-und-die-ratio/
 Tags: [rtorrent, Open Source, brew]
 
 Bevor ich's vergesse: [rTorrent][1] ist der beste Torrent-Client  für jedes
@@ -37,8 +38,13 @@ zwar fünfzig Bilder heruntergeladen, aber jeweils nur 140 MiB statt 1,4 GiB. F�
 [homebrew][4]-Nutzer habe ich hier auch gleich die passende [Formula][5]. Ich
 liebe freie Software!
 
+Kleine Aktualisierung: ein Vögelchen flüsterte mir einen [äquivalenten Patch][6]
+für [Transmission][7]. Danke dafür!
+
 [1]: http://libtorrent.rakshasa.no/
 [2]: http://aria2.sourceforge.net/
 [3]: http://www.rasterbar.com/products/libtorrent/
 [4]: http://mxcl.github.com/homebrew/
 [5]: https://gist.github.com/4014160
+[6]: https://gist.github.com/4145152
+[7]: http://www.transmissionbt.com/
