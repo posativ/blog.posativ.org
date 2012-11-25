@@ -27,7 +27,7 @@ VIEWS = {
         "items_per_page": 12
     },
     "/:year/:slug/": {
-        "filters": "hyph", "view": "entry"
+        "filters": "hyph", "views": ["entry", "draft"]
     },
     "/atom/": {
         "filters": "h2", "view": "atom"
@@ -43,19 +43,20 @@ VIEWS = {
         "view": "articles"
     },
     "/tag/:name/": {
-       "view": "tag", "template": "tags.html", "items_per_page": 1000
+       "view": "tag", "template": "tags.html", "items_per_page": 1000,
+       "filters": ["sum", "hyph"]
     },
 
     # produce a full text version of all Linkschleudern
     "/linkschleuder/" : {
          "filters": "hyph", "view": "index", "items_per_page": 1000,
-         "condition": lambda e: 'Links' in e.tags
+         "if": lambda e: 'Links' in e.tags
     },
 
     # atom feed for those
     "/linkschleuder/feed/" : {
          "filters": "h2", "view": "atom",
-         "condition": lambda e: 'Links' in e.tags
+         "if": lambda e: 'Links' in e.tags
     },
 
     "/sitemap.xml": {"view": "sitemap"}
