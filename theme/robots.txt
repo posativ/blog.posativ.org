@@ -7,3 +7,4 @@ User-Agent: Slurp
 User-Agent: yacybot
 Allow: /
 Disallow: /impressum.txt
+Disallow: /stats.html
