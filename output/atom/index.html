@@ -239,7 +239,7 @@
         
         &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt; ! -d &lt;span class=&#34;nv&#34;&gt;$&lt;span class=&#34;caps&#34;&gt;DBPATH&lt;/span&gt;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;; &lt;span class=&#34;k&#34;&gt;then&lt;/span&gt;
         &lt;span class=&#34;k&#34;&gt;  &lt;/span&gt;mkdir /var/lib/weave-minimal
-          chown www /var/lib/weave-minimal
+          chown &lt;span class=&#34;nv&#34;&gt;$&lt;span class=&#34;caps&#34;&gt;USER&lt;/span&gt;&lt;/span&gt; /var/lib/weave-minimal
         &lt;span class=&#34;k&#34;&gt;fi&lt;/span&gt;
         
         &lt;span class=&#34;k&#34;&gt;case&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$1&lt;/span&gt; in

@@ -11,10 +11,12 @@ EMAIL = "info@posativ.org"
 
 METASTYLE = 'native'
 
+THEME_IGNORE = ['*.swp']
 CONTENT_IGNORE = ["drafts/*", "bak/*"]
 CONTENT_EXTENSION = '.md'
 STATIC = "dataset/"
 STATIC_IGNORE += ['.DS_Store']
+STATIC_FILTER += ['SASS']
 
 md = 'markdown+codehilite(css_class=highlight)+mathml+sup+sub+delins+footnotes+abbr' 
 
@@ -43,8 +45,7 @@ VIEWS = {
         "view": "articles"
     },
     "/tag/:name/": {
-       "view": "tag", "template": "tags.html", "items_per_page": 1000,
-       "filters": ["sum", "hyph"]
+       "view": "tag", "template": "tags.html", "items_per_page": 1000
     },
 
     # produce a full text version of all Linkschleudern
@@ -72,7 +73,7 @@ DISQUS_SHORTNAME = "posativ"
 DEPLOYMENT = {
     "ls": "ls",
     "echo": "echo $OUTPUT_DIR",
-    'blog': 'rsync -av --delete --exclude=".git/" $OUTPUT_DIR www@morloch:~/blog.posativ.org/',
+    'default': 'rsync -av --delete --exclude=".git/" $OUTPUT_DIR www@morloch:~/blog.posativ.org/',
 }
 
 ACRONYMS_FILE =  "acronyms.txt"
