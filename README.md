@@ -17,7 +17,7 @@ a small wiki, but Acrylamid is not real good at it …
     $ git clone https://github.com/posativ/blog.posativ.org.git && cd blog.posativ.org/
     $ acrylamid compile
     $ acrylamid view
-    $ acrylamid deploy blog
+    $ acrylamid deploy
 
 It's the reason why I am developing [Acrylamid][1]. 165 articles, some pages
 and over 200 static files take less than one second to compile. Can you do
