@@ -46,7 +46,6 @@ total auf die Encryption, die mit Version 4.0 *serverseitig* – \*fazialpalmier
 [8]: https://de.wikipedia.org/wiki/Windows_Server_Update_Services
 [9]: https://code.google.com/p/libfvde/
 [10]: https://github.com/busyloop/lolcat
-[11]: http://linuxundich.de/de/ubuntu/lolcat-fur-ein-bisschen-mehr-farbe-im-terminal/
 [12]: http://sed.sourceforge.net/sed1line.txt
 [13]: https://de.wikipedia.org/wiki/Sed_(Unix
 [14]: http://html9responsiveboilerstrapjs.com/
