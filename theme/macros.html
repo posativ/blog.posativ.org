@@ -1,0 +1,16 @@
+{% macro gallery(path, caption='', reverse=false, columns=-1, base='assets') -%}
+{%- set images = "find " + base + "/" + path + " -maxdepth 1 -type f -exec basename \"{}\" \; | sort -n" + ( " -r" if reverse else "" ) -%}
+  <figure class="gallery">
+  {% for bunch in images | system | split | batch(columns) -%}
+    {% for file in bunch -%}
+        <a href="{{ (env.path + '/' + path + '/' + file) | urllib.quote }}"
+                class="thumb {{ 'first' if loop.first }} {{ 'last' if loop.last }}">
+          <img src="{{ (env.path + '/' + path + '/thumbs/' + file) | urllib.quote }}" alt="{{ file }}" />
+        </a>
+    {%- endfor %}
+    {% if columns > 0 %}<br />{% endif %}
+  {%- endfor %}
+  {% if caption %}<figcaption>{{ caption }}</figcaption>{% endif %}
+  <br />
+  </figure>
+{%- endmacro %}

@@ -3,30 +3,14 @@ title: "Impressionen aus Russland: St. Petersburg"
 date: 19.05.2012, 12:52
 filter: [Jinja2, Markdown]
 tags: Russland
-summarize.maxwords: 60
 ---
-
-{% macro gallery(prefix, num=4) %}
-{% set images = "ls dataset/img/2012/st-petersburg/" ~ prefix ~ " | cut -d / -f 5"  %}
-{% for bunch in images  | system | split | batch(num) %}
-<figure>
-  {% for file in bunch %}
-  <a href="/img/2012/st-petersburg/{{ file }}" style="float: left; width: 25%">
-  <img src="/img/2012/st-petersburg/thumbs/{{ file }}" width="150" height="150"
-       alt="{{ file }}"/>
-  </a>
-  {% endfor %}
-</figure>
-<br style="clear: both" />
-{% endfor %}
-{% endmacro %}
 
 Ich war ja vor einiger Zeit™ in Russland, aber bisher nicht in der Lage, eine
 Bildergalerie mit [Jinja2](http://jinja.pocoo.org/) zu basteln. Das habe ich
 nachgeholt und hier sind ein paar Fotos aus dem schönen St. Petersburg gegen
-Ende Februar.
+Ende Februar.<!-- break -->
 
-{{ gallery("rest-*.JPG") }}
+{{ gallery("shots/st-petersburg/other") }}
 
 Ein besonderes Highlight hatten wir durch [Couch
 Surfing](http://www.couchsurfing.org/): wir konnten im Studentenwerk schlafen.
@@ -40,13 +24,13 @@ via Mobilfunk.
 Die Feuerleiter ist übrigens unser täglicher Eingang gewesen. Dafür ist die
 Gastfreundschaft armer Studenten besser als jedes Hotel.
 
-{{ gallery("stw_*.JPG") }}
+{{ gallery("shots/st-petersburg/stw") }}
 
 Neben der [Kunstkamera](https://de.wikipedia.org/wiki/Kunstkamera) ein altes
 aber gutes UDSSR-Museum. Mit etwas Feilschen kommt man auch als Jenaer Student
 zum ermäßigten Tarif rein.
 
-{{ gallery("natur_*.JPG") }}
+{{ gallery("shots/st-petersburg/natur") }}
 
 Nach drei Tagen ging es mit der Eisenbahn über zwei Tage Richtung
 Yekaterinburg... *to be continued*.

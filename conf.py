@@ -14,7 +14,7 @@ METASTYLE = 'native'
 THEME_IGNORE = ['*.swp']
 CONTENT_IGNORE = ["drafts/*", "bak/*"]
 CONTENT_EXTENSION = '.md'
-STATIC = "dataset/"
+STATIC = "assets/"
 STATIC_IGNORE += ['.DS_Store']
 STATIC_FILTER += ['SASS']
 
@@ -77,3 +77,34 @@ DEPLOYMENT = {
 }
 
 ACRONYMS_FILE =  "acronyms.txt"
+
+from acrylamid import log
+from acrylamid.errors import AcrylamidException
+from acrylamid.helpers import event, system
+from os import makedirs
+from os.path import exists, getctime
+
+def mkthumb(path, ctime):
+    if 'shots/' not in path:
+        return
+    if path[-3:].lower() in ('jpg', 'png', 'peg'):
+        i = path.rfind('/') + 1
+        thumb = path[:i] + 'thumbs'
+        if not exists(thumb):
+            makedirs(thumb)
+        thumb += '/' + path[i:]
+        if not exists(thumb) or getctime(path) > getctime(thumb):
+            log.info('create  thumbnail  %s', thumb)
+            try:
+                system(['convert',
+                        '-define', 'jpeg:size=300x300',
+                        '-thumbnail', '150x150^',
+                        '-gravity', 'center',
+                        '-extent', '150x150',
+                        path, thumb])
+            except AcrylamidException as e:
+               log.warn(e.args[0])
+            except OSError:
+                pass
+
+event.register(mkthumb, ['create', 'update'])
