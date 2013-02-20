@@ -2,6 +2,8 @@
 # This is your config file.  Please write in a valid python syntax!
 # See http://acrylamid.readthedocs.org/en/latest/conf.py.html
 
+from os.path import join, dirname, basename
+
 SITENAME = "mecker. mecker. mecker."
 WWW_ROOT = "http://blog.posativ.org/"
 THEME = "theme/"
@@ -14,23 +16,26 @@ METASTYLE = 'native'
 THEME_IGNORE = ['*.swp']
 CONTENT_IGNORE = ["drafts/*", "bak/*"]
 CONTENT_EXTENSION = '.md'
-STATIC = "assets/"
+STATIC = ["assets/"]
 STATIC_IGNORE += ['.DS_Store']
 STATIC_FILTER += ['SASS']
 
-md = 'markdown+codehilite(css_class=highlight)+mathml+sup+sub+delins+footnotes+abbr' 
+md = '+'.join(['Markdown',
+     'codehilite(css_class=highlight)', 'attr_list', 'fenced_code',
+     'mathml', 'sup', 'sub', 'delins', 'footnotes', 'abbr'])
 
 FILTERS = [md, 'typo', 'h1', 'acronyms']
 VIEWS = {
     "/": {
         "filters": ['sum', 'hyph'],
-        "pagination": "/page/:num",
+        "pagination": "/page/:num/",
         "view": "index",
         "items_per_page": 12
     },
     "/:year/:slug/": {
-        "filters": "hyph", "views": ["entry", "draft"]
+        "filters": "hyph", "views": ["entry"]#, "draft"]
     },
+    "/drafts/:slug/": {'view': 'draft'},
     "/atom/": {
         "filters": "h2", "view": "atom"
     },
@@ -73,38 +78,15 @@ DISQUS_SHORTNAME = "posativ"
 DEPLOYMENT = {
     "ls": "ls",
     "echo": "echo $OUTPUT_DIR",
-    'default': 'rsync -av --delete --exclude=".git/" $OUTPUT_DIR www@morloch:~/blog.posativ.org/',
+    'default': 'rsync -av --delete --exclude=".git/" $OUTPUT_DIR posativ@monoceres.uberspace.de:~/blog.posativ.org/',
 }
 
 ACRONYMS_FILE =  "acronyms.txt"
 
-from acrylamid import log
-from acrylamid.errors import AcrylamidException
-from acrylamid.helpers import event, system
-from os import makedirs
-from os.path import exists, getctime
+HOOKS_MT = False
+HOOKS = {
+    "shots/.+\.(jpe?g|png)": (
+        'convert -thumbnail 150x150^ -gravity center -extent 150x150 %1 %2',
+        lambda p: join(dirname(p), 'thumbs/', basename(p)))
+}
 
-def mkthumb(path, ctime):
-    if 'shots/' not in path:
-        return
-    if path[-3:].lower() in ('jpg', 'png', 'peg'):
-        i = path.rfind('/') + 1
-        thumb = path[:i] + 'thumbs'
-        if not exists(thumb):
-            makedirs(thumb)
-        thumb += '/' + path[i:]
-        if not exists(thumb) or getctime(path) > getctime(thumb):
-            log.info('create  thumbnail  %s', thumb)
-            try:
-                system(['convert',
-                        '-define', 'jpeg:size=300x300',
-                        '-thumbnail', '150x150^',
-                        '-gravity', 'center',
-                        '-extent', '150x150',
-                        path, thumb])
-            except AcrylamidException as e:
-               log.warn(e.args[0])
-            except OSError:
-                pass
-
-event.register(mkthumb, ['create', 'update'])
