@@ -6,7 +6,7 @@ SITENAME = "mecker. mecker. mecker."
 WWW_ROOT = "http://blog.posativ.org/"
 THEME = "theme/"
 
-AUTHOR = "posativ"
+AUTHOR, NICK = "Martin Zimmermann", "posativ"
 EMAIL = "info@posativ.org"
 
 METASTYLE = 'native'
