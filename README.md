@@ -2,9 +2,8 @@
 
 This are most ressources from my personal blog using [Acrylamid][1] as
 static blog compiler. Beside the default HTML5 theme it features an
-extended acronym filter, a *planet* feed and a listing of all
-[Linkschleuders][2] on a single site without summarization. And I tried
-a small wiki, but Acrylamid is not real good at it …
+extended acronym filter, a [planet][3] feed and a listing of all
+[Linkschleuders][2] on a single site without summarization.
 
 ## Requirements
 
@@ -19,9 +18,12 @@ a small wiki, but Acrylamid is not real good at it …
     $ acrylamid view
     $ acrylamid deploy
 
-It's the reason why I am developing [Acrylamid][1]. 165 articles, some pages
-and over 200 static files take less than one second to compile. Can you do
-that with Pelican, Tinkerer, Nikola, whatsoever?
+You might get a lot of errors during the compilation procedure, that's because I
+removed the referenced assets (image gallery and such). With about 170 articles,
+I can compile a new entry in less than two seconds, layout or configuration
+changes in around 3-4 seconds. Can you do that with Pelican, Tinkerer, Nikola,
+whatsoever?
 
 [1]: https://github.com/posativ/acrylamid/
-[2]: http://blog.posativ.org/linkschleuder/full/
+[2]: http://blog.posativ.org/linkschleuder/
+[3]: http://blog.posativ.org/rss/planet/
