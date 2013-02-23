@@ -29,4 +29,6 @@ das gerade einmal 26 verschiedene Fortran Compiler sucht und jedes mal testet, o
 Das erinnert mich gleich wieder an die Installation von Node.js aus den
 Quellen, welche erstmal ein aktuelles Python zur Konfiguration braucht.
 
+-- via [meillo](http://marmaro.de/lue/txt/2013-02-07.txt).
+
 [1]: https://queue.acm.org/detail.cfm?id=2349257
