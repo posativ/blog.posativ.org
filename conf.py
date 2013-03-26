@@ -25,6 +25,8 @@ md = '+'.join(['Markdown',
      'mathml', 'sup', 'sub', 'delins', 'footnotes', 'abbr'])
 
 FILTERS = [md, 'typo', 'h1', 'acronyms']
+FILTERS_DIR += ['filters/']
+
 VIEWS = {
     "/": {
         "filters": ['sum', 'hyph'],
