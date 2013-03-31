@@ -1,6 +1,6 @@
 Title: Linkschleuder #30
 Date: 26.03.2013, 11:52
-Tags: [Linux, Windows, planet]
+Tags: [Linux, Windows, planet, Links]
 
 - [tails](https://tails.boum.org/) – ist eine Live-CD/DVD auf Anonymität und Datenschutz im Internet spezialisierte Debian-Distribution. Jetzt fehlen nur noch die Wegwerf-USB-Sticks, die [Daniel Suarez](https://de.wikipedia.org/wiki/Daniel_Suarez) in *Daemon* vorhersagte.
 - [datensparsam.de](https://www.datensparsam.de/) – ist ein überaus praktischer Generator für Übermittlungssperren (für mich leider zwei Jahre zu spät).
