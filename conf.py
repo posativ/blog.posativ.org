@@ -16,9 +16,9 @@ METASTYLE = 'native'
 THEME_IGNORE = ['*.swp']
 CONTENT_IGNORE = ["drafts/*", "bak/*"]
 CONTENT_EXTENSION = '.md'
-STATIC = ["assets/"]
-STATIC_IGNORE += ['.DS_Store']
-STATIC_FILTER += ['SASS']
+STATIC = "assets/"
+# STATIC_IGNORE += ['.DS_Store']
+# STATIC_FILTER += ['SASS']
 
 md = '+'.join(['Markdown',
      'codehilite(css_class=highlight)', 'attr_list', 'fenced_code',
@@ -52,7 +52,7 @@ VIEWS = {
         "view": "articles"
     },
     "/tag/:name/": {
-       "view": "tag", "template": "tags.html", "items_per_page": 1000
+        "view": "tag", "template": "tags.html", "pagination": None,
     },
 
     # produce a full text version of all Linkschleudern

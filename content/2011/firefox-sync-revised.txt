@@ -37,7 +37,7 @@ entgegen. Heißt, per `mod_proxy` oder ähnlichem darauf zeigen. Unter
            (("host" => "127.0.0.1", "port" => 8080)))
     }
 
-In [der Readme][1] gibt es auch Anweisungen für [nginx][2] und einem
+In [der Readme][1] gibt es auch Anweisungen für [nginx][2] und ein
 `init.d`-Skript für Debian/Ubuntu. Die [Quellen liegen auf GitHub][3], Fehler
 nehme ich per [GitHub:Issues][4] oder [Disqus][5] entgegen.
 

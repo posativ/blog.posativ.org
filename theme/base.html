@@ -4,6 +4,9 @@
   {% block head -%}
   <meta charset="utf-8" />
   <title>{% block title %}{% endblock %}</title>
+  {% for url in compile('style.sass', filters="sass", output="style.%(version)s.css") %}
+    <link media="all" href="{{ url }}" rel="stylesheet" />
+  {% endfor %}
   <link media="all" href="{{ env.path + '/style.css' }}" rel="stylesheet" />
   <link href="/favicon.ico" rel="shortcut icon" />
   <link href="{{ env.path + '/' }}" rel="home" />
