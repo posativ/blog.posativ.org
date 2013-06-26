@@ -23,7 +23,7 @@ filter: Jinja2
 - [libfvde][9] – und wo wir gerade bei Apple waren. Um auf seine FileVault2
   geschützten Daten unter bsw. Linux zuzugreifen, gibt es inzwischen die
   Bibliothek `libfvde`. Muss ich unbedingt testen!
-- [lolcat][10] – {{ "lolcat -f -p 2.0 | ansi2html --inline" | system(lolcat) }}
+- [lolcat][10] – {{ "lolcat -f -p 2.0 | a2h" | system(lolcat) }}
 - [Sed Einzeiler][12] – nützliche Skripte für [sed][13].
 - [H9RBS.js][14] – HTML9 Responsive Boilerstrap JS und es ist sogar
   cross-universe kompatibel :-)

@@ -9,8 +9,42 @@
     <id>tag:blog.posativ.org,2011-06-11:/atom/</id>
     <link rel="alternate" type="text/html" href="http://blog.posativ.org/" />
     <link rel="self" type="application/atom+xml" href="http://blog.posativ.org/atom/" />
-    <updated>2013-03-26T09:52:00Z</updated>
+    <updated>2013-06-07T16:25:00Z</updated>
     <generator uri="https://github.com/posativ/acrylamid/" version="0.8.dev0">acrylamid</generator>
+        <entry>
+        <title>sslh - ssl/ssh multiplexer</title>
+        <link rel="alternate" type="text/html" href="http://blog.posativ.org/2013/sslh-ssl-ssh-multiplexer/" />
+        <id>tag:blog.posativ.org,2013-06-07:/2013/sslh-ssl-ssh-multiplexer</id>
+        <updated>2013-06-07T16:25:00Z</updated>
+        <category term="planet" />
+        
+        <author>
+            <name>Martin Zimmermann</name>
+            <uri>http://blog.posativ.org/</uri>
+            <email>info@posativ.org</email>
+        </author>
+        <content type="html">&lt;p&gt;Die meisten öffentlichen (Hotel-) WLANs haben alles außer Port 80 und 443
+blockiert. Da hilft dann auch kein OpenVPN. &lt;a href=&#34;http://www.agroman.net/corkscrew/&#34;&gt;corkscrew&lt;/a&gt; läuft nur
+mit Apache und allgemein ist das Konzept doch eher fragwürdig. Wenn man &lt;span class=&#34;caps&#34;&gt;&lt;abbr title=&#34;Secure Shell&#34;&gt;SSH&lt;/abbr&gt;&lt;/span&gt;
+doch nur auf Port 80/443 legen könnte&amp;#8230; – kann&amp;nbsp;man!&lt;/p&gt;
+&lt;blockquote&gt;&lt;p&gt;sslh accepts connections on specified ports, and forwards them further based on tests performed on the first data packet sent by the remote&amp;nbsp;client.&lt;/p&gt;&lt;footer&gt;&lt;strong&gt;sslh&lt;/strong&gt; &lt;cite&gt;&lt;a href=&#34;http://www.rutschle.net/tech/sslh.shtml&#34;&gt;www.rutschle.net/tech&lt;/a&gt;&lt;/cite&gt;&lt;/footer&gt;&lt;/blockquote&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;~&amp;gt; sslh -p 2a01:1e8:e16e:1337::1:443 -p 0.0.0.0:443 &lt;span class=&#34;se&#34;&gt;\&lt;/span&gt;
+        --ssh localhost:22 --ssl localhost:4430
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Fertig. Nginx noch anweisen, auf Port 4430 für &lt;span class=&#34;caps&#34;&gt;SSL&lt;/span&gt; zu lauschen und schon
+kann man sich mittels &lt;code&gt;ssh -p 443 user@server&lt;/code&gt; verbinden und erhält über
+ein &lt;a href=&#34;https://example.org/&#34;&gt;https://example.org/&lt;/a&gt; weiterhin die Webseite. Neben &lt;span class=&#34;caps&#34;&gt;&lt;abbr title=&#34;Secure Shell&#34;&gt;SSH&lt;/abbr&gt;&lt;/span&gt; und &lt;span class=&#34;caps&#34;&gt;SSL&lt;/span&gt; werden
+auch noch &lt;span class=&#34;caps&#34;&gt;&lt;abbr title=&#34;Extensible Messaging and Presence Protocol&#34;&gt;XMPP&lt;/abbr&gt;&lt;/span&gt; (yay), OpenVPN und &lt;span class=&#34;caps&#34;&gt;HTTP&lt;/span&gt; unterstützt &amp;#8211; und wenn das nicht
+reicht, gehen auch noch reguläre Ausdrücke.&amp;nbsp;Gefällt.&lt;/p&gt;
+&lt;p&gt;Einziger Nachteil ist leider, dass nginx nur noch &lt;code&gt;127.0.0.1&lt;/code&gt; als &lt;span class=&#34;caps&#34;&gt;IP&lt;/span&gt;-Adresse
+sieht und &lt;code&gt;fail2ban&lt;/code&gt; für den &lt;span class=&#34;caps&#34;&gt;&lt;abbr title=&#34;Secure Shell&#34;&gt;SSH&lt;/abbr&gt;&lt;/span&gt;-Server auf Port 443 &lt;a href=&#34;http://rutschle.net/pipermail/sslh/2012-January/000138.html&#34;&gt;nicht out-of-the-box
+funktioniert&lt;/a&gt;; und dass es keine eingebaute Unterstützung für &lt;a href=&#34;http://quassel-irc.org/&#34;&gt;Quassel&lt;/a&gt;&amp;nbsp;gibt!1&lt;/p&gt;
+&lt;p&gt;– via &lt;a href=&#34;http://marmaro.de/lue/txt/2013-05-24.txt&#34;&gt;marmaro.de&lt;/a&gt;&lt;/p&gt;</content>
+    </entry>
+    
         <entry>
         <title>Linkschleuder #30</title>
         <link rel="alternate" type="text/html" href="http://blog.posativ.org/2013/linkschleuder-30/" />
@@ -60,7 +94,7 @@ Interesse an sachlicher Berichterstattung und finden Methoden des 18.
 Jahrhunderts gut (aka an den Pranger stellen). Ich hatte zweimal versucht,
 &lt;del&gt;sachliche&lt;/del&gt; Kommentare zum Beitrag zu bringen, jedoch allesamt gelöscht. Denn
 Adria Richards ist auch sexistisch veranlagt (und hat *mimimimi* meine Gefühle&amp;nbsp;verletzt):&lt;/p&gt;
-&lt;div class=&#34;embed tweet&#34;&gt;&lt;blockquote class=&#34;twitter-tweet&#34; data-conversation=&#34;none&#34; lang=&#34;de&#34;&gt;&lt;p&gt;@&lt;a href=&#34;https://twitter.com/skwashd&#34;&gt;skwashd&lt;/a&gt; you should put something in your pants next time&amp;#8230;like a bunch of socks inside one&amp;#8230;large&amp;#8230;sock.&lt;span class=&#34;caps&#34;&gt;TSA&lt;/span&gt; agent&amp;nbsp;faint&lt;/p&gt;&amp;mdash; Adria Richards (@adriarichards) &lt;a href=&#34;https://twitter.com/adriarichards/status/312265091791847425&#34;&gt;14. März 2013&lt;/a&gt;&lt;/blockquote&gt;
+&lt;div class=&#34;embed tweet&#34;&gt;&lt;blockquote class=&#34;twitter-tweet&#34; data-conversation=&#34;none&#34;&gt;&lt;p&gt;&lt;a href=&#34;https://twitter.com/skwashd&#34;&gt;@skwashd&lt;/a&gt; you should put something in your pants next time&amp;#8230;like a bunch of socks inside one&amp;#8230;large&amp;#8230;sock.  &lt;span class=&#34;caps&#34;&gt;TSA&lt;/span&gt; agent&amp;nbsp;faint&lt;/p&gt;&amp;mdash; Adria Richards (@adriarichards) &lt;a href=&#34;https://twitter.com/adriarichards/statuses/312265091791847425&#34;&gt;March 14, 2013&lt;/a&gt;&lt;/blockquote&gt;
 &lt;script async src=&#34;//platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;&lt;/div&gt;
 
 &lt;p&gt;Wer mit ihr diskutieren will, muss leider schwarz sein, denn sonst ist jede
@@ -83,7 +117,7 @@ Adria Richards ist auch sexistisch veranlagt (und hat *mimimimi* meine Gefühle&
         </author>
         <content type="html">&lt;p&gt;*** Dafür müssen wir Ihr altes Backup aufgrund technischer Inkompetenz löschen.
 Das tut uns&amp;nbsp;Leid.&lt;/p&gt;
-&lt;p&gt;&lt;img alt=&#34;Fehlermeldung als Inkarnation eines Bildes&#34; class=&#34;center&#34; src=&#34;http:/blog.posativ.org/img/2013/time-machine.png&#34;/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;Fehlermeldung als Inkarnation eines Bildes&#34; class=&#34;center&#34; src=&#34;http://blog.posativ.org/img/2013/time-machine.png&#34;/&gt;&lt;/p&gt;
 &lt;p&gt;Meh.&lt;/p&gt;
 &lt;h3&gt;Not the State of&amp;nbsp;Art&lt;/h3&gt;
 &lt;p&gt;So sehr ich Time Machine auch mag &amp;#8211; system-integriert, halbwegs schnell, Booten
@@ -99,7 +133,7 @@ sondern an den technischen Unstimmigkeiten, die mir das Leben als Nerd schwer&am
 &lt;/ul&gt;
 &lt;p&gt;Wenn man im Hinterkopf hat, dass Apple zwar schön &lt;a href=&#34;http://www.rsnapshot.org/&#34;&gt;&lt;code&gt;rsnapshot&lt;/code&gt;&lt;/a&gt;-mäßig
 ungeänderte Revision per Hardlink &lt;del&gt;dedupliziert&lt;/del&gt; referenziert, aber gerade
-auf Dateisystemebene massive Probleme &lt;sup id=&#34;fnref:1&#34;&gt;&lt;a class=&#34;footnote-ref&#34; href=&#34;http:/blog.posativ.org/2013/zuverlaessigkeit-der-time-machine/#fn:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; mit eben diesen Hardlinks hat, kann
+auf Dateisystemebene massive Probleme &lt;sup id=&#34;fnref:1&#34;&gt;&lt;a class=&#34;footnote-ref&#34; href=&#34;http://blog.posativ.org/2013/zuverlaessigkeit-der-time-machine/#fn:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; mit eben diesen Hardlinks hat, kann
 ich nachvollziehen, warum Apple ein Backup lieber als &amp;#8220;verloren&amp;#8221; für weitere
 Backups markiert, als Gefahr zu laufen, dass der Unterbau kaputt&amp;nbsp;geht.&lt;/p&gt;
 &lt;p&gt;Das mag zwar den gemeinen Nutzer nicht treffen, aber mich traf es. Datenplatte
@@ -112,7 +146,7 @@ später war das Backup nun nicht mehr &amp;#8220;zuverlässig&amp;#8221;. Gratul
 würde unverschlüsselte Backups als simple Dateien ablegen, sodass &lt;span class=&#34;caps&#34;&gt;ZFS&lt;/span&gt;&amp;#8217;
 Deduplikation greift. Ha, Pustekuchen! Nachdem ich mein altes Backup (~350 &lt;span class=&#34;caps&#34;&gt;GB&lt;/span&gt;,
 nur zwei Monate alt) aufgeben musste, gibt &lt;span class=&#34;caps&#34;&gt;ZFS&lt;/span&gt; den Speicherplatz wohl wegen der
-vielen Dateien nicht mehr frei &lt;sup id=&#34;fnref:2&#34;&gt;&lt;a class=&#34;footnote-ref&#34; href=&#34;http:/blog.posativ.org/2013/zuverlaessigkeit-der-time-machine/#fn:2&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;.&amp;nbsp;Yay.&lt;/p&gt;
+vielen Dateien nicht mehr frei &lt;sup id=&#34;fnref:2&#34;&gt;&lt;a class=&#34;footnote-ref&#34; href=&#34;http://blog.posativ.org/2013/zuverlaessigkeit-der-time-machine/#fn:2&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;.&amp;nbsp;Yay.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span class=&#34;nv&#34;&gt;$ &lt;/span&gt;du -sh /data/backup/
 552G    /data/backup/
 &lt;span class=&#34;nv&#34;&gt;$ &lt;/span&gt;zfs list /data/backup/
@@ -133,11 +167,11 @@ nicht. Statt &lt;code&gt;fsevent&lt;/code&gt; wird jedes mal das komplette Datei
 &lt;p&gt;&lt;a href=&#34;http://arstechnica.com/apple/2011/07/mac-os-x-10-7/12/#hfs-problems&#34;&gt;Ars Technica über die Probleme mit &lt;span class=&#34;caps&#34;&gt;HFS&lt;/span&gt;+ Hardlinks.
   &lt;/a&gt;
   Angesichts dieser Software-Architektur würde es mich nicht verwundern,
-  wenn dieses Problem auch in den Sparsebundles existiert.&amp;#160;&lt;a class=&#34;footnote-backref&#34; href=&#34;http:/blog.posativ.org/2013/zuverlaessigkeit-der-time-machine/#fnref:1&#34; title=&#34;Jump back to footnote 1 in the text&#34;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+  wenn dieses Problem auch in den Sparsebundles existiert.&amp;#160;&lt;a class=&#34;footnote-backref&#34; href=&#34;http://blog.posativ.org/2013/zuverlaessigkeit-der-time-machine/#fnref:1&#34; title=&#34;Jump back to footnote 1 in the text&#34;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li id=&#34;fn:2&#34;&gt;
 &lt;p&gt;siehe &lt;a href=&#34;http://comments.gmane.org/gmane.os.solaris.opensolaris.zfs/35935&#34;&gt;gmane.os.solaris.zfs/35935
-        &lt;/a&gt;&amp;#160;&lt;a class=&#34;footnote-backref&#34; href=&#34;http:/blog.posativ.org/2013/zuverlaessigkeit-der-time-machine/#fnref:2&#34; title=&#34;Jump back to footnote 2 in the text&#34;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+        &lt;/a&gt;&amp;#160;&lt;a class=&#34;footnote-backref&#34; href=&#34;http://blog.posativ.org/2013/zuverlaessigkeit-der-time-machine/#fnref:2&#34; title=&#34;Jump back to footnote 2 in the text&#34;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;/div&gt;</content>
@@ -201,7 +235,7 @@ Quellen, welche erstmal ein aktuelles Python zur Konfiguration&amp;nbsp;braucht.
             <email>info@posativ.org</email>
         </author>
         <content type="html">&lt;p&gt;Eine Linkschleuder hatten wir lange nicht mehr. Hab ungefähr über 9000 Links
-über die Weihnachtsferien gesammelt und nun die &lt;span class=&#34;caps&#34;&gt;BESTEN&lt;/span&gt; der &lt;span class=&#34;caps&#34;&gt;BESTEN&lt;/span&gt; &lt;sup id=&#34;fnref:1&#34;&gt;&lt;a class=&#34;footnote-ref&#34; href=&#34;http:/blog.posativ.org/2013/linkschleuder-29/#fn:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; abgetippt:&lt;/p&gt;
+über die Weihnachtsferien gesammelt und nun die &lt;span class=&#34;caps&#34;&gt;BESTEN&lt;/span&gt; der &lt;span class=&#34;caps&#34;&gt;BESTEN&lt;/span&gt; &lt;sup id=&#34;fnref:1&#34;&gt;&lt;a class=&#34;footnote-ref&#34; href=&#34;http://blog.posativ.org/2013/linkschleuder-29/#fn:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; abgetippt:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://www.projecthoneypot.org/&#34;&gt;Project Honey Pot&lt;/a&gt; – ziemlich
   zuverlässige Spam- und Harvestingerkennung, wenn man den Honigtopf eine Weile
@@ -223,7 +257,7 @@ Quellen, welche erstmal ein aktuelles Python zur Konfiguration&amp;nbsp;braucht.
   als der Name vermuten lässt – auch Dienste neben &lt;span class=&#34;caps&#34;&gt;&lt;abbr title=&#34;Secure Shell&#34;&gt;SSH&lt;/abbr&gt;&lt;/span&gt;, ist allerdings in C
   geschrieben und hat eine hübschere&amp;nbsp;Website.&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/visionmedia/git-extras&#34;&gt;git-extras&lt;/a&gt; – ein paar nützliche
-  Utilities für &lt;a href=&#34;http://git-scm.com/&#34;&gt;git&lt;/a&gt; (via &lt;a href=&#34;http:/blog.posativ.org/mycrobase.de/index.html&#34;&gt;cmur2&lt;/a&gt;).&lt;/li&gt;
+  Utilities für &lt;a href=&#34;http://git-scm.com/&#34;&gt;git&lt;/a&gt; (via &lt;a href=&#34;http://blog.posativ.org//mycrobase.de/&#34;&gt;cmur2&lt;/a&gt;).&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;http://www.nongnu.org/chktex/&#34;&gt;chktex&lt;/a&gt; – &lt;del&gt;fsck&lt;/del&gt; Lint für LaTeX, sicherlich
   nützlich für meine baldige&amp;nbsp;Bachelor-Arbeit.&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://gist.github.com/526585&#34;&gt;memusg&lt;/a&gt; – kurz für &lt;em&gt;memory usage&lt;/em&gt;, ist ein
@@ -235,7 +269,7 @@ Quellen, welche erstmal ein aktuelles Python zur Konfiguration&amp;nbsp;braucht.
   leichter zu merken ist. Fairerweise kann &lt;code&gt;dcfldd&lt;/code&gt; noch mehr unsinniges Zeug
   wie beispielsweise CRCen, Splitten oder&amp;nbsp;Loggen.&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;http://opensource.hld.ca/trac.cgi/wiki/CurseTheWeather&#34;&gt;Curse The Weather&lt;/a&gt; –
-  &lt;a href=&#34;http:/blog.posativ.org/img/2013/ctw.png&#34;&gt;zeigt das aktuelle Wetter&lt;/a&gt; von weather.com sowie die
+  &lt;a href=&#34;http://blog.posativ.org/img/2013/ctw.png&#34;&gt;zeigt das aktuelle Wetter&lt;/a&gt; von weather.com sowie die
   Vorhersage für die nächsten fünf Tage an (leider nicht &lt;code&gt;easy_&lt;/code&gt;zu&lt;code&gt;install&lt;/code&gt;ieren).&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;http://nicolargo.github.com/glances/&#34;&gt;Glances&lt;/a&gt; – unterstützt im Gegensatz zu
   &lt;code&gt;htop&lt;/code&gt; auch *&lt;span class=&#34;caps&#34;&gt;&lt;abbr title=&#34;Berkeley System Distribution&#34;&gt;BSD&lt;/abbr&gt;&lt;/span&gt; (beide via &lt;a href=&#34;https://inconsolation.wordpress.com/&#34;&gt;Inconsolation&lt;/a&gt;).&lt;/li&gt;
@@ -244,7 +278,7 @@ Quellen, welche erstmal ein aktuelles Python zur Konfiguration&amp;nbsp;braucht.
 &lt;hr /&gt;
 &lt;ol&gt;
 &lt;li id=&#34;fn:1&#34;&gt;
-&lt;p&gt;!1&amp;#160;&lt;a class=&#34;footnote-backref&#34; href=&#34;http:/blog.posativ.org/2013/linkschleuder-29/#fnref:1&#34; title=&#34;Jump back to footnote 1 in the text&#34;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;!1&amp;#160;&lt;a class=&#34;footnote-backref&#34; href=&#34;http://blog.posativ.org/2013/linkschleuder-29/#fnref:1&#34; title=&#34;Jump back to footnote 1 in the text&#34;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;/div&gt;</content>
@@ -328,7 +362,7 @@ mäßiger – um die 1 &lt;span class=&#34;caps&#34;&gt;MB&lt;/span&gt;/s – Ge
 man sich keine Accounts teilen, aber das ist Quatsch. Selbst als ich von
 Alice auf Tele Columbus gewechselt habe (vorher hatten wir beide Alice), haben
 die das nicht gemerkt. Naja, deren System ist ja auch in &lt;span class=&#34;caps&#34;&gt;PHP&lt;/span&gt;&amp;nbsp;geschrieben.&lt;/p&gt;
-&lt;p&gt;Gibt auch andere wie &lt;a href=&#34;http:/blog.posativ.org/2012/premiumize-me&#34;&gt;zevera.com&lt;/a&gt; und &lt;a href=&#34;http:/blog.posativ.org/2012/premiumize-me&#34;&gt;real-debrid.com&lt;/a&gt; – letzteres hat
+&lt;p&gt;Gibt auch andere wie &lt;a href=&#34;http://blog.posativ.org/2012/premiumize-me&#34;&gt;zevera.com&lt;/a&gt; und &lt;a href=&#34;http://blog.posativ.org/2012/premiumize-me&#34;&gt;real-debrid.com&lt;/a&gt; – letzteres hat
 praktisch immer &amp;#8220;Wartungsarbeiten&amp;#8221; bei populären Hostern und ersteres ein
 ziemlich behindertes Webinterface und genauso lange Wartezeiten wie die
 eigentlichen Hoster. Active Server Pages halt. Alle drei bieten aber (unter
@@ -530,7 +564,7 @@ unter &lt;a href=&#34;https://posativ.org/weave/&#34;&gt;/weave&lt;/a&gt;&amp;nb
             <uri>http://blog.posativ.org/</uri>
             <email>info@posativ.org</email>
         </author>
-        <content type="html">&lt;p&gt;&lt;img src=&#34;http:/blog.posativ.org/img/2012/freebsd.png&#34; alt=&#34;FreeBSD Logo&#34; class=&#34;floatright no-shadow&#34; width=&#34;200px&#34;/&gt;&lt;/p&gt;
+        <content type="html">&lt;p&gt;&lt;img src=&#34;http://blog.posativ.org/img/2012/freebsd.png&#34; alt=&#34;FreeBSD Logo&#34; class=&#34;floatright no-shadow&#34; width=&#34;200px&#34;/&gt;&lt;/p&gt;
 &lt;p&gt;Da mein derzeitiger Router – eine Time Capsule – doch sehr langsam für das Backup und vor allem Wiederherstellen (nicht unter einer Minute) ist, wird er durch ein neues Gerät ersetzt, das unter FreeBSD laufen soll&lt;!-- break --&gt;.&lt;/p&gt;
 &lt;h3&gt;Was?&amp;nbsp;FreeBSD?&lt;/h3&gt;
 &lt;p&gt;Hat &lt;a href=&#34;http://cre.fm/cre048&#34;&gt;man vielleicht schon einmal gehört&lt;/a&gt;. Ist kein Linux, sondern basiert – wer hätte es gedacht – auf dem FreeBSD-Kernel, der im Unterschied zu Linux wesentlich weniger Treiber mitbringt und auch konzeptuell sehr verschieden ist. Im Gegensatz zu Ubuntu/Debian ist FreeBSD aus einem Guss. Sowohl der Kernel, das Basis-System als auch die Software wird von einer Community&amp;nbsp;betreut.&lt;/p&gt;
@@ -552,8 +586,8 @@ cp &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;-R &lt;span class=&#34;o&#34;&gt;
 &lt;p&gt;Das ist bei jedem &lt;span class=&#34;caps&#34;&gt;GNU&lt;/span&gt; Tool der Fall und geht sogar so weit, dass &lt;code&gt;sed&lt;/code&gt; in der &lt;span class=&#34;caps&#34;&gt;GNU&lt;/span&gt; Variante &lt;a href=&#34;http://stackoverflow.com/questions/2320564/variations-of-sed-between-osx-and-gnu-linux&#34;&gt;nahezu inkompatibel&lt;/a&gt; zu &lt;span class=&#34;caps&#34;&gt;BSD&lt;/span&gt;&amp;nbsp;ist.&lt;/p&gt;
 &lt;p&gt;Auf einer anderen Ebene bin ich als Entwickler auch ein Feind der &lt;span class=&#34;caps&#34;&gt;GPL&lt;/span&gt; und bevorzuge – wenn möglich – die &lt;span class=&#34;caps&#34;&gt;BSD&lt;/span&gt;-Lizenz, die im Gegenzug andere Entwickler nicht zwingen, unter gleichen Bedingungen zu veröffentlichen. So ziemlich alle &lt;span class=&#34;caps&#34;&gt;BSD&lt;/span&gt;-Derivate stehen unter der &lt;span class=&#34;caps&#34;&gt;BSD&lt;/span&gt; und sind dennoch frei wie&amp;nbsp;Linux.&lt;/p&gt;
 &lt;h3&gt;NetBSD, OpenBSD und DragonFly&amp;nbsp;&lt;span class=&#34;caps&#34;&gt;BSD&lt;/span&gt;&lt;/h3&gt;
-&lt;p&gt;Neben FreeBSD sind auch noch &lt;a href=&#34;http://www.netbsd.org/&#34;&gt;NetBSD&lt;/a&gt; und &lt;a href=&#34;http://www.openbsd.org/&#34;&gt;OpenBSD&lt;/a&gt; relativ bekannt. Ersteres ist quasi wie Gentoo und läuft auf jeder Architektur die man sich vorstellen kann &lt;sup id=&#34;fnref:1&#34;&gt;&lt;a class=&#34;footnote-ref&#34; href=&#34;http:/blog.posativ.org/2012/abseits-von-linux-freebsd/#fn:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;, letzteres hat seinen Fokus auf Sicherheit, Code-Qualität und entwickelt&lt;del&gt;e&lt;/del&gt; OpenSSL sowie&amp;nbsp;OpenSSH.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;http://www.dragonflybsd.org/&#34;&gt;DragonFly &lt;span class=&#34;caps&#34;&gt;BSD&lt;/span&gt;&lt;/a&gt; als Fork von FreeBSD ist es ein relativ junges – 2003 angefangen – System mit vielen einzigartigen Features, z.B. virtuelle Kernel, deutlich verbessertes &lt;a href=&#34;https://en.wikipedia.org/wiki/Symmetric_multiprocessing&#34;&gt;&lt;span class=&#34;caps&#34;&gt;SMP&lt;/span&gt;&lt;/a&gt; &lt;sup id=&#34;fnref:2&#34;&gt;&lt;a class=&#34;footnote-ref&#34; href=&#34;http:/blog.posativ.org/2012/abseits-von-linux-freebsd/#fn:2&#34;&gt;2&lt;/a&gt;&lt;/sup&gt; und bietet mit &lt;span class=&#34;caps&#34;&gt;HAMMER&lt;/span&gt; ein neues Dateisystem (Linux Port ist in Arbeit), das dem &lt;span class=&#34;caps&#34;&gt;ZFS&lt;/span&gt; nicht unähnlich&amp;nbsp;ist.&lt;/p&gt;
+&lt;p&gt;Neben FreeBSD sind auch noch &lt;a href=&#34;http://www.netbsd.org/&#34;&gt;NetBSD&lt;/a&gt; und &lt;a href=&#34;http://www.openbsd.org/&#34;&gt;OpenBSD&lt;/a&gt; relativ bekannt. Ersteres ist quasi wie Gentoo und läuft auf jeder Architektur die man sich vorstellen kann &lt;sup id=&#34;fnref:1&#34;&gt;&lt;a class=&#34;footnote-ref&#34; href=&#34;http://blog.posativ.org/2012/abseits-von-linux-freebsd/#fn:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;, letzteres hat seinen Fokus auf Sicherheit, Code-Qualität und entwickelt&lt;del&gt;e&lt;/del&gt; OpenSSL sowie&amp;nbsp;OpenSSH.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://www.dragonflybsd.org/&#34;&gt;DragonFly &lt;span class=&#34;caps&#34;&gt;BSD&lt;/span&gt;&lt;/a&gt; als Fork von FreeBSD ist es ein relativ junges – 2003 angefangen – System mit vielen einzigartigen Features, z.B. virtuelle Kernel, deutlich verbessertes &lt;a href=&#34;https://en.wikipedia.org/wiki/Symmetric_multiprocessing&#34;&gt;&lt;span class=&#34;caps&#34;&gt;SMP&lt;/span&gt;&lt;/a&gt; &lt;sup id=&#34;fnref:2&#34;&gt;&lt;a class=&#34;footnote-ref&#34; href=&#34;http://blog.posativ.org/2012/abseits-von-linux-freebsd/#fn:2&#34;&gt;2&lt;/a&gt;&lt;/sup&gt; und bietet mit &lt;span class=&#34;caps&#34;&gt;HAMMER&lt;/span&gt; ein neues Dateisystem (Linux Port ist in Arbeit), das dem &lt;span class=&#34;caps&#34;&gt;ZFS&lt;/span&gt; nicht unähnlich&amp;nbsp;ist.&lt;/p&gt;
 &lt;p&gt;Für mich sprach gegen NetBSD, dass die Unterstützung von unzähligen Architekturen mir mit meiner 08/15 amd64 Architektur herzlich egal ist. OpenBSD ist sowieso uninteressant, denn die Sicherheit von Linux-Systemen hat mir bisher auch ausgereicht und DragonFly &lt;span class=&#34;caps&#34;&gt;BSD&lt;/span&gt; hat definitiv besseres verdient, denn als Router zu&amp;nbsp;fungieren.&lt;/p&gt;
 &lt;h3&gt;Ausblick&lt;/h3&gt;
 &lt;p&gt;FreeBSD ist nicht an einem Tag gelernt, auch wenn die kompakten Manpages es durchaus zulassen. Erwähnte ich eigentlich, dass wirklich &lt;em&gt;jedes&lt;/em&gt; Programm eine eigene Manpage hat? Das erleichtert den Einstieg ungemein und man lernt sehr schnell sehr viel über das&amp;nbsp;System.&lt;/p&gt;
@@ -563,10 +597,10 @@ cp &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;-R &lt;span class=&#34;o&#34;&gt;
 &lt;hr /&gt;
 &lt;ol&gt;
 &lt;li id=&#34;fn:1&#34;&gt;
-&lt;p&gt;Es sei noch angemerkt, dass der Paketmanager von NetBSD auch unter Linux läuft, sie auch &lt;a href=&#34;http:/blog.posativ.org/2010/pkgsrc-eine-lokale-unabhaengige-paketverwaltung/index.html&#34;&gt;pkgsrc: eine lokale, unabhängige Paketverwaltung&lt;/a&gt;.&amp;#160;&lt;a class=&#34;footnote-backref&#34; href=&#34;http:/blog.posativ.org/2012/abseits-von-linux-freebsd/#fnref:1&#34; title=&#34;Jump back to footnote 1 in the text&#34;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Es sei noch angemerkt, dass der Paketmanager von NetBSD auch unter Linux läuft, sie auch &lt;a href=&#34;http://blog.posativ.org/2010/pkgsrc-eine-lokale-unabhaengige-paketverwaltung/&#34;&gt;pkgsrc: eine lokale, unabhängige Paketverwaltung&lt;/a&gt;.&amp;#160;&lt;a class=&#34;footnote-backref&#34; href=&#34;http://blog.posativ.org/2012/abseits-von-linux-freebsd/#fnref:1&#34; title=&#34;Jump back to footnote 1 in the text&#34;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li id=&#34;fn:2&#34;&gt;
-&lt;p&gt;Ein Punkt, wo &lt;span class=&#34;caps&#34;&gt;OS&lt;/span&gt; X (speziell &lt;a href=&#34;https://en.wikipedia.org/wiki/Darwin_(operating_system)&#34;&gt;Darwin&lt;/a&gt;) immer noch suckt.&amp;#160;&lt;a class=&#34;footnote-backref&#34; href=&#34;http:/blog.posativ.org/2012/abseits-von-linux-freebsd/#fnref:2&#34; title=&#34;Jump back to footnote 2 in the text&#34;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Ein Punkt, wo &lt;span class=&#34;caps&#34;&gt;OS&lt;/span&gt; X (speziell &lt;a href=&#34;https://en.wikipedia.org/wiki/Darwin_(operating_system)&#34;&gt;Darwin&lt;/a&gt;) immer noch suckt.&amp;#160;&lt;a class=&#34;footnote-backref&#34; href=&#34;http://blog.posativ.org/2012/abseits-von-linux-freebsd/#fnref:2&#34; title=&#34;Jump back to footnote 2 in the text&#34;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;/div&gt;</content>
@@ -637,7 +671,7 @@ mittels &lt;span class=&#34;caps&#34;&gt;PNG&lt;/span&gt;. Und wo wir gerade bei
             <uri>http://blog.posativ.org/</uri>
             <email>info@posativ.org</email>
         </author>
-        <content type="html">&lt;p&gt;Seitdem ich ein &lt;a href=&#34;http:/blog.posativ.org/2012/ich-las-im-september&#34;&gt;buchförmiges Tablet&lt;/a&gt; besitze, komme ich auch
+        <content type="html">&lt;p&gt;Seitdem ich ein &lt;a href=&#34;http://blog.posativ.org/2012/ich-las-im-september&#34;&gt;buchförmiges Tablet&lt;/a&gt; besitze, komme ich auch
 öfters zum Lesen. Ergriffen von der wunderschönen Inszenierung der &lt;a href=&#34;https://de.wikipedia.org/wiki/Die_Tribute_von_Panem&#34;&gt;Tribute von
 Panem&lt;/a&gt; habe ich kurz darauf
 &lt;a href=&#34;http://www.amazon.de/Die-Tribute-Panem-T%C3%B6dliche-Spiele/dp/3841501346/&#34;&gt;das
@@ -680,7 +714,7 @@ weniger Text, dafür mehr Inhalt (oder so ähnlich) bringen&amp;nbsp;kann.&lt;/p
 &lt;p&gt;Ich habe mir vor kurzem ein Tablet gekauft. Das &lt;a href=&#34;https://de.wikipedia.org/wiki/Nexus_7&#34;&gt;Google™ Nexus® 7&lt;/a&gt; in der
 mickrigen 8 &lt;span class=&#34;caps&#34;&gt;GB&lt;/span&gt; Variante. Ich hatte mir das auch gut überlegt (eigentlich nicht).
 Und auch wenn ich anfangs skeptisch bezüglich der Display-Größe war, so bin ich
-jetzt froh, nur ein 7&amp;#8221; zu haben. Das ist die ideale Größe &lt;sup id=&#34;fnref:1&#34;&gt;&lt;a class=&#34;footnote-ref&#34; href=&#34;http:/blog.posativ.org/2012/google-nexus-7/#fn:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; für ein Buch –
+jetzt froh, nur ein 7&amp;#8221; zu haben. Das ist die ideale Größe &lt;sup id=&#34;fnref:1&#34;&gt;&lt;a class=&#34;footnote-ref&#34; href=&#34;http://blog.posativ.org/2012/google-nexus-7/#fn:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; für ein Buch –
 das iPad wirkt dagegen monströs. Und es gab noch einen 20€ Gutschein&amp;nbsp;dazu!11&lt;/p&gt;
 &lt;p&gt;Der Gutschein war übrigens das Totschlagargument bei mir. Android-User geben ja
 prinzipiell kein Geld für Äpps aus. Ist ja Android und da ist alles &lt;del&gt;gute&lt;/del&gt;
@@ -696,7 +730,7 @@ es dort auch die Firefox Beta&amp;nbsp;gibt.&lt;/p&gt;
 &lt;ol&gt;
 &lt;li id=&#34;fn:1&#34;&gt;
 &lt;p&gt;Zumindest für die jüngere Generation. Die bevorzugte Schriftart ist
-  bekanntlich das Alter geteilt durch zwei.&amp;#160;&lt;a class=&#34;footnote-backref&#34; href=&#34;http:/blog.posativ.org/2012/google-nexus-7/#fnref:1&#34; title=&#34;Jump back to footnote 1 in the text&#34;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+  bekanntlich das Alter geteilt durch zwei.&amp;#160;&lt;a class=&#34;footnote-backref&#34; href=&#34;http://blog.posativ.org/2012/google-nexus-7/#fnref:1&#34; title=&#34;Jump back to footnote 1 in the text&#34;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;/div&gt;</content>
@@ -735,7 +769,7 @@ es dort auch die Firefox Beta&amp;nbsp;gibt.&lt;/p&gt;
 &lt;li&gt;&lt;a href=&#34;https://code.google.com/p/libfvde/&#34;&gt;libfvde&lt;/a&gt; – und wo wir gerade bei Apple waren. Um auf seine FileVault2
   geschützten Daten unter bsw. Linux zuzugreifen, gibt es inzwischen die
   Bibliothek &lt;code&gt;libfvde&lt;/code&gt;. Muss ich unbedingt&amp;nbsp;testen!&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/busyloop/lolcat&#34;&gt;lolcat&lt;/a&gt; – &lt;span style=&#34;color: #00d27e&#34;&gt;c&lt;/span&gt;&lt;span style=&#34;color: #00d254&#34;&gt;a&lt;/span&gt;&lt;span style=&#34;color: #00d254&#34;&gt;t&lt;/span&gt;&lt;span style=&#34;color: #00d254&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #00d254&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color: #00d254&#34;&gt;n&lt;/span&gt;&lt;span style=&#34;color: #00d254&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #2ad254&#34;&gt;R&lt;/span&gt;&lt;span style=&#34;color: #2ad22a&#34;&gt;e&lt;/span&gt;&lt;span style=&#34;color: #2ad22a&#34;&gt;g&lt;/span&gt;&lt;span style=&#34;color: #2ad22a&#34;&gt;e&lt;/span&gt;&lt;span style=&#34;color: #2ad22a&#34;&gt;n&lt;/span&gt;&lt;span style=&#34;color: #2ad22a&#34;&gt;b&lt;/span&gt;&lt;span style=&#34;color: #2ad22a&#34;&gt;o&lt;/span&gt;&lt;span style=&#34;color: #2ad22a&#34;&gt;g&lt;/span&gt;&lt;span style=&#34;color: #54d22a&#34;&gt;e&lt;/span&gt;&lt;span style=&#34;color: #54d200&#34;&gt;n&lt;/span&gt;&lt;span style=&#34;color: #54d200&#34;&gt;f&lt;/span&gt;&lt;span style=&#34;color: #54d200&#34;&gt;a&lt;/span&gt;&lt;span style=&#34;color: #54d200&#34;&gt;r&lt;/span&gt;&lt;span style=&#34;color: #54d200&#34;&gt;b&lt;/span&gt;&lt;span style=&#34;color: #54d200&#34;&gt;e&lt;/span&gt;&lt;span style=&#34;color: #7ed200&#34;&gt;n&lt;/span&gt;&lt;span style=&#34;color: #7ed200&#34;&gt;!&lt;/span&gt;&lt;span style=&#34;color: #7ed200&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #7ed200&#34;&gt;L&lt;/span&gt;&lt;span style=&#34;color: #7ed200&#34;&gt;e&lt;/span&gt;&lt;span style=&#34;color: #7ed200&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color: #7ea800&#34;&gt;d&lt;/span&gt;&lt;span style=&#34;color: #a8a800&#34;&gt;e&lt;/span&gt;&lt;span style=&#34;color: #a8a800&#34;&gt;r&lt;/span&gt;&lt;span style=&#34;color: #a8a800&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #a8a800&#34;&gt;s&lt;/span&gt;&lt;span style=&#34;color: #a8a800&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color: #a8a800&#34;&gt;n&lt;/span&gt;&lt;span style=&#34;color: #a8a800&#34;&gt;d&lt;/span&gt;&lt;span style=&#34;color: #a87e00&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #d27e00&#34;&gt;m&lt;/span&gt;&lt;span style=&#34;color: #d27e00&#34;&gt;a&lt;/span&gt;&lt;span style=&#34;color: #d27e00&#34;&gt;n&lt;/span&gt;&lt;span style=&#34;color: #d27e00&#34;&gt;c&lt;/span&gt;&lt;span style=&#34;color: #d27e00&#34;&gt;h&lt;/span&gt;&lt;span style=&#34;color: #d27e00&#34;&gt;e&lt;/span&gt;&lt;span style=&#34;color: #d25400&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #d25400&#34;&gt;F&lt;/span&gt;&lt;span style=&#34;color: #d25400&#34;&gt;a&lt;/span&gt;&lt;span style=&#34;color: #d25400&#34;&gt;r&lt;/span&gt;&lt;span style=&#34;color: #d25400&#34;&gt;b&lt;/span&gt;&lt;span style=&#34;color: #d25400&#34;&gt;e&lt;/span&gt;&lt;span style=&#34;color: #d2542a&#34;&gt;n&lt;/span&gt;&lt;span style=&#34;color: #d22a2a&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #d22a2a&#34;&gt;a&lt;/span&gt;&lt;span style=&#34;color: #d22a2a&#34;&gt;u&lt;/span&gt;&lt;span style=&#34;color: #d22a2a&#34;&gt;f&lt;/span&gt;&lt;span style=&#34;color: #d22a2a&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #d22a2a&#34;&gt;w&lt;/span&gt;&lt;span style=&#34;color: #d22a2a&#34;&gt;e&lt;/span&gt;&lt;span style=&#34;color: #d20054&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color: #d20054&#34;&gt;ß&lt;/span&gt;&lt;span style=&#34;color: #d20054&#34;&gt;e&lt;/span&gt;&lt;span style=&#34;color: #d20054&#34;&gt;m&lt;/span&gt;&lt;span style=&#34;color: #d20054&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #d20054&#34;&gt;G&lt;/span&gt;&lt;span style=&#34;color: #d20054&#34;&gt;r&lt;/span&gt;&lt;span style=&#34;color: #d2007e&#34;&gt;u&lt;/span&gt;&lt;span style=&#34;color: #d2007e&#34;&gt;n&lt;/span&gt;&lt;span style=&#34;color: #d2007e&#34;&gt;d&lt;/span&gt;&lt;span style=&#34;color: #d2007e&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #d2007e&#34;&gt;s&lt;/span&gt;&lt;span style=&#34;color: #d2007e&#34;&gt;c&lt;/span&gt;&lt;span style=&#34;color: #a8007e&#34;&gt;h&lt;/span&gt;&lt;span style=&#34;color: #a800a8&#34;&gt;w&lt;/span&gt;&lt;span style=&#34;color: #a800a8&#34;&gt;e&lt;/span&gt;&lt;span style=&#34;color: #a800a8&#34;&gt;r&lt;/span&gt;&lt;span style=&#34;color: #a800a8&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #a800a8&#34;&gt;l&lt;/span&gt;&lt;span style=&#34;color: #a800a8&#34;&gt;e&lt;/span&gt;&lt;span style=&#34;color: #a800a8&#34;&gt;s&lt;/span&gt;&lt;span style=&#34;color: #7e00a8&#34;&gt;b&lt;/span&gt;&lt;span style=&#34;color: #7e00d2&#34;&gt;a&lt;/span&gt;&lt;span style=&#34;color: #7e00d2&#34;&gt;r&lt;/span&gt;&lt;span style=&#34;color: #7e00d2&#34;&gt;,&lt;/span&gt;&lt;span style=&#34;color: #7e00d2&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #7e00d2&#34;&gt;s&lt;/span&gt;&lt;span style=&#34;color: #7e00d2&#34;&gt;o&lt;/span&gt;&lt;span style=&#34;color: #5400d2&#34;&gt;n&lt;/span&gt;&lt;span style=&#34;color: #5400d2&#34;&gt;s&lt;/span&gt;&lt;span style=&#34;color: #5400d2&#34;&gt;t&lt;/span&gt;&lt;span style=&#34;color: #5400d2&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #5400d2&#34;&gt;h&lt;/span&gt;&lt;span style=&#34;color: #5400d2&#34;&gt;ä&lt;/span&gt;&lt;span style=&#34;color: #2a2ad2&#34;&gt;t&lt;/span&gt;&lt;span style=&#34;color: #2a2ad2&#34;&gt;t&lt;/span&gt;&lt;span style=&#34;color: #2a2ad2&#34;&gt;e&lt;/span&gt;&lt;span style=&#34;color: #2a2ad2&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #2a2ad2&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color: #2a2ad2&#34;&gt;c&lt;/span&gt;&lt;span style=&#34;color: #2a2ad2&#34;&gt;h&lt;/span&gt;&lt;span style=&#34;color: #2a2ad2&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #0054d2&#34;&gt;d&lt;/span&gt;&lt;span style=&#34;color: #0054d2&#34;&gt;a&lt;/span&gt;&lt;span style=&#34;color: #0054d2&#34;&gt;s&lt;/span&gt;&lt;span style=&#34;color: #0054d2&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #0054d2&#34;&gt;s&lt;/span&gt;&lt;span style=&#34;color: #0054d2&#34;&gt;c&lt;/span&gt;&lt;span style=&#34;color: #0054d2&#34;&gt;h&lt;/span&gt;&lt;span style=&#34;color: #007ed2&#34;&gt;o&lt;/span&gt;&lt;span style=&#34;color: #007ed2&#34;&gt;n&lt;/span&gt;&lt;span style=&#34;color: #007ed2&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #007ed2&#34;&gt;l&lt;/span&gt;&lt;span style=&#34;color: #007ed2&#34;&gt;ä&lt;/span&gt;&lt;span style=&#34;color: #007ed2&#34;&gt;n&lt;/span&gt;&lt;span style=&#34;color: #007ea8&#34;&gt;g&lt;/span&gt;&lt;span style=&#34;color: #00a8a8&#34;&gt;s&lt;/span&gt;&lt;span style=&#34;color: #00a8a8&#34;&gt;t&lt;/span&gt;&lt;span style=&#34;color: #00a8a8&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #00a8a8&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color: #00a8a8&#34;&gt;n&lt;/span&gt;&lt;span style=&#34;color: #00a8a8&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #00a8a8&#34;&gt;p&lt;/span&gt;&lt;span style=&#34;color: #00d27e&#34;&gt;r&lt;/span&gt;&lt;span style=&#34;color: #00d27e&#34;&gt;o&lt;/span&gt;&lt;span style=&#34;color: #00d27e&#34;&gt;d&lt;/span&gt;&lt;span style=&#34;color: #00d27e&#34;&gt;u&lt;/span&gt;&lt;span style=&#34;color: #00d27e&#34;&gt;c&lt;/span&gt;&lt;span style=&#34;color: #00d27e&#34;&gt;t&lt;/span&gt;&lt;span style=&#34;color: #00d27e&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color: #00d254&#34;&gt;o&lt;/span&gt;&lt;span style=&#34;color: #00d254&#34;&gt;n&lt;/span&gt;&lt;span style=&#34;color: #00d254&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color: #00d254&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color: #00d254&#34;&gt;)&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/busyloop/lolcat&#34;&gt;lolcat&lt;/a&gt; – &lt;span style=&#34;color:#ff5f5f&#34;&gt;c&lt;/span&gt;&lt;span style=&#34;color:#ff5f5f&#34;&gt;a&lt;/span&gt;&lt;span style=&#34;color:#ff5f5f&#34;&gt;t&lt;/span&gt;&lt;span style=&#34;color:#ff5f5f&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#ff5f5f&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color:#ff0087&#34;&gt;n&lt;/span&gt;&lt;span style=&#34;color:#ff0087&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#ff0087&#34;&gt;R&lt;/span&gt;&lt;span style=&#34;color:#ff0087&#34;&gt;e&lt;/span&gt;&lt;span style=&#34;color:#ff0087&#34;&gt;g&lt;/span&gt;&lt;span style=&#34;color:#ff0087&#34;&gt;e&lt;/span&gt;&lt;span style=&#34;color:#ff00af&#34;&gt;n&lt;/span&gt;&lt;span style=&#34;color:#ff00af&#34;&gt;b&lt;/span&gt;&lt;span style=&#34;color:#ff00af&#34;&gt;o&lt;/span&gt;&lt;span style=&#34;color:#ff00af&#34;&gt;g&lt;/span&gt;&lt;span style=&#34;color:#ff00af&#34;&gt;e&lt;/span&gt;&lt;span style=&#34;color:#ff00af&#34;&gt;n&lt;/span&gt;&lt;span style=&#34;color:#d700af&#34;&gt;f&lt;/span&gt;&lt;span style=&#34;color:#d700d7&#34;&gt;a&lt;/span&gt;&lt;span style=&#34;color:#d700d7&#34;&gt;r&lt;/span&gt;&lt;span style=&#34;color:#d700d7&#34;&gt;b&lt;/span&gt;&lt;span style=&#34;color:#d700d7&#34;&gt;e&lt;/span&gt;&lt;span style=&#34;color:#d700d7&#34;&gt;n&lt;/span&gt;&lt;span style=&#34;color:#d700d7&#34;&gt;!&lt;/span&gt;&lt;span style=&#34;color:#d700d7&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#af00d7&#34;&gt;L&lt;/span&gt;&lt;span style=&#34;color:#af00ff&#34;&gt;e&lt;/span&gt;&lt;span style=&#34;color:#af00ff&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color:#af00ff&#34;&gt;d&lt;/span&gt;&lt;span style=&#34;color:#af00ff&#34;&gt;e&lt;/span&gt;&lt;span style=&#34;color:#af00ff&#34;&gt;r&lt;/span&gt;&lt;span style=&#34;color:#af00ff&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#8700ff&#34;&gt;s&lt;/span&gt;&lt;span style=&#34;color:#8700ff&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color:#8700ff&#34;&gt;n&lt;/span&gt;&lt;span style=&#34;color:#8700ff&#34;&gt;d&lt;/span&gt;&lt;span style=&#34;color:#8700ff&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#8700ff&#34;&gt;m&lt;/span&gt;&lt;span style=&#34;color:#8700ff&#34;&gt;a&lt;/span&gt;&lt;span style=&#34;color:#5f5fff&#34;&gt;n&lt;/span&gt;&lt;span style=&#34;color:#5f5fff&#34;&gt;c&lt;/span&gt;&lt;span style=&#34;color:#5f5fff&#34;&gt;h&lt;/span&gt;&lt;span style=&#34;color:#5f5fff&#34;&gt;e&lt;/span&gt;&lt;span style=&#34;color:#5f5fff&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#5f5fff&#34;&gt;F&lt;/span&gt;&lt;span style=&#34;color:#5f5fff&#34;&gt;a&lt;/span&gt;&lt;span style=&#34;color:#5f5fff&#34;&gt;r&lt;/span&gt;&lt;span style=&#34;color:#0087ff&#34;&gt;b&lt;/span&gt;&lt;span style=&#34;color:#0087ff&#34;&gt;e&lt;/span&gt;&lt;span style=&#34;color:#0087ff&#34;&gt;n&lt;/span&gt;&lt;span style=&#34;color:#0087ff&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#0087ff&#34;&gt;a&lt;/span&gt;&lt;span style=&#34;color:#0087ff&#34;&gt;u&lt;/span&gt;&lt;span style=&#34;color:#00afff&#34;&gt;f&lt;/span&gt;&lt;span style=&#34;color:#00afff&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#00afff&#34;&gt;w&lt;/span&gt;&lt;span style=&#34;color:#00afff&#34;&gt;e&lt;/span&gt;&lt;span style=&#34;color:#00afff&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color:#00afff&#34;&gt;ß&lt;/span&gt;&lt;span style=&#34;color:#00afd7&#34;&gt;e&lt;/span&gt;&lt;span style=&#34;color:#00d7d7&#34;&gt;m&lt;/span&gt;&lt;span style=&#34;color:#00d7d7&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#00d7d7&#34;&gt;G&lt;/span&gt;&lt;span style=&#34;color:#00d7d7&#34;&gt;r&lt;/span&gt;&lt;span style=&#34;color:#00d7d7&#34;&gt;u&lt;/span&gt;&lt;span style=&#34;color:#00d7d7&#34;&gt;n&lt;/span&gt;&lt;span style=&#34;color:#00d7d7&#34;&gt;d&lt;/span&gt;&lt;span style=&#34;color:#00d7af&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#00ffaf&#34;&gt;s&lt;/span&gt;&lt;span style=&#34;color:#00ffaf&#34;&gt;c&lt;/span&gt;&lt;span style=&#34;color:#00ffaf&#34;&gt;h&lt;/span&gt;&lt;span style=&#34;color:#00ffaf&#34;&gt;w&lt;/span&gt;&lt;span style=&#34;color:#00ffaf&#34;&gt;e&lt;/span&gt;&lt;span style=&#34;color:#00ffaf&#34;&gt;r&lt;/span&gt;&lt;span style=&#34;color:#00ff87&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#00ff87&#34;&gt;l&lt;/span&gt;&lt;span style=&#34;color:#00ff87&#34;&gt;e&lt;/span&gt;&lt;span style=&#34;color:#00ff87&#34;&gt;s&lt;/span&gt;&lt;span style=&#34;color:#00ff87&#34;&gt;b&lt;/span&gt;&lt;span style=&#34;color:#00ff87&#34;&gt;a&lt;/span&gt;&lt;span style=&#34;color:#5fff87&#34;&gt;r&lt;/span&gt;&lt;span style=&#34;color:#5fff5f&#34;&gt;,&lt;/span&gt;&lt;span style=&#34;color:#5fff5f&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#5fff5f&#34;&gt;s&lt;/span&gt;&lt;span style=&#34;color:#5fff5f&#34;&gt;o&lt;/span&gt;&lt;span style=&#34;color:#5fff5f&#34;&gt;n&lt;/span&gt;&lt;span style=&#34;color:#5fff5f&#34;&gt;s&lt;/span&gt;&lt;span style=&#34;color:#5fff5f&#34;&gt;t&lt;/span&gt;&lt;span style=&#34;color:#87ff5f&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#87ff00&#34;&gt;h&lt;/span&gt;&lt;span style=&#34;color:#87ff00&#34;&gt;ä&lt;/span&gt;&lt;span style=&#34;color:#87ff00&#34;&gt;t&lt;/span&gt;&lt;span style=&#34;color:#87ff00&#34;&gt;t&lt;/span&gt;&lt;span style=&#34;color:#87ff00&#34;&gt;e&lt;/span&gt;&lt;span style=&#34;color:#87ff00&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#afff00&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color:#afff00&#34;&gt;c&lt;/span&gt;&lt;span style=&#34;color:#afff00&#34;&gt;h&lt;/span&gt;&lt;span style=&#34;color:#afff00&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#afff00&#34;&gt;d&lt;/span&gt;&lt;span style=&#34;color:#afff00&#34;&gt;a&lt;/span&gt;&lt;span style=&#34;color:#afd700&#34;&gt;s&lt;/span&gt;&lt;span style=&#34;color:#d7d700&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#d7d700&#34;&gt;s&lt;/span&gt;&lt;span style=&#34;color:#d7d700&#34;&gt;c&lt;/span&gt;&lt;span style=&#34;color:#d7d700&#34;&gt;h&lt;/span&gt;&lt;span style=&#34;color:#d7d700&#34;&gt;o&lt;/span&gt;&lt;span style=&#34;color:#d7d700&#34;&gt;n&lt;/span&gt;&lt;span style=&#34;color:#d7d700&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#d7af00&#34;&gt;l&lt;/span&gt;&lt;span style=&#34;color:#ffaf00&#34;&gt;ä&lt;/span&gt;&lt;span style=&#34;color:#ffaf00&#34;&gt;n&lt;/span&gt;&lt;span style=&#34;color:#ffaf00&#34;&gt;g&lt;/span&gt;&lt;span style=&#34;color:#ffaf00&#34;&gt;s&lt;/span&gt;&lt;span style=&#34;color:#ffaf00&#34;&gt;t&lt;/span&gt;&lt;span style=&#34;color:#ffaf00&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#ff8700&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color:#ff8700&#34;&gt;n&lt;/span&gt;&lt;span style=&#34;color:#ff8700&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#ff8700&#34;&gt;p&lt;/span&gt;&lt;span style=&#34;color:#ff8700&#34;&gt;r&lt;/span&gt;&lt;span style=&#34;color:#ff8700&#34;&gt;o&lt;/span&gt;&lt;span style=&#34;color:#ff875f&#34;&gt;d&lt;/span&gt;&lt;span style=&#34;color:#ff5f5f&#34;&gt;u&lt;/span&gt;&lt;span style=&#34;color:#ff5f5f&#34;&gt;c&lt;/span&gt;&lt;span style=&#34;color:#ff5f5f&#34;&gt;t&lt;/span&gt;&lt;span style=&#34;color:#ff5f5f&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color:#ff5f5f&#34;&gt;o&lt;/span&gt;&lt;span style=&#34;color:#ff5f5f&#34;&gt;n&lt;/span&gt;&lt;span style=&#34;color:#ff5f5f&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#ff5f87&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#ff0087&#34;&gt;)&lt;/span&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;http://sed.sourceforge.net/sed1line.txt&#34;&gt;Sed Einzeiler&lt;/a&gt; – nützliche Skripte für &lt;a href=&#34;https://de.wikipedia.org/wiki/Sed_(Unix&#34;&gt;sed&lt;/a&gt;.&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;http://html9responsiveboilerstrapjs.com/&#34;&gt;&lt;span class=&#34;caps&#34;&gt;H9RBS&lt;/span&gt;.js&lt;/a&gt; – &lt;span class=&#34;caps&#34;&gt;HTML9&lt;/span&gt; Responsive Boilerstrap &lt;span class=&#34;caps&#34;&gt;JS&lt;/span&gt; und es ist sogar
   cross-universe kompatibel&amp;nbsp;:-)&lt;/li&gt;
@@ -777,7 +811,7 @@ bei mir&amp;nbsp;hoste:&lt;/p&gt;
   encryption (keine Updates hierzu, wollt&amp;#8217;s nur&amp;nbsp;erwähnen)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3&gt;&lt;a href=&#34;https://github.com/posativ/regenwolken/&#34;&gt;regenwolken – an open source CloudApp&amp;nbsp;server&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;Vor knapp einem Jahr &lt;a href=&#34;http:/blog.posativ.org/2011/regenwolken-hosting-cloudapp-on-your-own-server/index.html&#34;&gt;hatte ich ihn schon angekündigt&lt;/a&gt;, damals™ noch in der
+&lt;p&gt;Vor knapp einem Jahr &lt;a href=&#34;http://blog.posativ.org/2011/regenwolken-hosting-cloudapp-on-your-own-server/&#34;&gt;hatte ich ihn schon angekündigt&lt;/a&gt;, damals™ noch in der
 0.1-alpha Phase. Ein Jahr, ein Frameworkwechsel und vier Versionen später bin
 ich inzwischen bei 0.5 stable (!1)&amp;nbsp;angelangt.&lt;/p&gt;
 &lt;p&gt;Wer das noch nicht kennt: &lt;a href=&#34;http://developer.getcloudapp.com/&#34;&gt;CloudApp&lt;/a&gt; ist ein praktisches Tool für &lt;span class=&#34;caps&#34;&gt;OS&lt;/span&gt; X, mit
@@ -840,7 +874,7 @@ via &lt;span class=&#34;caps&#34;&gt;&lt;abbr title=&#34;Secure Shell&#34;&gt;SS
 weniger unfreiwilligem, aber geglückten Update auf &lt;a href=&#34;https://en.wikipedia.org/wiki/OS_X_Mountain_Lion&#34;&gt;Mountain Lion&lt;/a&gt;, ist
 wieder klar geworden, dass Apple bei seinen Nuller-Releases immer die
 Nutzergemeinde in den &lt;a href=&#34;http://www.heise.de/mac-and-i/meldung/Mountain-Lion-MacBook-Nutzer-klagen-ueber-kuerzere-Akkulaufzeiten-1660232.html&#34;&gt;öffentlichen Betatest&lt;/a&gt; einbezieht. Aber das ist der
-Preis für über 200 &lt;sup id=&#34;fnref:1&#34;&gt;&lt;a class=&#34;footnote-ref&#34; href=&#34;http:/blog.posativ.org/2012/die-sache-mit-os-x/#fn:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; (!1) &lt;a href=&#34;https://www.apple.com/de/osx/whats-new/features.html&#34;&gt;neue Features&lt;/a&gt;. Abzüglich der 197 Features für
+Preis für über 200 &lt;sup id=&#34;fnref:1&#34;&gt;&lt;a class=&#34;footnote-ref&#34; href=&#34;http://blog.posativ.org/2012/die-sache-mit-os-x/#fn:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; (!1) &lt;a href=&#34;https://www.apple.com/de/osx/whats-new/features.html&#34;&gt;neue Features&lt;/a&gt;. Abzüglich der 197 Features für
 die iCloud bleiben aber nur noch drei reale Features übrig – und nein, dass mit
 den Gesten für Vor- und Zurückgehen im Lexikon gehört nicht&amp;nbsp;dazu.&lt;/p&gt;
 &lt;ul&gt;
@@ -882,7 +916,7 @@ Eindruck ist stimmig&lt;/a&gt;. Da weiß man, was man&amp;nbsp;hat.&lt;/p&gt;
 &lt;ol&gt;
 &lt;li id=&#34;fn:1&#34;&gt;
 &lt;p&gt;nicht einmal das stimmt. Die Facebook-Integration ist (glücklicherweise)
-noch nicht vorhanden, somit sind es nur 195 „neue” Features m)&amp;#160;&lt;a class=&#34;footnote-backref&#34; href=&#34;http:/blog.posativ.org/2012/die-sache-mit-os-x/#fnref:1&#34; title=&#34;Jump back to footnote 1 in the text&#34;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+noch nicht vorhanden, somit sind es nur 195 „neue” Features m)&amp;#160;&lt;a class=&#34;footnote-backref&#34; href=&#34;http://blog.posativ.org/2012/die-sache-mit-os-x/#fnref:1&#34; title=&#34;Jump back to footnote 1 in the text&#34;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;/div&gt;</content>
@@ -905,7 +939,7 @@ noch nicht vorhanden, somit sind es nur 195 „neue” Features m)&amp;#160;&lt;
 &lt;li&gt;&lt;a href=&#34;http://www.security-informatics.de/blog/?p=956&#34;&gt;Darüber lacht Fefe&lt;/a&gt; – eine nette Analyse von &lt;a href=&#34;http://blog.fefe.de/&#34;&gt;Fefes Blog&lt;/a&gt;.&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;http://brackets.io/&#34;&gt;Brackets&lt;/a&gt; – ist ein noch in der Entwicklung befindlicher Open Source
   Editor auf Basis von JavaScript und &lt;span class=&#34;caps&#34;&gt;HTML&lt;/span&gt; für JavaScript und &lt;span class=&#34;caps&#34;&gt;HTML&lt;/span&gt; von
-  Adobe für &lt;span class=&#34;caps&#34;&gt;OS&lt;/span&gt; X &lt;sup id=&#34;fnref:1&#34;&gt;&lt;a class=&#34;footnote-ref&#34; href=&#34;http:/blog.posativ.org/2012/linkschleuder-26/#fn:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; und&amp;nbsp;Windows.&lt;/li&gt;
+  Adobe für &lt;span class=&#34;caps&#34;&gt;OS&lt;/span&gt; X &lt;sup id=&#34;fnref:1&#34;&gt;&lt;a class=&#34;footnote-ref&#34; href=&#34;http://blog.posativ.org/2012/linkschleuder-26/#fn:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; und&amp;nbsp;Windows.&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;http://markdoc.org/&#34;&gt;Markdoc&lt;/a&gt; – ist ein leichtgewichtiges Wiki-System auf Markdown Basis.
   Müsste ich mir mal näher&amp;nbsp;anschauen.&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/sstephenson/rbenv&#34;&gt;rbenv&lt;/a&gt; – eine hoffentlich bessere Alternative zu &lt;a href=&#34;http://rvm.io&#34;&gt;rvm&lt;/a&gt;.&lt;/li&gt;
@@ -919,13 +953,13 @@ noch nicht vorhanden, somit sind es nur 195 „neue” Features m)&amp;#160;&lt;
   beispielsweise mit &lt;a href=&#34;http://blog.posativ.org/2011/cmus-c-music-player/&#34;&gt;cmus&lt;/a&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Zum Schluss noch das Tool des Monats – &lt;a href=&#34;http://lobstertech.com/fabulous.html&#34;&gt;Fabuluos&lt;/a&gt; – das sich in Verbindung
-mit &lt;a href=&#34;https://github.com/ralphbean/ansi2html&#34;&gt;ansi2html&lt;/a&gt; prima für den &lt;a href=&#34;http:/blog.posativ.org/2012/linkschleuder-26&#34;&gt;vorherigen Beitrag&lt;/a&gt; eignete&amp;nbsp;;-)&lt;/p&gt;
+mit &lt;a href=&#34;https://github.com/ralphbean/ansi2html&#34;&gt;ansi2html&lt;/a&gt; prima für den &lt;a href=&#34;http://blog.posativ.org/2012/linkschleuder-26&#34;&gt;vorherigen Beitrag&lt;/a&gt; eignete&amp;nbsp;;-)&lt;/p&gt;
 &lt;div class=&#34;footnote&#34;&gt;
 &lt;hr /&gt;
 &lt;ol&gt;
 &lt;li id=&#34;fn:1&#34;&gt;
 &lt;p&gt;Da sie die &lt;a href=&#34;https://github.com/adobe/brackets/downloads&#34;&gt;Builds&lt;/a&gt; unter
-  &lt;span class=&#34;caps&#34;&gt;OS&lt;/span&gt; X etwas verbockt haben, vorher &lt;code&gt;chmod +x Brackets.app/Contents/MacOS/Brackets&lt;/code&gt;.&amp;#160;&lt;a class=&#34;footnote-backref&#34; href=&#34;http:/blog.posativ.org/2012/linkschleuder-26/#fnref:1&#34; title=&#34;Jump back to footnote 1 in the text&#34;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+  &lt;span class=&#34;caps&#34;&gt;OS&lt;/span&gt; X etwas verbockt haben, vorher &lt;code&gt;chmod +x Brackets.app/Contents/MacOS/Brackets&lt;/code&gt;.&amp;#160;&lt;a class=&#34;footnote-backref&#34; href=&#34;http://blog.posativ.org/2012/linkschleuder-26/#fnref:1&#34; title=&#34;Jump back to footnote 1 in the text&#34;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;/div&gt;</content>
@@ -986,7 +1020,7 @@ mit &lt;a href=&#34;https://github.com/ralphbean/ansi2html&#34;&gt;ansi2html&lt;
 &lt;span style=&#34;background: #FFF&#34;&gt;     &lt;span style=&#34;background: #eeeeee&#34;&gt; &lt;span style=&#34;background: #000000&#34;&gt; &lt;span style=&#34;background: #080808&#34;&gt; &lt;span style=&#34;background: #FFF&#34;&gt;    &lt;span style=&#34;background: #6c6c6c&#34;&gt; &lt;span style=&#34;background: #000000&#34;&gt; &lt;span style=&#34;background: #FFF&#34;&gt;                           &lt;span style=&#34;background: #080808&#34;&gt; &lt;span style=&#34;background: #000000&#34;&gt; &lt;span style=&#34;background: #2a0000&#34;&gt; &lt;span style=&#34;background: #a80000&#34;&gt; &lt;span style=&#34;background: #d20000&#34;&gt;    &lt;span style=&#34;background: #d22a00&#34;&gt; &lt;span style=&#34;background: #a85400&#34;&gt;      &lt;span style=&#34;background: #a87e00&#34;&gt; &lt;span style=&#34;background: #a8a800&#34;&gt; &lt;span style=&#34;background: #d2a800&#34;&gt; &lt;span style=&#34;background: #a8a800&#34;&gt; &lt;span style=&#34;background: #2ad200&#34;&gt; &lt;span style=&#34;background: #00d200&#34;&gt;  &lt;span style=&#34;background: #00d27e&#34;&gt; &lt;span style=&#34;background: #00d2a8&#34;&gt; &lt;span style=&#34;background: #00a8a8&#34;&gt; &lt;span style=&#34;background: #002ad2&#34;&gt;  &lt;span style=&#34;background: #0000d2&#34;&gt;  &lt;span style=&#34;background: #002ad2&#34;&gt; &lt;span style=&#34;background: #547ed2&#34;&gt; &lt;span style=&#34;background: #FFF&#34;&gt;   &lt;span style=&#34;background: #000000&#34;&gt; &lt;span style=&#34;background: #FFF&#34;&gt;      &lt;span style=&#34;background: #080808&#34;&gt; &lt;span style=&#34;background: #000000&#34;&gt; &lt;span style=&#34;background: #FFF&#34;&gt;                   &lt;span style=&#34;&#34;&gt;
 &lt;/pre&gt;
 
-&lt;p&gt;&lt;span class=&#34;caps&#34;&gt;PS&lt;/span&gt;: dieser Beitrag enthält Farbe und sollte im Browser betrachtet werden. &lt;a href=&#34;http:/blog.posativ.org/img/2012/puke.jpg&#34;&gt;Hier
+&lt;p&gt;&lt;span class=&#34;caps&#34;&gt;PS&lt;/span&gt;: dieser Beitrag enthält Farbe und sollte im Browser betrachtet werden. &lt;a href=&#34;http://blog.posativ.org/img/2012/puke.jpg&#34;&gt;Hier
 das Original&lt;/a&gt;.&lt;/p&gt;</content>
     </entry>
     
@@ -1009,7 +1043,7 @@ heißen &lt;a href=&#34;https://www.eff.org/https-everywhere/&#34;&gt;&lt;span c
 &lt;a href=&#34;https://www.requestpolicy.com/&#34;&gt;Request Policy&lt;/a&gt;) und gibt mir &lt;span class=&#34;caps&#34;&gt;VI&lt;/span&gt;-bindings im Firefox.
 Wofür man das braucht? Für verdammt schnelles Browsen
 &lt;!-- break --&gt; &amp;#8230;&lt;/p&gt;
-&lt;p&gt;&lt;img alt=&#34;Screenshot von Pentadactyl mit Follow Link&#34; src=&#34;http:/blog.posativ.org/img/2012/pentadactyl.png&#34; style=&#34;box-shadow: 0px 0px 0px black; margin: 0;&#34;/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;Screenshot von Pentadactyl mit Follow Link&#34; src=&#34;http://blog.posativ.org/img/2012/pentadactyl.png&#34; style=&#34;box-shadow: 0px 0px 0px black; margin: 0;&#34;/&gt;&lt;/p&gt;
 &lt;p&gt;&amp;#8230; und nach einer kurzen Eingewöhnungszeit und lesen der Dokumentation  unter
 &lt;code&gt;:help&lt;/code&gt; (Strg+T und Strg+L gibt es nicht mehr, auch keine Adresszeile) geht
 das so locker von der Hand, dass man es nicht mehr missen möchte. Manchmal ist
@@ -1221,38 +1255,38 @@ Bildergalerie mit &lt;a href=&#34;http://jinja.pocoo.org/&#34;&gt;Jinja2&lt;/a&g
 nachgeholt und hier sind ein paar Fotos aus dem schönen St. Petersburg gegen
 Ende Februar.&lt;!-- break --&gt;&lt;/p&gt;
 &lt;figure class=&#34;gallery&#34;&gt;
-  &lt;a href=&#34;http:/blog.posativ.org/shots/st-petersburg/other/rest-01.JPG&#34; class=&#34;thumb first &#34;&gt;
-          &lt;img src=&#34;http:/blog.posativ.org/shots/st-petersburg/other/thumbs/rest-01.JPG&#34; alt=&#34;rest-01.JPG&#34;/&gt;
-        &lt;/a&gt;&lt;a href=&#34;http:/blog.posativ.org/shots/st-petersburg/other/rest-02.JPG&#34; class=&#34;thumb  &#34;&gt;
-          &lt;img src=&#34;http:/blog.posativ.org/shots/st-petersburg/other/thumbs/rest-02.JPG&#34; alt=&#34;rest-02.JPG&#34;/&gt;
-        &lt;/a&gt;&lt;a href=&#34;http:/blog.posativ.org/shots/st-petersburg/other/rest-03.JPG&#34; class=&#34;thumb  &#34;&gt;
-          &lt;img src=&#34;http:/blog.posativ.org/shots/st-petersburg/other/thumbs/rest-03.JPG&#34; alt=&#34;rest-03.JPG&#34;/&gt;
-        &lt;/a&gt;&lt;a href=&#34;http:/blog.posativ.org/shots/st-petersburg/other/rest-04.JPG&#34; class=&#34;thumb  &#34;&gt;
-          &lt;img src=&#34;http:/blog.posativ.org/shots/st-petersburg/other/thumbs/rest-04.JPG&#34; alt=&#34;rest-04.JPG&#34;/&gt;
-        &lt;/a&gt;&lt;a href=&#34;http:/blog.posativ.org/shots/st-petersburg/other/rest-05.JPG&#34; class=&#34;thumb  &#34;&gt;
-          &lt;img src=&#34;http:/blog.posativ.org/shots/st-petersburg/other/thumbs/rest-05.JPG&#34; alt=&#34;rest-05.JPG&#34;/&gt;
-        &lt;/a&gt;&lt;a href=&#34;http:/blog.posativ.org/shots/st-petersburg/other/rest-06.JPG&#34; class=&#34;thumb  &#34;&gt;
-          &lt;img src=&#34;http:/blog.posativ.org/shots/st-petersburg/other/thumbs/rest-06.JPG&#34; alt=&#34;rest-06.JPG&#34;/&gt;
-        &lt;/a&gt;&lt;a href=&#34;http:/blog.posativ.org/shots/st-petersburg/other/rest-07.JPG&#34; class=&#34;thumb  &#34;&gt;
-          &lt;img src=&#34;http:/blog.posativ.org/shots/st-petersburg/other/thumbs/rest-07.JPG&#34; alt=&#34;rest-07.JPG&#34;/&gt;
-        &lt;/a&gt;&lt;a href=&#34;http:/blog.posativ.org/shots/st-petersburg/other/rest-08.JPG&#34; class=&#34;thumb  &#34;&gt;
-          &lt;img src=&#34;http:/blog.posativ.org/shots/st-petersburg/other/thumbs/rest-08.JPG&#34; alt=&#34;rest-08.JPG&#34;/&gt;
-        &lt;/a&gt;&lt;a href=&#34;http:/blog.posativ.org/shots/st-petersburg/other/rest-09.JPG&#34; class=&#34;thumb  &#34;&gt;
-          &lt;img src=&#34;http:/blog.posativ.org/shots/st-petersburg/other/thumbs/rest-09.JPG&#34; alt=&#34;rest-09.JPG&#34;/&gt;
-        &lt;/a&gt;&lt;a href=&#34;http:/blog.posativ.org/shots/st-petersburg/other/rest-10.JPG&#34; class=&#34;thumb  &#34;&gt;
-          &lt;img src=&#34;http:/blog.posativ.org/shots/st-petersburg/other/thumbs/rest-10.JPG&#34; alt=&#34;rest-10.JPG&#34;/&gt;
-        &lt;/a&gt;&lt;a href=&#34;http:/blog.posativ.org/shots/st-petersburg/other/rest-11.JPG&#34; class=&#34;thumb  &#34;&gt;
-          &lt;img src=&#34;http:/blog.posativ.org/shots/st-petersburg/other/thumbs/rest-11.JPG&#34; alt=&#34;rest-11.JPG&#34;/&gt;
-        &lt;/a&gt;&lt;a href=&#34;http:/blog.posativ.org/shots/st-petersburg/other/rest-12.JPG&#34; class=&#34;thumb  &#34;&gt;
-          &lt;img src=&#34;http:/blog.posativ.org/shots/st-petersburg/other/thumbs/rest-12.JPG&#34; alt=&#34;rest-12.JPG&#34;/&gt;
-        &lt;/a&gt;&lt;a href=&#34;http:/blog.posativ.org/shots/st-petersburg/other/rest-13.JPG&#34; class=&#34;thumb  &#34;&gt;
-          &lt;img src=&#34;http:/blog.posativ.org/shots/st-petersburg/other/thumbs/rest-13.JPG&#34; alt=&#34;rest-13.JPG&#34;/&gt;
-        &lt;/a&gt;&lt;a href=&#34;http:/blog.posativ.org/shots/st-petersburg/other/rest-14.JPG&#34; class=&#34;thumb  &#34;&gt;
-          &lt;img src=&#34;http:/blog.posativ.org/shots/st-petersburg/other/thumbs/rest-14.JPG&#34; alt=&#34;rest-14.JPG&#34;/&gt;
-        &lt;/a&gt;&lt;a href=&#34;http:/blog.posativ.org/shots/st-petersburg/other/rest-15.JPG&#34; class=&#34;thumb  &#34;&gt;
-          &lt;img src=&#34;http:/blog.posativ.org/shots/st-petersburg/other/thumbs/rest-15.JPG&#34; alt=&#34;rest-15.JPG&#34;/&gt;
-        &lt;/a&gt;&lt;a href=&#34;http:/blog.posativ.org/shots/st-petersburg/other/rest-16.JPG&#34; class=&#34;thumb  last&#34;&gt;
-          &lt;img src=&#34;http:/blog.posativ.org/shots/st-petersburg/other/thumbs/rest-16.JPG&#34; alt=&#34;rest-16.JPG&#34;/&gt;
+  &lt;a href=&#34;http://blog.posativ.org/shots/st-petersburg/other/rest-01.JPG&#34; class=&#34;thumb first &#34;&gt;
+          &lt;img src=&#34;http://blog.posativ.org/shots/st-petersburg/other/thumbs/rest-01.JPG&#34; alt=&#34;rest-01.JPG&#34;/&gt;
+        &lt;/a&gt;&lt;a href=&#34;http://blog.posativ.org/shots/st-petersburg/other/rest-02.JPG&#34; class=&#34;thumb  &#34;&gt;
+          &lt;img src=&#34;http://blog.posativ.org/shots/st-petersburg/other/thumbs/rest-02.JPG&#34; alt=&#34;rest-02.JPG&#34;/&gt;
+        &lt;/a&gt;&lt;a href=&#34;http://blog.posativ.org/shots/st-petersburg/other/rest-03.JPG&#34; class=&#34;thumb  &#34;&gt;
+          &lt;img src=&#34;http://blog.posativ.org/shots/st-petersburg/other/thumbs/rest-03.JPG&#34; alt=&#34;rest-03.JPG&#34;/&gt;
+        &lt;/a&gt;&lt;a href=&#34;http://blog.posativ.org/shots/st-petersburg/other/rest-04.JPG&#34; class=&#34;thumb  &#34;&gt;
+          &lt;img src=&#34;http://blog.posativ.org/shots/st-petersburg/other/thumbs/rest-04.JPG&#34; alt=&#34;rest-04.JPG&#34;/&gt;
+        &lt;/a&gt;&lt;a href=&#34;http://blog.posativ.org/shots/st-petersburg/other/rest-05.JPG&#34; class=&#34;thumb  &#34;&gt;
+          &lt;img src=&#34;http://blog.posativ.org/shots/st-petersburg/other/thumbs/rest-05.JPG&#34; alt=&#34;rest-05.JPG&#34;/&gt;
+        &lt;/a&gt;&lt;a href=&#34;http://blog.posativ.org/shots/st-petersburg/other/rest-06.JPG&#34; class=&#34;thumb  &#34;&gt;
+          &lt;img src=&#34;http://blog.posativ.org/shots/st-petersburg/other/thumbs/rest-06.JPG&#34; alt=&#34;rest-06.JPG&#34;/&gt;
+        &lt;/a&gt;&lt;a href=&#34;http://blog.posativ.org/shots/st-petersburg/other/rest-07.JPG&#34; class=&#34;thumb  &#34;&gt;
+          &lt;img src=&#34;http://blog.posativ.org/shots/st-petersburg/other/thumbs/rest-07.JPG&#34; alt=&#34;rest-07.JPG&#34;/&gt;
+        &lt;/a&gt;&lt;a href=&#34;http://blog.posativ.org/shots/st-petersburg/other/rest-08.JPG&#34; class=&#34;thumb  &#34;&gt;
+          &lt;img src=&#34;http://blog.posativ.org/shots/st-petersburg/other/thumbs/rest-08.JPG&#34; alt=&#34;rest-08.JPG&#34;/&gt;
+        &lt;/a&gt;&lt;a href=&#34;http://blog.posativ.org/shots/st-petersburg/other/rest-09.JPG&#34; class=&#34;thumb  &#34;&gt;
+          &lt;img src=&#34;http://blog.posativ.org/shots/st-petersburg/other/thumbs/rest-09.JPG&#34; alt=&#34;rest-09.JPG&#34;/&gt;
+        &lt;/a&gt;&lt;a href=&#34;http://blog.posativ.org/shots/st-petersburg/other/rest-10.JPG&#34; class=&#34;thumb  &#34;&gt;
+          &lt;img src=&#34;http://blog.posativ.org/shots/st-petersburg/other/thumbs/rest-10.JPG&#34; alt=&#34;rest-10.JPG&#34;/&gt;
+        &lt;/a&gt;&lt;a href=&#34;http://blog.posativ.org/shots/st-petersburg/other/rest-11.JPG&#34; class=&#34;thumb  &#34;&gt;
+          &lt;img src=&#34;http://blog.posativ.org/shots/st-petersburg/other/thumbs/rest-11.JPG&#34; alt=&#34;rest-11.JPG&#34;/&gt;
+        &lt;/a&gt;&lt;a href=&#34;http://blog.posativ.org/shots/st-petersburg/other/rest-12.JPG&#34; class=&#34;thumb  &#34;&gt;
+          &lt;img src=&#34;http://blog.posativ.org/shots/st-petersburg/other/thumbs/rest-12.JPG&#34; alt=&#34;rest-12.JPG&#34;/&gt;
+        &lt;/a&gt;&lt;a href=&#34;http://blog.posativ.org/shots/st-petersburg/other/rest-13.JPG&#34; class=&#34;thumb  &#34;&gt;
+          &lt;img src=&#34;http://blog.posativ.org/shots/st-petersburg/other/thumbs/rest-13.JPG&#34; alt=&#34;rest-13.JPG&#34;/&gt;
+        &lt;/a&gt;&lt;a href=&#34;http://blog.posativ.org/shots/st-petersburg/other/rest-14.JPG&#34; class=&#34;thumb  &#34;&gt;
+          &lt;img src=&#34;http://blog.posativ.org/shots/st-petersburg/other/thumbs/rest-14.JPG&#34; alt=&#34;rest-14.JPG&#34;/&gt;
+        &lt;/a&gt;&lt;a href=&#34;http://blog.posativ.org/shots/st-petersburg/other/rest-15.JPG&#34; class=&#34;thumb  &#34;&gt;
+          &lt;img src=&#34;http://blog.posativ.org/shots/st-petersburg/other/thumbs/rest-15.JPG&#34; alt=&#34;rest-15.JPG&#34;/&gt;
+        &lt;/a&gt;&lt;a href=&#34;http://blog.posativ.org/shots/st-petersburg/other/rest-16.JPG&#34; class=&#34;thumb  last&#34;&gt;
+          &lt;img src=&#34;http://blog.posativ.org/shots/st-petersburg/other/thumbs/rest-16.JPG&#34; alt=&#34;rest-16.JPG&#34;/&gt;
         &lt;/a&gt;
 
   &lt;br /&gt;
@@ -1269,18 +1303,18 @@ via&amp;nbsp;Mobilfunk.&lt;/p&gt;
 &lt;p&gt;Die Feuerleiter ist übrigens unser täglicher Eingang gewesen. Dafür ist die
 Gastfreundschaft armer Studenten besser als jedes&amp;nbsp;Hotel.&lt;/p&gt;
 &lt;figure class=&#34;gallery&#34;&gt;
-  &lt;a href=&#34;http:/blog.posativ.org/shots/st-petersburg/stw/stw_2537.JPG&#34; class=&#34;thumb first &#34;&gt;
-          &lt;img src=&#34;http:/blog.posativ.org/shots/st-petersburg/stw/thumbs/stw_2537.JPG&#34; alt=&#34;stw_2537.JPG&#34;/&gt;
-        &lt;/a&gt;&lt;a href=&#34;http:/blog.posativ.org/shots/st-petersburg/stw/stw_2541.JPG&#34; class=&#34;thumb  &#34;&gt;
-          &lt;img src=&#34;http:/blog.posativ.org/shots/st-petersburg/stw/thumbs/stw_2541.JPG&#34; alt=&#34;stw_2541.JPG&#34;/&gt;
-        &lt;/a&gt;&lt;a href=&#34;http:/blog.posativ.org/shots/st-petersburg/stw/stw_2543.JPG&#34; class=&#34;thumb  &#34;&gt;
-          &lt;img src=&#34;http:/blog.posativ.org/shots/st-petersburg/stw/thumbs/stw_2543.JPG&#34; alt=&#34;stw_2543.JPG&#34;/&gt;
-        &lt;/a&gt;&lt;a href=&#34;http:/blog.posativ.org/shots/st-petersburg/stw/stw_2668.JPG&#34; class=&#34;thumb  &#34;&gt;
-          &lt;img src=&#34;http:/blog.posativ.org/shots/st-petersburg/stw/thumbs/stw_2668.JPG&#34; alt=&#34;stw_2668.JPG&#34;/&gt;
-        &lt;/a&gt;&lt;a href=&#34;http:/blog.posativ.org/shots/st-petersburg/stw/stw_2670.JPG&#34; class=&#34;thumb  &#34;&gt;
-          &lt;img src=&#34;http:/blog.posativ.org/shots/st-petersburg/stw/thumbs/stw_2670.JPG&#34; alt=&#34;stw_2670.JPG&#34;/&gt;
-        &lt;/a&gt;&lt;a href=&#34;http:/blog.posativ.org/shots/st-petersburg/stw/stw_2687.JPG&#34; class=&#34;thumb  last&#34;&gt;
-          &lt;img src=&#34;http:/blog.posativ.org/shots/st-petersburg/stw/thumbs/stw_2687.JPG&#34; alt=&#34;stw_2687.JPG&#34;/&gt;
+  &lt;a href=&#34;http://blog.posativ.org/shots/st-petersburg/stw/stw_2537.JPG&#34; class=&#34;thumb first &#34;&gt;
+          &lt;img src=&#34;http://blog.posativ.org/shots/st-petersburg/stw/thumbs/stw_2537.JPG&#34; alt=&#34;stw_2537.JPG&#34;/&gt;
+        &lt;/a&gt;&lt;a href=&#34;http://blog.posativ.org/shots/st-petersburg/stw/stw_2541.JPG&#34; class=&#34;thumb  &#34;&gt;
+          &lt;img src=&#34;http://blog.posativ.org/shots/st-petersburg/stw/thumbs/stw_2541.JPG&#34; alt=&#34;stw_2541.JPG&#34;/&gt;
+        &lt;/a&gt;&lt;a href=&#34;http://blog.posativ.org/shots/st-petersburg/stw/stw_2543.JPG&#34; class=&#34;thumb  &#34;&gt;
+          &lt;img src=&#34;http://blog.posativ.org/shots/st-petersburg/stw/thumbs/stw_2543.JPG&#34; alt=&#34;stw_2543.JPG&#34;/&gt;
+        &lt;/a&gt;&lt;a href=&#34;http://blog.posativ.org/shots/st-petersburg/stw/stw_2668.JPG&#34; class=&#34;thumb  &#34;&gt;
+          &lt;img src=&#34;http://blog.posativ.org/shots/st-petersburg/stw/thumbs/stw_2668.JPG&#34; alt=&#34;stw_2668.JPG&#34;/&gt;
+        &lt;/a&gt;&lt;a href=&#34;http://blog.posativ.org/shots/st-petersburg/stw/stw_2670.JPG&#34; class=&#34;thumb  &#34;&gt;
+          &lt;img src=&#34;http://blog.posativ.org/shots/st-petersburg/stw/thumbs/stw_2670.JPG&#34; alt=&#34;stw_2670.JPG&#34;/&gt;
+        &lt;/a&gt;&lt;a href=&#34;http://blog.posativ.org/shots/st-petersburg/stw/stw_2687.JPG&#34; class=&#34;thumb  last&#34;&gt;
+          &lt;img src=&#34;http://blog.posativ.org/shots/st-petersburg/stw/thumbs/stw_2687.JPG&#34; alt=&#34;stw_2687.JPG&#34;/&gt;
         &lt;/a&gt;
 
   &lt;br /&gt;
@@ -1290,10 +1324,10 @@ Gastfreundschaft armer Studenten besser als jedes&amp;nbsp;Hotel.&lt;/p&gt;
 aber gutes &lt;span class=&#34;caps&#34;&gt;UDSSR&lt;/span&gt;-Museum. Mit etwas Feilschen kommt man auch als Jenaer Student
 zum ermäßigten Tarif&amp;nbsp;rein.&lt;/p&gt;
 &lt;figure class=&#34;gallery&#34;&gt;
-  &lt;a href=&#34;http:/blog.posativ.org/shots/st-petersburg/natur/natur_2592.JPG&#34; class=&#34;thumb first &#34;&gt;
-          &lt;img src=&#34;http:/blog.posativ.org/shots/st-petersburg/natur/thumbs/natur_2592.JPG&#34; alt=&#34;natur_2592.JPG&#34;/&gt;
-        &lt;/a&gt;&lt;a href=&#34;http:/blog.posativ.org/shots/st-petersburg/natur/natur_2636.JPG&#34; class=&#34;thumb  last&#34;&gt;
-          &lt;img src=&#34;http:/blog.posativ.org/shots/st-petersburg/natur/thumbs/natur_2636.JPG&#34; alt=&#34;natur_2636.JPG&#34;/&gt;
+  &lt;a href=&#34;http://blog.posativ.org/shots/st-petersburg/natur/natur_2592.JPG&#34; class=&#34;thumb first &#34;&gt;
+          &lt;img src=&#34;http://blog.posativ.org/shots/st-petersburg/natur/thumbs/natur_2592.JPG&#34; alt=&#34;natur_2592.JPG&#34;/&gt;
+        &lt;/a&gt;&lt;a href=&#34;http://blog.posativ.org/shots/st-petersburg/natur/natur_2636.JPG&#34; class=&#34;thumb  last&#34;&gt;
+          &lt;img src=&#34;http://blog.posativ.org/shots/st-petersburg/natur/thumbs/natur_2636.JPG&#34; alt=&#34;natur_2636.JPG&#34;/&gt;
         &lt;/a&gt;
 
   &lt;br /&gt;
@@ -1340,7 +1374,7 @@ feinsten! Der Bot war aber auch nicht der klügste. Seine Aktivitäten waren
 
 
 &lt;p&gt;Ein &lt;code&gt;rm -rf /home/dev&lt;/code&gt; setzte dem Spuk dann ein Ende. Wer an einem
-&lt;a href=&#34;http:/blog.posativ.org/files/2012/kapela.zip&#34;&gt;Dump&lt;/a&gt; interessiert ist. Inklusive Passwortliste, wo
+&lt;a href=&#34;http://blog.posativ.org/files/2012/kapela.zip&#34;&gt;Dump&lt;/a&gt; interessiert ist. Inklusive Passwortliste, wo
 auch &lt;code&gt;qq&lt;/code&gt; gelistet war. Es ist also &lt;em&gt;wirklich&lt;/em&gt; ein unsicheres Passwort&amp;nbsp;:-)&lt;/p&gt;</content>
     </entry>
     
@@ -1391,64 +1425,5 @@ auch &lt;code&gt;qq&lt;/code&gt; gelistet war. Es ist also &lt;em&gt;wirklich&lt
 &lt;li&gt;&lt;a href=&#34;http://www.tarind.com/depgraph.html&#34;&gt;depgraph&lt;/a&gt; – &lt;em&gt;Generating Python Module Dependency&amp;nbsp;Graphs&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;http://projects.unbit.it/uwsgi/wiki&#34;&gt;uWSGI&lt;/a&gt; – ein micro-&lt;a href=&#34;https://en.wikipedia.org/wiki/Web_Server_Gateway_Interface&#34;&gt;&lt;span class=&#34;caps&#34;&gt;&lt;abbr title=&#34;Web Server Gateway Interface&#34;&gt;WSGI&lt;/abbr&gt;&lt;/span&gt;&lt;/a&gt; Server, der einen mit seinen &lt;span class=&#34;caps&#34;&gt;&lt;abbr title=&#34;Command Line Interface&#34;&gt;CLI&lt;/abbr&gt;&lt;/span&gt;-Optionen regelrecht erschlägt: &lt;code&gt;wsgi --help | wc -l&lt;/code&gt; ergeben 379 Zeilen. Selbst ausgereifte Tools wie &lt;code&gt;wget&lt;/code&gt; oder &lt;code&gt;curl&lt;/code&gt; haben nur knapp die&amp;nbsp;Hälfte.&lt;/li&gt;
 &lt;/ul&gt;</content>
-    </entry>
-    
-        <entry>
-        <title>Linkschleuder #22</title>
-        <link rel="alternate" type="text/html" href="http://blog.posativ.org/2012/linkschleuder-22/" />
-        <id>tag:blog.posativ.org,2012-04-12:/2012/linkschleuder-22</id>
-        <updated>2012-04-12T11:02:00Z</updated>
-        <category term="JavaScript" />
-        <category term="OS X" />
-        <category term="Python" />
-        <category term="Links" />
-        
-        <author>
-            <name>Martin Zimmermann</name>
-            <uri>http://blog.posativ.org/</uri>
-            <email>info@posativ.org</email>
-        </author>
-        <content type="html">&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://microjs.com/&#34;&gt;Microjs&lt;/a&gt; – Micro-Frameworks und Micro-Libraries von 
-  wenigen hundert Bytes bis drei, vier Kilobytes, die man über das 
-  Anti-Framework &lt;a href=&#34;http://ender.no.de/&#34;&gt;Ender&lt;/a&gt; auch einfach zusammenbasteln&amp;nbsp;kann.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://shichuan.github.com/javascript-patterns/&#34;&gt;JavaScript Patterns&lt;/a&gt; – ist
-  eine recht ansehnliche Sammlung über allgemeine &lt;span class=&#34;caps&#34;&gt;JS&lt;/span&gt;-Patterns, Design Patterns
-  JQuery und vieles&amp;nbsp;mehr.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.gnu.org/software/parallel/&#34;&gt;&lt;span class=&#34;caps&#34;&gt;GNU&lt;/span&gt; parallel&lt;/a&gt; – ist ein Tool für 
-  Linux (gibt auch einen &lt;span class=&#34;caps&#34;&gt;&lt;abbr title=&#34;Berkeley System Distribution&#34;&gt;BSD&lt;/abbr&gt;&lt;/span&gt; Port), das parallele Jobs in der Shell
-  vereinfachen soll (via &lt;a href=&#34;http://noqqe.de/blog/2012/01/08/gnu-parallel/&#34;&gt;Noqqe&lt;/a&gt;
-  mit vielen Beispielen&amp;nbsp;dazu).&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/jonashaag/klaus&#34;&gt;Klaus&lt;/a&gt; – &lt;em&gt;a simple Git web viewer that
-  Just&amp;nbsp;Works™.&lt;/em&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://cream-project.org/&#34;&gt;Cream Desktop Environment&lt;/a&gt; – &lt;span class=&#34;caps&#34;&gt;GTK&lt;/span&gt;+ nach dem
-  &lt;span class=&#34;caps&#34;&gt;&lt;abbr title=&#34;Keep it simple, stupid&#34;&gt;KISS&lt;/abbr&gt;&lt;/span&gt;-Prinzip. Vielleicht eine Alternative zu&amp;nbsp;Gnome/&lt;span class=&#34;caps&#34;&gt;&lt;abbr title=&#34;K-Desktop Environment; Kolorful Diskfilling Environment&#34;&gt;KDE&lt;/abbr&gt;&lt;/span&gt;.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://packages.python.org/curlish/&#34;&gt;Curlish&lt;/a&gt; – yet another buntes&amp;nbsp;cURL.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://endno.de/~itsnotabigtruck/inception/&#34;&gt;Inception&lt;/a&gt; – für mehr Kontrolle
-  im N9 (dessen Meego Serie ja fortgesetzt wird als low-end System). Hab&amp;#8217; das
-  Telefon nicht, aber Projektname und Seite gefällt mir&amp;nbsp;sehr.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://www.hanynet.com/icefloor/index.html&#34;&gt;Icefloor&lt;/a&gt; – ein Front-End für
-  &lt;span class=&#34;caps&#34;&gt;IPFW&lt;/span&gt; unter &lt;span class=&#34;caps&#34;&gt;OS&lt;/span&gt; X Lion, soll aber noch nicht ganz fehlerfrei sein (via
-  &lt;a href=&#34;http://mycrobase.de/&#34;&gt;cmur2&lt;/a&gt;).&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://appdrive.net/mediathek/&#34;&gt;Mediathek für Mac&lt;/a&gt; – die 
-  öffentlich-rechtlichen direkt am Mac streamen, frei wie&amp;nbsp;Freibier.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://bazaar.launchpad.net/~divmod-dev/divmod.org/trunk/files/head:/Reverend/&#34;&gt;Reverend&lt;/a&gt; – ein einfacher bayesscher Filter implementiert in&amp;nbsp;Python.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://nedbatchelder.com/code/coverage/&#34;&gt;coverage.py&lt;/a&gt; – ein Python-Skript, 
-  das die Code-Nutzung nach einem Durchlauf per Text oder &lt;span class=&#34;caps&#34;&gt;HTML&lt;/span&gt; Ausgabe angibt.
-  Etwas buggy bei jinja2-Templates und allgemein fehlerbehaftet bei mir. Kann
-  ja noch&amp;nbsp;werden.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/alfredodeza/konira&#34;&gt;Konira&lt;/a&gt; – ein Python Testing Framework
-  mit einer &lt;span class=&#34;caps&#34;&gt;&lt;abbr title=&#34;Domain Specific Language&#34;&gt;DSL&lt;/abbr&gt;&lt;/span&gt;! Das ist die wohl erste Python-&lt;span class=&#34;caps&#34;&gt;&lt;abbr title=&#34;Domain Specific Language&#34;&gt;DSL&lt;/abbr&gt;&lt;/span&gt; die mir je unterkommen ist
-  und sieht klasse aus (&lt;a href=&#34;http://rspec.info/&#34;&gt;rspec&lt;/a&gt;-like)!&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://www.latextemplates.com/&#34;&gt;LaTeX Templates&lt;/a&gt; – qualitative (englische) 
-  LaTeX-Templates für lau (via &lt;a href=&#34;http://www.schockwellenreiter.de/blog/2012/04/11/peters-linkschleuder-107/&#34;&gt;Schockwellenreiter&lt;/a&gt;).&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://adriank.redirectme.net/artikel/mobile-endgeraete-und-freie-software&#34;&gt;mobile Engeräte und freie Software&lt;/a&gt; – eine gute Übersicht über den 
-  aktuellen Stand freier Software auf Smartphones (nein, Android ist noch immer
-  nicht &lt;em&gt;frei&lt;/em&gt;) und Tablets. Sieht mau&amp;nbsp;aus.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://www.boston.com/bostonglobe/ideas/naps/&#34;&gt;How to nap&lt;/a&gt; – jetzt &amp;#8216;mal was
-  ganz anderes: Nickerchen von ca. 20-45 Minuten sollen die Leistungsfähigkeit
-  am Abend enorm&amp;nbsp;erhöhen.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Ich hoffe, es ist für jeden &amp;#8216;was&amp;nbsp;dabei.&lt;/p&gt;</content>
     </entry>
     </feed>

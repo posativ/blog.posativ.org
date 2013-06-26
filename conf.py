@@ -15,7 +15,7 @@ METASTYLE = 'native'
 
 THEME_IGNORE = ['*.swp']
 CONTENT_IGNORE = ["drafts/*", "bak/*"]
-CONTENT_EXTENSION = '.md'
+CONTENT_EXTENSION = ['.md', '.txt', '.rst']
 STATIC = "assets/"
 # STATIC_IGNORE += ['.DS_Store']
 # STATIC_FILTER += ['SASS']
@@ -29,13 +29,13 @@ FILTERS_DIR += ['filters/']
 
 VIEWS = {
     "/": {
-        "filters": ['sum', 'hyph'],
+        "filters": ['sum', 'hyph+8'],
         "pagination": "/page/:num/",
         "view": "index",
         "items_per_page": 12
     },
     "/:year/:slug/": {
-        "filters": "hyph", "views": ["entry"]#, "draft"]
+        "filters": "hyph+8", "views": ["entry"]#, "draft"]
     },
     "/drafts/:slug/": {'view': 'draft'},
     "/atom/": {
