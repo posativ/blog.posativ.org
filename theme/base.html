@@ -7,7 +7,7 @@
   {% for url in compile('style.sass', filters="sass", output="style.%(version)s.css") %}
     <link media="all" href="{{ url }}" rel="stylesheet" />
   {% endfor %}
-  <link media="all" href="{{ env.path + '/style.css' }}" rel="stylesheet" />
+  <!-- link media="all" href="{{ env.path + '/style.css' }}" rel="stylesheet" /-->
   <link href="/favicon.ico" rel="shortcut icon" />
   <link href="{{ env.path + '/' }}" rel="home" />
   <link href="{{ env.path + '/atom/' }}" type="application/atom+xml" rel="alternate" title="Atom Feed" />

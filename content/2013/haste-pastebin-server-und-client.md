@@ -1,6 +1,6 @@
 Title: hastebin – Pastebin Server und Client
 Date: 28.08.2013, 17:46
-Tags: [Planet, Node.js]
+Tags: [planet, Node.js]
 
 Ein eigener Pastebin, warum nicht. Ich hatte meinen [selbst geschrieben][1],
 allerdings nicht wirklich KISS zu deployen und ein Client-Skript erst recht
