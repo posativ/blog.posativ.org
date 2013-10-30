@@ -9,7 +9,7 @@
             </time>
             {% if conf.disqus_shortname %}
                 <span class="spacer">·</span>
-                <a href="{{ conf.www_root + entry.permalink }}#disqus_thread">
+                <a href="{{ entry.permalink }}#isso-thread">
                     Kommentieren
                 </a>
             {% endif %}
@@ -42,30 +42,12 @@
         {% endif %}
     </footer>
     <div class="comments">
-        {%- if conf.disqus_shortname and env.type == 'entry' and not entry.draft %}
-        <div id="disqus_thread"></div>
-        <script type="text/javascript">
-            var disqus_shortname = '{{ conf.disqus_shortname }}'; // required: replace example with your forum shortname
-
-            // The following are highly recommended additional parameters. Remove the slashes in front to use.
-            var disqus_identifier = "{{ conf.www_root + entry.permalink }}";
-            var disqus_url = "{{ conf.www_root + entry.permalink }}";
-
-            if (window.location.hostname != "localhost") {
-                /* * * DON'T EDIT BELOW THIS LINE * * */
-                (function() {
-                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-                    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-                })();
-            }
-        </script>
+        {%- if env.type == 'entry' and not entry.draft %}
+        <div id="isso-thread"></div>
+	<script src="/isso/js/embed.min.js"></script>
         <noscript>
-            <p>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></p>
+            <p>Please enable JavaScript to view the <a href="https://github.com/posativ/isso">comments powered by Isso.</a></p>
         </noscript>
-        <a href="//disqus.com" class="dsq-brlink">
-            blog comments powered by <span class="logo-disqus">Disqus</span>
-        </a>
         {% endif -%}
     </div>
 </article>
