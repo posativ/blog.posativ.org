@@ -7,12 +7,10 @@
             <time datetime="{{ entry.date.strftime("%Y-%m-%d") }}">
                 {{ entry.date.strftime("%d. %B. %Y") }}
             </time>
-            {% if conf.disqus_shortname %}
-                <span class="spacer">·</span>
-                <a href="{{ entry.permalink }}#isso-thread">
-                    Kommentieren
-                </a>
-            {% endif %}
+            <span class="spacer">·</span>
+            <a href="{{ entry.permalink }}#isso-thread">
+                Kommentieren
+            </a>
             {% if 'tag' in env.views and entry.tags %}
                 <span class="spacer">·</span>
                 Tags:

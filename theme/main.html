@@ -36,7 +36,7 @@
 
 {% block footer %}
     {{ super() }}
-    {% if conf.disqus_shortname and env.type in ('index', 'entry') %}
+    {% if env.type == 'index' %}
     <script src="/isso/js/count.min.js"></script>
     {% endif %}
 {% endblock %}
