@@ -65,7 +65,48 @@ einem Ruby (sic) Tool als&amp;nbsp;&lt;span class=&#34;caps&#34;&gt;&lt;abbr tit
 in einer Redis-Instanz speichern (in Datei oder memcached auch möglich) und
 mit etwas &lt;a href=&#34;http://softwaremaniacs.org/soft/highlight/en/&#34;&gt;Highlight.js&lt;/a&gt; bunt machen.  Als &lt;span class=&#34;caps&#34;&gt;&lt;abbr title=&#34;Command Line Interface&#34;&gt;CLI&lt;/abbr&gt;&lt;/span&gt; noch &lt;code&gt;gem install haste&lt;/code&gt;
 installieren, &lt;code&gt;HASTE_SERVER=http://example.org&lt;/code&gt; setzen und mit &lt;code&gt;cat datei.py |
-haste&lt;/code&gt; (useless use of cat)&amp;nbsp;pastieren.&lt;/p&gt;</content>
+haste&lt;/code&gt; (useless use of cat)&amp;nbsp;pastieren.&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;Ein kleiner Nachtrag zum 15. November &amp;#8216;13: nach ein paar Wochen fiel mir auf,
+dass das Gem recht krepelig ist und es auch einfacher mit &lt;code&gt;curl&lt;/code&gt; geht:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span class=&#34;k&#34;&gt;function &lt;/span&gt;haste
+    &lt;span class=&#34;nb&#34;&gt;printf&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;https://paste.posativ.org/&amp;quot;&lt;/span&gt;
+    curl -s -X &lt;span class=&#34;caps&#34;&gt;POST&lt;/span&gt; https://paste.posativ.org/documents --data-binary &lt;span class=&#34;s2&#34;&gt;&amp;quot;@-&amp;quot;&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\&lt;/span&gt;
+    | cut -d &lt;span class=&#34;s2&#34;&gt;&amp;quot;:&amp;quot;&lt;/span&gt; -f 2 | grep -oE &lt;span class=&#34;s1&#34;&gt;&amp;#39;&amp;quot;\w+&amp;quot;&amp;#39;&lt;/span&gt; | tr -d &lt;span class=&#34;s1&#34;&gt;&amp;#39;&amp;quot;&amp;#39;&lt;/span&gt; 
+end
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Außerdem möchte man sowohl Google Analytics als auch jQuery auf Googles &lt;span class=&#34;caps&#34;&gt;CDN&lt;/span&gt; aus dem Template&amp;nbsp;entfernen:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;span class=&#34;gh&#34;&gt;diff --git a/static/index.html b/static/index.html&lt;/span&gt;
+&lt;span class=&#34;gh&#34;&gt;index fb93642..78cc1de 100644&lt;/span&gt;
+&lt;span class=&#34;gd&#34;&gt;--- a/static/index.html&lt;/span&gt;
+&lt;span class=&#34;gi&#34;&gt;+++ b/static/index.html&lt;/span&gt;
+&lt;span class=&#34;gu&#34;&gt;@@ -7,7 +7,7 @@&lt;/span&gt;
+   &amp;lt;link rel=&amp;quot;stylesheet&amp;quot; type=&amp;quot;text/css&amp;quot; href=&amp;quot;solarized_dark.css&amp;quot;/&amp;gt;
+   &amp;lt;link rel=&amp;quot;stylesheet&amp;quot; type=&amp;quot;text/css&amp;quot; href=&amp;quot;application.css&amp;quot;/&amp;gt;
+
+&lt;span class=&#34;gd&#34;&gt;-  &amp;lt;script type=&amp;quot;text/javascript&amp;quot; src=&amp;quot;https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;gi&#34;&gt;+  &amp;lt;script type=&amp;quot;text/javascript&amp;quot; src=&amp;quot;jquery.min.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+   &amp;lt;script type=&amp;quot;text/javascript&amp;quot; src=&amp;quot;highlight.min.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
+   &amp;lt;script type=&amp;quot;text/javascript&amp;quot; src=&amp;quot;application.min.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
+
+&lt;span class=&#34;gu&#34;&gt;@@ -62,18 +62,6 @@&lt;/span&gt;
+   &amp;lt;div id=&amp;quot;linenos&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
+   &amp;lt;pre id=&amp;quot;box&amp;quot; style=&amp;quot;display:none;&amp;quot; tabindex=&amp;quot;0&amp;quot;&amp;gt;&amp;lt;code&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;
+   &amp;lt;textarea spellcheck=&amp;quot;false&amp;quot; style=&amp;quot;display:none;&amp;quot;&amp;gt;&amp;lt;/textarea&amp;gt;
+&lt;span class=&#34;gd&#34;&gt;-&lt;/span&gt;
+&lt;span class=&#34;gd&#34;&gt;-  &amp;lt;script type=&amp;quot;text/javascript&amp;quot;&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;gd&#34;&gt;-          var _gaq = _gaq || [];&lt;/span&gt;
+&lt;span class=&#34;gd&#34;&gt;-          _gaq.push([&amp;#39;_setAccount&amp;#39;, &amp;#39;&lt;span class=&#34;caps&#34;&gt;UA&lt;/span&gt;-27329119-1&amp;#39;]);&lt;/span&gt;
+&lt;span class=&#34;gd&#34;&gt;-          _gaq.push([&amp;#39;_trackPageview&amp;#39;]);&lt;/span&gt;
+&lt;span class=&#34;gd&#34;&gt;-          (function() {&lt;/span&gt;
+&lt;span class=&#34;gd&#34;&gt;-                  var ga = document.createElement(&amp;#39;script&amp;#39;); ga.type = &amp;#39;text/javascript&amp;#39;;&lt;/span&gt;
+&lt;span class=&#34;gd&#34;&gt;-                  ga.src = (&amp;#39;https:&amp;#39; == document.location.protocol ? &amp;#39;https://ssl&amp;#39; : &amp;#39;htt&lt;/span&gt;
+&lt;span class=&#34;gd&#34;&gt;-                  var s = document.getElementsByTagName(&amp;#39;script&amp;#39;)[0]; s.parentNode.insert&lt;/span&gt;
+&lt;span class=&#34;gd&#34;&gt;-          })();&lt;/span&gt;
+&lt;span class=&#34;gd&#34;&gt;-  &amp;lt;/script&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</content>
     </entry>
     
         <entry>

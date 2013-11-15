@@ -19,15 +19,17 @@ erreichen könnte.
 
 # Installation
 
-- [komprimiertes Archiv](http://posativ.org/twirss/twirss.tar.gz)
-- `git clone http://git.posativ.org/twirss twirss`
+- [<del>komprimiertes Archiv</del>](http://posativ.org/twirss/twirss.tar.gz)
+- `git clone https://github.com/posativ/twirss.git`
 
 Installation auf dem eigenen Webserver mit Python als Skriptsprache ist einfaches Kopieren.
 [Liferea](http://liferea.sourceforge.net/) kann sogar einen Befehl ausführen und damit
 ist das Skript auch ohne Server lauffähig:
-„`python twirss/index.py | sed 1d`“
+„`python twirss | sed 1d`“
 
 # OAuth
+
+*Mit dem Repository auf GitHub ist dieser Schritt nicht mehr notwendig.*
 
 Über die Twitter API kann der Nutzer nun unabhängig von seinem Passwort Applikationen zulassen; so
 auch bei diesem Skript. In dem Archiv/Git liegt ein interaktives Skript Namens *key.py*, was der
