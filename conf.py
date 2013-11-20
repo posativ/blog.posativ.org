@@ -80,7 +80,7 @@ DISQUS_SHORTNAME = "posativ"
 DEPLOYMENT = {
     "ls": "ls",
     "echo": "echo $OUTPUT_DIR",
-    'default': 'rsync -av --delete --exclude=".git/" $OUTPUT_DIR www@morloch:blog.posativ.org',
+    'default': 'rsync -av --delete --exclude=".git/" $OUTPUT_DIR www@posativ.org:blog.posativ.org',
 }
 
 ACRONYMS_FILE =  "acronyms.txt"
