@@ -2,6 +2,8 @@ Title: Mimimi, ich wurde diskriminiert  #femgeeks
 Date: 22.03.2013, 12:06
 Tags: Interwebs
 Filter: liquid
+Draft: True
+Permalink: /2013/mimimi-ich-wurde-diskriminiert-femgeeks/
 
 Auch wenn diese [kleine Unanehmlichkeit][1] von HN und Reddit fairerweise aus
 dem Internet gelöscht wurde, so machen doch andere nicht halt, nochmal kräftig
